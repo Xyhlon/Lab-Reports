@@ -39,6 +39,9 @@
 \ohead{30 November 2021}  % Kopf rechts %Todo Datum ändern
 \cfoot{\pagemark \, / \pageref{LastPage}}  % Fuß Mitte
 
+
+
+
 % Table of Contents
 \DeclareTOCStyleEntry{dottedtocline}{section}  % KOMA intern - Inhaltsverzeichnis mit Punkten (nur sections)
 
@@ -72,7 +75,7 @@
 \tableofcontents
 \newpage
 
-\section{Aufgabenstellung\label{Auf0}\cite{vorlagetrafo}}
+\section{Aufgabenstellung\label{sec:Auf0}\cite{vorlagetrafo}}
 
 \subsection{Transformator}
 
@@ -81,8 +84,7 @@ des elektronischen Leistungsmessers sind zu vermeiden (siehe Bedienungsanleitung
 Messbereiche für Strom und Spannung sind jeweils einzustellen.\cite{vorlagetrafo}
 
 \begin{itemize}
-
-	\item Leerlauf ($U =$ \SI{160}{V}): Messen Sie Primärstrom $I_1$, Primärspannung $U_1$, Wirkleistung $P_1$
+	\item Leerlauf ($U = \SI{160}{V}$): Messen Sie Primärstrom $I_{1}$, Primärspannung $U_1$, Wirkleistung $P_1$
 	      und Sekundärspannung $U_2$. Berechnen Sie die Größen aus \autoref{tab:tab1}, Unsicherheitsrechnung.
 	      Oszillographische Darstellung von Primärstrom und Sekundärspannung mit passender Skalierung.
 
@@ -91,7 +93,7 @@ Messbereiche für Strom und Spannung sind jeweils einzustellen.\cite{vorlagetraf
 	      \autoref{tab:tab1}, Unsicherheitsrechnung. Oszillographische Darstellung von Primärstrom und Sekundärspannung mit passender Skalierung.
 
 	\item Ohm’sch-induktive Last: Aufnahme der Parameter wie unter Aufgabe 2 bei einer Serienschaltung
-	      von einer Spule $L \approx$ \SI{0.1}{H} mit einem regelbaren Lastwiderstand (0 - 45 $\Omega$ ca. 20
+	      von einer Spule $L \approx$ \SI{0.1}{\henry} mit einem regelbaren Lastwiderstand (0 - 45 $\Omega$ ca. 20
 	      Messwerte). Erstellung des Diagrammes Leistung über Lastwiderstand und Begründung
 	      des Auftretens eines Maximums der Wirkleistung. Oszillographisches Bild beim Maximum
 	      abzeichnen und skalieren!
@@ -146,7 +148,7 @@ in der Spule. Die Flussänderung induziert eine Spannung $U_L$ in der Spule mit 
 $n$.
 
 \begin{equation}
-	U_L = -n_1 \frac{d\phi}{dt}
+	U_L = -n_1 \der{\phi}{t}
 \end{equation}
 
 Für den Primärkreis gilt also:
@@ -156,16 +158,17 @@ Für den Primärkreis gilt also:
 \end{equation}
 
 \begin{equation}
-	U_0 \, \sin{(\omega t)} = n_1 \frac{d\phi}{dt}
+	U_0 \, \sin{(\omega t)} = n_1 \der{\phi}{t}
+	\label{eq:aleksey}
 \end{equation}
 
 Das ergibt den Fluss:
 
 \begin{equation}
-	\phi (t) = \frac{U_0}{n_1 \omega} \, \textrm{sin}(\omega t - \pi / 2)
+	\phi (t) = \frac{U_0}{n_1 \omega} \, \sin(\omega t - \pi / 2)
 \end{equation}
 
-Damit ist der magnetische Fluss $\phi$(t) durch die Netzspannung $U_1(t)$ vorgegeben.
+Damit ist der magnetische Fluss $\phi(t)$ durch die Netzspannung $U_1(t)$ vorgegeben.
 
 \newpage
 
@@ -174,7 +177,7 @@ Damit ist der magnetische Fluss $\phi$(t) durch die Netzspannung $U_1(t)$ vorgeg
 $I_2$ = 0. Die Flussänderung induziert in der Sekundärspule eine Spannung $U_2$:
 
 \begin{align*}
-	U_2 = - n_2 \der{\phi}{t} = -\frac{n_2}{n_1} U_0 \; \sin{(\omega t)}
+	U_2 & = - n_2 \der{\phi}{t} = -\frac{n_2}{n_1} U_0 \; \sin{(\omega t)}
 \end{align*}
 \begin{align}
 	U_2 = -\frac{n_2}{n_1} U_1(t) \qquad \qquad
@@ -232,7 +235,7 @@ Wird an die Sekundärspule ein Ohm’scher Widerstand $R$ angeschlossen, so flie
 die Sekundärspule ein Strom $I_2$
 
 \begin{equation}
-	I_2 = \frac{U_2}{R} = -\frac{n_2}{n_1}\frac{1}{R} \,U_0\, \textrm{sin}(\omega t)
+	I_2 = \frac{U_2}{R} = -\frac{n_2}{n_1}\frac{1}{R} \,U_0\, \sin{(\omega t)}
 \end{equation}
 
 Jede stromdurchflossene Spule erzeugt ein Magnetfeld. Die stromdurchflossene Sekundärspule
@@ -294,7 +297,7 @@ Phasenverschiebung $\phi$ zwischen dem Gesamtstrom $I_1$ (auch Scheinstrom genan
 ist nach \autoref{fig:abb7} gegeben durch:
 
 \begin{equation}
-	\textrm{tan}(\phi) = \frac{I_b}{I_{1_z}} \qquad \textrm{cos}(\phi) = \frac{I_{1_z}}{I_1} \qquad \textrm{sin}(\phi) = \frac{I_b}{I_1}
+	\tan(\phi) = \frac{I_b}{I_{1_z}} \qquad \cos(\phi) = \frac{I_{1_z}}{I_1} \qquad \sin(\phi) = \frac{I_b}{I_1}
 \end{equation}
 
 \begin{minipage}{\textwidth}
@@ -318,12 +321,14 @@ Da die Multiplikation der Zähler und Nenner mit $U_1$ an den Verhältnissen Gl.
 gilt auch:
 
 \begin{equation}
-	\textrm{tan}(\phi) = \frac{Q_1}{P_1} \qquad \textrm{cos}(\phi) = \frac{P_1}{S_1} \qquad \textrm{sin}(\phi) = \frac{Q_1}{S_1}
+	\tan(\phi) = \frac{Q_1}{P_1} \qquad \cos(\phi) = \frac{P_1}{S_1} \qquad \sin(\phi) = \frac{Q_1}{S_1}
 \end{equation}
 
 Dabei ist $I_{1_z} U_1$ die Wirkleistung $P_1$, $I_b U_1$ die Blindleistung $Q_1$ und $I_1 U_1$ die Scheinleistung $S_1$.
 
-Bei verlustlosem Transformator muss, damit der Energieerhaltungssatz gewahrt bleibt, die zugeführte Wirkleistung gleich der sekundär abgegebenen Wirkleistung sein:
+Bei verlustlosem Transformator muss, damit der Energieerhaltungssatz gewahrt
+bleibt, die zugeführte Wirkleistung gleich der sekundär abgegebenen
+Wirkleistung sein:
 
 \begin{equation}
 	I_{1_z} U_1 = P_1 = P_2 = U_2 I_2
@@ -380,11 +385,11 @@ Größen zu berechnen:
 
 	\item Aufgenommene Scheinleistung: $S_1 = U_1\,I_1$
 
-	\item Phasenverschiebung an der Primärseite: cos($\phi$) = $P_1 / S_1, \phi = $ arccos($P_1 / S_1$)
+	\item Phasenverschiebung an der Primärseite: $\cos{(\phi)}$ = $P_1 / S_1, \phi = $ arccos($P_1 / S_1$)
 
-	\item Primärer Wirkstrom: $I_{1_z} = I_1$ cos($\phi$)
+	\item Primärer Wirkstrom: $I_{1_z} = I_1 \cos{(\phi)}$
 
-	\item Primärer Blindstrom: $I_b = I_1$ sin($\phi$) = $I_1 \sqrt{1 - cos^2(\phi)}$
+	\item Primärer Blindstrom: $I_b = I_1 \sin{(\phi)} = I_1 \sqrt{1 - \cos^2(\phi)}$
 
 	\item Primäre Blindleistung: $Q_1 = I_b U_1$
 
@@ -439,24 +444,24 @@ Größen zu berechnen:
 \captionof{table}{Verwendete Geräte }
 \begin{center}
 	\begin{tabular}{|c|c|c|c|} \hline
-		\textbf{Gerät}                 & \textbf{Typ}       & \textbf{Hersteller} & \textbf{Unsicherheit} \\ \hline
+		\textbf{Gerät}                               & \textbf{Typ}       & \textbf{Hersteller} & \textbf{Unsicherheit}    \\ \hline
 
-		Transformator 1                & Prim SI 6.3A1      &                     &                       \\ \hline
-		Transformator 2                & 163/JFR/14         &                     &                       \\ \hline
-		Digital Multimeter             & 531832             & LeyBold             & $\pm$ 0.1 W           \\ \hline
-		Oszilloskop                    & DS1052E            & RiGol               & $\pm$ 1 \%            \\ \hline
-		Computerprogramm               & Ultrascope         &                     &                       \\ \hline
-		Shunt                          & 163/SFR/14         &                     &                       \\ \hline
-		Spule                          & 2.58 $\Omega$      &                     &                       \\ \hline
-		regelbarer Widerstand          & PF80/3.3A  VII/695 & Western Germany     &                       \\ \hline
-		Voltmeter Bereich (30-240 V)   & VII/1111/3         &                     & $\pm$ 0.5 \%          \\ \hline
-		Voltmeter Bereich (6-60 V)     & VII/1121/2         &                     & $\pm$ 0.5 \%          \\ \hline
-		Voltmeter Bereich (6-60 V)     & VII/1121/3         &                     & $\pm$ 0.5 \%          \\ \hline
-		Amperemeter Bereich (0.24-6 A) & VII/1106/9         &                     & $\pm$ 1.5 \%          \\ \hline
-		Amperemeter Bereich (1.2-6 A)  & VII/1130/          &                     & $\pm$ 0.5 \%          \\ \hline
-		Probe für Oszilloskop          & 20141071           & RS                  &                       \\ \hline
-		Probe für Oszilloskop          & 20140783           & RS                  &                       \\ \hline
-		Kabel                          & Bananenstecker     &                     &                       \\ \hline
+		Transformator 1                              & Prim SI 6.3A1      &                     &                          \\ \hline
+		Transformator 2                              & 163/JFR/14         &                     &                          \\ \hline
+		Digital Multimeter                           & 531832             & LeyBold             & $\pm$ \SI{0.1}{\watt}    \\ \hline
+		Oszilloskop                                  & DS1052E            & RiGol               & $\pm$ \SI{1}{\percent}   \\ \hline
+		Computerprogramm                             & Ultrascope         &                     &                          \\ \hline
+		Shunt                                        & 163/SFR/14         &                     &                          \\ \hline
+		Spule                                        & \SI{2.58}{\ohm}    &                     &                          \\ \hline
+		regelbarer Widerstand                        & PF80/3.3A  VII/695 & Western Germany     &                          \\ \hline
+		Voltmeter Bereich (\SIrange{30}{240}{\volt}) & VII/1111/3         &                     & $\pm$ \SI{0.5}{\percent} \\ \hline
+		Voltmeter Bereich (6-60 V)                   & VII/1121/2         &                     & $\pm$ \SI{0.5}{\percent} \\ \hline
+		Voltmeter Bereich (6-60 V)                   & VII/1121/3         &                     & $\pm$ \SI{0.5}{\percent} \\ \hline
+		Amperemeter Bereich (0.24-6 A)               & VII/1106/9         &                     & $\pm$ \SI{1.5}{\percent} \\ \hline
+		Amperemeter Bereich (1.2-6 A)                & VII/1130/          &                     & $\pm$ \SI{0.5}{\percent} \\ \hline
+		Probe für Oszilloskop                        & \num{20141071}     & RS                  &                          \\ \hline
+		Probe für Oszilloskop                        & 20140783           & RS                  &                          \\ \hline
+		Kabel                                        & Bananenstecker     &                     &                          \\ \hline
 	\end{tabular}
 	\label{tab:material}
 \end{center}
@@ -482,12 +487,12 @@ ersichtlich.
 Bei den Vollmetern ist dabei zu beachten, dass sich jenes, welches für die
 größeren Spannungen ausgelegt ist, vor dem Transformator befindet, um
 sicherzustellen, dass das andere Voltmeter nicht überlastet wird. Bei den
-Amperemetern wird jenes mit dem geringeren Messbereich vor den
-Transformator geschlossen, da hier aufgrund der deutlich höheren Spannung
-niedrigere Ströme vorliegen. Auch ist bei den Messgeräten grundsätzlich immer
-der größte Messbereich zu verwenden und erst nach Beurteilung des
-Zeigerausschlags auf den nächst niedrigeren Bereich zu wechseln, um
-sicherzustellen, dass kein Messgerät überlastet wird.
+Amperemetern wird jenes mit dem geringeren Messbereich vor den Transformator
+geschlossen, da hier aufgrund der deutlich höheren Spannung niedrigere Ströme
+vorliegen. Auch ist bei den Messgeräten grundsätzlich immer der größte
+Messbereich zu verwenden und erst nach Beurteilung des Zeigerausschlags auf den
+nächst niedrigeren Bereich zu wechseln, um sicherzustellen, dass kein Messgerät
+überlastet wird.
 
 \begin{figure}[H]
 	\begin{center}
@@ -507,7 +512,10 @@ angenommen wurde, zusammen.
 
 
 \begin{table}[H]
-	\caption{Gemessene Daten der a Schaltung. Folgende Werte beziehen sich auf \autoref{fig:abb9} in Schaltung a. Die Unsicherheit setzt sich dabei aus der Unsicherheit des Geräts und der Ableseunsicherheit zusammen, was im folgenden ersichtlich ist.\\
+	\caption{Gemessene Daten der a Schaltung. Folgende Werte beziehen sich auf
+		\autoref{fig:abb9} in Schaltung a. Die Unsicherheit setzt sich dabei aus
+		der Unsicherheit des Geräts und der Ableseunsicherheit zusammen, was im
+		folgenden ersichtlich ist.\\
 		$P_1$ \dots primäre Wirkleistung, $\Delta P_1 =$ \SI{0.1}{W} \\
 		$U$ \dots VARIAC eingestellte Netzspannung, $\Delta U =$ \SI{0.1}{V}\\
 		$U_1$ \dots  Primärspannung, $\Delta U_1 =$ 1,2 + 1,0 = \SI{3}{V} \\
@@ -553,7 +561,9 @@ Die abgelesenen Werte der Geräte sind in folgender \autoref{tab:daten_versuch2}
 
 \subsection{Ohm´sch-induktive Last}
 
-Zuletzt wird dem Aufbau noch eine Spule, sowie ein Voltmeter hinzugefügt, wie in der Skizze in \autoref{fig:abb9} c) ersichtlich. Unter Beibehaltung des zuvor erklärten Farbschemas der Kabel ergibt sich nun folgender Aufbau.
+Zuletzt wird dem Aufbau noch eine Spule, sowie ein Voltmeter hinzugefügt, wie
+in der Skizze in \autoref{fig:abb9} c) ersichtlich. Unter Beibehaltung des
+zuvor erklärten Farbschemas der Kabel ergibt sich nun folgender Aufbau.
 
 \begin{figure}[H]
 	\begin{center}
@@ -577,7 +587,10 @@ Alle abgelesenen Werte, sowie deren Unsicherheit, sind in nachfolgender
 %{tab:daten_versuch3}
 \begin{table}[H]
 	\caption{
-		Erste Tabelle der gemessene Daten der c Schaltung. Folgende Werte beziehen sich auf \autoref{fig:abb9} in Schaltung c. Die Unsicherheit setzt sich dabei aus der Unsicherheit des Geräts und der Ableseunsicherheit zusammen, was im folgender Tabelle ersichtlich ist.\\
+		Erste Tabelle der gemessene Daten der c Schaltung. Folgende Werte beziehen
+		sich auf \autoref{fig:abb9} in Schaltung c. Die Unsicherheit setzt sich
+		dabei aus der Unsicherheit des Geräts und der Ableseunsicherheit zusammen,
+		was im folgender Tabelle ersichtlich ist.\\
 		$P_1$ \dots primäre Wirkleistung \\
 		$U$ \dots VARIAC eingestellte Netzspannung \\
 		$U_1$ \dots  Primärspannung \\
