@@ -1,0 +1,150 @@
+%Elastizität
+
+w1 = [350,447,549,646,747];
+b1 = [0.775,0.766,0.753,0.741,0.721];
+
+figure
+h1 = line(w1,b1,'Marker','*','LineStyle','none','Color','b')
+hold on
+
+po = polyfit(w1,b1,1);
+va = polyval(po,w1);
+h3 = plot(w1,va,'r');
+
+
+h4 = legend([h1,h3],'gemessene Werte','linearer Fit','Location','northeast');
+
+set(h4, "fontsize", 16);
+
+xlabel('Gewicht / g',"fontsize", 16);
+ylabel('Distanz zum Boden / m',"fontsize", 16);
+%title('Hartfaserplatte P 1',"fontsize", 20);
+
+ylim([min(b1)-0.02,max(b1)+0.02])
+
+disp(po(1))
+
+hold off
+
+
+%Platte 2
+
+
+w1 = [350,750,1153,1550,1956,2350,2740,3141,3529,3933];
+b1 = [0.907,0.901,0.894,0.887,0.880,0.874,0.867,0.859,0.851,0.842];
+
+figure
+h1 = line(w1,b1,'Marker','*','LineStyle','none','Color','b')
+hold on
+
+po = polyfit(w1,b1,1);
+va = polyval(po,w1);
+h3 = plot(w1,va,'r');
+
+
+h4 = legend([h1,h3],'gemessene Werte','linearer Fit','Location','northeast');
+
+set(h4, "fontsize", 16);
+
+xlabel('Gewicht / g',"fontsize", 16);
+ylabel('Distanz zum Boden / m',"fontsize", 16);
+%title('Hartfaserplatte P 2',"fontsize", 20);
+
+ylim([min(b1)-0.02,max(b1)+0.02])
+
+disp(po(1))
+
+hold off
+
+
+
+
+
+%Platte 3
+
+
+w1 = [350,750,1151,1547,1943,2344,2738,3142,3545,3945,4342];
+b1 = [0.928,0.924,0.921,0.918,0.914,0.911,0.908,0.905,0.901,0.898,0.894];
+
+figure
+h1 = line(w1,b1,'Marker','*','LineStyle','none','Color','b')
+hold on
+
+po = polyfit(w1,b1,1);
+va = polyval(po,w1);
+h3 = plot(w1,va,'r');
+
+
+h4 = legend([h1,h3],'gemessene Werte','linearer Fit','Location','northeast');
+
+set(h4, "fontsize", 16);
+
+xlabel('Gewicht / g',"fontsize", 16);
+ylabel('Distanz zum Boden / m',"fontsize", 16);
+%title('Hartfaserplatte P 3',"fontsize", 20);
+
+ylim([min(b1)-0.02,max(b1)+0.02])
+
+disp(po(1))
+
+hold off
+
+
+
+
+
+%trockene Dachlatte
+
+w1 = [350,1349,2347,3353,4351,5353,6355,7353,8353,9352,10355];
+b1 = [0.928,0.924,0.921,0.918,0.914,0.911,0.908,0.905,0.901,0.898,0.894];
+
+figure
+h1 = line(w1,b1,'Marker','*','LineStyle','none','Color','b')
+hold on
+
+po = polyfit(w1,b1,1);
+va = polyval(po,w1);
+h3 = plot(w1,va,'r');
+
+
+h4 = legend([h1,h3],'gemessene Werte','linearer Fit','Location','northeast');
+
+set(h4, "fontsize", 16);
+
+xlabel('Gewicht / g',"fontsize", 16);
+ylabel('Distanz zum Boden / m',"fontsize", 16);
+%title('Hartfaserplatte P 3',"fontsize", 20);
+
+ylim([min(b1)-0.02,max(b1)+0.02])
+
+disp(po(1))
+
+hold off
+
+%nasse Dachlatte
+
+w1 = [350,1354,2351,3350,4350,5350,6352,7353,8353,9349,10350];
+b1 = [0.896,0.876,0.854,0.834,0.810,0.791,0.770,0.747,0.725,0.703,0.682];
+
+figure
+h1 = line(w1,b1,'Marker','*','LineStyle','none','Color','b')
+hold on
+
+po = polyfit(w1,b1,1);
+va = polyval(po,w1);
+h3 = plot(w1,va,'r');
+
+
+h4 = legend([h1,h3],'gemessene Werte','linearer Fit','Location','northeast');
+
+set(h4, "fontsize", 16);
+
+xlabel('Gewicht / g',"fontsize", 16);
+ylabel('Distanz zum Boden / m',"fontsize", 16);
+%title('Hartfaserplatte P 3',"fontsize", 20);
+
+ylim([min(b1)-0.02,max(b1)+0.02])
+
+disp(po(1))
+
+hold off

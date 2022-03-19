@@ -1,0 +1,480 @@
+% Encoding: UTF-8
+
+@Misc{Venkatesan2021,
+  author       = {Venkatesan, Naveen},
+  date         = {2021-03},
+  title        = {Basic {Curve} {Fitting} of {Scientific} {Data} with {Python}},
+  language     = {en},
+  url          = {https://towardsdatascience.com/basic-curve-fitting-of-scientific-data-with-python-9592244a2509},
+  urldate      = {2021-04-12},
+  abstract     = {A basic guide to using Python to fit non-linear functions to experimental data points},
+  journaltitle = {Medium},
+}
+
+@Article{Huebsch2020,
+  author       = {Marie-Therese Huebsch and Takuya Nomoto and Michi-To Suzuki and Ryotaro Arita},
+  date         = {2020-08},
+  journaltitle = {Phys. Rev. X 11, 011031 (2021)},
+  title        = {Benchmark for Ab Initio Prediction of Magnetic Structures based on Cluster-Multipole Theory},
+  doi          = {10.1103/PhysRevX.11.011031},
+  eprint       = {2008.13669},
+  eprintclass  = {cond-mat.mtrl-sci},
+  eprinttype   = {arXiv},
+  abstract     = {The cluster multipole (CMP) expansion for magnetic structures provides a scheme to systematically generate candidate magnetic structures specifically including noncollinear magnetic configurations adapted to the crystal symmetry of a given material. A comparison with the experimental data collected on MAGNDATA shows that the most stable magnetic configurations in nature are linear combinations of only few CMPs. Furthermore, a high-throughput calculation for all candidate magnetic structures is performed in the framework of spin-density functional theory (SDFT). We benchmark the predictive power of CMP+SDFT with $2935$ calculations, which show that (i) the CMP expansion administers an exhaustive list of candidate magnetic structures, (ii) CMP+SDFT can narrow down the possible magnetic configurations to a handful of computed configurations, and (iii) SDFT reproduces the experimental magnetic configurations with an accuracy of $\pm0.5\,\mu_\text{B}$. For a subset the impact of on-site Coulomb repulsion $U$ is investigated by means of $1545$ CMP+SDFT+U calculations revealing no further improvement on the predictive power.},
+  file         = {:http\://arxiv.org/pdf/2008.13669v2:PDF},
+  keywords     = {cond-mat.mtrl-sci},
+}
+
+@Booklet{Kluge2016,
+  author       = {Julien Kluge},
+  date         = {2016-12},
+  title        = {Kurzeinfuehrung in die Fehlerrechnung für das Physik-Praktikum},
+  howpublished = {Humboldt-Universitaet zu Berlin},
+  location     = {Unter den Linden 610099 Berlin},
+  url          = {http://people.physik.hu-berlin.de/~julien/sub/Kurzeinfuerung - Fehlerrechnung MMA.pdf},
+}
+
+@Manual{sci_curve_fit,
+  title     = {Documentation scipy.optimize.curve_fit},
+  url       = {https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html},
+  timestamp = {2021-04-10},
+}
+
+@Misc{Frost2017,
+  author       = {Jim Frost},
+  date         = {2017-04},
+  title        = {R-squared {Is} {Not} {Valid} for {Nonlinear} {Regression}},
+  language     = {en-US},
+  url          = {http://statisticsbyjim.com/regression/r-squared-invalid-nonlinear-regression/},
+  urldate      = {2021-04-10},
+  abstract     = {R-squared is not valid for nonlinear regression. I highlight research that illustrates the consequences of using R-squared in nonlinear regression.},
+  journaltitle = {Statistics By Jim},
+}
+
+@Misc{Miskovic2021,
+  author = {Robert Mišković, Maximilian Philipp, Matthias Stark},
+  date   = {2021-03},
+  title  = {Bestimmung der Erdbeschleunigung},
+}
+
+@Misc{chi_squared,
+  title = {Evaluating a model fit with chi-square},
+  note  = {https://www.astroml.org/book_figures/chapter4/fig_chi2_eval.html},
+  url   = {https://www.astroml.org/book_figures/chapter4/fig_chi2_eval.html},
+}
+
+@Booklet{WolfgangKessel2004,
+  author = {Wolfgang Kessel, Braunschweig},
+  date   = {2004},
+  title  = {Die ISO/BIPM-GUM Sicht:Schätzwert \& Messunsicherheit},
+}
+
+@Article{Wagner2002,
+  author       = {Wagner, W. and Pruß, A.},
+  date         = {2002-06},
+  journaltitle = {Journal of Physical and Chemical Reference Data},
+  title        = {The {IAPWS} {Formulation} 1995 for the {Thermodynamic} {Properties} of {Ordinary} {Water} {Substance} for {General} and {Scientific} {Use}},
+  doi          = {10.1063/1.1461829},
+  issn         = {0047-2689, 1529-7845},
+  language     = {en},
+  number       = {2},
+  pages        = {387--535},
+  url          = {http://aip.scitation.org/doi/10.1063/1.1461829},
+  urldate      = {2021-05-08},
+  volume       = {31},
+}
+
+@InCollection{Roth2016,
+  author    = {Roth, Stefan and Stahl, Achim},
+  date      = {2016},
+  title     = {Hydro- und {Aerostatik}},
+  doi       = {10.1007/978-3-662-45304-9_15},
+  editor    = {Roth, Stefan and Stahl, Achim},
+  isbn      = {9783662453049},
+  language  = {de},
+  location  = {Berlin, Heidelberg},
+  pages     = {313--346},
+  publisher = {Springer},
+  url       = {https://doi.org/10.1007/978-3-662-45304-9_15},
+  urldate   = {2021-05-08},
+  abstract  = {In diesem Kapitel beschäftigen wir uns erstmals mit Flüssigkeiten und Gasen und zwar mit ruhenden. Wir führen zunächst den statischen Druck als wesentliche Größe für die Beschreibung ruhender Flüssigkeiten und Gase ein. Danach betrachten wir die elastischen Deformationen und stellen fest, dass von den vielen Deformationen der Festkörper hier nur die Kompression bleibt, die wir einführen und diskutieren. Neben dem äußeren Druck führen wir den Schweredruck ein und erhalten bei der Anwendung auf die Atmosphäre die barometrische Höhenformel. Ein weiteres wichtiges Phänomen ist der Auftrieb, den wir über das archimedische Prinzip besprechen. Zum Schluss des Kapitels diskutieren wir noch Effekte an Grenzflächen wie die Oberflächenspannung, die Haftspannung und die Kapillarität.},
+  file      = {:Roth2016 - Hydro Und Aerostatik.pdf:PDF},
+}
+
+@Misc{2021Obeflaeche,
+  date      = {2021-03},
+  title     = {Oberflächenspannung},
+  language  = {de},
+  note      = {Page Version ID: 209936664},
+  url       = {https://de.wikipedia.org/w/index.php?title=OberflC3A4chenspannung&oldid=209936664},
+  urldate   = {2021-05-08},
+  abstract  = {Die Oberflächenspannung ist die infolge von Molekularkräften auftretende Erscheinung bei Flüssigkeiten, ihre Oberfläche klein zu halten. Die Oberfläche einer Flüssigkeit verhält sich ähnlich einer gespannten, elastischen Folie. Dieser Effekt ist zum Beispiel die Ursache dafür, dass Wasser Tropfen bildet, und trägt dazu bei, dass einige Insekten über das Wasser laufen können oder eine Rasierklinge auf Wasser „schwimmt“.  Die Oberflächenspannung ist also eine Grenzflächenspannung, die zwischen Flüssigkeiten und Gasphasen auftritt. Gemessen wird sie in den SI-Einheiten kg/s2, gleichbedeutend mit N/m.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@Misc{2020Fehler,
+  date      = {2020-11},
+  title     = {Fehlerfortpflanzung},
+  language  = {de},
+  note      = {Page Version ID: 205827844},
+  url       = {https://de.wikipedia.org/w/index.php?title=Fehlerfortpflanzung&oldid=205827844},
+  urldate   = {2021-05-08},
+  abstract  = {Bei vielen Messaufgaben ist eine Größe nicht direkt messbar, sondern sie ist indirekt aus mehreren messbaren Größen nach einer festgelegten mathematischen Beziehung zu bestimmen. Da jeder Messwert der einzelnen Größen von seinem richtigen Wert abweicht (siehe Messabweichung, ältere Bezeichnung Messfehler), wird auch das Ergebnis der Rechnung von seinem richtigen Wert abweichen. Die einzelnen Abweichungen werden mit der Formel übertragen. Dieses wird Fehlerfortpflanzung genannt. Für diese existieren Rechenregeln, mit denen die Abweichung des Ergebnisses bestimmt oder abgeschätzt werden kann. Seit der Unterscheidung zwischen Messabweichung und Messfehler ist die Bezeichnung Fehlerfortpflanzung als überholt anzusehen. Da sich aber noch kein neuer Ausdruck etabliert hat, wird zur sprachlichen Einheitlichkeit hier noch die Bezeichnung Fehler beibehalten.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@Book{Demtroeder2013,
+  author     = {Demtröder, Wolfgang},
+  date       = {2013},
+  title      = {Experimentalphysik. 2: {Elektrizität} und {Optik}},
+  edition    = {6., überarbeitete und aktualisierte Auflage},
+  isbn       = {9783642299445 9783642299438},
+  language   = {ger},
+  location   = {Berlin Heidelberg},
+  note       = {OCLC: 840599854},
+  publisher  = {Springer Spektrum},
+  series     = {Springer-{Lehrbuch}},
+  shorttitle = {Experimentalphysik. 2},
+}
+
+@Misc{2020a,
+  date      = {2020-08},
+  title     = {Genauigkeitsklasse},
+  language  = {de},
+  note      = {Page Version ID: 202431191},
+  url       = {https://de.wikipedia.org/w/index.php?title=Genauigkeitsklasse&oldid=202431191},
+  urldate   = {2021-05-13},
+  abstract  = {Die Genauigkeitsklasse eines Messgerätes legt die maximal zu erwartende Abweichung eines Messwertes vom wahren Wert der zu messenden physikalischen Größe fest, soweit die Abweichung durch das Messgerät selbst bedingt ist. Einerseits kann ein Messgerät nicht exakt eingestellt werden; andererseits können sich seine Eigenschaften durch äußere Einflüsse ändern. Mit der Einstufung in eine Genauigkeitsklasse wird ein Qualitätsmerkmal geliefert, in welchem Umfang diese Ursachen zu einer Messabweichung führen dürfen. Normen verwenden den Begriff z. B. für Stromwandler, Wiegesysteme oder direkt wirkende Messgeräte mit Skalenanzeige. Für die weit verbreiteten Strom- und Spannungsmessgeräte mit Ziffernanzeige sind derartige Klassen nicht bekannt; dazu siehe Digitalmultimeter, Messgeräteabweichung, Auflösung (Digitaltechnik).},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@Misc{2021a,
+  date      = {2021-02},
+  title     = {Wärmekraftmaschine},
+  language  = {de},
+  note      = {Page Version ID: 208851862},
+  url       = {https://de.wikipedia.org/w/index.php?title=W%C3%A4rmekraftmaschine&oldid=208851862},
+  urldate   = {2021-05-13},
+  abstract  = {Eine Wärmekraftmaschine ist eine Maschine, die Wärme in mechanische Energie (Arbeit) umwandelt. Sie nutzt dabei das Bestreben der Wärme aus, von Gebieten mit höheren zu solchen mit niedrigeren Temperaturen zu fließen. Beispiele sind Dampfmaschine, Dampfturbine und alle Verbrennungsmotoren. Dagegen wird eine Maschine, die unter Einsatz mechanischer Energie Wärmeenergie von einem niedrigeren Temperaturniveau auf ein höheres transportiert, als Kraftwärmemaschine, Wärmepumpe oder Kältemaschine bezeichnet. Wärmekraftmaschinen nutzen „rechtslaufende“ Kreisprozesse, bei denen die geschlossene Kurve etwa im T-s-Diagramm oder P-v-Diagramm im Sinne „oben nach rechts, unten nach links“ durchlaufen wird. Wärmepumpen nutzen „linkslaufende“ Kreisprozesse. Zur Beurteilung der Effizienz von Kreisprozessen dienen die idealen Vergleichsprozesse. Die theoretische Grundlage dieser Prozesse bildet die thermische Zustandsgleichung idealer Gase mit den drei Gaszustandsgrössen Druck, Temperatur, Volumen und der universellen Gaskonstante.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@Article{UIt,
+  author       = {UIt, CTT},
+  journaltitle = {MARTIN-LUTHER-UNIVERSIT{\"A}T HALLE-WITTENBERG},
+  title        = {Spezifische W{\"a}rmekapazit{\"a}t von Fl{\"u}ssigkeiten W 17},
+  pages        = {35},
+}
+
+@Manual{sci_num_integration,
+  title     = {Documentation Integration (scipy.integrate)},
+  url       = {https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html},
+  timestamp = {2021-04-10},
+}
+
+@Misc{QuinckeKundt2012,
+  date         = {2012-02-15},
+  title        = {Quincke'sches und Kundt'sches Rohr},
+  language     = {de},
+  location     = {Petersgasse 16, A-8010 Graz},
+  organization = {Institut f. Experimentalphysik Technische Universitat Graz},
+}
+
+@Article{Chen2016,
+  author       = {Chen, Zhong and Gandhi, Umesh and Lee, Jinwoo and Wagoner, R. H.},
+  date         = {2016-01},
+  journaltitle = {Journal of Materials Processing Technology},
+  title        = {Variation and consistency of {Young}’s modulus in steel},
+  doi          = {10.1016/j.jmatprotec.2015.08.024},
+  issn         = {0924-0136},
+  language     = {en},
+  pages        = {227--243},
+  url          = {https://www.sciencedirect.com/science/article/pii/S0924013615301011},
+  urldate      = {2021-05-17},
+  volume       = {227},
+  abstract     = {The mechanically-measured Young’s modulus of metals is consistently lower than the physically measured one, particularly after plastic straining. Furthermore, the nominally elastic loading and unloading behavior is not linear; it shows significant curvature and hysteresis. While many reports of this so-called “modulus effect” have appeared, the consistency of the behavior among grades of steel, or within a single grade produced by alternate methods and suppliers, is unknown. That is, there is little information on whether it is necessary for manufacturers to measure and control the mechanical modulus for every coil of steel in order to guarantee accurate simulations, consistent forming, and reliable in-service behavior. In order to address these issues, 12 steels (4 diverse grades: IF, HSLA, DP600, DP980; 3 producers per grade) were subjected to high-precision modulus measurements using mechanical testing, resonant frequency damping analysis, and ultrasonic pulse-echo techniques. All of these measurements show remarkable consistency among not only suppliers but also among grades. The primary determinant of hysteresis/curvature of the stress–strain response was found to be the nominal flow stress of the alloy. Other variations of overall mechanical modulus are minor compared with hysteresis/curvature. The following conclusions were reached: 1) there is no significant difference among suppliers of a single steel grade, 2) there is very little difference between grades of steel, except for that attributable to differing strengths, 3) mechanical unloading and reloading after pre-strain are similar, 4) cyclic loading and unloading cycles have no accumulated effect except through a minor change of flow stress, and 5) the initial loading or unloading modulus is very similar to the physical modulus, but the mechanically measured slope degrades very rapidly as loading or unloading proceeds, and plateaus at even small strain ({\textless}2\%). The measured unloading and reloading behavior is more consistent and reproducible than that during initial loading, and unloading behavior is more consistent and reproducible than reloading behavior. Therefore, it is recommended that unloading after pre-strain is used to represent all of nominally elastic nonlinear behavior most accurately.},
+  keywords     = {Steel, Unloading, Reloading, Modulus, Nonlinearity, Resonant frequency, Ultrasonic, Hysteresis},
+}
+
+@Manual{cassylab,
+  author = {Hund, Michael and Wietzke, Karl-Heinz and Hanschke, Timm},
+  date   = {2007-09-21},
+  title  = {CASSY® Lab Manual (524 202)},
+  url    = {https://www.ld-didactic.de/software/524202.pdf},
+}
+
+@Book{Demtroeder2006,
+  author     = {Demtröder, Wolfgang},
+  date       = {2006-03},
+  title      = {Experimentalphysik 1: {Mechanik} und {Wärme}},
+  isbn       = {9783540299349},
+  language   = {de},
+  note       = {Google-Books-ID: 3PoiBAAAQBAJ},
+  publisher  = {Springer-Verlag},
+  abstract   = {MECHANIK und WÄRME ist der erste von vier Bänden zur Experimentalphysik von Professor Demtröder. Die Lehrinhalte des ersten Semesters Physik werden anschaulich und leicht verständlich, dabei aber möglichst quantitativ präsentiert. Wichtige Definitionen und Formeln, alle Abbildungen und Tabellen wurden zweifarbig gestaltet. Durchgerechnete Beispiele im Text, Kapitelzusammenfassungen sowie Übungsaufgaben mit ausführlichen Lösungen am Schluss des Buches helfen dabei, den Stoff zu bewältigen, und regen zu eigener Mitarbeit an. Farbtafeln zu ausgesuchten Themen tragen zum Spaß an diesem Buch bei. Die vierte Auflage wurde neu bearbeitet und aktualisiert.},
+  file       = {Google Books Link:https\://books.google.at/books?id=3PoiBAAAQBAJ:text/html},
+  keywords   = {Science / Mechanics / General, Science / Acoustics \& Sound, Science / Mechanics / Thermodynamics, Science / Mechanics / Fluids, Science / Physics / General, Science / Waves \& Wave Mechanics},
+  shorttitle = {Experimentalphysik 1},
+}
+
+@Manual{glassdichte,
+  title        = {Verarbeitungsrichtlinie für Kalk-Natronsilicatglas – hergestellt nach DIN EN 572},
+  location     = {Dammühlenweg 60 39340 Haldensleben Germany},
+  organization = {Euroglas GmbH},
+  url          = {https://www.euroglas.com/uploads/tx_lwproductdatabase/Float Verarbeitungsrichtlinie RVN 20181218-01.pdf},
+}
+
+@Manual{soudalBauSchaum,
+  date         = {2019-09-24},
+  title        = {Building Foam Genius},
+  location     = {Olof-Palme-Strasse 13 51371 Leverkusen Deutschland},
+  organization = {Soudal N.V. Deutschland},
+  pagetotal    = {2},
+  url          = {https://www.soudal.de/sites/default/files/soudal_api/document/F0024044_0001.pdf},
+}
+
+@Online{extensionalspeedofsound,
+  date         = {2004},
+  title        = {Speed of Sound in Solids and Metals},
+  url          = {https://www.engineeringtoolbox.com/sound-speed-solids-d_713.html},
+  organization = {Engineering ToolBox},
+  urldate      = {2021-05-31},
+  timestamp    = {2021-05-31},
+}
+
+@Online{youngrolledstainlesssteel,
+  author       = {Esther Mar},
+  date         = {2019-03-28},
+  title        = {Young’s Modulus (Elastic Modulus, Modulus of Elasticity)},
+  url          = {https://www.baileymetalprocessing.com/techmatters/blog-category-1/2019/03/28/young-s-modulus-(elastic-modulus-modulus-of-elasticity)#:~:text=The tensile Young's Modulus of austenitic stainless steels is about,temperature decreases the Young's Modulus.},
+  language     = {en},
+  organization = {BAILEY METAL PROCESSING LIMITED.},
+  urldate      = {2021-05-31},
+  timestamp    = {2021-05-31},
+}
+
+@Misc{youngaluminiumextra,
+  title        = {Properties: {Aluminum} - {Advantages} and {Properties} of {Aluminum}},
+  language     = {en},
+  url          = {https://www.azom.com/properties.aspx?ArticleID=1446},
+  urldate      = {2021-05-31},
+  abstract     = {Properties described are light weight, corrosion resistance, electrical and thermal conductivity, reflectivity, ductility, impermeability, odourlessness and recyclability.},
+  journaltitle = {AZoM.com},
+  shorttitle   = {Properties},
+}
+
+@Online{youngaluminium,
+  date         = {2003},
+  title        = {Young's Modulus - Tensile and Yield Strength for common Materials},
+  url          = {https://www.engineeringtoolbox.com/young-modulus-d_417.html},
+  organization = {Engineering ToolBox},
+  subtitle     = {Mechanical properties of aluminum alloys - tensile strength, yield strength and more},
+  urldate      = {2021-05-31},
+}
+
+@Online{youngallengineering,
+  date         = {2008},
+  title        = {Aluminum Alloys - Mechanical Properties},
+  organization = {Engineering ToolBox},
+  subtitle     = {Young's Modulus or Tensile Modulus alt. Modulus of Elasticity - and Ultimate Tensile and Yield Strength for steel, glass, wood and other common materials},
+  urldate      = {2021-05-31},
+}
+
+@Misc{materialdbcopper,
+  title = {Material: Copper – PVD or Electroplated},
+  url   = {http://www.mit.edu/~6.777/matprops/copper.htm},
+}
+
+@Conference{youngcooper,
+  author       = {Kazuki Kammuri and Atsushi Miki and Hiroki Takeuchi},
+  title        = {Reliable Young's Modulus Value of High Flexible Treated Rolled Copper Foils Measured by Resonance Method},
+  location     = {3 Kurami, Sumakawa, Koza, kanagawa 253-0101 JAPAN},
+  organization = {JX Nippon Mining Metals Corporation},
+  url          = {https://smtnet.com/library/files/upload/rolled-copper-foils.pdf},
+  urldate      = {2021-05-31},
+}
+
+@Article{armstrong2009measuring,
+  author    = {Armstrong, David EJ and Wilkinson, Angus J and Roberts, Steve G},
+  title     = {Measuring anisotropy in Young’s modulus of copper using microcantilever testing},
+  number    = {11},
+  pages     = {3268--3276},
+  volume    = {24},
+  journal   = {Journal of materials research},
+  publisher = {Springer},
+  year      = {2009},
+}
+
+@Misc{schallvelocity,
+  title        = {Schallgeschwindigkeit},
+  language     = {de},
+  url          = {https://www.geothermie.de/bibliothek/lexikon-der-geothermie/s/schallgeschwindigkeit.html},
+  urldate      = {2021-06-01},
+  abstract     = {Geothermie ist nicht nur landschaftsschonend, kohlendioxidarm und nach menschlichem Ermessen unerschöpflich, sondern stellt ihre Energie darüber hinaus zuverlässig, grundlastfähig und zu stabilen Preisen zur Verfügung. Geothermie ist für den Verbraucher immer verfügbar, rund um die Uhr, wetterunabhängig und zu jeder Jahreszeit. Mit den bereits entwickelten Technologien ist es praktisch überall möglich, das Potenzial der Erdwärme zu nutzen: Geothermie ist Energie vor Ort.},
+  journaltitle = {Bundesverband Geothermie},
+}
+
+@Book{ahrberg2011handbuch,
+  author    = {Ahrberg, Rainer and Arndt, Klaus-Dieter and Bahmann, Werner and Barfels, Lutz and Bauer, J{\"u}rgen and Borutzki, Ulrich and B{\"o}ge, Gert and B{\"o}ge, Wolfgang and Heinrich, Berthold and Kemnitz, Arnfried and others},
+  date      = {2011},
+  title     = {Handbuch Maschinenbau: Grundlagen und Anwendungen der Maschinenbau-Technik},
+  isbn      = {978-3-8348-1025-0},
+  publisher = {Springer-Verlag},
+  address   = {Wiesbaden},
+  year      = {2011},
+}
+
+@Misc{signalvorlage,
+  author       = {Andreas Hohenau},
+  date         = {2016-10-25},
+  title        = {Signalleitung},
+  language     = {de},
+  location     = {Universitätsplatz 5/I, 8010 Graz,},
+  organization = {Karl-Franzens Universität Graz},
+  version      = {25.08.2016},
+}
+
+@Misc{wiki_gitterchromatorbild2020,
+  date      = {2020-02},
+  title     = {Monochromator},
+  language  = {de},
+  note      = {Page Version ID: 197137440},
+  url       = {https://de.wikipedia.org/w/index.php?title=Monochromator&oldid=197137440},
+  urldate   = {2021-10-13},
+  abstract  = {Ein Monochromator (griech.: mono = ein + chroma = Farbe) ist ein optisches Gerät zur spektralen Isolierung einer bestimmten Wellenlänge aus einem einfallenden Strahl (zumeist elektromagnetische Strahlung wie Licht, Röntgenstrahlung, Synchrotronstrahlung, aber auch Neutronenstrahlung). Elektromagnetische Strahlung ist ohne Behandlung – bedingt durch ihre Herkunft – polychromatisch, also aus verschiedenen Wellenlängen zusammengesetzt (poly = viel). Bei der Verwendung eines Monochromators wird der unerwünschte Anteil der Strahlung absorbiert oder abgelenkt. Für verschiedene Wellenlängenbereiche elektromagnetischer Strahlung differiert die Funktionsweise von Monochromatoren.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@Book{demtroder2018ex2,
+  author    = {Demtröder, Wolfgang},
+  date      = {2018-03-23},
+  title     = {Experimentalphysik 2},
+  isbn      = {978-3-662-55789-1},
+  publisher = {Springer-Verlag GmbH},
+  url       = {https://www.ebook.de/de/product/31029958/wolfgang_demtroeder_experimentalphysik_2.html},
+  ean       = {9783662557891},
+  year      = {2018},
+}
+
+@Misc{wellenleitungskizze,
+  date      = {2021-08},
+  title     = {Ersatzschaltbild eines Leitungsabschnitts},
+  language  = {de},
+  note      = {Page Version ID: 214445551},
+  url       = {https://de.wikipedia.org/w/index.php?title=Wellenwiderstand&oldid=214445551},
+  urldate   = {2021-10-20},
+  abstract  = {Der Wellenwiderstand, auch die Wellenimpedanz oder die Impedanz, ist eine Eigenschaft eines Mediums, in dem sich eine Welle ausbreitet. Das Verhältnis von reflektierter und transmittierter Amplitude der Welle an einer Grenzfläche wird durch die Wellenwiderstände der beiden Medien bestimmt.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@TechReport{standardkoaxial,
+  title    = {MIL-DTL-17/227},
+  subtitle = {Cable, Radio Frequency, Flexible, Coaxial, 50 OHMS, Low Smoke, Low Loss Diameter 1.200},
+  url      = {https://publishers.standardstech.com/content/military-dod-mil-dtl-17-227},
+}
+
+@Misc{halbleitervorlage,
+  author       = {Franz Hanauer},
+  date         = {2020},
+  title        = {Halbleiterdiode},
+  language     = {de},
+  location     = {Universitätsplatz 5/I, 8010 Graz,},
+  organization = {Karl-Franzens Universität Graz},
+  version      = {30.09.2020},
+}
+
+@Book{gerthsen,
+  author    = {Meschede, Dieter},
+  date      = {2015-02-27},
+  title     = {Gerthsen Physik},
+  isbn      = {9783662459775},
+  pagetotal = {1052},
+  publisher = {Springer-Verlag GmbH},
+  url       = {https://www.ebook.de/de/product/25604544/dieter_meschede_gerthsen_physik.html},
+  ean       = {9783662459775},
+  year      = {2015},
+}
+
+@Manual{metex,
+  title   = {Metex 4600 serie Digital-Multimeter Bedienungsanleitung},
+  url     = {https://www.opweb.de/deutsch/firma/Metex/4600},
+  urldate = {2021-09-28},
+}
+
+@Manual{ttimeter,
+  title   = {THURLBY THANDAR INSTRUMENTS 1604},
+  url     = {https://docs.rs-online.com/161d/0900766b8001c649.pdf},
+  urldate = {2021-09-28},
+}
+
+@Manual{oszilloman,
+  title   = {InfiniiVision 2000 X-Series Oscilloscopes},
+  url     = {https://www.keysight.com/zz/en/assets/7018-02733/data-sheets/5990-6618.pdf},
+  urldate = {2021-09-28},
+}
+
+@Manual{hameg,
+  title   = {8 kW Power Meter HM8115-2},
+  url     = {https://studieverzameling.utwente.nl/documents/Unigor 3s Goerz Electro.pdf},
+  urldate = {2021-09-28},
+}
+
+@Misc{uncertaintyoszi,
+  date         = {2020},
+  title        = {Understanding Voltage Measurement Accuracy for InfiniiVision Oscilloscopes},
+  language     = {en},
+  organization = {Keysight},
+  url          = {https://edadocs.software.keysight.com/kkbopen/understanding-voltage-measurement-accuracy-for-infiniivision-oscilloscopes-584425356.html},
+  urldate      = {2021-09-28},
+}
+
+@Manual{fluke,
+  date         = {2003},
+  title        = {175, 177, 179 True-rms Multimeters},
+  organization = {Fluke},
+  subtitle     = {Users Manual},
+  url          = {https://dam-assets.fluke.com/s3fs-public/175_____umeng0200.pdf},
+  urldate      = {2021-09-28},
+}
+
+@Misc{welligkeitfourier,
+  author       = {Joel Feldman},
+  date         = {2007},
+  title        = {Discrete–time Fourier Series and Fourier Transforms},
+  language     = {en},
+  organization = {The University of British Columbia},
+  url          = {https://personal.math.ubc.ca/~feldman/m267/dft.pdf},
+  urldate      = {2021-09-28},
+}
+
+@Manual{unigor,
+  title   = {Unigor S3},
+  url     = {https://studieverzameling.utwente.nl/documents/Unigor 3s Goerz Electro.pdf},
+  urldate = {2021-09-28},
+}
+
+@Book{deimel2015grundlagen,
+  author    = {Deimel, Franz},
+  date      = {2015},
+  title     = {Grundlagen der Elektrotechnik},
+  isbn      = {9783710101342},
+  location  = {Linz},
+  publisher = {Veritas},
+}
+
+@Manual{1n5337,
+  title        = {1N53 Series},
+  organization = {Onsemi},
+  subtitle     = {5 Watt Surmetic 40 Zener Voltage Regulators},
+  url          = {https://www.onsemi.com/pdf/datasheet/1n5333b-d.pdf},
+  urldate      = {2021-09-28},
+}
+
+@Manual{1n4007,
+  title        = {Gleichrichterdioden mit Standard-Sperrverzug 1N4007},
+  organization = {Diotec Semiconductors},
+  url          = {https://diotec.com/tl_files/diotec/files/pdf/datasheets/1n4001.pdf},
+  urldate      = {2021-09-28},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
