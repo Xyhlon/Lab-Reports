@@ -1,0 +1,153 @@
+% Encoding: UTF-8
+
+@Booklet{Kluge2016,
+  author       = {Julien Kluge},
+  date         = {2016-12},
+  title        = {Kurzeinfuehrung in die Fehlerrechnung für das Physik-Praktikum},
+  howpublished = {Humboldt-Universitaet zu Berlin},
+  location     = {Unter den Linden 610099 Berlin},
+  url          = {http://people.physik.hu-berlin.de/~julien/sub/Kurzeinfuerung - Fehlerrechnung MMA.pdf},
+}
+
+@Manual{scipy_curve_fit,
+  title     = {Documentation scipy.optimize.curve_fit},
+  url       = {https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html},
+  timestamp = {2021-04-10},
+}
+
+@Booklet{WolfgangKessel2004,
+  author = {Wolfgang Kessel, Braunschweig},
+  date   = {2004},
+  title  = {Die ISO/BIPM-GUM Sicht:Schätzwert \& Messunsicherheit},
+}
+
+@Article{Wagner2002,
+  author       = {Wagner, W. and Pruß, A.},
+  date         = {2002-06},
+  journaltitle = {Journal of Physical and Chemical Reference Data},
+  title        = {The {IAPWS} {Formulation} 1995 for the {Thermodynamic} {Properties} of {Ordinary} {Water} {Substance} for {General} and {Scientific} {Use}},
+  doi          = {10.1063/1.1461829},
+  issn         = {0047-2689, 1529-7845},
+  language     = {en},
+  number       = {2},
+  pages        = {387--535},
+  url          = {http://aip.scitation.org/doi/10.1063/1.1461829},
+  urldate      = {2021-05-08},
+  volume       = {31},
+}
+
+@Book{Demtroeder2013,
+  author     = {Demtröder, Wolfgang},
+  date       = {2013},
+  title      = {Experimentalphysik. 2: {Elektrizität} und {Optik}},
+  edition    = {6., überarbeitete und aktualisierte Auflage},
+  isbn       = {9783642299445 9783642299438},
+  language   = {ger},
+  location   = {Berlin Heidelberg},
+  note       = {OCLC: 840599854},
+  publisher  = {Springer Spektrum},
+  series     = {Springer-{Lehrbuch}},
+  shorttitle = {Experimentalphysik. 2},
+}
+
+@Misc{wärmevorlage,
+  author       = {Martin Pieper},
+  date         = {2020-05-29},
+  title        = {Protokoll Bsp.9c: spezifische Wärme},
+  language     = {de},
+  location     = {Universitätspl. 5, 8010 Graz},
+  organization = {Inst. f. Physik der KFU-Graz},
+}
+
+@Book{Demtroeder2006,
+  author     = {Demtröder, Wolfgang},
+  date       = {2006-03},
+  title      = {Experimentalphysik 1: {Mechanik} und {Wärme}},
+  isbn       = {9783540299349},
+  language   = {de},
+  note       = {Google-Books-ID: 3PoiBAAAQBAJ},
+  publisher  = {Springer-Verlag},
+  abstract   = {MECHANIK und WÄRME ist der erste von vier Bänden zur Experimentalphysik von Professor Demtröder. Die Lehrinhalte des ersten Semesters Physik werden anschaulich und leicht verständlich, dabei aber möglichst quantitativ präsentiert. Wichtige Definitionen und Formeln, alle Abbildungen und Tabellen wurden zweifarbig gestaltet. Durchgerechnete Beispiele im Text, Kapitelzusammenfassungen sowie Übungsaufgaben mit ausführlichen Lösungen am Schluss des Buches helfen dabei, den Stoff zu bewältigen, und regen zu eigener Mitarbeit an. Farbtafeln zu ausgesuchten Themen tragen zum Spaß an diesem Buch bei. Die vierte Auflage wurde neu bearbeitet und aktualisiert.},
+  file       = {Google Books Link:https\://books.google.at/books?id=3PoiBAAAQBAJ:text/html},
+  keywords   = {Science / Mechanics / General, Science / Acoustics \& Sound, Science / Mechanics / Thermodynamics, Science / Mechanics / Fluids, Science / Physics / General, Science / Waves \& Wave Mechanics},
+  shorttitle = {Experimentalphysik 1},
+}
+
+@Manual{puschaum,
+  date         = {2019-09-24},
+  title        = {Building Foam Genius},
+  location     = {Olof-Palme-Strasse 13 51371 Leverkusen Deutschland},
+  organization = {Soudal N.V. Deutschland},
+  pagetotal    = {2},
+  url          = {https://www.soudal.de/sites/default/files/soudal_api/document/F0024044_0001.pdf},
+}
+
+@Book{Ahrberg2011,
+  author    = {Ahrberg, Rainer and Arndt, Klaus-Dieter and Bahmann, Werner and Barfels, Lutz and Bauer, J{\"u}rgen and Borutzki, Ulrich and B{\"o}ge, Gert and B{\"o}ge, Wolfgang and Heinrich, Berthold and Kemnitz, Arnfried and others},
+  date      = {2011},
+  title     = {Handbuch Maschinenbau: Grundlagen und Anwendungen der Maschinenbau-Technik},
+  isbn      = {978-3-8348-1025-0},
+  location  = {Wiesbaden},
+  publisher = {Springer-Verlag},
+}
+
+@Misc{isopropanolsiede,
+  title      = {Isopropanol},
+  url        = {https://www.internetchemie.info/chemie-lexikon/stoffe/i/isopropanol.php},
+  accessdate = {2021-06-09},
+  file       = {:https\://www.internetchemie.info/chemie-lexikon/stoffe/i/isopropanol.php:PDF},
+}
+
+@Misc{2020Fehler,
+  date      = {2020-11},
+  title     = {Fehlerfortpflanzung},
+  language  = {de},
+  note      = {Page Version ID: 205827844},
+  url       = {https://de.wikipedia.org/w/index.php?title=Fehlerfortpflanzung&oldid=205827844},
+  urldate   = {2021-05-08},
+  abstract  = {Bei vielen Messaufgaben ist eine Größe nicht direkt messbar, sondern sie ist indirekt aus mehreren messbaren Größen nach einer festgelegten mathematischen Beziehung zu bestimmen. Da jeder Messwert der einzelnen Größen von seinem richtigen Wert abweicht (siehe Messabweichung, ältere Bezeichnung Messfehler), wird auch das Ergebnis der Rechnung von seinem richtigen Wert abweichen. Die einzelnen Abweichungen werden mit der Formel übertragen. Dieses wird Fehlerfortpflanzung genannt. Für diese existieren Rechenregeln, mit denen die Abweichung des Ergebnisses bestimmt oder abgeschätzt werden kann. Seit der Unterscheidung zwischen Messabweichung und Messfehler ist die Bezeichnung Fehlerfortpflanzung als überholt anzusehen. Da sich aber noch kein neuer Ausdruck etabliert hat, wird zur sprachlichen Einheitlichkeit hier noch die Bezeichnung Fehler beibehalten.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@Misc{wärmehinweise,
+  author       = {Martin Pieper and Peter Knoll and Andreas Hohenau},
+  date         = {2020-05-29},
+  title        = {M. Pieper - Hinweise und Anmerkungen},
+  language     = {de},
+  location     = {Universitätspl. 5, 8010 Graz},
+  organization = {Inst. f. Physik der KFU-Graz},
+}
+
+@Misc{thermometer,
+  title    = {Handmessgeräte \& {Sensoren} {GTH} 1150 {\textbar} 611499 {\textbar} {Temperatur} {\textbar} {GHM} {Greisinger}},
+  language = {de},
+  url      = {https://www.greisinger.de/p/handmessgeraete-und-sensoren/temperatur/geraete-thermoelemente/gth-1150/611499/},
+  urldate  = {2021-06-09},
+  abstract = {GTH 1150 611499 Geräte Thermoelemente {\textbar} Messtechnik {\textbar} GHM Greisinger},
+}
+
+@Misc{kartoffelkapazität,
+  date         = {2003},
+  title        = {Specific Heat of Food and Foodstuff},
+  organization = {Engineering ToolBox},
+  url          = {https://www.engineeringtoolbox.com/specific-heat-capacity-food-d_295.html},
+  urldate      = {2021-07-09},
+}
+
+@Misc{kartoffel2,
+  author       = {Isabel K. Lloyd and Kimberly R. Kolos and Edmond C. Menegaux and Huy Luo and Richard H. McCuen and Thomas M. Regan},
+  title        = {STRUCTURE, PROCESSING AND PROPERTIESOF POTATOES},
+  language     = {EN},
+  location     = {College Park, Maryland 20742-21 15},
+  organization = {Materials and Nuclear Engineering Unit University of Maryland},
+}
+
+@Misc{ethanolkapazitat,
+  title        = {Liste der spezifischen Wärmekapazitäten},
+  language     = {DE},
+  organization = {chemie.de},
+  url          = {https://www.chemie.de/lexikon/Liste_der_spezifischen_Wärmekapazitäten.html},
+  urldate      = {2021-07-10},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}

@@ -1,0 +1,211 @@
+% Encoding: UTF-8
+
+@Misc{Venkatesan2021,
+  author   = {Venkatesan, Naveen},
+  month    = mar,
+  title    = {Basic {Curve} {Fitting} of {Scientific} {Data} with {Python}},
+  year     = {2021},
+  abstract = {A basic guide to using Python to fit non-linear functions to experimental data points},
+  journal  = {Medium},
+  language = {en},
+  url      = {https://towardsdatascience.com/basic-curve-fitting-of-scientific-data-with-python-9592244a2509},
+  urldate  = {2021-04-12},
+}
+
+@Misc{,
+  title    = {{JabRef} - {Free} {Reference} {Manager} - {Stay} on top of your {Literature}},
+  abstract = {JabRef is a free reference manager that helps you to discover, collect, organize and cite your scholarly literature and research in an efficient way.},
+  journal  = {JabRef},
+  url      = {https://www.jabref.org/},
+  urldate  = {2021-03-20},
+}
+
+@Article{Huebsch2020,
+  author        = {Marie-Therese Huebsch and Takuya Nomoto and Michi-To Suzuki and Ryotaro Arita},
+  journal       = {Phys. Rev. X 11, 011031 (2021)},
+  title         = {Benchmark for Ab Initio Prediction of Magnetic Structures based on Cluster-Multipole Theory},
+  year          = {2020},
+  month         = aug,
+  abstract      = {The cluster multipole (CMP) expansion for magnetic structures provides a scheme to systematically generate candidate magnetic structures specifically including noncollinear magnetic configurations adapted to the crystal symmetry of a given material. A comparison with the experimental data collected on MAGNDATA shows that the most stable magnetic configurations in nature are linear combinations of only few CMPs. Furthermore, a high-throughput calculation for all candidate magnetic structures is performed in the framework of spin-density functional theory (SDFT). We benchmark the predictive power of CMP+SDFT with $2935$ calculations, which show that (i) the CMP expansion administers an exhaustive list of candidate magnetic structures, (ii) CMP+SDFT can narrow down the possible magnetic configurations to a handful of computed configurations, and (iii) SDFT reproduces the experimental magnetic configurations with an accuracy of $\pm0.5\,\mu_\text{B}$. For a subset the impact of on-site Coulomb repulsion $U$ is investigated by means of $1545$ CMP+SDFT+U calculations revealing no further improvement on the predictive power.},
+  archiveprefix = {arXiv},
+  doi           = {10.1103/PhysRevX.11.011031},
+  eprint        = {2008.13669},
+  file          = {:http\://arxiv.org/pdf/2008.13669v2:PDF},
+  keywords      = {cond-mat.mtrl-sci},
+  primaryclass  = {cond-mat.mtrl-sci},
+}
+
+@Booklet{Kluge,
+  title        = {Kurzeinfuehrung in die Fehlerrechnung für das Physik-Praktikum},
+  address      = {Unter den Linden 610099 Berlin},
+  author       = {Julien Kluge},
+  howpublished = {Humboldt-Universitaet zu Berlin},
+  month        = dec,
+  year         = {2016},
+  url          = {http://people.physik.hu-berlin.de/~julien/sub/Kurzeinfuerung - Fehlerrechnung MMA.pdf},
+}
+
+@Manual{sci_curve_fit,
+  title     = {Documentation scipy.optimize.curve_fit},
+  timestamp = {2021-04-10},
+  url       = {https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html},
+}
+
+@Misc{r2notvalid,
+  author   = {Jim Frost},
+  month    = apr,
+  title    = {R-squared {Is} {Not} {Valid} for {Nonlinear} {Regression}},
+  year     = {2017},
+  abstract = {R-squared is not valid for nonlinear regression. I highlight research that illustrates the consequences of using R-squared in nonlinear regression.},
+  journal  = {Statistics By Jim},
+  language = {en-US},
+  url      = {http://statisticsbyjim.com/regression/r-squared-invalid-nonlinear-regression/},
+  urldate  = {2021-04-10},
+}
+
+@Misc{ichgpendel,
+  author = {Robert Mišković, Maximilian Philipp, Matthias Stark},
+  month  = mar,
+  title  = {Bestimmung der Erdbeschleunigung},
+  year   = {2021},
+}
+
+@Misc{chi2astro,
+  note  = {https://www.astroml.org/book_figures/chapter4/fig_chi2_eval.html},
+  title = {Evaluating a model fit with chi-square},
+  url   = {https://www.astroml.org/book_figures/chapter4/fig_chi2_eval.html},
+}
+
+@Booklet{Kessel2004,
+  title  = {Die ISO/BIPM-GUM Sicht:Schätzwert \& Messunsicherheit},
+  author = {Wolfgang Kessel, Braunschweig},
+  year   = {2004},
+}
+
+@Article{Wagner2002,
+  author   = {Wagner, W. and Pruß, A.},
+  journal  = {Journal of Physical and Chemical Reference Data},
+  title    = {The {IAPWS} {Formulation} 1995 for the {Thermodynamic} {Properties} of {Ordinary} {Water} {Substance} for {General} and {Scientific} {Use}},
+  year     = {2002},
+  issn     = {0047-2689, 1529-7845},
+  month    = jun,
+  number   = {2},
+  pages    = {387--535},
+  volume   = {31},
+  doi      = {10.1063/1.1461829},
+  language = {en},
+  url      = {http://aip.scitation.org/doi/10.1063/1.1461829},
+  urldate  = {2021-05-08},
+}
+
+@InCollection{Roth2016,
+  author    = {Roth, Stefan and Stahl, Achim},
+  publisher = {Springer},
+  title     = {Hydro- und {Aerostatik}},
+  year      = {2016},
+  address   = {Berlin, Heidelberg},
+  editor    = {Roth, Stefan and Stahl, Achim},
+  isbn      = {9783662453049},
+  pages     = {313--346},
+  abstract  = {In diesem Kapitel beschäftigen wir uns erstmals mit Flüssigkeiten und Gasen und zwar mit ruhenden. Wir führen zunächst den statischen Druck als wesentliche Größe für die Beschreibung ruhender Flüssigkeiten und Gase ein. Danach betrachten wir die elastischen Deformationen und stellen fest, dass von den vielen Deformationen der Festkörper hier nur die Kompression bleibt, die wir einführen und diskutieren. Neben dem äußeren Druck führen wir den Schweredruck ein und erhalten bei der Anwendung auf die Atmosphäre die barometrische Höhenformel. Ein weiteres wichtiges Phänomen ist der Auftrieb, den wir über das archimedische Prinzip besprechen. Zum Schluss des Kapitels diskutieren wir noch Effekte an Grenzflächen wie die Oberflächenspannung, die Haftspannung und die Kapillarität.},
+  doi       = {10.1007/978-3-662-45304-9_15},
+  file      = {:Roth2016 - Hydro Und Aerostatik.pdf:PDF},
+  language  = {de},
+  url       = {https://doi.org/10.1007/978-3-662-45304-9_15},
+  urldate   = {2021-05-08},
+}
+
+@Misc{2021Oberflache,
+  month     = mar,
+  note      = {Page Version ID: 209936664},
+  title     = {Oberflächenspannung},
+  year      = {2021},
+  abstract  = {Die Oberflächenspannung ist die infolge von Molekularkräften auftretende Erscheinung bei Flüssigkeiten, ihre Oberfläche klein zu halten. Die Oberfläche einer Flüssigkeit verhält sich ähnlich einer gespannten, elastischen Folie. Dieser Effekt ist zum Beispiel die Ursache dafür, dass Wasser Tropfen bildet, und trägt dazu bei, dass einige Insekten über das Wasser laufen können oder eine Rasierklinge auf Wasser „schwimmt“.  Die Oberflächenspannung ist also eine Grenzflächenspannung, die zwischen Flüssigkeiten und Gasphasen auftritt. Gemessen wird sie in den SI-Einheiten kg/s2, gleichbedeutend mit N/m.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+  language  = {de},
+  url       = {https://de.wikipedia.org/w/index.php?title=OberflC3A4chenspannung&oldid=209936664},
+  urldate   = {2021-05-08},
+}
+
+@Misc{2020Fehler,
+  month     = nov,
+  note      = {Page Version ID: 205827844},
+  title     = {Fehlerfortpflanzung},
+  year      = {2020},
+  abstract  = {Bei vielen Messaufgaben ist eine Größe nicht direkt messbar, sondern sie ist indirekt aus mehreren messbaren Größen nach einer festgelegten mathematischen Beziehung zu bestimmen. Da jeder Messwert der einzelnen Größen von seinem richtigen Wert abweicht (siehe Messabweichung, ältere Bezeichnung Messfehler), wird auch das Ergebnis der Rechnung von seinem richtigen Wert abweichen. Die einzelnen Abweichungen werden mit der Formel übertragen. Dieses wird Fehlerfortpflanzung genannt. Für diese existieren Rechenregeln, mit denen die Abweichung des Ergebnisses bestimmt oder abgeschätzt werden kann. Seit der Unterscheidung zwischen Messabweichung und Messfehler ist die Bezeichnung Fehlerfortpflanzung als überholt anzusehen. Da sich aber noch kein neuer Ausdruck etabliert hat, wird zur sprachlichen Einheitlichkeit hier noch die Bezeichnung Fehler beibehalten.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+  language  = {de},
+  url       = {https://de.wikipedia.org/w/index.php?title=Fehlerfortpflanzung&oldid=205827844},
+  urldate   = {2021-05-08},
+}
+
+@Book{dem13,
+  author     = {Demtröder, Wolfgang},
+  publisher  = {Springer Spektrum},
+  title      = {Experimentalphysik. 2: {Elektrizität} und {Optik}},
+  year       = {2013},
+  address    = {Berlin Heidelberg},
+  edition    = {6., überarbeitete und aktualisierte Auflage},
+  isbn       = {9783642299445 9783642299438},
+  note       = {OCLC: 840599854},
+  series     = {Springer-{Lehrbuch}},
+  language   = {ger},
+  shorttitle = {Experimentalphysik. 2},
+}
+
+@Misc{2020genau,
+  month     = aug,
+  note      = {Page Version ID: 202431191},
+  title     = {Genauigkeitsklasse},
+  year      = {2020},
+  abstract  = {Die Genauigkeitsklasse eines Messgerätes legt die maximal zu erwartende Abweichung eines Messwertes vom wahren Wert der zu messenden physikalischen Größe fest, soweit die Abweichung durch das Messgerät selbst bedingt ist. Einerseits kann ein Messgerät nicht exakt eingestellt werden; andererseits können sich seine Eigenschaften durch äußere Einflüsse ändern. Mit der Einstufung in eine Genauigkeitsklasse wird ein Qualitätsmerkmal geliefert, in welchem Umfang diese Ursachen zu einer Messabweichung führen dürfen. Normen verwenden den Begriff z. B. für Stromwandler, Wiegesysteme oder direkt wirkende Messgeräte mit Skalenanzeige. Für die weit verbreiteten Strom- und Spannungsmessgeräte mit Ziffernanzeige sind derartige Klassen nicht bekannt; dazu siehe Digitalmultimeter, Messgeräteabweichung, Auflösung (Digitaltechnik).},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+  language  = {de},
+  url       = {https://de.wikipedia.org/w/index.php?title=Genauigkeitsklasse&oldid=202431191},
+  urldate   = {2021-05-13},
+}
+
+@Misc{,
+  title      = {Datei:{Stirling} {Cycle} {Colored}.svg},
+  copyright  = {Creative Commons Attribution-ShareAlike License},
+  language   = {de},
+  shorttitle = {Datei},
+  url        = {https://de.wikipedia.org/wiki/Datei:Stirling_Cycle_Colored.svg},
+  urldate    = {2021-05-13},
+}
+
+@Misc{stirlingcyclepv,
+  title      = {File:{Stirling} cycle {pV}.svg},
+  copyright  = {Creative Commons Attribution-ShareAlike License},
+  language   = {en},
+  shorttitle = {File},
+  url        = {https://en.wikipedia.org/wiki/File:Stirling_cycle_pV.svg},
+  urldate    = {2021-05-13},
+}
+
+@Misc{2021warmekraftbilanz,
+  month     = feb,
+  note      = {Page Version ID: 208851862},
+  title     = {Wärmekraftmaschine},
+  year      = {2021},
+  abstract  = {Eine Wärmekraftmaschine ist eine Maschine, die Wärme in mechanische Energie (Arbeit) umwandelt. Sie nutzt dabei das Bestreben der Wärme aus, von Gebieten mit höheren zu solchen mit niedrigeren Temperaturen zu fließen. Beispiele sind Dampfmaschine, Dampfturbine und alle Verbrennungsmotoren. Dagegen wird eine Maschine, die unter Einsatz mechanischer Energie Wärmeenergie von einem niedrigeren Temperaturniveau auf ein höheres transportiert, als Kraftwärmemaschine, Wärmepumpe oder Kältemaschine bezeichnet. Wärmekraftmaschinen nutzen „rechtslaufende“ Kreisprozesse, bei denen die geschlossene Kurve etwa im T-s-Diagramm oder P-v-Diagramm im Sinne „oben nach rechts, unten nach links“ durchlaufen wird. Wärmepumpen nutzen „linkslaufende“ Kreisprozesse. Zur Beurteilung der Effizienz von Kreisprozessen dienen die idealen Vergleichsprozesse. Die theoretische Grundlage dieser Prozesse bildet die thermische Zustandsgleichung idealer Gase mit den drei Gaszustandsgrössen Druck, Temperatur, Volumen und der universellen Gaskonstante.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+  language  = {de},
+  url       = {https://de.wikipedia.org/w/index.php?title=W%C3%A4rmekraftmaschine&oldid=208851862},
+  urldate   = {2021-05-13},
+}
+
+@Article{uitspezifische,
+  author  = {UIt, CTT},
+  journal = {MARTIN-LUTHER-UNIVERSIT{\"A}T HALLE-WITTENBERG},
+  title   = {Spezifische W{\"a}rmekapazit{\"a}t von Fl{\"u}ssigkeiten W 17},
+  pages   = {35},
+}
+
+@Manual{sci_num_integration,
+  title     = {Documentation Integration (scipy.integrate)},
+  timestamp = {2021-04-10},
+  url       = {https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

@@ -1,0 +1,55 @@
+\section{Aufgabenstellung}
+\label{sec:aufgabenstellung}
+Bestimmung der Oberflächenspannung von Wasser und einer Seifenlösung:
+\begin{itemize}
+    \item Mit der Bügelmethode nach Lenard bzw. mit dem Ring. 
+    \item Aus der Steighöhe in einer Kapillare.
+\end{itemize}
+Die Unterkapitel \ref{sec:aufgabenstellung}, \ref{sec:voraussetzungen_grundlagen} und \ref{sec:versuchsanordnung} wurden, wie in der Angabe erwähnt, etwas modifiziert übernommen.\cite[S. 1-2]{Vorlage}
+\section{Voraussetzungen und Grundlagen}
+\label{sec:voraussetzungen_grundlagen}
+Die Oberflächenspannung $\sigma_0$ einer Flüssigkeit ist als Quotient der am Rand der Flüssigkeit tangential angreifenden Kraft $F_R$ und der Randlänge $l_R$ definiert.
+Dieser Sachverhalt ist in folgender Gleichung \ref{eq:Oberflaechenspannung_allgemein}.
+\begin{equation}
+    \label{eq:Oberflaechenspannung_allgemein}
+    \sigma_0 = \frac{F_R}{l_R}
+\end{equation}
+Dies wird bei der Messung der Oberflächenspannung nach Lenard (siehe Abbildung \ref{fig:Lenard}) realisiert. Die Kraft $F_{VR}$ wird mit einer Federwaage gemessen, die Randlänge
+$l_{VR}$ ist durch die Geometrie des Bügels gegeben. Bei der Messung mit dem Ring wird anstelle von $l_{VR}$ dessen Umfang eingesetzt. Da bei dieser Methode auf zwei Seiten der Flüssigkeitshaut
+neue Oberfläche geschaffen wird, ergibt sich für die Oberflächenspannung der Zusammenhang in Gleichung \ref{eq:Oberflaechenspannung_spezial}.
+\begin{equation}
+    \label{eq:Oberflaechenspannung_spezial}
+    \sigma_0 = \frac{F_{VR}}{2l_{VR}}
+\end{equation}
+Weiters kann die Oberflächenspannung auch über Kapillaraszension (bzw. -depression) gemessen werden (siehe Abbildung \ref{fig:Kapillare}). Für eine vollständig die Innenwand der Kapillare
+benetzende Flüssigkeit ergibt sich für kleine Steighöhen $h$ der Flüssigkeit Gleichung \ref{eq:Oberflauechenspannung_Kapillare}.
+\begin{equation}
+    \label{eq:Oberflauechenspannung_Kapillare}
+    \sigma_0 = \frac{r \rho g h}{2}
+\end{equation}
+Dabei ist $r$ der Innenradius der Kapillare, $\rho$ die Dichte der Flüssigkeit und $g = \SI[]{9,81}{m\, s^{-2}}$.
+\\ \\
+Für die Unsicherheitsfortpflanzung wird die Größtunsicherheitsmethode, wie in Gleichung \ref{eq:Unsicherheitsfortpflanzung} dargestellt, verwendet.\cite[S. 13]{Koch2021} 
+$a$ hängt im folgendem von den mit Unsicherheit behafteten Größen $x_1$, $x_2$, ..., $x_n$ ab. Der Fehler in $a$ ergibt sich nun wie folgt zu:
+\begin{equation}
+    \label{eq:Unsicherheitsfortpflanzung}
+    \Delta  a \approx \left| \frac{\partial a}{\partial x_1} \Delta x_1 \right| + \left| \frac{\partial a}{\partial x_2}\Delta x_2 \right| +...+ \left| \frac{\partial a}{\partial x_n}\Delta x_n \right|
+\end{equation}
+\newpage
+\section{Versuchsanordnung}
+\label{sec:versuchsanordnung}
+\begin{figure}[H]
+    \begin{center}
+        \begin{minipage}[htbp]{.4\linewidth} % [b] => Ausrichtung an \caption
+            \includegraphics[width=0.925\linewidth]{Lenardbügel.png}
+            \caption[Messung mit dem Lenardbügel]{Zur Messung mit dem Lenardbügel. Wird der Bügel mit der Länge $l_{VR}$ aus dem Wasser gezogen, so bidet sich eine Lamelle $A$. Die dabei angreifende Kraft $F_{VR}$ wird mit einer Federwaage $F$ bestimmt.}
+            \label{fig:Lenard}
+        \end{minipage}
+        \hspace{.1\linewidth}% Abstand zwischen Bilder
+        \begin{minipage}[htbp]{.4\linewidth} % [b] => Ausrichtung an \caption
+            \includegraphics[width=\linewidth]{Kapillare.png}
+            \caption[Messung nach der Kapillarmethode]{Zur Messung nach der Kapillarmethode. $r$ Radius der Kapillare, $h$ Steighöhe, $\rho$ Dichte der Flüssigkeit. Für vollständig benetzende Flüssigkeiten ist der Randwinkel $\alpha = 0$.}
+            \label{fig:Kapillare}
+        \end{minipage}
+    \end{center}
+ \end{figure}

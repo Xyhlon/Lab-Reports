@@ -1,0 +1,136 @@
+% Encoding: UTF-8
+
+@Misc{Venkatesan2021,
+  author       = {Venkatesan, Naveen},
+  date         = {2021-03},
+  title        = {Basic {Curve} {Fitting} of {Scientific} {Data} with {Python}},
+  language     = {en},
+  url          = {https://towardsdatascience.com/basic-curve-fitting-of-scientific-data-with-python-9592244a2509},
+  urldate      = {2021-04-12},
+  abstract     = {A basic guide to using Python to fit non-linear functions to experimental data points},
+  journaltitle = {Medium},
+}
+
+@Booklet{Kluge2016,
+  author       = {Julien Kluge},
+  date         = {2016-12},
+  title        = {Kurzeinfuehrung in die Fehlerrechnung für das Physik-Praktikum},
+  howpublished = {Humboldt-Universitaet zu Berlin},
+  location     = {Unter den Linden 610099 Berlin},
+  url          = {http://people.physik.hu-berlin.de/~julien/sub/Kurzeinfuerung - Fehlerrechnung MMA.pdf},
+}
+
+@Booklet{WolfgangKessel2004,
+  author = {Wolfgang Kessel, Braunschweig},
+  date   = {2004},
+  title  = {Die ISO/BIPM-GUM Sicht:Schätzwert \& Messunsicherheit},
+}
+
+@Article{Wagner2002,
+  author       = {Wagner, W. and Pruß, A.},
+  date         = {2002-06},
+  journaltitle = {Journal of Physical and Chemical Reference Data},
+  title        = {The {IAPWS} {Formulation} 1995 for the {Thermodynamic} {Properties} of {Ordinary} {Water} {Substance} for {General} and {Scientific} {Use}},
+  doi          = {10.1063/1.1461829},
+  issn         = {0047-2689, 1529-7845},
+  language     = {en},
+  number       = {2},
+  pages        = {387--535},
+  url          = {http://aip.scitation.org/doi/10.1063/1.1461829},
+  urldate      = {2021-05-08},
+  volume       = {31},
+}
+
+@InCollection{Roth2016,
+  author    = {Roth, Stefan and Stahl, Achim},
+  date      = {2016},
+  title     = {Hydro- und {Aerostatik}},
+  doi       = {10.1007/978-3-662-45304-9_15},
+  editor    = {Roth, Stefan and Stahl, Achim},
+  isbn      = {9783662453049},
+  language  = {de},
+  location  = {Berlin, Heidelberg},
+  pages     = {313--346},
+  publisher = {Springer},
+  url       = {https://doi.org/10.1007/978-3-662-45304-9_15},
+  urldate   = {2021-05-08},
+  abstract  = {In diesem Kapitel beschäftigen wir uns erstmals mit Flüssigkeiten und Gasen und zwar mit ruhenden. Wir führen zunächst den statischen Druck als wesentliche Größe für die Beschreibung ruhender Flüssigkeiten und Gase ein. Danach betrachten wir die elastischen Deformationen und stellen fest, dass von den vielen Deformationen der Festkörper hier nur die Kompression bleibt, die wir einführen und diskutieren. Neben dem äußeren Druck führen wir den Schweredruck ein und erhalten bei der Anwendung auf die Atmosphäre die barometrische Höhenformel. Ein weiteres wichtiges Phänomen ist der Auftrieb, den wir über das archimedische Prinzip besprechen. Zum Schluss des Kapitels diskutieren wir noch Effekte an Grenzflächen wie die Oberflächenspannung, die Haftspannung und die Kapillarität.},
+  file      = {:Roth2016 - Hydro Und Aerostatik.pdf:PDF},
+}
+
+@Misc{2020Fehler,
+  date      = {2020 - 11},
+  title     = {Fehlerfortpflanzung},
+  language  = {de},
+  note      = {Page Version ID: 205827844},
+  url       = {https://de.wikipedia.org/w/index.php?title=Fehlerfortpflanzung&oldid=205827844},
+  urldate   = {2021-05-08},
+  abstract  = {Bei vielen Messaufgaben ist eine Größe nicht direkt messbar, sondern sie ist indirekt aus mehreren messbaren Größen nach einer festgelegten mathematischen Beziehung zu bestimmen. Da jeder Messwert der einzelnen Größen von seinem richtigen Wert abweicht (siehe Messabweichung, ältere Bezeichnung Messfehler), wird auch das Ergebnis der Rechnung von seinem richtigen Wert abweichen. Die einzelnen Abweichungen werden mit der Formel übertragen. Dieses wird Fehlerfortpflanzung genannt. Für diese existieren Rechenregeln, mit denen die Abweichung des Ergebnisses bestimmt oder abgeschätzt werden kann. Seit der Unterscheidung zwischen Messabweichung und Messfehler ist die Bezeichnung Fehlerfortpflanzung als überholt anzusehen. Da sich aber noch kein neuer Ausdruck etabliert hat, wird zur sprachlichen Einheitlichkeit hier noch die Bezeichnung Fehler beibehalten.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@Book{Demtroeder2013,
+  author     = {Demtröder, Wolfgang},
+  date       = {2013},
+  title      = {Experimentalphysik. 2: {Elektrizität} und {Optik}},
+  edition    = {6., überarbeitete und aktualisierte Auflage},
+  isbn       = {9783642299445 9783642299438},
+  language   = {ger},
+  location   = {Berlin Heidelberg},
+  note       = {OCLC: 840599854},
+  publisher  = {Springer Spektrum},
+  series     = {Springer-{Lehrbuch}},
+  shorttitle = {Experimentalphysik. 2},
+}
+
+@Misc{vorlageelast1,
+  date         = {2018-04-18},
+  title        = {Bestimmung des Elastizitätsmoduls durch Biegung},
+  language     = {de},
+  location     = {Petersgasse 16, A-8010 Graz},
+  organization = {Institut f. Experimentalphysik Technische Universität Graz},
+}
+
+@Book{Demtroeder2006,
+  author     = {Demtröder, Wolfgang},
+  date       = {2006-03},
+  title      = {Experimentalphysik 1: {Mechanik} und {Wärme}},
+  isbn       = {9783540299349},
+  language   = {de},
+  note       = {Google-Books-ID: 3PoiBAAAQBAJ},
+  publisher  = {Springer-Verlag},
+  abstract   = {MECHANIK und WÄRME ist der erste von vier Bänden zur Experimentalphysik von Professor Demtröder. Die Lehrinhalte des ersten Semesters Physik werden anschaulich und leicht verständlich, dabei aber möglichst quantitativ präsentiert. Wichtige Definitionen und Formeln, alle Abbildungen und Tabellen wurden zweifarbig gestaltet. Durchgerechnete Beispiele im Text, Kapitelzusammenfassungen sowie Übungsaufgaben mit ausführlichen Lösungen am Schluss des Buches helfen dabei, den Stoff zu bewältigen, und regen zu eigener Mitarbeit an. Farbtafeln zu ausgesuchten Themen tragen zum Spaß an diesem Buch bei. Die vierte Auflage wurde neu bearbeitet und aktualisiert.},
+  file       = {Google Books Link:https\://books.google.at/books?id=3PoiBAAAQBAJ:text/html},
+  keywords   = {Science / Mechanics / General, Science / Acoustics \& Sound, Science / Mechanics / Thermodynamics, Science / Mechanics / Fluids, Science / Physics / General, Science / Waves \& Wave Mechanics},
+  shorttitle = {Experimentalphysik 1},
+}
+
+@Book{Ahrberg2011,
+  author    = {Ahrberg, Rainer and Arndt, Klaus-Dieter and Bahmann, Werner and Barfels, Lutz and Bauer, J{\"u}rgen and Borutzki, Ulrich and B{\"o}ge, Gert and B{\"o}ge, Wolfgang and Heinrich, Berthold and Kemnitz, Arnfried and others},
+  date      = {2011},
+  title     = {Handbuch Maschinenbau: Grundlagen und Anwendungen der Maschinenbau-Technik},
+  isbn      = {978-3-8348-1025-0},
+  location  = {Wiesbaden},
+  publisher = {Springer-Verlag},
+}
+
+@Booklet{Knoll2020,
+  author       = {Peter Knoll},
+  date         = {2020},
+  title        = {Mechanik und Wärme(Mechanics and Heat)},
+  howpublished = {Vorlesungsskript},
+  language     = {DE},
+  pagetotal    = {407},
+  subtitle     = {Skriptum zur Vorlesung},
+}
+
+@Misc{vorlageelast2,
+  author       = {Robert Nuster and Peter Knoll},
+  date         = {2020},
+  title        = {Protokoll Bsp. 3c: Elastizität},
+  language     = {de},
+  location     = {Petersgasse 16, A-8010 Graz},
+  organization = {Inst. f. Physik der KFU Graz},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}

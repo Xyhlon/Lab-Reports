@@ -1,0 +1,136 @@
+% Encoding: UTF-8
+
+@Manual{laserdistanzmesser,
+  title        = {MULTIFUNKTIONSDETEKTOR /LASERENTFERNUNGSMESSER PMML 5 A1},
+  organization = {Lidl Österreich GmbH},
+  url          = {https://www.manualslib.de/manual/534721/Parkside-Pmml-5-A1.html?page=11#manual},
+}
+
+@Misc{brechzahlwasser,
+  title        = {Eigenschaften des Wassers},
+  organization = {chemie.de},
+  url          = {https://www.chemie.de/lexikon/Eigenschaften_des_Wassers.html},
+  urldate      = {2021-06-14},
+}
+
+@Dataset{brechzahloele,
+  title   = {Allgemeine Kennzahlen von Fetten, Ölen und Wachsen},
+  url     = {https://link.springer.com/content/pdf/bbm:978-3-642-90674-9/1.pdf},
+  urldate = {2021-06-14},
+}
+
+@Misc{brechzahlsirup,
+  title        = {Himbeersirup (konserviert)Sirupus Rubi Idaei, m. Kirschsaftzusatz},
+  location     = {Herderstr. 31 40721 Hilden Deutschland},
+  organization = {Caesar \& Loretz GmbH},
+  url          = {https://www.caelo.de/getfile.html?type=sdb&num=g208&cntry=},
+}
+
+@Booklet{Kluge2016,
+  author       = {Julien Kluge},
+  date         = {2016-12},
+  title        = {Kurzeinfuehrung in die Fehlerrechnung für das Physik-Praktikum},
+  howpublished = {Humboldt-Universitaet zu Berlin},
+  location     = {Unter den Linden 610099 Berlin},
+  url          = {http://people.physik.hu-berlin.de/~julien/sub/Kurzeinfuerung - Fehlerrechnung MMA.pdf},
+}
+
+@Booklet{WolfgangKessel2004,
+  author = {Wolfgang Kessel, Braunschweig},
+  date   = {2004},
+  title  = {Die ISO/BIPM-GUM Sicht:Schätzwert \& Messunsicherheit},
+}
+
+@Article{Wagner2002,
+  author       = {Wagner, W. and Pruß, A.},
+  date         = {2002-06},
+  journaltitle = {Journal of Physical and Chemical Reference Data},
+  title        = {The {IAPWS} {Formulation} 1995 for the {Thermodynamic} {Properties} of {Ordinary} {Water} {Substance} for {General} and {Scientific} {Use}},
+  doi          = {10.1063/1.1461829},
+  issn         = {0047-2689, 1529-7845},
+  language     = {en},
+  number       = {2},
+  pages        = {387--535},
+  url          = {http://aip.scitation.org/doi/10.1063/1.1461829},
+  urldate      = {2021-05-08},
+  volume       = {31},
+}
+
+@Misc{2020Fehler,
+  date      = {2020-11},
+  title     = {Fehlerfortpflanzung},
+  language  = {de},
+  note      = {Page Version ID: 205827844},
+  url       = {https://de.wikipedia.org/w/index.php?title=Fehlerfortpflanzung&oldid=205827844},
+  urldate   = {2021-05-08},
+  abstract  = {Bei vielen Messaufgaben ist eine Größe nicht direkt messbar, sondern sie ist indirekt aus mehreren messbaren Größen nach einer festgelegten mathematischen Beziehung zu bestimmen. Da jeder Messwert der einzelnen Größen von seinem richtigen Wert abweicht (siehe Messabweichung, ältere Bezeichnung Messfehler), wird auch das Ergebnis der Rechnung von seinem richtigen Wert abweichen. Die einzelnen Abweichungen werden mit der Formel übertragen. Dieses wird Fehlerfortpflanzung genannt. Für diese existieren Rechenregeln, mit denen die Abweichung des Ergebnisses bestimmt oder abgeschätzt werden kann. Seit der Unterscheidung zwischen Messabweichung und Messfehler ist die Bezeichnung Fehlerfortpflanzung als überholt anzusehen. Da sich aber noch kein neuer Ausdruck etabliert hat, wird zur sprachlichen Einheitlichkeit hier noch die Bezeichnung Fehler beibehalten.},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@Book{Demtroeder2013,
+  author     = {Demtröder, Wolfgang},
+  date       = {2013},
+  title      = {Experimentalphysik. 2: {Elektrizität} und {Optik}},
+  edition    = {6., überarbeitete und aktualisierte Auflage},
+  isbn       = {9783642299445 9783642299438},
+  language   = {ger},
+  location   = {Berlin Heidelberg},
+  note       = {OCLC: 840599854},
+  publisher  = {Springer Spektrum},
+  series     = {Springer-{Lehrbuch}},
+  shorttitle = {Experimentalphysik. 2},
+}
+
+@Misc{2020a,
+  date      = {2020-08},
+  title     = {Genauigkeitsklasse},
+  language  = {de},
+  note      = {Page Version ID: 202431191},
+  url       = {https://de.wikipedia.org/w/index.php?title=Genauigkeitsklasse&oldid=202431191},
+  urldate   = {2021-05-13},
+  abstract  = {Die Genauigkeitsklasse eines Messgerätes legt die maximal zu erwartende Abweichung eines Messwertes vom wahren Wert der zu messenden physikalischen Größe fest, soweit die Abweichung durch das Messgerät selbst bedingt ist. Einerseits kann ein Messgerät nicht exakt eingestellt werden; andererseits können sich seine Eigenschaften durch äußere Einflüsse ändern. Mit der Einstufung in eine Genauigkeitsklasse wird ein Qualitätsmerkmal geliefert, in welchem Umfang diese Ursachen zu einer Messabweichung führen dürfen. Normen verwenden den Begriff z. B. für Stromwandler, Wiegesysteme oder direkt wirkende Messgeräte mit Skalenanzeige. Für die weit verbreiteten Strom- und Spannungsmessgeräte mit Ziffernanzeige sind derartige Klassen nicht bekannt; dazu siehe Digitalmultimeter, Messgeräteabweichung, Auflösung (Digitaltechnik).},
+  copyright = {Creative Commons Attribution-ShareAlike License},
+}
+
+@Book{Demtroeder2006,
+  author     = {Demtröder, Wolfgang},
+  date       = {2006-03},
+  title      = {Experimentalphysik 1: {Mechanik} und {Wärme}},
+  isbn       = {9783540299349},
+  language   = {de},
+  note       = {Google-Books-ID: 3PoiBAAAQBAJ},
+  publisher  = {Springer-Verlag},
+  abstract   = {MECHANIK und WÄRME ist der erste von vier Bänden zur Experimentalphysik von Professor Demtröder. Die Lehrinhalte des ersten Semesters Physik werden anschaulich und leicht verständlich, dabei aber möglichst quantitativ präsentiert. Wichtige Definitionen und Formeln, alle Abbildungen und Tabellen wurden zweifarbig gestaltet. Durchgerechnete Beispiele im Text, Kapitelzusammenfassungen sowie Übungsaufgaben mit ausführlichen Lösungen am Schluss des Buches helfen dabei, den Stoff zu bewältigen, und regen zu eigener Mitarbeit an. Farbtafeln zu ausgesuchten Themen tragen zum Spaß an diesem Buch bei. Die vierte Auflage wurde neu bearbeitet und aktualisiert.},
+  file       = {Google Books Link:https\://books.google.at/books?id=3PoiBAAAQBAJ:text/html},
+  keywords   = {Science / Mechanics / General, Science / Acoustics \& Sound, Science / Mechanics / Thermodynamics, Science / Mechanics / Fluids, Science / Physics / General, Science / Waves \& Wave Mechanics},
+  shorttitle = {Experimentalphysik 1},
+}
+
+@Book{Ahrberg2011,
+  author    = {Ahrberg, Rainer and Arndt, Klaus-Dieter and Bahmann, Werner and Barfels, Lutz and Bauer, J{\"u}rgen and Borutzki, Ulrich and B{\"o}ge, Gert and B{\"o}ge, Wolfgang and Heinrich, Berthold and Kemnitz, Arnfried and others},
+  date      = {2011},
+  title     = {Handbuch Maschinenbau: Grundlagen und Anwendungen der Maschinenbau-Technik},
+  isbn      = {978-3-8348-1025-0},
+  location  = {Wiesbaden},
+  publisher = {Springer-Verlag},
+}
+
+@Booklet{Knoll2020,
+  author       = {Peter Knoll},
+  date         = {2020},
+  title        = {Mechanik und Wärme(Mechanics and Heat)},
+  howpublished = {Vorlesungsskript},
+  language     = {DE},
+  pagetotal    = {407},
+  subtitle     = {Skriptum zur Vorlesung},
+}
+
+@Misc{vorlageentfernung2021,
+  date         = {2021-03-18},
+  title        = {Entfernungsmessung / Brechzahl},
+  language     = {de},
+  location     = {Petersgasse 16, A-8010 Graz},
+  organization = {Institut f. Experimentalphysik Technische Universitat Graz},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
