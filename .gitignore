@@ -28,6 +28,8 @@
 *.blg
 *-blx.aux
 *-blx.bib
+*.bib.bak
+*.bib.sav.tmp
 *.run.xml
 
 # Build tool auxiliary files:
