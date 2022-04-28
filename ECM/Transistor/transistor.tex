@@ -11,36 +11,38 @@
     % Fußzeile
 %--------------------------------------AB HIER DOKUMENT---------------------------------------------
 \begin{document}
-% TODO einkommentieren kompiliert schneller auskommentiert
-% \includepdf{deckblatt1.pdf}
+\includepdf{deckblatt1.pdf}
 \tableofcontents
 \newpage
 
 
-% \section{Aufgabenstellung}\label{sec:Aufgabenstellung}
+%\section{Aufgabenstellung}\label{sec:Aufgabenstellung}
 
 % Die nachfolgende Aufgabenstellung wurde von den Laborbetreuern bereitgestellt
 % und beinhaltet sowohl Angaben zur Vorbereitung als auch zur praktischen
 % Durchführung der Übung:
 
 % zu 1: Aufgabenstellung Das vor der Übung verteilte Aufgabenblatt.
-% TODO einkommentieren kompiliert schneller auskommentiert
-% \includepdf[
-%     pages=-,  % all pages
-%     addtotoc={
-%         1, section, 1, Aufgabenstellung, sec:aufgabenstellung
-%     },
-%     addtolist={
-%        4, figure, {Ehemitverschaltung mit Gleichstromgegenkopplung}, fig:angabe_abb1,
-%        4, figure, {Ersatzschaltbild Eingangs- und Ausgangswiderstand}, fig:angabe_abb2,
-%        4, figure, {Ersatzschaltbild Koppelkondensatoren}, fig:angabe_abb3
-%     }
-% ]{angabe.pdf}
+ \includepdf[
+     pages=-,  % all pages
+     addtotoc={
+         1, section, 1, Aufgabenstellung, sec:Aufgabenstellung
+     },
+     addtolist={
+        4, figure, {Emitterschaltung mit Gleichstromgegenkopplung}, fig:angabe_abb1,
+        4, figure, {Ersatzschaltbild Eingangs- und Ausgangswiderstand}, fig:angabe_abb2,
+        4, figure, {Ersatzschaltbild Koppelkondensatoren}, fig:angabe_abb3
+     }
+ ]{angabe.pdf}
 
 % zu 2: Vorbereitung Es sind beide Vorbereitungen dem Protokoll beizufügen.
-\section{Vorbereitung}\label{sec:Vorbereitung}
-%\includepdf[pages=-]{vorbereitung.pdf}
-%TODO: einfügen der vorbereitung
+%\section{Vorbereitung}\label{sec:Vorbereitung}
+%Die folgende Vorbereitung wurde vor der Laborübung 
+\includepdf[pages=-,
+     addtotoc={
+         1, section, 2, Vorbereitung, sec:Vorbereitung
+     }]{./figures/Transistor1.pdf}
+\includepdf[pages=-]{./figures/Transistor2.pdf}
 
 
 % zu 3: Grundlagen In den Grundlagen sollen die später verwendeten Formeln
@@ -132,7 +134,7 @@ zwischen Ausgangsspannung und Eingangsspannung gemäß \autoref{eq:verst}.
 
 Zur Simulation der Emitterschaltung mit Gegenstromkopplung wird das Programm
 \textit{LTSPICE} verwendet. Der Aufbau erfolgt analog zum skizzierten Schaltplan im
-Kapitel \nameref{sec:Vorbereitung}. 
+Kapitel \nameref{sec:Vorbereitung}. Auf die (Gerät-)Spezifikationen ist dementsprechend zu achten.
 
 % DONE 1.1 Bauen Sie die Schaltung mit dem Programm PSPICE LT gemäß der berechneten
 % DONE Parameter ohne den Überbrückungskondensator CE auf.
@@ -149,7 +151,7 @@ dargestellt.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=8cm, height=8cm,keepaspectratio]{./figures/ohnekond/schaltungmitmessungen20mv.png}
+    \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/ohnekond/schaltungmitmessungen20mv.png}
     \caption{Schaltung ohne Überbrückungskondensator bei einem Sinus-Eingangssignal
     mit einer Amplitude von \SI{20}{mV}, einer Frequenz von \SI{1}{k\hertz} und einem
     Innenwiderstand von \SI{600}{\ohm} ; mit der Eingangs- $U_e$ und
@@ -172,17 +174,26 @@ dargestellt.
 
 \paragraph{Normalbetrieb}
 
-In \autoref{fig:verlaufohnekond} ist der zeitliche Verlauf von Eingangs-
-und Ausgangsspannung der Emitterschaltung ohne Überbrückungskondensator
+In \autoref{fig:verlaufohnekond} respektive \autoref{fig:sim_ohne_normal_ausgang} ist der zeitliche Verlauf von Eingangs-
+und Ausgangsspannung der Emitterschaltung ohne Überbrückungskondensator im Normalbetrieb
 dargestellt.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekond/eingangundausgangssignal.png}
-    \caption{Zeitlicher Verlauf der Ein- $V(u_e)$ und Ausgangsspannung $V(u_a)$
+    \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekond/eingangssignal20mv.png}
+    \caption{Zeitlicher Verlauf der Eingangsspannung $V(u_e)$ 
     der Emitterschaltung ohne Überbrückungskondensator bei einer Amplitude von
-    \SI{20}{mV} des Eingangssignals}
+  \SI{20}{mV} des Eingangssignals}
     \label{fig:verlaufohnekond}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekond/ausgangssignal20mv.png}
+    \caption{Zeitlicher Verlauf der Ausgangsspannung $V(u_a)$
+    der Emitterschaltung ohne Überbrückungskondensator bei einer Amplitude von
+  \SI{20}{mV} des Eingangssignals}
+    \label{fig:sim_ohne_normal_ausgang}
 \end{figure}
 
 % FIXME(MAX) 1.3 Testen Sie wie hoch die maximale Eingangspannung werden darf bis der Transistor in der Simulation
@@ -193,29 +204,35 @@ dargestellt.
 
 \paragraph{Übersteuerungsbetrieb}
 
-% TODO erstellen eines Parametersweep um die Übersteuerungsgrenze gut darzustellen
 Um die Übersteuerungsgrenze zu finden, wurde ein Parameter-Sweep durchgeführt,
-wobei die Amplitude der Eingangsspannung variiert wurde. Dadurch konnte die
+wobei die Amplitude der Eingangsspannung variiert wurde. In 
+\autoref{fig:sim_ohne_paramsweep_ausgang} ist der Verlauf der Ausgangsspannung
+in Abhängigkeit der Eingangsspannung dargestellt. Dadurch konnte die
 Übersteuerungsgrenze visuell bestimmt werden.
 
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekond/parametersweepuebersteuerung.png}
+    \caption{Zeitlicher Verlauf der Ausgangsspannung $V(u_a)$
+    der Emitterschaltung ohne Überbrückungskondensator mit einem Parameter Sweep der Amplitude des Eingangssignals. 
+    Folgende SPICE directives wurden für die Simulation verwendet
+    \texttt{.tran 0.004 0.007 0.004 0.00001} und \texttt{.step param X 0mV 350mV 20mV}}
+    \label{fig:sim_ohne_paramsweep_ausgang}
+\end{figure}
 
 % FIXME(MAX) 1.4 Erstellen Sie einen DC Sweep in Abhängigkeit der Temperatur und zeigen Sie die Änderung des
 % FIXME(MAX) Kollektorpotentials. 
 % Diskutieren Sie die Konsequenzen einer Temperaturerhöhung.
 \paragraph{DC Temperatur Sweep}
-%TODO der text
 Zur Darstellung der Temperaturabhängigkeit wurde ein DC-Sweep durchgeführt. In \autoref{fig:sim_dc_temp_sweep_ohne} ist das Kollektorpotential in Abhängigkeit der Temperatur zu sehen.
-% TODO verbessere mich
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekond/tempsweepdclinear.png }
-    % TODO verbessere mich und ueberpruefe spice directive
     \caption[Simulierter DC Temperatur Sweep ohne
-    Überbrückungskondensator]{Simulierter DC Temperatur Sweep welcher die
+    Überbrückungskondensator]{Simulierter DC Temperatur Sweep, welcher die
       Temperaturabhängigkeit des Kollektorpotentials darstellt. Auf der
-      Abszisse befindet sich die Temperatur des Transistors und auf Ordinate
-      befindet sich das Kollektorpotential $VC$. Diese Simulation wurde bei dem
+      Abszisse befindet sich die Temperatur des Transistors und auf der Ordinate
+      das Kollektorpotential $VC$. Diese Simulation wurde für den
       Schaltplan aus \autoref{fig:schaltungohnekond} mit folgender SPICE
       directive \texttt{.dc temp 0 200 1} durchgeführt.
   }
@@ -225,21 +242,18 @@ Zur Darstellung der Temperaturabhängigkeit wurde ein DC-Sweep durchgeführt. In
 
 % 1.5 Nehmen Sie die Ausgangsspannung über der Zeit für verschiedene Temperaturen in einem
 % Diagramm dar und diskutieren Sie diesen Plot.
-\paragraph{Temperaturvariierte Transiente Analyse}
-%TODO der text
-Für die Ausgangsspannung wurde eine temparaturvariierte, transiente Analyse durchgeführt. Für fünf verschiedene Betriebstemperaturen ist der Verlauf der Ausgangsspannung in \autoref{fig:sim_tran_temp_ohne} zu sehen.
+\paragraph{Temperaturvariierte Transienten-Analyse}
+Für die Ausgangsspannung wurde eine temparaturvariierte Transienten-Analyse durchgeführt. Für acht verschiedene Betriebstemperaturen ist der Verlauf der Ausgangsspannung in \autoref{fig:sim_tran_temp_ohne} zu sehen.
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekond/tempsweepausgang.png }
-    % TODO verbessere mich und ueberpruefe spice directive
-    \caption[Simulierte Transient Analyse ohne
-    Überbrückungskondensator]{Simulierte Transient Analyse von der
-      Ausgangsspannung unter Einfluß verschiedener Betriebstemperaturen. Auf
-      der Abszisse befindet sich die Zeit und auf Ordinate befindet sich die
-      Ausgangsspannung $U_a$. Diese Simulation wurde bei dem Schaltplan aus
-    \autoref{fig:schaltungohnekond} mit folgenden SPICE directives \texttt{.tran
-      0 0.005 0 0.0001} und \texttt{.step temp 0 200 50} durchgeführt. Die Legende
+    \caption[Simulierte Transienten-Analyse ohne
+    Überbrückungskondensator]{Simulierte Transienten-Analyse von der
+      Ausgangsspannung unter Einfluss verschiedener Betriebstemperaturen. Auf
+      der Abszisse befindet sich die Zeit und auf der Ordinate die
+      Ausgangsspannung $U_a$. Diese Simulation wurde für den Schaltplan aus
+    \autoref{fig:schaltungohnekond} mit folgenden SPICE directives \texttt{.tran 0.004 0.007 0.004 0.00001}, \texttt{.param X 10mV} und \texttt{.step temp 0 200 30} durchgeführt. Die Legende
     beinhaltet die Zuordnung von Farbe zu Temperatur (in Celsius).}
   \label{fig:sim_tran_temp_ohne}
 \end{figure}
@@ -250,12 +264,12 @@ Für die Ausgangsspannung wurde eine temparaturvariierte, transiente Analyse dur
 
 Nun wird die Schaltung der  \autoref{fig:schaltungohnekond} um den
 Überbrückungskondensator $C_E$ gemäß  \autoref{fig:schaltungmitkond}
-erweitert. Nun werden die gleichen Schritte wie beim vorigen Aufbau
+erweitert. Weiters werden die gleichen Schritte wie beim vorigen Aufbau
 durchlaufen.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=8cm, height=8cm,keepaspectratio]{./figures/mitkond/messwertemitueberbrueckung.png}
+    \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/mitkond/messwertemitueberbrueckung.png}
     \caption{Schaltung mit Überbrückungskondensator bei einem Sinus-Eingangssignal
     mit einer Amplitude von \SI{6}{\milli\volt}, einer Frequenz von \SI{1}{\kilo\hertz} und einem
     Innenwiderstand von \SI{600}{\ohm} ; mit der Eingangs- $U_e$ und
@@ -279,12 +293,12 @@ durchlaufen.
 
 Die Ein- und Ausgangsspannungen der Emitterschaltung mit
 Überbrückungskondensator über der Zeit sind in \autoref{fig:sim_mit_normal_eingang} und \autoref{fig:sim_mit_normal_ausgang}
-ersichtlich.
+ersichtlich. Zur besseren Darstellung der jeweiligen Sinusverläufe wurden diese Spannungen getrennt abgebildet; hierbei sind die unterschiedlichen Skalierungen zu beachten.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth, height=7cm]{./figures/mitkond/eingangssignalmitueberbrueckung.png}
-    \caption{Zeitlicher Verlauf der Einspannung $V(u_e)$ 
+    \includegraphics[width=\linewidth, height=7cm]{./figures/mitkond/eingangssignal6mv.png}
+    \caption{Zeitlicher Verlauf der Eingangsspannung $V(u_e)$ 
     der Emitterschaltung mit Überbrückungskondensator bei einer Amplitude von
   \SI{5}{mV} des Eingangssignals}
     \label{fig:sim_mit_normal_eingang}
@@ -292,7 +306,7 @@ ersichtlich.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth, height=7cm]{./figures/mitkond/ausgangssignalmitueberbrueckung.png}
+    \includegraphics[width=\linewidth, height=7cm]{./figures/mitkond/ausgangssignal6mv.png}
     \caption{Zeitlicher Verlauf der Ausgangsspannung $V(u_a)$
     der Emitterschaltung mit Überbrückungskondensator bei einer Amplitude von
   \SI{5}{mV} des Eingangssignals}
@@ -307,10 +321,21 @@ ersichtlich.
 
 \paragraph{Übersteuerungsbetrieb}
 
-% TODO erstellen eines Parametersweep um die Übersteuerungsgrenze gut darzustellen
-Um die Übersteuerungsgrenze zu finden. wurde ein Parameter-Sweep durchgeführt,
-wobei die Amplitude der Eingangsspannung variiert wurde. Dadurch konnte die
+Um die Übersteuerungsgrenze zu finden, wurde ein Parameter-Sweep durchgeführt,
+wobei die Amplitude der Eingangsspannung variiert wurde. In 
+\autoref{fig:sim_mit_paramsweep_ausgang} ist der Verlauf der Ausgangsspannung
+in Abhängigkeit der Eingangsspannung dargestellt. Dadurch konnte die
 Übersteuerungsgrenze visuell bestimmt werden.
+
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=\linewidth, height=7cm]{./figures/mitkond/parametersweepuebersteurung.png}
+    \caption{Zeitlicher Verlauf der Ausgangsspannung $V(u_a)$
+    der Emitterschaltung mit Überbrückungskondensator mit einem Parameter Sweep der Amplitude des Eingangssignals.
+    Folgende SPICE directives wurden für die Simulation verwendet
+    \texttt{.tran 0.004 0.007 0.004 0.00001} und \texttt{.step param X 0mV 350mV 20mV}}
+    \label{fig:sim_mit_paramsweep_ausgang}
+\end{figure}
 
 
 
@@ -318,18 +343,15 @@ wobei die Amplitude der Eingangsspannung variiert wurde. Dadurch konnte die
 % FIXME(MAX) Kollektorpotentials. 
 % Diskutieren Sie die Konsequenzen einer Temperaturerhöhung.
 \paragraph{DC Temperatur Sweep}
-%TODO der text
 Zur Darstellung der Temperaturabhängigkeit wurde ein DC-Sweep durchgeführt. In \autoref{fig:sim_dc_temp_sweep_mit} ist das Kollektorpotential in Abhängigkeit der Temperatur zu sehen.
-% TODO verbessere mich
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./figures/mitkond/tempmitkondkollektorpot.png}
-    % TODO verbessere mich und ueberpruefe spice directive
     \caption[Simulierter DC Temperatur Sweep mit
-    Überbrückungskondensator]{Simulierter DC Temperatur Sweep welcher die
+    Überbrückungskondensator]{Simulierter DC Temperatur Sweep, welcher die
       Temperaturabhängigkeit des Kollektorpotentials darstellt. Auf der
-      Abszisse befindet sich die Temperatur des Transistors und auf Ordinate
-      befindet sich das Kollektorpotential $VC$. Diese Simulation wurde bei dem
+      Abszisse befindet sich die Temperatur des Transistors und auf der Ordinate
+      das Kollektorpotential $VC$. Diese Simulation wurde für den
       Schaltplan aus \autoref{fig:schaltungmitkond} mit folgender SPICE
       directive \texttt{.dc temp 0 200 1} durchgeführt.
   }
@@ -338,18 +360,16 @@ Zur Darstellung der Temperaturabhängigkeit wurde ein DC-Sweep durchgeführt. In
 
 % 2.5 Nehmen Sie die Ausgangsspannung über der Zeit für verschiedene Temperaturen in einem
 % Diagramm dar und diskutieren Sie diesen Plot.
-\paragraph{Temperaturvariierte Transiente Analyse}
-%TODO der text
-Für die Ausgangsspannung wurde eine temparaturvariierte, transiente Analyse durchgeführt. Für fünf verschiedene Betriebstemperaturen ist der Verlauf der Ausgangsspannung in \autoref{fig:sim_tran_temp_mit} zu sehen.
+\paragraph{Temperaturvariierte Transienten-Analyse}
+Für die Ausgangsspannung wurde eine temparaturvariierte Transienten-Analyse durchgeführt. Für acht verschiedene Betriebstemperaturen ist der Verlauf der Ausgangsspannung in \autoref{fig:sim_tran_temp_mit} zu sehen.
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./figures/mitkond/ausgangmitkondtempsweep20mv.png }
-    % TODO verbessere mich und ueberpruefe spice directive
-    \caption[Simulierte Transient Analyse mit
-    Überbrückungskondensator]{Simulierte Transient Analyse von der
-      Ausgangsspannung unter Einfluß verschiedener Betriebstemperaturen. Auf
-      der Abszisse befindet sich die Zeit und auf Ordinate befindet sich die
-      Ausgangsspannung $U_a$. Diese Simulation wurde bei dem Schaltplan aus
+    \caption[Simulierte Transienten-Analyse mit
+    Überbrückungskondensator]{Simulierte Transienten-Analyse von der
+      Ausgangsspannung unter Einfluss verschiedener Betriebstemperaturen. Auf
+      der Abszisse befindet sich die Zeit und auf der Ordinate die
+      Ausgangsspannung $U_a$. Diese Simulation wurde für den Schaltplan aus
     \autoref{fig:schaltungmitkond} mit folgenden SPICE directives \texttt{.tran
       0 0.005 0 0.0001} und \texttt{.step temp 0 200 50} durchgeführt. Die Legende
     beinhaltet die Zuordnung von Farbe zu Temperatur (in Celsius).}
@@ -365,14 +385,13 @@ Für die Ausgangsspannung wurde eine temparaturvariierte, transiente Analyse dur
 Am Ende wird die Emitterschaltung exklusive dem Emitterwiderstand und wiederum
 ohne den Überbrückungskondensator verwendet, um die starke
 Temperaturabhängigkeit einer Transistorschaltung darzustellen. Die Schaltung
-ist  \autoref{fig:schatlungohnekundre} zu entnehmen.
+ist  \autoref{fig:schatlungohnekundre} zu entnehmen. Um den ursprünglichen Arbeitspunkt (Kollektorpotential von ca. \SI{7,5}{\volt}) zu erhalten, wurde dafür der Vorwiderstand $R1$ passend verringert.
 
-%TODO: schaltung ohne kond und ohne re foto machen
 \begin{figure}[H]
     \centering
-    % \includegraphics[width=8cm, height=8cm,keepaspectratio]{./figures/ohnekondundre/temperaturausgang50mvr2auf10kohm.png}
-    \caption{Schaltung mit Überbrückungskondensator bei einem Sinus-Eingangssignal
-      mit einer Amplitude von \SI{6}{\milli\volt}, einer Frequenz von \SI{1}{\kilo\hertz} und einem
+    \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/ohnekondundre/schaltungohnere.png}
+    \caption{Schaltung ohne Emitterwiderstand und Überbrückungskondensator bei einem Sinus-Eingangssignal
+      mit einer Amplitude von \SI{50}{\milli\volt}, einer Frequenz von \SI{1}{\kilo\hertz} und einem
       Innenwiderstand von \SI{600}{\ohm} ; mit der Eingangs- $U_e$ und
       Ausgangsspannung $U_a$, den Eingangs- $Ce$ und Ausgangskondensatoren $Ca$, den
       Vorwiderständen $R1$ und $R2$, dem Kollektorwiderstand $RC$, dem
@@ -384,47 +403,68 @@ ist  \autoref{fig:schatlungohnekundre} zu entnehmen.
 \end{figure}
 
 Die Spannungsverläufe für die Schaltung ohne Emitterwiderstand und
-Überbrückungskondensator sind in \autoref{fig:verlaufohnekondundre} zu
+Überbrückungskondensator sind in \autoref{fig:verlaufohnekondundre} und \autoref{fig:sim_ohne_re_normal_ausgang} zu
 sehen.
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekondundre/verstaerkung5mv.png}
-% TODO verbessern 
-  \caption{Spannungsverläufe für die Schaltung ohne $RE$ und $CE$}
-  \label{fig:verlaufohnekondundre}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekondundre/eingangssignal10mv.png}
+    \caption{Zeitlicher Verlauf der Eingangsspannung $V(u_e)$ 
+    der Emitterschaltung ohne $RE$ und $CE$ bei einer Amplitude von
+  \SI{20}{mV} des Eingangssignals}
+    \label{fig:verlaufohnekondundre}
 \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekondundre/ausgangsignal10mv.png}
+    \caption{Zeitlicher Verlauf der Ausgangsspannung $V(u_a)$
+    der Emitterschaltung ohne $RE$ und $CE$ bei einer Amplitude von
+  \SI{20}{mV} des Eingangssignals}
+    \label{fig:sim_ohne_re_normal_ausgang}
+\end{figure}
+
+Damit die Verstärkung besser untersucht werden kann, wurde ein Parameter
+Sweep der Eingangsamplitude durchgeführt. Die Resultate sind in folgender \autoref{fig:verst_analy} ersichtlich:
+
+\begin{figure}[H]
+    \centering
+   \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekondundre/verstaerkungsanalysis.png}
+    \caption{Zeitlicher Verlauf der Ausgangsspannung $V(u_a)$
+    der Emitterschaltung ohne $RE$ und $CE$ mit einem Parameter Sweep der Amplitude des Eingangssignals.
+    Folgende SPICE directives wurden für die Simulation verwendet
+    \texttt{.tran 0.004 0.007 0.004 0.00001} und \texttt{.step param X 0mV 100mV 10mV}. Sowie die obere und untere Hälften Verstärkungen $V1$ $V2$ als auch die Eingangsamplituden sind in der Grafik ersichtlich.}
+    \label{fig:verst_analy}
+\end{figure}
+
 
 \paragraph{DC Temperatur Sweep}
 Zur Darstellung der Temperaturabhängigkeit wurde ein DC-Sweep durchgeführt. In \autoref{fig:sim_dc_temp_sweep_ohne_ohne_re} ist das Kollektorpotential in Abhängigkeit der Temperatur zu sehen.
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekondundre/dcsweepkollektorpotR2auf10kohm5mv.png }
-    % TODO verbessere mich und ueberpruefe spice directive
     \caption[Simulierter DC Temperatur Sweep ohne
     Überbrückungskondensator und ohne Emitterwiderstand]{Simulierter DC Temperatur Sweep welcher die
       Temperaturabhängigkeit des Kollektorpotentials darstellt. Auf der
-      Abszisse befindet sich die Temperatur des Transistors und auf Ordinate
-      befindet sich das Kollektorpotential $VC$. Diese Simulation wurde bei dem
+      Abszisse befindet sich die Temperatur des Transistors und auf der Ordinate
+      das Kollektorpotential $VC$. Diese Simulation wurde bei dem
       Schaltplan aus \autoref{fig:schatlungohnekundre} mit folgender SPICE
       directive \texttt{.dc temp 0 200 1} durchgeführt.
   }
   \label{fig:sim_dc_temp_sweep_ohne_ohne_re}
 \end{figure}
 
-\paragraph{Temperaturvariierte Transiente Analyse}
-%TODO der text
-Für die Ausgangsspannung wurde eine temparaturvariierte, transiente Analyse durchgeführt. Für elf verschiedene Betriebstemperaturen ist der Verlauf der Ausgangsspannung in \autoref{fig:sim_tran_temp_ohne} zu sehen.
+\paragraph{Temperaturvariierte Transienten-Analyse}
+Für die Ausgangsspannung wurde eine temparaturvariierte Transienten-Analyse durchgeführt. Für elf verschiedene Betriebstemperaturen ist der Verlauf der Ausgangsspannung in \autoref{fig:sim_tran_temp_ohne} zu sehen.
 \begin{figure}[H]
   \centering
-    \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekondundre/temperaturausgang50mvr2auf10kohm.png }
-    % TODO verbessere mich und ueberpruefe spice directive
-    \caption[Simulierte Transient Analyse mit
-    Überbrückungskondensator]{Simulierte Transient Analyse von der
-      Ausgangsspannung unter Einfluß verschiedener Betriebstemperaturen. Auf
-      der Abszisse befindet sich die Zeit und auf Ordinate befindet sich die
-      Ausgangsspannung $U_a$. Diese Simulation wurde bei dem Schaltplan aus
-    \autoref{fig:schatlungohnekundre} mit folgenden SPICE directives \texttt{.tran
-      0 0.005 0 0.0001} und \texttt{.step temp 0 100 10} durchgeführt. Die Legende
+    \includegraphics[width=\linewidth, height=7cm]{./figures/ohnekondundre/image.png }
+    \caption[Simulierte Transienten-Analyse mit
+    Überbrückungskondensator]{Simulierte Transienten-Analyse von der
+      Ausgangsspannung unter Einfluss verschiedener Betriebstemperaturen. Auf
+      der Abszisse befindet sich die Zeit und auf der Ordinate die
+      Ausgangsspannung $U_a$. Diese Simulation wurde für den Schaltplan aus
+    \autoref{fig:schatlungohnekundre} mit folgenden SPICE directives \texttt{.tran 0.004 0.007 0.004 0.00001} und \texttt{.step temp 0 100 10} durchgeführt. Die Legende
     beinhaltet die Zuordnung von Farbe zu Temperatur (in Celsius).}
   \label{fig:sim_tran_temp_ohne_ohne_re}
 \end{figure}
@@ -437,12 +477,12 @@ Für die Ausgangsspannung wurde eine temparaturvariierte, transiente Analyse dur
 % (messen Sie hierfür die Widerstände aus, diese weichen nämlich teilweise erheblich von ihrem
 % nominellen Wert ab).
 \subsection{Steckbrett}
-Für den praktischen Teil an der Steckplatine werden Widerstände der E12-Reihe
+Für den praktischen Teil an der Steckplatine wurden Widerstände der E12-Reihe, mit denen
+die in der Vorbereitung angegebenen respektive errechneten Werte angenähert wurden,
 verwendet. Zusätzlich wird für die Vorwiderstände im Spannungsteiler ein
 seriell geschaltetes Potentiometer verwendet, mit welchem man sich an den
-berechneten Arbeitspunkt für die Emitterschaltung annähert. 
+berechneten Arbeitspunkt (bei einem Kollektorpotential von ca. \SI{7,5}{\volt}) für die Emitterschaltung annähert. 
 
-%todo:geraeteliste
 Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 
 \begin{table}
@@ -453,12 +493,13 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
     \hline
    \multicolumn{2}{ c }{\textbf{Geräteliste}} \\
     \hline
-    \textbf{Gerät} & \textbf{Typ} \\
+    \textbf{Gerät/Bauelement} & \textbf{Typ} \\
     \hline
     Oszilloskop & \textit{Tektronix TDS 2002}\\
     Funktionsgenerator & \textit{FG250D} \\
     Netzgerät & nicht bestimmbar\\
     Multimeter & \textit{Fluke 175 TrueRMS}\\
+    npn-Transistor & \textit{BC 107B}\\
     Widerstände & siehe \autoref{tab:messung_widerstaende} \\
     Kondensator $C_e$ & \SI{330(40)}{\nano\farad} \\
     Kondensator $C_a$ & \SI{680(70)}{\nano\farad}\\
@@ -467,9 +508,13 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
   \end{tabular}
 \end{table}
 
+Zunächst wurden die vorhandenen Widerstände gemessen, um 
+diverse Abweichungen vom Nennwert festzuhalten. Die mit Unsicherheit behafteten Messwerte
+sind in \autoref{tab:messung_widerstaende} zusammengefasst.
+
 \begin{table}[H]
-  \caption{Gemessene Werte der Widerstände im Steckbrett. Diese Messungen sind
-  mit dem \textit{Fluke 175 TrueRMS} gemessen worden. \\
+  \caption{Gemessene Werte der Widerstände am Steckbrett. Diese Messungen erfolgten
+  mit dem \textit{Fluke 175 TrueRMS}. \\
   $R_C \dots$  Kollektorwiderstand\\
   $R_E \dots$  Emitterwiderstand\\
   $R_L \dots$  Lastwiderstand\\
@@ -489,10 +534,10 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 
 
 
-Nachdem die Schaltung, wie in  \autoref{fig:aufbau} zu sehen, aufgebaut
-wurde, wurden die Spannungsverläufe am Ein- und Ausgang mittels einem
-Oszilloskop dargestellt und die Oszillagramme für die nachfolgende
-Auswertung exportiert.
+Nachdem die Schaltung, wie in  \autoref{fig:aufbau} zu sehen, mitsamt 
+den genannten Geräten und Bauelementen aufgebaut wurde, wurde der Schaltaufbau von den 
+Laborbetreuern überprüft und verifiziert.
+
 
 \begin{figure}[H]
     \centering
@@ -508,11 +553,15 @@ Auswertung exportiert.
 % Kollektorpotential VC,A, stellen Sie es wenn nötig mit Hilfe des Potentiometers auf den gewünschten
 % Wert ein. Protokollieren Sie die angepassten Widerstandswerte und die folgenden Größen UCE, UBE,
 % VC, VB, IC, IB um den Arbeitspunkt evaluieren zu können.
+Anschließend wurde das Netzgerät auf eine konstante
+Betriebsspannung von \SI{15}{\volt} geregelt. Mithilfe des in den Vorwiderständen
+seriell verschalteten Potentiometer wurde der Widerstand so variiert, um den 
+gewünschten Arbeitspunkt einzustellen. Dann wurden die Werte, die in
+\autoref{tab:messugenarbeitspunkt} gelistet sind, gemessen.
 
 \begin{table}[H]
-  %TODO caption noch verbessern
-  \caption{Tabelle mit Messwerten des Arbeitspunkt. Diese Messungen sind
-  mit dem \textit{Fluke 175 TrueRMS} gemessen worden. \\
+  \caption{Tabelle mit Messwerten des Arbeitspunkt. Diese Messungen wurden
+  mit dem \textit{Fluke 175 TrueRMS} durchgeführt. \\
   $U_{CE} \dots$ Kollektoremitterspannung \\
   $U_{BE} \dots$ Basisemitterspannung \\
   $V_C \dots$  Kollektorpotential \\ 
@@ -544,17 +593,26 @@ Auswertung exportiert.
 % Daten mit der Simulation.
 
 \subsubsection{Normalbetrieb}
-%TODO Einfuegen von Bilder mit Messwerten
-
-Die Oszillogramme der Spannungsverläufe sind in \autoref{fig:oszi_ohne_normal}
-und \autoref{fig:oszi_mit_normal} dargestellt. 
+Nachdem der Aufbau erneut von den Laborbetreuenden verifiziert wurde, wurde am
+Funktionsgenerator (\textit{FG250D}) das Eingangssignal auf eine Frequenz von 
+\SI{999,970}{\hertz} und eine Amplitude von \SI{12,64}{\milli\volt}, sodass 
+keine Übersteuerung auftrat, eingestellt.
+Die Spannungsverläufe am Ein- und Ausgang wurden mittels einem 
+Oszilloskop (\textit{Tektronix TDS 2002}) dargestellt und die resultierenden Oszillogramme sowie 
+Daten für die nachfolgende Auswertung exportiert. Dies wurde für die Emitterschaltung im
+Normalbetrieb sowohl ohne als auch mit Überbrückungskondensator durchgeführt.
+Die Oszillogramme der Spannungsverläufe sind in \autoref{fig:oszi_ohne_normal} für die Schaltung
+ohne und in \autoref{fig:oszi_mit_normal} für jene mit Überbrückungskondensator dargestellt. 
+Um eine hohe Genauigkeit und eine leichte Ablesbarkeit der Amplituden zu erreichen, wurden die
+Spannungsverläufe so skaliert, dass diese sich über den maximalen Bildbereich des Oszilloskops
+erstrecken. Durch Mittelung wurde das auftretende Rauschen an Widerständen und insbesondere an den 
+Halbleiterübergängen, das aufgrund der diskret fließenden Ladunsgträger auftritt, vermindert.
 
 \paragraph{Schaltung ohne Überbrückungskondensator}
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=10cm]{./figures/messungen/ohnekond24mv.png}
-  %TODO caption
-  \caption{Ohne Überbrückungskondensator}
+  \caption{Oszillogramm der Ein- (am Kanal 2 in blau) und Augangangsspannung (am Kanal 1 in gelb) für die Schaltung auf der Steckplatine ohne Überbrückungskondensator bei einer Amplitude der Eingangsspannung von \SI{12,64}{\milli\volt}}
   \label{fig:oszi_ohne_normal}
 \end{figure}
 
@@ -562,8 +620,7 @@ und \autoref{fig:oszi_mit_normal} dargestellt.
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=10cm]{./figures/messungen/mitkond24mv.png}
-  %TODO caption
-  \caption{Mit Überbrückungskondensator}
+  \caption{Oszillogramm der Ein- (am Kanal 2 in blau) und Augangangsspannung (am Kanal 1 in gelb) für die Schaltung auf der Steckplatine mit Überbrückungskondensator bei einer Amplitude der Eingangsspannung von \SI{12,64}{\milli\volt}}
   \label{fig:oszi_mit_normal}
 \end{figure}
 
@@ -572,13 +629,19 @@ und \autoref{fig:oszi_mit_normal} dargestellt.
 % Eingangspannung und die Ausgangsspannung im übersteuerten Betrieb mittels Oszilloskop auf.
 
 \subsubsection{Übersteuerungsbetrieb}
-%TODO Einfuegen von Bilder mit Messwerten
+Zur Darstellung des Übersteuerungsbetriebs wurde die Eingangsspannung erhöht bis die 
+Übersteuerung, durch eine sichtbare Krümmung der Amplituden der Ausgangsspannung, erreicht
+wurde. Dies wurde erneut für beide Schaltungen, also für jene mit und ohne 
+Überbrückungskondensator, über das Oszilloskop (\textit{Tektronix TDS 2002}) dargestellt.
+Die Oszillogramme zur Übersteuerung sind in \autoref{fig:oszi_ohne_uebersteuerung} für die 
+Schaltung ohne und in \autoref{fig:oszi_mit_uerbersteuerung} für jene mit 
+Überbrückungskondensator ersichtlich.
+
 \paragraph{Schaltung ohne Überbrückungskondensator}
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=10cm]{./figures/messungen/ohneuebergrenze.png}
-  %TODO caption
-  \caption{Ohne Überbrückungskondensator}
+  \caption{Oszillogramm der Ein- (am Kanal 2 in blau) und Augangangsspannung (am Kanal 1 in gelb) für die Schaltung auf der Steckplatine ohne Überbrückungskondensator im Übersteuerungsbetrieb}
   \label{fig:oszi_ohne_uebersteuerung}
 \end{figure}
 
@@ -588,8 +651,7 @@ und \autoref{fig:oszi_mit_normal} dargestellt.
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=10cm]{./figures/messungen/mituebergrenze.png}
-  %TODO caption
-  \caption{Mit Überbrückungskondensator}
+  \caption{Oszillogramm der Ein- (am Kanal 2 in blau) und Augangangsspannung (am Kanal 1 in gelb) für die Schaltung auf der Steckplatine mit Überbrückungskondensator im Übersteuerungsbetrieb}
   \label{fig:oszi_mit_uerbersteuerung}
 \end{figure}
 
@@ -597,32 +659,21 @@ und \autoref{fig:oszi_mit_normal} dargestellt.
 % Diskutieren Sie mit Hilfe eines Oszilloskopbildes die Konsequenzen.
 \subsubsection{Frequenzvariation}
 
-Nun wurde die Frequenz des Eingangssignals varriert um die Untere- bzw.
-Oberegrenzfrequenz zu finden und das Verhalten der Schaltung bei
-Frequenzvariation zu untersuchen. Die Unteregrenzfrequenz somit bestimmt worden und in  
-\autoref{fig:oszi_untergrenzfrequenz} ersichtlich.
+Nun wurde die Frequenz des Eingangssignals variiert um die untere beziehungsweise
+obere Grenzfrequenz zu ermitteln und das Verhalten der Schaltung bei
+Frequenzvariation zu untersuchen. Die untere Grenzfrequenz wurde somit bestimmt und ist in
+\autoref{fig:oszi_untergrenzfrequenz} ersichtlich. Die Signale sind hierbei annähernd um \SI{45}{\degree} phasenverschoben.
+Die obere Grenzfrequenz wurde mit dem Frequenzgenerator nicht erreicht.
 
-%TODO Einfügen von Bilder mit Messwerten
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=10cm]{./figures/messungen/unteregrenze.png}
-    \caption{Diese Abbildungen zeigt den zeitlichen Verlauf der Eingangs- (Blau) und
-    Ausgangsspannung (Gelb) beim Betrieb an der unteren Grenzfrequenz (siehe Abbildung
+    \caption{Diese Abbildung zeigt den zeitlichen Verlauf der Eingangs- (am Kanal 2 in blau) und
+    Ausgangsspannung (am Kanal 1 in gelb) beim Betrieb an der unteren Grenzfrequenz (siehe Abbildung:
   \SI{44.9875}{\hertz})}
   \label{fig:oszi_untergrenzfrequenz}
 \end{figure}
 
-% 1.6 Während Sie das Live-Oszilloskopbild betrachten, können Sie mittels Körpertemperatur das
-% Metallgehäuse des Transistors erwärmen. Schauen Sie sich die Folgen genau an und diskutieren Sie
-% diese.
-
-% TODO konnte nicht gemacht werden
-
-% 1.7 Bauen Sie die Schaltung ab, ordnen Sie die Bauteile wieder in die dafür vorgesehenen Boxen,
-% schalten Sie alle Geräte die Sie verwendet haben aus und verlassen Sie den Platz so wie Sie
-% ihn vorgefunden haben.
-
-% TODO Besprechen. Hauen wir ein Bild von unserem sauberen Arbeitsplatz hinein?
 
 % zu 4: Auswertung siehe EPM Skript nur Besprechung von Umformungen und 
 % Sachen die man mit den Messungen machen muss damit man Conclusion und Wissen 
@@ -653,9 +704,9 @@ Frequenzvariation zu untersuchen. Die Unteregrenzfrequenz somit bestimmt worden 
 % und ihren Zusammenhang.
 \paragraph{Verstärkung}
 
-Es wurde aus den Simulationdaten von \textit{LTSPICE}, siehe
+Es wurden aus den Simulationsdaten von \textit{LTSPICE}, siehe
 \autoref{fig:verlaufohnekond}, die Spitzenspannungen für $U_e$ und $U_a$
-bestimmt wodurch mit \autoref{eq:verst} die Verstärkung $V_{u}'$ berechnet wurde:
+bestimmt, wodurch mit \autoref{eq:verst} die Verstärkung $V_{u}'$ ohne Überbrückungskondensator berechnet wurde:
 
 \begin{equation}
   V_{u}' = 19
@@ -687,11 +738,11 @@ bestimmt wodurch mit \autoref{eq:verst} die Verstärkung $V_{u}'$ berechnet wurd
 % und ihren Zusammenhang.
 \paragraph{Verstärkung}
 
-Es wurde aus den Simulationdaten von \textit{LTSPICE}, siehe
+Es wurden aus den Simulationsdaten von \textit{LTSPICE}, siehe
 \autoref{fig:sim_mit_normal_eingang} und \autoref{fig:sim_mit_normal_ausgang},
-die Spitzenspannungen für $U_e$ und $U_a$ bestimmt wodurch mit
+die Spitzenspannungen für $U_e$ und $U_a$ bestimmt, wodurch mit
 \autoref{eq:verst} die Verstärkung mit Überbrückungskondensator $V_{u,C_{E}}'$
-berechnet wurde.
+berechnet wurde:
 
 \begin{equation}
   V_{u,C_{E}}' = 125
@@ -716,39 +767,36 @@ berechnet wurde.
 % jegliche Rückkopplung. (Beachten Sie, dass der Arbeitspunkt dabei unvorteilhaft verschoben wird.)
 \subsubsection{Schaltung ohne Emitterwiderstand \& Überbückungskondensator}
 
-Es wurde aus den Simulationdaten von \textit{LTSPICE}, siehe
+Es wurden aus den Simulationsdaten von \textit{LTSPICE}, siehe
 \autoref{fig:verlaufohnekondundre} die Spitzenspannungen für $U_e$ und $U_a$
-bestimmt wodurch mit \autoref{eq:verst} die Verstärkung ohne Emitterwiderstand
-und ohne Überbrückungskondensator $V_{u,\neg R_{E}}'$ berechnet wurde.
+bestimmt, wodurch mit \autoref{eq:verst} die Verstärkung ohne Emitterwiderstand
+und ohne Überbrückungskondensator $V_{u,\neg R_{E}}'$ berechnet wurde:
 
 \begin{equation}
-  V_{u,\neg R_{E}}' = 931
+  V_{u,\neg R_{E}}' = 153
   \label{eq:sim_verst_ohne_ohne_re}
 \end{equation}
 
 \subsubsection{Verstärkung} \label{sec:ausverst}
 Um die Verstärkung zu bestimmen, wurde über die Amplituden des zeitlichen
 Verlaufs der Ausgangs- und Eingangsspannungen gemittelt und deren Verhältnis
-gemäß \autoref{eq:verst} berechnet. Somit ergeben sich die Werte der Tabelle
+gemäß \autoref{eq:verst} berechnet. Somit ergeben sich die Werte der
 \autoref{tab:verst_sim_alle} für die Verstärkungen der drei Schaltungen aus dem Abschnitt
 \nameref{sec:Versuchsim}. 
 
 
-%TODO: insert table with amplifications (ohne kond, mit kond, ohne kondundre)
 \begin{table}[H]
-  %TODO caption
   \caption{Tabelle mit allen ermittelten Verstärkungen \\
-  $V_{u} \dots'$ Verstärkung ohne Überbrückungskondensator \\
-  $V_{u,C_{E}} \dots'$   Verstärkung mit Überbrückungskondensator \\
-  $V_{u,\neg R_{E}} \dots'$ Verstärkung ohne Emitterwiderstand und ohne Überbrückungskondensator 
+  $V_{u}' \dots$ Verstärkung ohne Überbrückungskondensator \\
+  $V_{u,C_{E}}' \dots$   Verstärkung mit Überbrückungskondensator \\
+  $V_{u,\neg R_{E}}' \dots$ Verstärkung ohne Emitterwiderstand und ohne Überbrückungskondensator 
   }
   \label{tab:verst_sim_alle}
   \centering
   \begin{tabular}{l|l}
-  %TODO data
   $V_{u}'$            & 19 \\
   $V_{u,C_{E}}'$      & 125 \\
-  $V_{u,\neg R_{E}}'$ & 931
+  $V_{u,\neg R_{E}}'$ & 153
   \end{tabular}
 \end{table}
 
@@ -763,7 +811,6 @@ gemäß \autoref{eq:verst} berechnet. Somit ergeben sich die Werte der Tabelle
 % nominellen Wert ab).
 \subsection{Steckbrett}
 
-% TODO Braucht keine Auswertung 1.1? 
 
 
 % 1.2 (Überprüfen der Schaltung durch einen Betreuer bevor Inbetriebnahme!)
@@ -771,28 +818,25 @@ gemäß \autoref{eq:verst} berechnet. Somit ergeben sich die Werte der Tabelle
 % Kollektorpotential VC,A, stellen Sie es wenn nötig mit Hilfe des Potentiometers auf den gewünschten
 % Wert ein. Protokollieren Sie die angepassten Widerstandswerte und die folgenden Größen UCE, UBE,
 % VC, VB, IC, IB um den Arbeitspunkt evaluieren zu können.
-Da ein Großteil, der Arbeitspunkt definierenden Größen, direkt gemessen werden
-konnte, wird hier nur noch die fehlenden Größen mit den Messwerten aus
+Da ein Großteil, der den Arbeitspunkt definierenden Größen, direkt gemessen werden
+konnten, werden hier nur noch die fehlenden Größen mit den Messwerten aus
 \autoref{tab:messugenarbeitspunkt} errechnet. Es sind nur noch der Basisstrom
 $I_B$ und der Kollektorstrom $I_C$ zu bestimmen. Durch Verwendung
 \autoref{eq:ohm} kann $I_C$ durch den Spannungsabfall über den
 Kollektorwiderstand bestimmt werden. Da $I_B$ nichts anderes ist als die
 Differenz von dem Strom durch $R_1$ und dem Strom durch $R_2$ (siehe
 \autoref{fig:schaltungohnekond}) kann $I_B$ äquivalent zu $I_C$ berechnet
-werden. Für die Fehlerfortpflanzung ist das Gaußsches Fehlerfortpflanzunggesetz
+werden. Für die Fehlerfortpflanzung ist das Gauß'sche Fehlerfortpflanzungsgesetz
 verwendet worden.
 
-%TODO Einfuegen von Tabelle mit errechneten Werten
 \begin{table}[H]
-  %TODO caption
-  \caption{ Tabelle mit den fehlenden zuerechnenden Größen des Arbeitspunkts \\
+  \caption{ Tabelle mit den fehlenden zu berechnenden Größen des Arbeitspunkts \\
   $I_C \dots$ Kollektorstrom \\
   $I_B \dots$ Basisstrom 
   }
   \label{tab:aus_arbeitspunkt_daten}
   \centering
   \begin{tabular}[c]{l|l}
-  %TODO
     $I_C$ & \SI{4.29(12)}{\milli\ampere} \\
     $I_B$ & \SI{6(4)}{\micro\ampere} \\
   \end{tabular}
@@ -807,15 +851,14 @@ verwendet worden.
 % Desktop herunter, diskutieren Sie diese, berechnen Sie die Verstärkungen und vergleichen Sie die
 % Daten mit der Simulation.
 \subsubsection{Normalbetrieb}
-%TODO Errechnen von der Verstaerkung 
 Die Verstärkungsfaktoren wurden analog wie für die Simulation im
-vorigen Abschnitt \nameref{sec:ausverst} ermittelt. Diese ergeben sich zu
+vorigen Abschnitt \nameref{sec:ausverst} ermittelt.
 
 \paragraph{Schaltung ohne Überbrückungskondensator}
 
 Da bei der Aufnahme der Daten das Oszilloskop so eingestellt wurde, dass das
-Signal die "Full-Scale" komplett ausnutz, kann die Verstärkung $V_{u}'$ durch
-Division der Volts per Division vom Eingangs- und Ausgangsssignals, welche im
+Signal die "Full-Scale" komplett ausnutzt, kann die Verstärkung $V_{u}'$ durch
+Division der Volts per Division vom Eingangs- und Ausgangssignal, welche im
 Oszillogramm, siehe \autoref{fig:oszi_ohne_normal}, ersichtlich sind, errechnet
 werden.
 
@@ -827,8 +870,8 @@ werden.
 \paragraph{Schaltung mit Überbrückungskondensator}
 
 Da bei der Aufnahme der Daten das Oszilloskop so eingestellt wurde, dass das
-Signal die "Full-Scale" komplett ausnutz, kann die Verstärkung $V_{u,C_{E}}'$
-durch Division der Volts per Division vom Eingangs- und Ausgangsssignals,
+Signal die "Full-Scale" komplett ausnutzt, kann die Verstärkung $V_{u,C_{E}}'$
+durch Division der Volts per Division vom Eingangs- und Ausgangssignal,
 welche im Oszillogramm, siehe \autoref{fig:oszi_mit_normal}, ersichtlich sind,
 errechnet werden.
 
@@ -837,31 +880,6 @@ errechnet werden.
   \label{eq:oszi_verst_mit}
 \end{equation}
 
-% 1.4 Überprüfen Sie die Übersteuerungsgrenze mit und ohne CE und nehmen Sie auch hier die
-% Eingangspannung und die Ausgangsspannung im übersteuerten Betrieb mittels Oszilloskop auf.
-\subsubsection{Übersteuerungsbetrieb}
-%TODO Errechnen von der Verstaerkung?????
-\paragraph{Schaltung ohne Überbrückungskondensator}
-
-\paragraph{Schaltung mit Überbrückungskondensator}
-
-% 1.5 Variieren Sie nun die Frequenz und zeigen Sie die diesbezüglichen Grenzen der Schaltung.
-% Diskutieren Sie mit Hilfe eines Oszilloskopbildes die Konsequenzen.
-\subsubsection{Frequenzvariation}
-% TODO Braucht keine Auswertung? 
-
-% 1.6 Während Sie das Live-Oszilloskopbild betrachten, können Sie mittels Körpertemperatur das
-% Metallgehäuse des Transistors erwärmen. Schauen Sie sich die Folgen genau an und diskutieren Sie
-% diese.
-
-% TODO konnte nicht gemacht werden
-
-% 1.7 Bauen Sie die Schaltung ab, ordnen Sie die Bauteile wieder in die dafür vorgesehenen Boxen,
-% schalten Sie alle Geräte die Sie verwendet haben aus und verlassen Sie den Platz so wie Sie
-% ihn vorgefunden haben.
-
-% TODO Besprechen. Hauen wir ein Bild von unserem sauberen Arbeitsplatz hinein?
-
 
 
 % zu 5: Diskussion und Zusammenfassung
@@ -869,25 +887,88 @@ errechnet werden.
 % Abbildungen nur verwiesen werden soll. Die Ergebnisse sind auch zu diskutieren. Insbesondere müssen
 % Abweichungen zwischen Simulation und praktischer Durchführung diskutiert werden.
 \section{Diskussion und Zusammenfassung}\label{sec:Diskussion} 
-
-
+\subsection{Diskussion}
 % 1.2 Stellen Sie eine Eingangs-Sinusspannung von 1 kHz mit einer Amplitude innerhalb der
 % Übersteuerungstoleranzen ein, erzeugen Sie ein Simulation Profil (Time Domain) und nehmen Sie
 % jeweils die Eingangsspannung und die Ausgangsspannung in einem Plot über die Zeit auf. Lassen Sie
 % sich auch die Spannungen und Ströme im Schaltbild anzeigen um den Arbeitspunkt diskutieren zu
 % können. Berechnen Sie daraus die simulierte Verstärkung und diskutieren Sie die beiden Diagramme
 % und ihren Zusammenhang.
-
+\subsubsection{Verstärkung}
+Die Verstärkung der Schaltung ohne Überbrückungskondensator sollte entsprechend der
+Aufgabenstellung \num{20} betragen. Die für diese Schaltung in der Simulation erzielte Verstärkung ergab 
+sich zu \num{19}, am Steckbrett zu \num{17}. Somit sind nur geringe Abweichungen von \num{1} für die Simulation
+respektive \num{3} für die Steckbrett-Schaltung gegenüber der anvisierten Verstärkung aufgetreten. Diese
+Unterschiede könnten auf marginale Abweichungen der jeweiligen Arbeitspunkte zurückzuführen sein. Die Kollektorpotentiale
+in der Simulation und an der Steckplatine weisen zum theoretischen Kollektorpotential von \SI{7,50}{\volt} Unterschiede 
+im \SI{10}{\milli\volt}-Bereich auf. Da die Werte der Widerstände und Kondensatoren der Steckbrett-Schaltung nur
+angenähert wurden und die Widerstände gemäß \autoref{tab:messung_widerstaende} Abweichungen vom Nennwert aufwiesen, ist
+die relativ zur Simulation größere Abweichung nachvollziehbar.
+\newline
+Der theoretische Verstärkungsfaktor für die Emitterschaltung mit Überbrückungskondensator wurde in \autoref{sec:Vorbereitung}
+zu \num{117} berechnet. In der Simulation wurde dieser zu \num{125} und am Steckbrett zu \num{95} ermittelt. Diese weisen nun
+zwar größeren Differenzen vom theoretischen Wert, nämlich \num{8} beziehungsweise \num{22} auf, sind aber in einer ähnlichen 
+Größenordnung wie ebenjener. Die Abweichungen der Verstärkungen und auch die relativ zur Simulation größere Abweichung 
+der Steckbrett-Schaltung erklärt sich analog zu den aufgetretenen Differenzen für die Verstärkungsfaktoren der 
+Emitterschaltung ohne Überbrückungskondensator. Aufgrund der nun fast 6-fach größeren Verstärkung für den Schaltaufbau
+mit Überbrückungskondensator ist auch eine verhältnismäßig größere Abweichung der ermittelten Werten verständlich.
+\newline
+Anhand der Spannungsverläufe der \autoref{fig:verlaufohnekond}, \autoref{fig:sim_ohne_normal_ausgang}, \autoref{fig:sim_mit_normal_eingang},
+\autoref{fig:sim_mit_normal_ausgang}, \autoref{fig:verlaufohnekondundre}, \autoref{fig:sim_ohne_re_normal_ausgang},
+\autoref{fig:oszi_ohne_normal} und \autoref{fig:oszi_mit_normal} ist zudem sowohl für den Simulations- als auch für den Steckbrettversuch die 
+charakteristische Invertierung der Emitterschaltung des Ausgangs- zum Eingangssignal zu sehen.
 % 1.3 Testen Sie wie hoch die maximale Eingangspannung werden darf bis der Transistor in der Simulation
 % übersteuert. Übersteuern Sie ihn anschließend und nehmen Sie wieder die Eingangspannung sowie
 % die Ausgangsspannung nach der Zeit auf und diskutieren Sie anhand dieses Plots die auftretenden
 % Verzerrungen.
+\subsubsection{Übersteuerung}
+Die Spannungsverläufe der Oszillogramme der Steckbrett-Schaltung, siehe 
+\autoref{fig:oszi_ohne_uebersteuerung} und \autoref{fig:oszi_mit_uerbersteuerung}, zeigen deutlich (wie vom
+Laborbetreuenden gefordert) den Übersteuerungsbetrieb der Transistorschaltung. Dabei sind die 
+unterschiedlichen Breiten, Krümmungen und Größen der Amplituden der beiden Halbachsen gut sichtbar - 
+besonders im Vergleich zum Normalbetrieb. Bei der Verstärkung ist dementsprechend eine Präferenz einer der beiden Halbachsen in den Diagrammen evident. Zu erkennen ist weiters, dass die Emitterschaltung mit 
+Überbrückungskondensator beträchtlich sensibler ist und schon bei einer deutlich geringeren Amplitude der 
+Eingangsspannung (vier Mal geringer als ohne dem Kondensator) sättigt und in den Bereich der Übersteuerung
+übergeht. Das stimmt auch mit der Bedeutung und den Größenordnungen der in \autoref{sec:Vorbereitung} errechneten Maximalwerte für die Eingangsspannung, bei der noch nicht übersteuert wird, überein.
+\newline
+Für die Simulation wurde die Übersteuerungsgrenze, also die Sättigung, visuell durch den Parameter-Sweep in
+\autoref{sec:Versuchsim} bestimmt (siehe \autoref{fig:sim_mit_paramsweep_ausgang}, \autoref{fig:sim_ohne_paramsweep_ausgang}). Das Ergebnis deckt sich mit der vorhergehenden Beobachtung anhand der 
+Oszillogramme in \autoref{fig:oszi_ohne_uebersteuerung} und \autoref{fig:oszi_mit_uerbersteuerung}, dass 
+die Schaltung mit Überbrückungskondensator empfindlicher auf eine größere Amplitude der Eingangsspannung 
+reagiert und demzufolge früher die Übersteuerungsgrenze erreicht als jene Schaltung ohne 
+Überbrückungskondensator.
 
+\subsubsection{Temperaturabhängigkeit}
+\paragraph{Kollektorpotential}
 % 1.4 Erstellen Sie einen DC Sweep in Abhängigkeit der Temperatur und zeigen Sie die Änderung des
 % Kollektorpotentials. Diskutieren Sie die Konsequenzen einer Temperaturerhöhung.
+Die Konsequenzen einer stetigen Temperaturerhöhung sind anhand des Kollektorpotentials in
+\autoref{fig:sim_dc_temp_sweep_ohne}, \autoref{fig:sim_dc_temp_sweep_mit} und \autoref{fig:sim_dc_temp_sweep_ohne_ohne_re}
+ersichtlich. Dabei wird die Bedeutung des Emitterwiderstands, der in \autoref{fig:sim_dc_temp_sweep_ohne_ohne_re}
+im Gegensatz zu den anderen beiden Abbildungen nicht eingebaut wurde, klar. Die Diagramme zu den beiden Schaltungen mit 
+Emitterwiderstand sind annähernd identisch und fallen zwar monoton ab, aber nur mit einer Steigung von ungefähr \SI{-53}{\milli\volt\per\kelvin}. Dahingegen 
+ist die Abnahme für die Schaltung ohne Emitterwiderstand viel steiler und beträgt \SI{-120}{\milli\volt\per\kelvin}. Diese Steigung resultiert daraus, dass 
+durch die Zunahme der Temperatur die Leitfähigkeit des Halbleiters zunimmt. Dadurch steigt weiters der Strom $I_C$ und es fällt am Kollektorwiderstand eine höhere
+Spannung ab, woraus ein geringeres Kollektorpotential resultiert. Aufgrund des starken Abfalls des Kollektorpotentials ohne Emitterwiderstand ist die Schaltung
+für den errechneten Arbeitspunkt nur in einem sehr kleinen Temperaturintervall verwendbar. Der Emitterwiderstand  kann allerdings für die anderen beiden Schaltungen
+(siehe \autoref{fig:sim_dc_temp_sweep_ohne} und \autoref{fig:sim_dc_temp_sweep_mit}) mittels Gegenstromkopplung die Temperaturabhängigkeit reduzieren. Erst ab einer Temperatur
+von ungefähr \SI{50}{\celsius} ist das Kollektorpotential zu weit vom gewollten Kollektorpotential für den Arbeitspunkt entfernt, um die anvisierten Verstärkungen zu
+erhalten. Da Transistoren im Allgemeinen (außerhalb des Labors) bei Temperaturen über \SI{50}{\celsius} betrieben werden, müsste noch eine zusätzliche
+Kühlung verwendet werden, um den Arbeitspunkt adäquat zu gewährleisten.
+\newline
+Zu beachten ist, dass in der Simulation die Temperaturabhängigkeit von Widerständen und Kondensatoren nicht berücksichtigt wird, was in einer realen Schaltung
+zu Abweichungen von der Simulation führen könnte, da der Widerstand mit steigender Temperaturen zu- und die Kapazität abnimmt.
 
 % 1.5 Nehmen Sie die Ausgangsspannung über der Zeit für verschiedene Temperaturen in einem
 % Diagramm dar und diskutieren Sie diesen Plot.
+\paragraph{Ausgangsspannung}
+Ein Vergleich der temperaturvariierten Transienten-Analysen für die jeweiligen Ausgangsspannungen, die in \autoref{fig:sim_tran_temp_ohne},
+\autoref{fig:sim_tran_temp_mit} und \autoref{fig:sim_tran_temp_ohne_ohne_re} dargestellt werden, zeigen wiederum eine besonders starke Temperaturabhängigkeit 
+für die Schaltung ohne Emitterwiderstand (\autoref{fig:sim_tran_temp_ohne_ohne_re}). Obwohl die anderen Schaltungen genauso bei hohen Temperaturen Verzerrungen
+des Sinusverlaufs zur Folge haben, ist zu beachten, dass die Analyse für die Emitterschaltung ohne Emitterwiderstand schon bei \SI{100}{\celsius} abgebrochen wurde und schon 
+davor zu besagten Verzerrungen der Ausgangssignals führen. Dabei scheint wiederum eine Präferenz der positiven Halbachse
+aufzutreten. Dies könnte auf die Zunahme der Leitfähigkeit des Halbleiters durch die Temperaturerhöhung zurückzuführen sein, wobei die Abbildungen der
+Höchsttemperaturen sehr stark das Verhalten einer Diode widerzuspiegelen scheinen.
 
 % 2.2 Stellen Sie eine Eingangs-Sinusspannung von 1 kHz mit einer Amplitude innerhalb der
 % Übersteuerungstoleranzen ein, erzeugen Sie ein Simulation Profil (Time Domain) und nehmen Sie
@@ -911,6 +992,7 @@ errechnet werden.
 % untersuchen Sie die Verstärkung und die Temperaturabhängigkeit des Kollektorpotentials ohne
 % jegliche Rückkopplung. (Beachten Sie, dass der Arbeitspunkt dabei unvorteilhaft verschoben wird.)
 % ERLANGTE ERKENNTNIS!
+%starke Tempabh. siehe oben
 
 % 1.3 (Überprüfen der Schaltung durch einen Betreuer bevor Inbetriebnahme!)
 % Stellen Sie nun eine sinusförmige Wechselspannung mit Hilfe des Funktionsgenerators von 1kHz
@@ -919,12 +1001,32 @@ errechnet werden.
 % ohne CE. Laden Sie die Bilder oder wahlweise die Daten mittels dem Programm Open Choice
 % Desktop herunter, diskutieren Sie diese, berechnen Sie die Verstärkungen und vergleichen Sie die
 % Daten mit der Simulation.
-Man achte hierbei auf die Volts per division bei Gleicher Eingangsspannung
-erzeugt die Schaltung mit Kondensator eine um fast 6-fache größere Verstärkung.
 
-Die für die Simulation bestimmten Verstärkungen der Schaltungen sind der
-Tabelle \autoref{tab:verst_sim_alle} zu entnehmen. Die reale Verstärkung der Schaltung
-am Steckbrett ergibt sich zu xxx.
+% 1.4 Überprüfen Sie die Übersteuerungsgrenze mit und ohne CE und nehmen Sie auch hier die
+% Eingangspannung und die Ausgangsspannung im übersteuerten Betrieb mittels Oszilloskop auf.
+\subsubsection{Frequenzabhängigkeit}
+Die untere Grenzfrequenz, siehe Abbildung \autoref{fig:oszi_untergrenzfrequenz}, folgt aus der Verwendung von Hochpässen, 
+sodass niedrige Frequenzen geschwächt werden. Diese weicht um ungefähr \SI{10}{\hertz} vom theoretisch errechneten Wert ab,
+was aufgrund der Abweichungen der realen Schaltung nachvollziehbar ist. Die Größenordnungen korrespondieren allerdings.
+Die obere Grenzfrequenz, die mit dem Frequenzgenerator nicht erreicht wurde, ergibt sich aus der endlichen Beweglichkeit 
+der Ladungsträger.
+% 1.5 Variieren Sie nun die Frequenz und zeigen Sie die diesbezüglichen Grenzen der Schaltung.
+% Diskutieren Sie mit Hilfe eines Oszilloskopbildes die Konsequenzen.
+
+% 1.6 Während Sie das Live-Oszilloskopbild betrachten, können Sie mittels Körpertemperatur das
+% Metallgehäuse des Transistors erwärmen. Schauen Sie sich die Folgen genau an und diskutieren Sie
+% diese.
+
+
+%Man achte hierbei auf die Volts per division bei gleicher Eingangsspannung
+%erzeugt die Schaltung mit Kondensator eine um fast 6-fache größere Verstärkung.
+
+%Es wäre wohl vernünftiger gewesen, die Schaltung an der Steckplatine zunächst aufzubauen, um etwaige 
+%Ungenauigkeiten durch die Widerstände 
+\subsection{Zusammenfassung}
+Die für die Simulation bestimmten Verstärkungen der drei Emitterschaltungen sind der \autoref{tab:verst_sim_alle} zu
+entnehmen. Die reale Verstärkung der Schaltung am Steckbrett ohne Überbrückungskondensator ergibt sich zu \num{17}, für jene
+mit Kondensator beträgt sie \num{95}.
 
 \newpage
 
