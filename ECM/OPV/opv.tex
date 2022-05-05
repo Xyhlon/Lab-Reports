@@ -1,0 +1,440 @@
+%! TeX program = lualatex
+%---------------------------ALLGEMEINE IMPORTS-------------------------------------
+\documentclass[12pt,english,ngerman]{scrartcl}
+
+\input{./input/shared_preamble.tex}
+
+\addbibresource{opv.bib}
+    % Kopfzeile
+\ihead{SS22\\04.05.2022}
+\chead{\textsc{Hinterleitner} Michael - 12002411 \\ \textsc{Philipp} Maximilian - 11839611}
+\ohead{LU ECM-\\ Transistor}
+    % Fußzeile
+%--------------------------------------AB HIER DOKUMENT---------------------------------------------
+\begin{document}
+\includepdf{deckblatt1.pdf}
+\tableofcontents
+\newpage
+
+
+%\section{Aufgabenstellung}\label{sec:Aufgabenstellung}
+
+% Die nachfolgende Aufgabenstellung wurde von den Laborbetreuern bereitgestellt
+% und beinhaltet sowohl Angaben zur Vorbereitung als auch zur praktischen
+% Durchführung der Übung:
+
+% zu 1: Aufgabenstellung Das vor der Übung verteilte Aufgabenblatt.
+ \includepdf[
+     pages=-,  % all pages
+     addtotoc={
+         1, section, 1, Aufgabenstellung, sec:Aufgabenstellung
+     }
+ ]{angabe.pdf}
+
+% zu 2: Vorbereitung Es sind beide Vorbereitungen dem Protokoll beizufügen.
+\section{Vorbereitung}\label{sec:Vorbereitung}
+%Die folgende Vorbereitung wurde vor der Laborübung 
+% \includepdf[pages=-,
+%      addtotoc={
+%          1, section, 2, Vorbereitung, sec:Vorbereitung
+%      }]{./figures/Transistor1.pdf}
+% \includepdf[pages=-]{./figures/Transistor2.pdf}
+
+
+% zu 3: Grundlagen In den Grundlagen sollen die später verwendeten Formeln
+% stehen und kurz erklärt werden, dabei ist es nicht notwendig Formeln
+% herzuleiten. Quellenangaben sind an dieser Stelle von Vorteil, weil Sie so
+% schnell die betreffenden Stellen in Unterlagen finden. In den Rechnungen
+% werden grundlegende Annahmen skizziert und begründet und dann mit diesen
+% Annahmen, die für die Schaltungen notwendigen Werte berechnet. Dabei kann
+% auch gleich auf die später wirklich verwendeten Werte Bezug genommen werden -
+% wir verwenden bei den Widerständen zum Beispiel von den Normwert-Reihen die
+% E12 und/oder E24 Serie (nach DIN 41426 bzw. IEC 63).
+\section{Grundlagen}\label{sec:Grundlagen}
+
+Bipolartransistoren sind Halbleiterbauelemente mit zwei pn-Halbleiterübergängen
+(entweder npn oder pnp), bei denen gegensätzlich zu den Feldeffekttransistoren
+beide Arten von Ladungsträgern, Elektronen und Löcher/Defektelektronen, am
+Stromfluss beteiligt sind. Für Schaltungen mit Bipolartransistoren, die in der
+Elektronik zur Verstärkung respektive Schaltung verwendet werden, wird zwischen
+Emitter-, Basis- und Kollektorschaltung differenziert. Die
+Schaltungsbezeichnungen beruhen auf dem Anschluss, der als Bezug für Eingang
+und Ausgang dient. Diese Schaltungsarten sind in 
+% \autoref{fig:schaltungsarten} dargestellt; zu beachten ist, dass der Pfeil am
+Emitter des Transistors in die technische Stromrichtung zeigt. 
+
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=8cm, height=8cm,keepaspectratio]{./figures/schaltungsarten.png}
+    \caption{Darstellung der 3 Schaltungsarten mit Bipolartransistor \cite{tietze}}
+    \label{fig:schaltungsarten}
+\end{figure}
+
+In dieser Laborübung sind ausschließlich Emitterschaltungen von Relevanz,
+insbesondere jene mit Stromgegenkopplung, wodurch die Temperaturabhängigkeit
+der Schaltung kompensiert wird. Dies ist deswegen von hoher Relevanz, da
+Transistorschaltungen stets um einen bestimmten Arbeitspunkt betrieben werden
+(sollten). Dieser Arbeitspunkt wird über den Kollektorstrom $I_C$, Basisstrom
+$I_B$, der Kollektor-Emitterspannung $U_{CE}$ beziehungsweise
+Basis-Emitterspannung $U_{BE}$ festgelegt. Ein Anstieg der Temperatur würde
+diesen wiederum, aufgrund der Temperaturabhängigkeit von Halbleitern
+(pn-Übergang), verschieben. Dadurch wird eine Zunahme des Basisstroms $I_B$ und
+infolge des Kollektorstroms $I_C$ sowie eine Abnahme des Kollektorpotentials
+$V_C$ bedingt. Um dies zu kompensieren, wird im Rahmen der Stromgegenkopplung
+ein Emitterwiderstands $R_E$ implementiert. Dieser führt aufgrund des nun
+höheren Emitterstroms $I_E$, der sich gemäß der Kirchhoff'schen Knotenregel aus
+der Summe der Teilströme $I_C$ und $I_B$ (der allerdings vernachlässigt werden
+kann) ergibt, zu einer größeren Spannung $U_{RE}$, die am Emitterwiderstand
+abfällt. Dadurch nimmt die Basis-Emitterspannung $U_{BE}$ ab und der Basisstrom
+wird geringer, genauso wie folglich der Kollektor- und Emitterstrom, was der
+ursprünglichen Erhöhung entgegenwirkt. \cite{tietze}
+\newline
+
+Zur Berechnung der Ströme am Steckbrett (Kapitel \nameref{sec:Auswertung}), des
+Basis- $I_B$ und Kollektorstroms $I_C$, nachdem die an den Vorwiderständen
+$R_1$ und $R_2$ abfallenden Spannungen $U_{R1}$ respektive $U_{R2}$ gemessen
+wurden, wird das Ohmsche Gesetz \autoref{eq:ohm} verwendet. Dabei bezeichnet
+wie gewohnt $U$ die Spannung, $I$ den Strom und $R$ den Widerstand als die
+Proportionalitätskonstante beziehungsweise für einen nicht-linearen Verlauf $r$
+den differentiellen Widerstand an einem Arbeitspunkt. \cite{tietze}
+
+\begin{align}
+	R&=\frac{U}{I} \label{eq:ohm}\\
+	r&= \der{U}{I} \Bigr|_{\substack{Arbeitspunkt}}
+\end{align}
+
+Die (Spannungs-)Verstärkung $V$ der Schaltung ergibt sich aus dem Verhältnis
+zwischen Ausgangsspannung und Eingangsspannung gemäß \autoref{eq:verst}.
+
+\begin{equation}
+	V=\frac{U_a}{U_e}
+	\label{eq:verst}
+\end{equation}
+
+% zu 4: Versuchsdurchführung In diesem Punkt wird die Durchführung der
+% einzelnen Aufgaben beschrieben. Im Simulationsteil ist die simulierte
+% Schaltung mit allen Analyseparametern darzustellen. Im praktischen Teil sind
+% die verwendete Geräte sowie die gemessenen Werte der verwendeten Bauteile
+% anzugeben. Außerdem sind durchgeführte Funktionsüberprüfungen der Bauteile
+% (Dioden, Transistor, etc.) anzuführen. Die Messergebnisse bzw. Oszillogramme
+% sind mit Angabe der verwendeten Messgeräte anzugeben. Oszillogramme werden
+% vom verwendeten Oszilloskop als Daten auf einen USB-Stick ausgegeben und
+% können in das Protokoll aufgenommen werden. Das gleiche gilt für Schaltungen
+% bzw. Ergebnissen von Simulationen. Es ist auf eine klare Darstellung der
+% Messergebnisse und –auswertung zu achten (Tabellen, geeignete Grafiken). Die
+% originalen, während des Versuchs angefertigten Aufzeichnungen sind dem
+% Protokoll beizufügen. 
+\section{Versuchsdurchführung}\label{sec:Versuchsdurchf}
+
+\subsection{Elektrometerverstärker}
+
+% 5) Die Schaltung ist mit LTspice zu zeichnen und auszudrucken (PDF).
+\subsubsection{Simulation} \label{sec:Versuchsim}
+
+% TODO text
+Zur Simulation des Elektrometerverstärkers wird das Programm
+\textit{LTSPICE} verwendet. Der Aufbau erfolgt analog zum skizzierten
+Schaltplan \autoref{fig:sim_elektrometer_schaltung}. Hier wurde das gleiche
+Bauteil wie im Kapitel \nameref{sec:Aufgabenstellung} verwendet der $\mu$A741.
+
+\begin{figure}[H]
+  \centering
+  % TODO LTSPICE aufbau der Elektrometer
+    % \includegraphics[width=0.95\textwidth]{./figures/elektrometer/aufbau.png}
+  \caption{Dies ist die Elektrometerverstärkerschaltung aufgebaut in \textit{LTSPICE}}
+  \label{fig:sim_elektrometer_schaltung}
+\end{figure}
+
+
+% 6) Der Aussteuerungsbereich ist mit einem „DC SWEEP“ zu bestimmen und plotten.
+% 7) Anstatt des µA 741 CN, wird in der Simulation das Bauteil LM741 verwendet.
+% NEIN fehler in der Angabe sollte UA741 bauteil sein
+\paragraph{Untersuchung des Aussteuerungsbereichs} \label{sec:mess_aussteuerungsbereich}
+
+
+\begin{figure}[H]
+  \centering
+  % TODO LTSPICE dc sweep von ausgangsspannung 
+    % \includegraphics[width=0.95\textwidth]{./figures/elektrometer/dcsweep.png}
+  % TODO check spice directive
+  \caption{Die Schaltung aus \autoref{fig:sim_elektrometer_schaltung} wurde auf
+  den Aussteuerungsbereich untersucht in dem ein DC-Sweep gemacht wurde. Die
+  Simulation SPICE-Directive ist \texttt{.dc $U_e$ -200m 200m 10}}
+  \label{fig:sim_elektrometer_dcsweep}
+\end{figure}
+
+\subsubsection{Steckbrett} \label{sec:elektrometer_steckbrett}
+% TODO neuer text
+% Zunächst wird die Schaltung allerdings ohne Überbrückungskondensator, wie sie
+% in  \autoref{fig:schaltungohnekond} zu sehen ist, verwendet. Nachdem
+% alle Parameter gemäß den Angaben in der Simulation und insbesondere der
+% Arbeitspunkt entsprechend dem theoretisch errechneten Wert eingestellt wurden
+% (ca. \SI{7.5}{\volt}), wurden die Eingangs- und Ausgangsspannung über der Zeit in
+% einem Plot, durch Messung dieser Größen für einen geeigneten Zeitabschnitt
+% (siehe  \autoref{fig:schaltungohnekond} im unteren Bildbereich),
+% dargestellt. 
+
+\paragraph{Testschaltung}
+% 8) Der Operationsverstärker ist auf seine Funktionstüchtigkeit mit Hilfe der
+% vorgegebenen Testschaltung (Invertierender Verstärker) zu überprüfen.
+Zur Untersuchung der Funktionstüchtigkeit des OPVs wurde die im Lab vorhandene
+Testschaltung, siehe \autoref{fig:testschaltung}, verwendet. 
+
+\begin{figure}[H]
+  \centering
+  % TODO grafik einfuegen
+    % \includegraphics[width=0.95\textwidth]{./figures/elektrometer/testschaltung.jpg}
+  \caption{Das vorhandene Testbrett. Invertierender Verstärker}
+  \label{fig:testschaltung}
+\end{figure}
+
+Diese Schaltung wurde verwendet um zu überprüfen ob der OPVs noch immer die
+gewünschten Eigenschaften für positive und negative Verstärkung aufweißt. Dies
+wurde durch das Variieren des Potentiometers (und somit das Variieren der
+Eingangspannung) und dem Messen der Ausgangsspannung überprüft.
+
+% 9) Der Verstärker (bestehend aus OPV, Netzwerk und Spannungsteiler für die
+% Eingangsspannung) ist auf dem Steckboard aufzubauen.
+\paragraph{Aufbau}
+
+\begin{figure}[H]
+  \centering
+  % TODO grafik einfuegen
+    % \includegraphics[width=0.95\textwidth]{./figures/elektrometer/steckbrett.png}
+  \caption{Elektrometerverstärker Aufbau am Steckbrett der Schaltung von
+  \autoref{fig:sim_elektrometer_schaltung}}
+  \label{fig:ver_elektromete_aufbau}
+\end{figure}
+
+% 10) Es ist der Offsetspannungsabgleich durchzuführen.
+\paragraph{Offsetabgleich}
+Um den Offestspannungableich durchführen zu können ist zuerst mal ein
+Impdanzwandel aufgebaut worden, wodurch das Abgleichen sich zum Abstimmen
+der Eingangsspannug zur Ausgangsspannung vereinfachte. Dies wurde durch einen
+extern Beschalteten Potentiometer bewerkstelligt, welcher die Rolle eines
+Spannungteilers spielte. Der Offsetabgleich wurde bei einer Spannung von
+\SI{125.4}{\milli\volt} gemacht.
+
+% 11) Die gemessene Ausgangsspannung ist mit der zu erwartenden Ausgangsspannung
+% zu vergleichen und das Ergebnis zu protokollieren.
+\paragraph{Beschaltung als Elektrometerverstärker}
+Nun wurde die Rückkopplung wie in \autoref{fig:elektrometer_ruckkoppelung},
+statt dem Kurzschluss vom Ausgang zum invertierenden Eingang eingebaut.
+Zunächst gab es Probleme mit dem Aufnehmen der Verstärkung, da der Ground einen
+Wackelkontakt bekommen hat, welcher durch leichtes drehen des Anschlusses
+repariert werden konnte.
+Nun konnte die $U_a$ und $U_e$ des Elektrometerverstärker gemessen werden.
+
+\begin{equation}
+  U_a = \SI{8.03}{\volt} \quad @\, U_e = \SI{125.0}{\milli\volt}
+  \label{eq:messwert_elektro_ausgang_eingang}
+\end{equation}
+
+% 12) Es ist der Aussteuerungsbereich des Verstärkers zu messen.
+\paragraph{Untersuchung des Aussteuerungsbereichs} \label{sec:Versuchohnekond}
+
+
+\begin{table}[H]
+  \caption{Gemessene Ausgangs- und Eingangspannungen der Elektrometerschaltung
+  zur Untersuchung des Aussteuerungsbereich\\
+  $U_a \dots$ Ausgangsspannung \\
+  $U_e \dots$ Eingangspannung \\
+  }
+  \label{tab:mess_elektro_aussteurerung}
+  \centering
+    \begin{tabular}[c]{S|S}
+      {$U_e$ / \si{\milli\volt}} & {$U_a$ / \si{\volt}} \\
+      0.0 & 0.0365 \\
+      63.2 & 4.082 \\
+      121.5 & 7.81 \\
+      180.7 & 11.6 \\
+      200.4 & 12.86 \\
+      225.2 & 13.98 \\
+      244.8 & 13.98 \\
+      -62.8 & -3.987 \\
+      -117.8 & -7.46 \\
+      -176.2 & -11.24 \\
+      -233.6 & -13.00 \\
+      -290.6 & -13.35 \\
+      -298.6 & -13.40 \\
+      -340.1 & -13.49 \\
+    \end{tabular}
+\end{table}
+
+
+% 13) Die Ergebnisse der Simulation und Messung am Steckboard sind zu diskutieren.
+
+\subsection{Integrator}
+% 1) Der Umkehrintegrator ist mit LTspice zu zeichnen und als Abbildung zu speichern.
+
+\subsubsection{Simulation}
+Zur Simulation des Elektrometerverstärkers wird das Programm
+\textit{LTSPICE} verwendet. Der Aufbau erfolgt analog zum skizzierten
+Schaltplan \autoref{fig:sim_integrator_schaltung}. 
+
+\begin{figure}[H]
+  \centering
+  % TODO LTSPICE aufbau der Elektrometer
+    % \includegraphics[width=0.95\textwidth]{./figures/integrator/aufbau.png}
+  \caption{Dies ist die Integratorschaltung aufgebaut in \textit{LTSPICE}}
+  \label{fig:sim_integrator_schaltung}
+\end{figure}
+
+% 2) Die Integrationsdauer der Schaltung ist mit einer konstanten Spannungsquelle zu
+% simulieren. Die Ergebnisse sind mit der Vorbereitung zu vergleichen.
+\paragraph{Integrationszeit}
+Um die Integrationszeit zu bestimmen wurde eine Transiente-Analyse durchgeführt.
+
+% TODO text
+
+\begin{figure}[H]
+  \centering
+  % TODO LTSPICE trans anal von lade vorgang 
+    % \includegraphics[width=0.95\textwidth]{./figures/integrator/integrationszeit.png}
+  % TODO check spice directive
+  \caption{Die Schaltung aus \autoref{fig:sim_integrator_schaltung} wurde auf
+  die Integrationszeit untersucht in dem eine Transiente-Analyse vom
+  Ladevorgang gemacht wurde. Die Simulation SPICE-Directive ist \texttt{.tran 0 20} 
+  bei einer Eingangspannung $U_e$ von \SI{100}{\milli\volt}.}
+  \label{fig:sim_integrator_integrationszeit}
+\end{figure}
+
+\subsubsection{Steckbrett}
+% 3) Der OPV ist auf die Funktionstüchtigkeit zu prüfen. (siehe Aufgabe A, Punkt 8)
+% 5) Es ist der Offsetspannungsabgleich durchzuführen.
+Wie in \autoref{sec:} nochmals mit der Impdanzwandlerschaltung überprüft.
+Ebenfalls wurde gleich die Offsetabgleich nochmals überprüft. Jedoch musste
+dies nicht angepasst werden.
+
+% 4) Der Umkehrintegrator (bestehend aus OPV, Netzwerk und Spannungsteiler) ist auf
+% dem Steckboard aufzubauen.
+% 6) Die aufgebaute Schaltung ist in Betrieb zu nehmen und die Integrationszeit zu
+% protokollieren (Stoppuhr). Die Messung ist fünfmal zu wiederholen.
+\paragraph{Integrationszeit}
+
+\begin{table}
+  \caption{Messungen der Integrationszeit der realen Schaltung aus
+  \autoref{fig:sim_integrator_schaltung}, wobei $T$ die Ladezeit bis am Ausgang
+  \SI{10}{\volt} anliegt. Bei einem Ladespannung \SI{91.8}{\milli\volt}, einem
+  Widerstand von \SI{21.9}{\kilo\ohm} und einer Kapazität von
+  \SI{6.8}{\micro\farad} }
+  \label{tab:messungen_integration}
+  \centering
+  \begin{tabular}[c]{S}
+    {$T$ / \si{\second}} \\
+    17.20 \\
+    16.42 \\
+    16.90 \\
+    16.89 \\
+    17.32 \\
+    17.21 \\
+  \end{tabular}
+\end{table}
+
+
+% 7) Die Schaltung (und Simulation) ist mit verschiedenen Spannungsquellen (Sinus,
+% Rechteck, Dreieck) zu testen. Protokollieren und vergleichen Sie die Ergebnisse.
+% Nutzen Sie dazu Oszilloskop und Frequenzgenerator.
+
+\paragraph{Untersuchung Verschiedene Eingangssignale}
+Nun wurde die Integrationsfähigkeit der Schaltung durch Einspeisen
+verschiedener Eingangssignal qualitative untersucht.
+
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/integrator/sinussignal.png}
+  \caption{}
+  \label{fig:mess_integrator_sinussignal}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/integrator/dreiecksignal.png}
+  \caption{}
+  \label{fig:mess_integrator_dreiecksignal}
+\end{figure}
+
+% NOTE: Erwaehnen Rechteckspannung konnte nicht gemacht werden.
+
+% 8) Vergleichen Sie die frequenzabhängige Verstärkung der Schaltung in einem Bereich
+% zwischen 5 und 50 Hz mit der Simulation.
+\paragraph{Untersuchung der frequenzabhänigen Verstärkung}
+
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/integrator/5hz.jpg}
+  \caption{}
+  \label{fig:mess_integrator_5hz}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/integrator/20hz.jpg}
+  \caption{}
+  \label{fig:mess_integrator_20hz}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/integrator/35hz.jpg}
+  \caption{}
+  \label{fig:mess_integrator_35hz}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+   % \includegraphics[width=0.95\textwidth]{./figures/integrator/50hz.jpg}
+  \caption{}
+  \label{fig:mess_integrator_50hz}
+\end{figure}
+
+% 9) Die Simulation ist um die genannte Verstärkerstufe zu erweitern.
+% Wiederholen Sie mit der neuen Schaltung Punkt 2 und 7
+\paragraph{Simulation Untersuchung der frequenzabhänigen Verstärkung}
+
+
+
+% zu 4: Auswertung siehe EPM Skript nur Besprechung von Umformungen und 
+% Sachen die man mit den Messungen machen muss damit man Conclusion und Wissen 
+% gewinnen kann.
+% Entsprechend der in Punkt 2. angegebenen Beziehungen (Formeln) ist aus den
+% Messergebnissen in Punkt 5. das in Punkt 1. formulierte Endergebnis zu
+% berechnen. Oft ist eine Ermittlung des Endergebnisses aus einer grafischen
+% Darstellung bzw. eine grafische Veranschaulichung zweckmaßig. Dabei kann
+% die Verwendung von Millimeterpapier oder Computerprogrammen hilfreich sein.
+% Wenn eine Bearbeitung der Daten auf dem Computer erfolgt, sollte bei der
+% Darstellung der Graphen eine sinnvolle Skalenteilung des Koordinatensystems
+% gemacht werden. Die Unsicherheitsbetrachtung f ̈ur die angegebenen Messwerte,
+% sowie f ̈ur Zwischen- und Endergebnisse ist in diesem Abschnitt
+% nachvollziehbar zu beschreiben. Dabei ist nach Kapitel 1 vorzugehen und
+% insbesondere auf die Klassifizierung der Unsicherheit (Typ-A/B) und die
+% Unsicherheitsfortpflanzung einzugehen.
+\section{Auswertung}\label{sec:Auswertung}
+
+\subsection{Simulation}
+
+\subsection{Steckbrett}
+
+% zu 5: Diskussion und Zusammenfassung
+% In der Zusammenfassung stehen noch einmal die wichtigsten Messergebnisse, wobei auf Tabellen und
+% Abbildungen nur verwiesen werden soll. Die Ergebnisse sind auch zu diskutieren. Insbesondere müssen
+% Abweichungen zwischen Simulation und praktischer Durchführung diskutiert werden.
+\section{Diskussion und Zusammenfassung}\label{sec:Diskussion} 
+\subsection{Diskussion}
+
+%Es wäre wohl vernünftiger gewesen, die Schaltung an der Steckplatine zunächst aufzubauen, um etwaige 
+%Ungenauigkeiten durch die Widerstände 
+\subsection{Zusammenfassung}
+
+\newpage
+
+\printbibliography
+
+\listoffigures
+
+\listoftables
+
+
+
+\end{document}
+
