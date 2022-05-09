@@ -43,6 +43,8 @@
 # indent
 __latexindent_temp.tex
 
+# git local history
+.local-history/
 
 ## Python
 
