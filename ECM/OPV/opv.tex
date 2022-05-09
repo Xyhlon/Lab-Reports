@@ -8,11 +8,11 @@
     % Kopfzeile
 \ihead{SS22\\04.05.2022}
 \chead{\textsc{Hinterleitner} Michael - 12002411 \\ \textsc{Philipp} Maximilian - 11839611}
-\ohead{LU ECM-\\ Transistor}
+\ohead{LU ECM-\\ OPV}
     % Fußzeile
 %--------------------------------------AB HIER DOKUMENT---------------------------------------------
 \begin{document}
-\includepdf{deckblatt1.pdf}
+\includepdf{deckblatt2.pdf}
 \tableofcontents
 \newpage
 
@@ -51,65 +51,7 @@
 % wir verwenden bei den Widerständen zum Beispiel von den Normwert-Reihen die
 % E12 und/oder E24 Serie (nach DIN 41426 bzw. IEC 63).
 \section{Grundlagen}\label{sec:Grundlagen}
-
-Bipolartransistoren sind Halbleiterbauelemente mit zwei pn-Halbleiterübergängen
-(entweder npn oder pnp), bei denen gegensätzlich zu den Feldeffekttransistoren
-beide Arten von Ladungsträgern, Elektronen und Löcher/Defektelektronen, am
-Stromfluss beteiligt sind. Für Schaltungen mit Bipolartransistoren, die in der
-Elektronik zur Verstärkung respektive Schaltung verwendet werden, wird zwischen
-Emitter-, Basis- und Kollektorschaltung differenziert. Die
-Schaltungsbezeichnungen beruhen auf dem Anschluss, der als Bezug für Eingang
-und Ausgang dient. Diese Schaltungsarten sind in 
-% \autoref{fig:schaltungsarten} dargestellt; zu beachten ist, dass der Pfeil am
-Emitter des Transistors in die technische Stromrichtung zeigt. 
-
-\begin{figure}[H]
-    \centering
-    % \includegraphics[width=8cm, height=8cm,keepaspectratio]{./figures/schaltungsarten.png}
-    \caption{Darstellung der 3 Schaltungsarten mit Bipolartransistor \cite{tietze}}
-    \label{fig:schaltungsarten}
-\end{figure}
-
-In dieser Laborübung sind ausschließlich Emitterschaltungen von Relevanz,
-insbesondere jene mit Stromgegenkopplung, wodurch die Temperaturabhängigkeit
-der Schaltung kompensiert wird. Dies ist deswegen von hoher Relevanz, da
-Transistorschaltungen stets um einen bestimmten Arbeitspunkt betrieben werden
-(sollten). Dieser Arbeitspunkt wird über den Kollektorstrom $I_C$, Basisstrom
-$I_B$, der Kollektor-Emitterspannung $U_{CE}$ beziehungsweise
-Basis-Emitterspannung $U_{BE}$ festgelegt. Ein Anstieg der Temperatur würde
-diesen wiederum, aufgrund der Temperaturabhängigkeit von Halbleitern
-(pn-Übergang), verschieben. Dadurch wird eine Zunahme des Basisstroms $I_B$ und
-infolge des Kollektorstroms $I_C$ sowie eine Abnahme des Kollektorpotentials
-$V_C$ bedingt. Um dies zu kompensieren, wird im Rahmen der Stromgegenkopplung
-ein Emitterwiderstands $R_E$ implementiert. Dieser führt aufgrund des nun
-höheren Emitterstroms $I_E$, der sich gemäß der Kirchhoff'schen Knotenregel aus
-der Summe der Teilströme $I_C$ und $I_B$ (der allerdings vernachlässigt werden
-kann) ergibt, zu einer größeren Spannung $U_{RE}$, die am Emitterwiderstand
-abfällt. Dadurch nimmt die Basis-Emitterspannung $U_{BE}$ ab und der Basisstrom
-wird geringer, genauso wie folglich der Kollektor- und Emitterstrom, was der
-ursprünglichen Erhöhung entgegenwirkt. \cite{tietze}
-\newline
-
-Zur Berechnung der Ströme am Steckbrett (Kapitel \nameref{sec:Auswertung}), des
-Basis- $I_B$ und Kollektorstroms $I_C$, nachdem die an den Vorwiderständen
-$R_1$ und $R_2$ abfallenden Spannungen $U_{R1}$ respektive $U_{R2}$ gemessen
-wurden, wird das Ohmsche Gesetz \autoref{eq:ohm} verwendet. Dabei bezeichnet
-wie gewohnt $U$ die Spannung, $I$ den Strom und $R$ den Widerstand als die
-Proportionalitätskonstante beziehungsweise für einen nicht-linearen Verlauf $r$
-den differentiellen Widerstand an einem Arbeitspunkt. \cite{tietze}
-
-\begin{align}
-	R&=\frac{U}{I} \label{eq:ohm}\\
-	r&= \der{U}{I} \Bigr|_{\substack{Arbeitspunkt}}
-\end{align}
-
-Die (Spannungs-)Verstärkung $V$ der Schaltung ergibt sich aus dem Verhältnis
-zwischen Ausgangsspannung und Eingangsspannung gemäß \autoref{eq:verst}.
-
-\begin{equation}
-	V=\frac{U_a}{U_e}
-	\label{eq:verst}
-\end{equation}
+\input{import.tex}
 
 % zu 4: Versuchsdurchführung In diesem Punkt wird die Durchführung der
 % einzelnen Aufgaben beschrieben. Im Simulationsteil ist die simulierte
@@ -339,17 +281,17 @@ dies nicht angepasst werden.
 \paragraph{Untersuchung Verschiedene Eingangssignale}
 Nun wurde die Integrationsfähigkeit der Schaltung durch Einspeisen
 verschiedener Eingangssignal qualitative untersucht.
-
+ 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/integrator/sinussignal.png}
+    \includegraphics[width=0.95\textwidth]{./figures/integrator/sinussignal.jpg}
   \caption{}
   \label{fig:mess_integrator_sinussignal}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/integrator/dreiecksignal.png}
+    \includegraphics[width=0.95\textwidth]{./figures/integrator/dreiecksignal.jpg}
   \caption{}
   \label{fig:mess_integrator_dreiecksignal}
 \end{figure}
@@ -362,28 +304,28 @@ verschiedener Eingangssignal qualitative untersucht.
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/integrator/5hz.jpg}
+    \includegraphics[width=0.95\textwidth]{./figures/integrator/5hz.jpg}
   \caption{}
   \label{fig:mess_integrator_5hz}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/integrator/20hz.jpg}
+    \includegraphics[width=0.95\textwidth]{./figures/integrator/20hz.jpg}
   \caption{}
   \label{fig:mess_integrator_20hz}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/integrator/35hz.jpg}
+    \includegraphics[width=0.95\textwidth]{./figures/integrator/35hz.jpg}
   \caption{}
   \label{fig:mess_integrator_35hz}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-   % \includegraphics[width=0.95\textwidth]{./figures/integrator/50hz.jpg}
+   \includegraphics[width=0.95\textwidth]{./figures/integrator/50hz.jpg}
   \caption{}
   \label{fig:mess_integrator_50hz}
 \end{figure}
@@ -405,7 +347,7 @@ verschiedener Eingangssignal qualitative untersucht.
 % Wenn eine Bearbeitung der Daten auf dem Computer erfolgt, sollte bei der
 % Darstellung der Graphen eine sinnvolle Skalenteilung des Koordinatensystems
 % gemacht werden. Die Unsicherheitsbetrachtung f ̈ur die angegebenen Messwerte,
-% sowie f ̈ur Zwischen- und Endergebnisse ist in diesem Abschnitt
+% sowie fur Zwischen- und Endergebnisse ist in diesem Abschnitt
 % nachvollziehbar zu beschreiben. Dabei ist nach Kapitel 1 vorzugehen und
 % insbesondere auf die Klassifizierung der Unsicherheit (Typ-A/B) und die
 % Unsicherheitsfortpflanzung einzugehen.
@@ -437,4 +379,3 @@ verschiedener Eingangssignal qualitative untersucht.
 
 
 \end{document}
-

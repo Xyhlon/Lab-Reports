@@ -1,0 +1,39 @@
+%in Grundlagen
+Operationsverstärker (kurz 'OPV oder 'OpAmp') dienen der Verstärkung von
+Gleichspannungen. Sie besitzen einen nicht-invertierenden, der meist mit einem
+Plus gekennzeichnet ist, und einen invertierenden Eingang, der häufigst mit
+einem Minus dargestellt wird. Zu beachten ist, dass die Verstärkung auf die
+Differenzspannung der beiden Eingänge wirkt. Je zwei zusätzliche Anschlüsse
+finden sich für die positive und negative Betriebsspannung und für den
+Offsetabgleich, damit bei keiner Eingangsspannung auch keine Ausgangsspannung
+auftritt - dieser wird also in einer externen Schaltung durchgeführt.
+%In \autoref{fig:pin_anschl} sind die Pins eines Operationsverstärkers, wie er
+%auch in der Laborübung verwendet wurde, zu sehen.
+
+
+Es gibt vier grundlegende Arten der Verwendung von Operationsverstärkern,
+darunter der nicht-invertierende Betrieb, bei dem das Eingangssignal nur auf
+den nicht-invertierenden Kanal gelegt wird und der invertierende auf Masse
+gelegt wird. Analog funktioniert der invertierende Modus, bei dem das Signal
+nun an den invertierenden Eingang gelegt wird, wodurch die Ausgangsspannung
+zusätzlich zur Verstärkung noch zum Eingangssignal invertiert wird. Beim
+Differenzbetrieb werden an beide Eingänge Signale angelegt und die
+Differenzspannung verstärkt. Im Falle des Gleichtaktbetriebs liegt das gleiche
+Eingangssignal an den beiden Eingängen an, wodurch es theoretisch keine
+Differenzspannung und Verstärkung geben sollte - in der Realität resultiert
+allerdings eine Verstärkung, die als Gleichtkatkverstärkung bezeichnet wird.
+
+Da der Operationsverstärker ohne zusätzliche Verkopplung sehr stark
+frequenzabhängig ist und nur eine geringe Bandbreite gewünscht verstärkt, wird
+eine Gegenkopplung vom Ausgang zum Eingang durchgeführt, wodurch die
+Verstärkung zwar abnimmt, die Bandbreite jedoch stark vergrößert wird. Die
+Bandbreite wird wie gewohnt durch die Grenzfrequenz chraktersisiert, bei
+welcher die Verstärkung noch \SI{70}{\%} der maximalen beträgt.
+
+Die resultierende Verstärkung lässt sich gemäß \autoref{eq:ver} als Verhätlnis
+der Eingangs- $U_e$ zur Ausgangsspannung $U_a$ berechnen.
+%insert eq ---
+
+
+%in Durchführung
+Zu beachten ist, dass jeder nicht belegte Pin auf Massenpotential gelegt wird.
