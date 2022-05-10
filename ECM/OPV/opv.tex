@@ -105,8 +105,9 @@ Offsetspannungsabgleich durchgeführt werden.
     \includegraphics[width=0.95\textwidth]{./figures/elektrometer/sim/aus_sweep.png}
   % TODO check spice directive
   \caption{Die Schaltung aus \autoref{fig:sim_elektrometer_schaltung} wurde auf
-  den Aussteuerungsbereich untersucht, indem ein DC-Sweep durchgeführt wurde. Die
-  SPICE-Directive der Simulation ist \texttt{.dc V1 -0.3 0.3 0.01}}
+    den Aussteuerungsbereich untersucht, indem ein DC-Sweep durchgeführt wurde.
+    Hier ist die Ausgangsspannung $VA$ über die Eingangsspannug $V1$
+    aufgetragen. Die SPICE-Directive der Simulation ist \texttt{.dc V1 -0.3 0.3 0.01}}
   \label{fig:sim_elektrometer_dcsweep}
 \end{figure}
 
@@ -372,8 +373,9 @@ Sinuseingangssignals von \SIrange{5}{50}{\hertz} in 15er Schritten varriert.
 \subsubsection{Simulation des Integrators mit zusätzlicher Verstärkerstufe}
 
 Schlussendlich wird die Integratorschaltung in der Simulation um eine
-OPV-Verstärkerstufe gemäß \autoref{fig:sim_integrator_stufe_schaltung} erweitert, wobei ein
-zweiter $\mu$A741 als Operationsverstärker in der Verstärkerstufe verwendet wurde.
+OPV-Verstärkerstufe gemäß \autoref{fig:sim_integrator_stufe_schaltung}
+erweitert, wobei ein zweiter $\mu$A741 als Operationsverstärker in der
+Verstärkerstufe verwendet wurde.
 
 \begin{figure}[H]
   \centering
@@ -383,9 +385,11 @@ zweiter $\mu$A741 als Operationsverstärker in der Verstärkerstufe verwendet wu
   \label{fig:sim_integrator_stufe_schaltung}
 \end{figure}
 
-Die Integrationszeit, nach welcher die Ausgangsspannung \SI{10}{\volt} beträgt, wurde erneut graphisch 
-mithilfe einer zeitliche Transienten-Analyse ermittelt, wobei eine konstante Spannungsquelle von
-\SI{100}{\milli\volt} verwendet wurde. Die Ausgangsspannung in Abhängigkeit der Zeit ist in \autoref{fig:sim_integrator_stufe_integrationszeit} dargestellt.
+Die Integrationszeit, nach welcher die Ausgangsspannung \SI{10}{\volt} beträgt,
+wurde erneut graphisch mithilfe einer zeitliche Transienten-Analyse ermittelt,
+wobei eine konstante Spannungsquelle von \SI{100}{\milli\volt} verwendet wurde.
+Die Ausgangsspannung in Abhängigkeit der Zeit ist in
+\autoref{fig:sim_integrator_stufe_integrationszeit} dargestellt.
 
 \begin{figure}[H]
   \centering
@@ -399,16 +403,16 @@ mithilfe einer zeitliche Transienten-Analyse ermittelt, wobei eine konstante Spa
   \label{fig:sim_integrator_stufe_integrationszeit}
 \end{figure}
 
-Nun wurden wiederum verschiedene Spannungsquellen als Eingangssignal für den Integrator mit
-Verstärkerstufe verwendet. 
-In \autoref{fig:sim_int_stufe_sin} sind die zeitlichen Verläufe der Eingangs-
-und Ausgangsspannung bei einem Sinus-Eingangssignal mit einer Amplitude von \SI{100}{\milli\volt} und einer 
-Frequenz \SI{5}{\hertz} von ersichtlich.
-Analog sind Eingangsspannung und Ausgangsspannung für eine Rechtecksspannung mit einer Amplitude von 
-\SI{100}{\volt} und einer Periodendauer von \SI{500}{\milli\second} in \autoref{fig:sim_int_stufe_rect}
-dargestellt.
-In \autoref{fig:sim_int_stufe_tri} sind die Verläufe von $U_e$ und $U_a$ für eine Dreiecksspannung als
-Signalquelle zu sehen.
+Nun wurden wiederum verschiedene Spannungsquellen als Eingangssignal für den
+Integrator mit Verstärkerstufe verwendet. In \autoref{fig:sim_int_stufe_sin}
+sind die zeitlichen Verläufe der Eingangs- und Ausgangsspannung bei einem
+Sinus-Eingangssignal mit einer Amplitude von \SI{100}{\milli\volt} und einer
+Frequenz \SI{5}{\hertz} von ersichtlich. Analog sind Eingangsspannung und
+Ausgangsspannung für eine Rechtecksspannung mit einer Amplitude von
+\SI{100}{\volt} und einer Periodendauer von \SI{500}{\milli\second} in
+\autoref{fig:sim_int_stufe_rect} dargestellt. In
+\autoref{fig:sim_int_stufe_tri} sind die Verläufe von $U_e$ und $U_a$ für eine
+Dreiecksspannung als Signalquelle zu sehen.
 %todo: insert graphs sin, rect, tri
 
 % zu 4: Auswertung siehe EPM Skript nur Besprechung von Umformungen und 
