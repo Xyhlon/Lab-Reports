@@ -67,6 +67,30 @@
 % originalen, während des Versuchs angefertigten Aufzeichnungen sind dem
 % Protokoll beizufügen. 
 \section{Versuchsdurchführung}\label{sec:versuchsdurchfuehrung}
+Für den praktischen Teil an der Steckplatine wurden Widerstände der E12-Reihe,
+mit denen die in der Vorbereitung angegebenen respektive errechneten Werte
+angenähert wurden, verwendet. 
+
+Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
+
+\begin{table}
+  \caption{Tabelle der verwendeten Geräte}
+  \label{tab:geraeteliste}
+  \centering
+  \begin{tabular}{l|l}
+    \hline
+   \multicolumn{2}{ c }{\textbf{Geräteliste}} \\
+    \hline
+    \textbf{Gerät/Bauelement} & \textbf{Typ} \\
+    \hline
+    Oszilloskop & \textit{Tektronix TDS 2002}\cite{oszilloscope}\\
+    Funktionsgenerator & \textit{H-TRONIC FG250D}\cite{funktionsgenerator} \\
+    Netzgerät & nicht bestimmbar\\
+    Multimeter & \textit{Fluke 175 TrueRMS}\cite{fluke175} \\
+    OPV & \textit{$\mu$A741}\\
+    \hline
+  \end{tabular}
+\end{table}
 
 \subsection{Elektrometerverstärker}
 
@@ -112,15 +136,12 @@ Offsetspannungsabgleich durchgeführt werden.
 \end{figure}
 
 \subsubsection{Steckbrett} \label{sec:elektrometer_steckbrett}
-% TODO neuer text
-% Zunächst wird die Schaltung allerdings ohne Überbrückungskondensator, wie sie
-% in  \autoref{fig:schaltungohnekond} zu sehen ist, verwendet. Nachdem
-% alle Parameter gemäß den Angaben in der Simulation und insbesondere der
-% Arbeitspunkt entsprechend dem theoretisch errechneten Wert eingestellt wurden
-% (ca. \SI{7.5}{\volt}), wurden die Eingangs- und Ausgangsspannung über der Zeit in
-% einem Plot, durch Messung dieser Größen für einen geeigneten Zeitabschnitt
-% (siehe  \autoref{fig:schaltungohnekond} im unteren Bildbereich),
-% dargestellt. 
+Bevor die Schaltung zunächst aufgebaut werden kann muss die
+Funktionstüchtigkeit des OPVs getestet werden, damit keine unzuverlässigen
+Komponentten verwendet werden. Daraufhin wird eine Impedanzwandlerschaltung mit
+dem funktionstüchtigen OPV gebaut, mit welcher leicht der
+Offsetspannungsabgleich gemacht werden kann.
+
 
 \paragraph{Testschaltung}
 % 8) Der Operationsverstärker ist auf seine Funktionstüchtigkeit mit Hilfe der
@@ -144,10 +165,26 @@ Eingangsspannung) und dem Messen der Ausgangsspannung erfolgreich überprüft.
 % 9) Der Verstärker (bestehend aus OPV, Netzwerk und Spannungsteiler für die
 % Eingangsspannung) ist auf dem Steckboard aufzubauen.
 \paragraph{Aufbau}
+Im Gegensatz zu der in \autoref{fig:sim_elektrometer_schaltung} ersichtlichen
+Schaltung wird am Steckbrett ein Spannungsteiler als \SI{100}{mV}
+Spannungsquelle verwendet. Dazu wurden ein \SI{15.0}{\kilo\ohm} und ein
+\SI{14.96}{\kilo\ohm} mit einem \SI{1}{\kilo\ohm} Poti verwendet um eine wie in
+der \autoref{sec:Vorbereitung} ersichtlichen Spannungsteiler zu bauen. Welcher
+an der Betriebsspannung $VCC$ \SI{+15}{\volt} und der negativen
+Betriebsspannung $VCC-$ \SI{-15}{\volt} anliegt, um eine, durch das dritte
+mittelere Bein des Poti abgreifbare, Spannung $V1$ zu erzeugen, welche
+mindestens einen, durch das Poti einstellbaren, Bereich von
+\SIrange{-500}{500}{\milli\volt} abdecken kann. Weiters wurden die in der
+\autoref{fig:sim_elektrometer_schaltung} ersichtlichen Widerstände
+\SI{492}{\kilo\ohm} und \SI{7.8}{\kilo\ohm} durch folgende E12-Reihe
+Wiederstände \SI{470}{\kilo\ohm} mit \SI{22}{\kilo\ohm} und \SI{6.8}{\kilo\ohm}
+mit einem \SI{1}{\kilo\ohm} Poti, welcher verwendet werden kann um die
+Ungenauigkeiten der E12 Widerstände beim Verstärkungsfaktor ausbessern zu
+können.
 
 \begin{figure}[H]
   \centering
-  % TODO grafik einfuegen
+  % TODO Beschriftung der Grafik 
     \includegraphics[width=0.95\textwidth]{./figures/elektrometer/steckbrett.png}
   \caption{Der Aufbau des Elektrometerverstärkers am Steckbrett der Schaltung von
   \autoref{fig:sim_elektrometer_schaltung}}
@@ -156,7 +193,7 @@ Eingangsspannung) und dem Messen der Ausgangsspannung erfolgreich überprüft.
 
 % 10) Es ist der Offsetspannungsabgleich durchzuführen.
 \paragraph{Offsetabgleich}\label{sec:offsetabgleich}
-Um den Offestspannungableich durchführen zu können, ist zuerst mal ein
+Um den Offsetsspannungableich durchführen zu können, ist zuerst mal ein
 Impedanzwandler aufgebaut worden, wodurch das Abgleichen sich zum Abstimmen
 der Eingangsspannug zur Ausgangsspannung vereinfachte. Dies wurde durch ein
 extern beschaltetes Potentiometer bewerkstelligt, welches die Rolle eines
@@ -172,9 +209,13 @@ Ausgang zum invertierenden Eingang eingebaut. Zunächst gab es Probleme mit dem
 Aufnehmen der Verstärkung, da der Ground einen Wackelkontakt bekommen hat,
 welcher durch leichtes drehen des Anschlusses repariert werden konnte.
 Nun konnte die $U_a$ und $U_e$ des Elektrometerverstärker gemessen werden. Dies
-wurde mittels zwei Multimeter bewerkstelligt, indem wie in
+wurde mittels zwei Multimeter \ref{} bewerkstelligt, indem wie in
 \autoref{fig:sim_elektrometer_schaltung} ersichtlich über die Spannungsquelle
 $V1$ und von $VA$ zu Masse gemessen wurde.
+
+Der Poti im Spannungsteiler erlaubte und die Verstärkung genau einzustellen
+jedoch war eine genauere Einstellungen schwer per Hand möglich digital
+ansteuerbares poti wäre nice.
 
 \begin{equation}
   U_a = \SI{8.03}{\volt} \quad @\, U_e = \SI{125.0}{\milli\volt}
@@ -183,7 +224,14 @@ $V1$ und von $VA$ zu Masse gemessen wurde.
 
 % 12) Es ist der Aussteuerungsbereich des Verstärkers zu messen.
 \paragraph{Untersuchung des Aussteuerungsbereichs} \label{sec:Versuchohnekond}
+Um den Aussteuerungsbereich untersuchen zu können wurde der
+Eingangsspannugsteiler so dimensioniert, dass dieser an die Grenzen der
+Verstärkung des OPVs bis zu der Betriebsspannung treiben kann. Da die
+Eingangsspannug von \SIrange{-500}{500}{\milli\volt} und der Verstärkungsfaktor
+circa \num{64} beträgt ist es leicht bis über die Betriebsspannung hinaus zu
+verstärken.
 
+%TODO hier fucker
 
 \begin{table}[H]
   \caption{Gemessene Ausgangs- und Eingangspannungen der Elektrometerschaltung
@@ -274,7 +322,7 @@ Dies wurde 6 mal wiederholt um eine Mittelung der Messergebnisse durchführen zu
 können.
 
 \begin{table}
-  \caption{Messungen der Integrationszeit der realen Schaltung aus
+  \caption{Messungen der Integrationszeit der realen Integratorschaltung aus
   \autoref{fig:sim_integrator_schaltung}, wobei $T$ die Ladezeit bis am Ausgang
   \SI{10}{\volt} anliegt. Bei einem Ladespannung \SI{91.8}{\milli\volt}, einem
   Widerstand von \SI{21.9}{\kilo\ohm} und einer Kapazität von
@@ -435,6 +483,14 @@ Dreiecksspannung als Signalquelle zu sehen.
 \subsection{Simulation}
 
 \subsection{Steckbrett}
+
+\subsubsection{Verstärkung \& Aussteuerungsbereich}
+Damit die Verstärkung in des Elektrometerverstärkers bestimmt werden kann wurde
+der lineare Bereich in den Daten aus \autoref{tab:mess_elektro_aussteurerung}
+gefittet. Da die Steigung der Vertärkung entspricht zu finden.
+\subsubsection{Integrationszeit}
+Die Integrationszeiten aus \autoref{tab:messungen_integration} wurden gemittelt
+und die Messung wurde als Gaußverteilt stattgefunden.
 
 % zu 5: Diskussion und Zusammenfassung
 % In der Zusammenfassung stehen noch einmal die wichtigsten Messergebnisse, wobei auf Tabellen und
