@@ -215,9 +215,9 @@ wurde mittels zwei Multimeter \cite{fluke175} bewerkstelligt, indem wie in
 \autoref{fig:sim_elektrometer_schaltung} ersichtlich über die Spannungsquelle
 $V1$ und von $VA$ zu Masse gemessen wurde.
 
-Der Poti im Spannungsteiler erlaubte und die Verstärkung genau einzustellen
-jedoch war eine genauere Einstellungen schwer per Hand möglich digital
-ansteuerbares poti wäre nice.
+Das Potentiometer im Spannungsteiler erlaubte die Verstärkung genau einzustellen.
+Jedoch war eine genauere Einstellung schwer per Hand zu bewerkstelligen. Ein digital
+ansteuerbares Potentiometer wäre nützlich.
 
 \begin{equation}
   U_a = \SI{8.03}{\volt} \quad @\, U_e = \SI{125.0}{\milli\volt}
@@ -268,10 +268,11 @@ Schaltplan in \autoref{fig:sim_integrator_schaltung}.
 % 2) Die Integrationsdauer der Schaltung ist mit einer konstanten Spannungsquelle zu
 % simulieren. Die Ergebnisse sind mit der Vorbereitung zu vergleichen.
 \paragraph{Integrationszeit}
-Um die Integrationszeit, die bei \SI{-10}{\volt} erreicht wird, zu bestimmen, wurde eine zeitliche 
-Transienten-Analyse durchgeführt, wobei eine konstante Spannungsquelle von \SI{100}{\milli\volt} verwendet
-wurde. In \autoref{fig:sim_integrator_integrationszeit} ist die auftretende Ausgangsspannung in
-Abhängigkeit der Zeit zu sehen.
+Um die Integrationszeit, die bei \SI{-10}{\volt} erreicht wird, zu bestimmen,
+wurde eine zeitliche Transienten-Analyse durchgeführt, wobei eine konstante
+Spannungsquelle von \SI{100}{\milli\volt} verwendet wurde. In
+\autoref{fig:sim_integrator_integrationszeit} ist die auftretende
+Ausgangsspannung in Abhängigkeit der Zeit zu sehen.
 
 % TODO text
 
@@ -492,23 +493,22 @@ des 0,6 bis 0,9-fachen der Betriebsspannung erreicht werden, was bei einer
 Betriebsspannung von \SI{\pm 15}{\volt} eine Spannweite von \SI{\pm 9}{\volt}
 bis \SI{\pm 13,5}{\volt} ergibt. Wie in \autoref{fig:sim_elektrometer_dcsweep}
 für den Elektrometerverstärker zu sehen, deckt sich dieser Verhalt mit der
-Simulation, bei welcher die Aussteuerung ab einer Eingangsspannung von \SI{\pm
-200}{\milli\volt} auftritt, wobei eine maximale Ausgangsspannung von \SI{\pm
-13}{\volt} erreicht wird. Der Verlauf ähnelt dabei stark der charakteristischen
-Kennlinie der Ausgangsspannung eines gewöhnlichen OPVs. Die Sättigungen im
-Aussteuerungsbereich, die ebenso bei einer Ausgangsspannung von \SI{\pm
-13}{\volt} erreicht werden, sind auch anhand der Simulationen der
+Simulation, bei welcher die Aussteuerung ab einer Eingangsspannung von 
+\SI{\pm 200}{\milli\volt} auftritt, wobei eine maximale Ausgangsspannung von
+\SI{\pm 13}{\volt} erreicht wird. Der Verlauf ähnelt dabei stark der
+charakteristischen Kennlinie der Ausgangsspannung eines gewöhnlichen OPVs. Die
+Sättigungen im Aussteuerungsbereich, die ebenso bei einer Ausgangsspannung von
+\SI{\pm 13}{\volt} erreicht werden, sind auch anhand der Simulationen der
 Integrationszeit der Integratorschaltung in
 \autoref{fig:sim_integrator_integrationszeit} für die Schaltung ohne respektive
 in \autoref{fig:sim_integrator_stufe_integrationszeit} für die Schaltung mit
-Verstärkerstufe deutlich zu erkennen. 
-
-Die Messung der Ausgangsspannung unter Variation der Eingangsspannung am
-Steckbrett ergibt, wie in \autoref{fig:} zu sehen, 
-einen qualitativ sehr ähnlichen Verlauf der Datenpunkte. 
+Verstärkerstufe deutlich zu erkennen. \newline Die Messung der Ausgangsspannung
+unter Variation der Eingangsspannung am Steckbrett ergibt, wie in
+\autoref{fig:} zu sehen, einen qualitativ sehr ähnlichen Verlauf der
+Datenpunkte. 
 %todo: insert fig name for scatter plot
-Dabei tritt die Sättigung ab einer Eingangsspannung von etwa \SI{\pm 220}{\volt} 
-auf, wobei die maximale Ausgangsspannung auf der positiven Achse
+Dabei tritt die Sättigung ab einer Eingangsspannung von etwa \SI{\pm
+220}{\volt} auf, wobei die maximale Ausgangsspannung auf der positiven Achse
 ca. \SI{13,9}{\volt} und auf der negativen \SI{-13,5}{\volt} beträgt. Diese
 geringfügigen Abweichungen von der Simulation sind wohl auf das reale Verhalten
 der Schaltung (u.a. Temperaturabhängigkeit der Bauelemente) zurückzuführen und
@@ -536,7 +536,7 @@ Steckplatine ergab sich bei sechsmaliger Durchführung ein Wert von
 \SI{}{\second}.
 % TODO discuss the discreptency in the time measurement with the expected result 
 %todo: insert int time 
-
+\newline
 Für die Integratorschaltung mit Verstärkerstufe sollte gemäß der Vorbereitung
 in \autoref{sec:Vorbereitung} bei einer Eingangsspannung von
 \SI{100}{\milli\volt} nach \SI{10}{\second} eine Ausgangsspannung von
@@ -549,8 +549,12 @@ Schaltung wie geplant funktioniert und erfolgreich konstruiert respektive
 dimensioniert wurde.
 
 \paragraph{Spannungsarten}
-Die Eingangs- und Ausgangsspannungen sind in \autoref{} 
+Die Eingangs- und Ausgangsspannungen für ein Sinussignal sind in \autoref{} für
+die Simulation des Umkehrintegrators, in \autoref{} für die Simulation
+inklusive Verstärkerstufe und in \autoref{} als Oszillogramm für den
+Umkehrintegrator am Steckbrett zu sehen.
 
+\paragraph{Frequenzabhängigkeit}
 %frequenzabhängigkeit: opv-schaltung mit rückkopplung; größere variation wäre gut -> bode
 %integrationszeit: nahe zielwert, gute Dimensionierung
 
@@ -573,3 +577,4 @@ Die Eingangs- und Ausgangsspannungen sind in \autoref{}
 
 
 \end{document}
+
