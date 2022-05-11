@@ -100,10 +100,10 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 \subsubsection{Simulation} \label{sec:Versuchsim}
 
 % TODO text
-Zur Simulation des Elektrometerverstärkers wird das Programm
-\textit{LTSPICE} verwendet. Der Aufbau erfolgt analog zum skizzierten
-Schaltplan in \autoref{fig:sim_elektrometer_schaltung}. Hier wurde das gleiche
-Bauteil wie im Kapitel \nameref{sec:Aufgabenstellung} verwendet, nämlich der $\mu$A741.
+Zur Simulation des Elektrometerverstärkers wird das Programm \textit{LTSPICE}
+verwendet. Der Aufbau erfolgt analog zum skizzierten Schaltplan in
+\autoref{fig:sim_elektrometer_schaltung}. Hier wurde das gleiche Bauteil wie im
+Kapitel \nameref{sec:Aufgabenstellung} verwendet, nämlich der $\mu$A741.
 
 \begin{figure}[H]
   \centering
@@ -128,7 +128,7 @@ Offsetspannungsabgleich durchgeführt werden.
 \begin{figure}[H]
   \centering
   % TODO LTSPICE dc sweep von ausgangsspannung 
-    \includegraphics[width=0.95\textwidth]{./figures/elektrometer/sim/aus_sweep.png}
+    \includegraphics[width=\linewidth, height=7cm]{./figures/elektrometer/sim/aus_sweep.png}
   % TODO check spice directive
   \caption{Die Schaltung aus \autoref{fig:sim_elektrometer_schaltung} wurde auf
     den Aussteuerungsbereich untersucht, indem ein DC-Sweep durchgeführt wurde.
@@ -158,6 +158,7 @@ Testschaltung, siehe \autoref{fig:testschaltung}, verwendet.
   \caption{Die vorhandene Testschaltung als invertierender Verstärker.}
   \label{fig:testschaltung}
 \end{figure}
+% TODO beschreibe wie es angeschlossen wurde
 
 Diese Schaltung wurde verwendet, um zu überprüfen, ob der OPV noch immer die
 gewünschten Eigenschaften für positive und negative Verstärkungen aufweist. Dies
@@ -180,8 +181,8 @@ mindestens einen, durch das Poti einstellbaren, Bereich von
 \autoref{fig:sim_elektrometer_schaltung} ersichtlichen Widerstände
 \SI{492}{\kilo\ohm} und \SI{7.8}{\kilo\ohm} durch folgende E12-Reihe
 Wiederstände \SI{470}{\kilo\ohm} mit \SI{22}{\kilo\ohm} und \SI{6.8}{\kilo\ohm}
-mit einem \SI{1}{\kilo\ohm} Poti, welcher verwendet werden kann um die
-Ungenauigkeiten der E12 Widerstände beim Verstärkungsfaktor ausbessern zu
+mit einem \SI{1}{\kilo\ohm} Poti ersetzt. Das Potentiometer wurde verwendet um
+die Ungenauigkeiten der E12 Widerstände beim Verstärkungsfaktor ausbessern zu
 können.
 
 \begin{figure}[H]
@@ -229,17 +230,21 @@ ansteuerbares Potentiometer wäre nützlich.
 Um den Aussteuerungsbereich untersuchen zu können wurde der
 Eingangsspannugsteiler so dimensioniert, dass dieser an die Grenzen der
 Verstärkung des OPVs bis zu der Betriebsspannung treiben kann. Da die
-Eingangsspannug von \SIrange{-500}{500}{\milli\volt} und der Verstärkungsfaktor
+Eingangsspannug von \SIrange{-500}{500}{\milli\volt} liegen kann und der Verstärkungsfaktor
 circa \num{64} beträgt ist es leicht bis über die Betriebsspannung hinaus zu
-verstärken.
+verstärken und dadurch den Aussteuerungsbereich des OPVs durch mehrere
+Messungen der Eingangs- $V1$ und Ausgangsspannung $V_a$ untersuchen zu können.
 
-%TODO hier fucker
 
 \begin{table}[H]
-  \caption{Gemessene Ausgangs- und Eingangspannungen der Elektrometerschaltung
-  zur Untersuchung des Aussteuerungsbereichs\\
-  $U_a \dots$ Ausgangsspannung \\
-  $U_e \dots$ Eingangspannung \\
+  \caption{Diese Tabelle beinhaltet die gemessenen Ausgangs- und
+    Eingangspannungen der Elektrometerschaltung, welche der Untersuchung des
+    Aussteuerungsbereichs eines OPVs\cite{uA741} dienen. Diese Messungen wurden
+    unter Verwendung zweier Multimeter\cite{fluke175}, in der
+    \autoref{fig:sim_elektrometer_schaltung} ersichtlichen Schaltung, gemacht.
+    \\
+  $V_a \dots$ Ausgangsspannung \\
+  $V1 \dots$ Eingangspannung \\
   }
   \label{tab:mess_elektro_aussteurerung}
   \centering
@@ -279,7 +284,7 @@ Ausgangsspannung in Abhängigkeit der Zeit zu sehen.
 \begin{figure}[H]
   \centering
   % TODO LTSPICE trans anal von lade vorgang 
-    \includegraphics[width=0.95\textwidth]{./figures/integrator/sim/umkehr_int/dauer_aussteu.png}
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/umkehr_int/dauer_aussteu.png}
   % TODO check spice directive
   \caption{Die Schaltung aus \autoref{fig:sim_integrator_schaltung} wurde auf
   die Integrationszeit untersucht in dem eine Transiente-Analyse vom
@@ -327,6 +332,7 @@ können.
   \end{tabular}
 \end{table}
 
+% TODO Singale  einfuegen
 
 % 7) Die Schaltung (und Simulation) ist mit verschiedenen Spannungsquellen (Sinus,
 % Rechteck, Dreieck) zu testen. Protokollieren und vergleichen Sie die Ergebnisse.
@@ -338,7 +344,7 @@ Sinuseingangssignal, siehe \autoref{fig:mess_integrator_sinussignal}, verwendet.
  
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./figures/integrator/sinussignal.jpg}
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sinussignal.jpg}
   \caption{Die Aufnahme vom Sinuseingangssignal(Gelb) und dem minus integrieten
   Ausgangssignal (Blau) bei einer Frequenz von \SI{10}{\hertz}. Die
   Einstellungen können dem Oszillogramm direkt entnommen werden.}
@@ -346,11 +352,11 @@ Sinuseingangssignal, siehe \autoref{fig:mess_integrator_sinussignal}, verwendet.
 \end{figure}
 
 Nun wurde dasselbe mit einem Dreickseingangssignal
-Sinuseingangssignal, siehe \autoref{fig:mess_integrator_dreiecksignal}, gemacht.
+, siehe \autoref{fig:mess_integrator_dreiecksignal}, gemacht.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./figures/integrator/dreiecksignal.jpg}
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/dreiecksignal.jpg}
   \caption{Die Aufnahme vom Dreickseingangssignal(Gelb) und dem minus integrieten
   Ausgangssignal (Blau) bei einer Frequenz von \SI{10}{\hertz}. Die
   Einstellungen können dem Oszillogramm direkt entnommen werden.}
@@ -371,7 +377,7 @@ Sinuseingangssignals von \SIrange{5}{50}{\hertz} in 15er Schritten varriert.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./figures/integrator/5hz.jpg}
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/5hz.jpg}
     \caption{In dieser Grafik ist das Sinuseingangssignal(Gelb) bei einer Frequenz von
     \SI{5}{\Hz} und dessen Ausgangssignal(Blau) ersichtlich.}
   \label{fig:mess_integrator_5hz}
@@ -379,7 +385,7 @@ Sinuseingangssignals von \SIrange{5}{50}{\hertz} in 15er Schritten varriert.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./figures/integrator/20hz.jpg}
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/20hz.jpg}
     \caption{In dieser Grafik ist das Sinuseingangssignal(Gelb) bei einer Frequenz von
     \SI{20}{\Hz} und dessen Ausgangssignal(Blau) ersichtlich.}
   \label{fig:mess_integrator_20hz}
@@ -387,7 +393,7 @@ Sinuseingangssignals von \SIrange{5}{50}{\hertz} in 15er Schritten varriert.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./figures/integrator/35hz.jpg}
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/35hz.jpg}
     \caption{In dieser Grafik ist das Sinuseingangssignal(Gelb) bei einer Frequenz von
     \SI{35}{\Hz} und dessen Ausgangssignal(Blau) ersichtlich.}
   \label{fig:mess_integrator_35hz}
@@ -395,13 +401,12 @@ Sinuseingangssignals von \SIrange{5}{50}{\hertz} in 15er Schritten varriert.
 
 \begin{figure}[H]
   \centering
-   \includegraphics[width=0.95\textwidth]{./figures/integrator/50hz.jpg}
+   \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/50hz.jpg}
     \caption{In dieser Grafik ist das Sinuseingangssignal(Gelb) bei einer Frequenz von
     \SI{50}{\Hz} und dessen Ausgangssignal(Blau) ersichtlich.}
   \label{fig:mess_integrator_50hz}
 \end{figure}
 
-\paragraph{Simulation Untersuchung der frequenzabhängigen Verstärkung}
 
 % 9) Die Simulation ist um die genannte Verstärkerstufe zu erweitern.
 % Wiederholen Sie mit der neuen Schaltung Punkt 2 und 7
@@ -415,7 +420,7 @@ Verstärkerstufe verwendet wurde.
 \begin{figure}[H]
   \centering
   % TODO LTSPICE aufbau der Elektrometer
-    \includegraphics[width=0.95\textwidth]{./figures/integrator/sim/mit_stufe/schaltung_spannungstypen.pdf}
+    \includegraphics[width=\linewidth]{./figures/integrator/sim/mit_stufe/schaltung_spannungstypen.pdf}
   \caption{Dies ist die Integratorschaltung mit Verstärkerstufe; aufgebaut in \textit{LTSPICE}.}
   \label{fig:sim_integrator_stufe_schaltung}
 \end{figure}
@@ -429,11 +434,11 @@ Die Ausgangsspannung in Abhängigkeit der Zeit ist in
 \begin{figure}[H]
   \centering
   % TODO LTSPICE trans anal von lade vorgang 
-    \includegraphics[width=0.95\textwidth]{./figures/integrator/sim/mit_stufe/100mv_aus_zeit.png}
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/mit_stufe/100mv_aus_zeit.png}
   % TODO check spice directive, pathway
   \caption{Die Schaltung aus \autoref{fig:sim_integrator_schaltung} wurde auf
   die Integrationszeit untersucht, indem eine Transienten-Analyse vom
-  Ladevorgang gemacht wurde. Die Simulation SPICE-Directive ist \texttt{.tran 0 16} 
+  Ladevorgang gemacht wurde. Die Simulation SPICE-Directive ist \texttt{.tran 0 16 0} 
   bei einer Eingangsspannung $U_e$ von \SI{100}{\milli\volt}.}
   \label{fig:sim_integrator_stufe_integrationszeit}
 \end{figure}
@@ -449,6 +454,36 @@ Ausgangsspannung für eine Rechtecksspannung mit einer Amplitude von
 \autoref{fig:sim_int_stufe_tri} sind die Verläufe von $U_e$ und $U_a$ für eine
 Dreiecksspannung als Signalquelle zu sehen.
 %todo: insert graphs sin, rect, tri
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/mit_stufe/sin100mv_5hz.png}
+  \caption{Die Simulation eines Sinuseingangssignal(Pink) und dessen, durch die Schaltung integrieten,
+  Ausgangssignal (Grün) bei einer Frequenz von \SI{5}{\hertz}. Die
+  Einstellungen können dem Oszillogramm direkt entnommen werden.}
+  \label{fig:sim_int_stufe_sin}
+\end{figure}
+
+Nun wurde dasselbe mit einem Dreickseingangssignal, siehe
+\autoref{fig:mess_integrator_dreiecksignal}, gemacht.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/mit_stufe/dreieck100mv_500ms.png}
+  \caption{Die Simulation eines Dreickseingangssignal(Pink) und dessen, durch die Schaltung integrieten,
+    Ausgangssignal (Grün) bei einer Frequenz von \SI{2}{\hertz}. Die
+  Einstellungen können dem Oszillogramm direkt entnommen werden.}
+  \label{fig:sim_int_stufe_tri}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/mit_stufe/rechteck100mv_500ms.png}
+  \caption{Die Simulation eines Rechteckseingangssignal(Pink) und dessen, durch die Schaltung integrieten,
+  Ausgangssignal (Grün) bei einer Frequenz von \SI{2}{\hertz}. Die
+  Einstellungen können dem Oszillogramm direkt entnommen werden.}
+  \label{fig:sim_int_stufe_rect}
+\end{figure}
 
 % zu 4: Auswertung siehe EPM Skript nur Besprechung von Umformungen und 
 % Sachen die man mit den Messungen machen muss damit man Conclusion und Wissen 
@@ -466,18 +501,63 @@ Dreiecksspannung als Signalquelle zu sehen.
 % insbesondere auf die Klassifizierung der Unsicherheit (Typ-A/B) und die
 % Unsicherheitsfortpflanzung einzugehen.
 \section{Auswertung}\label{sec:Auswertung}
+% 2) Die Integrationsdauer der Schaltung ist mit einer konstanten Spannungsquelle zu 
+% simulieren. Die Ergebnisse sind mit der Vorbereitung zu vergleichen. 
+% 3) Der OPV ist auf die Funktionstüchtigkeit zu prüfen. (siehe Aufgabe A, Punkt 8) 
+% 4) Der Umkehrintegrator (bestehend aus OPV, Netzwerk und Spannungsteiler) ist auf 
+% dem Steckboard aufzubauen.  
+% 5) Es ist der Offsetspannungsabgleich durchzuführen. 
+% 6) Die aufgebaute Schaltung ist in Betrieb zu nehmen und die Integrationszeit zu 
+% protokollieren (Stoppuhr). Die Messung ist fünfmal zu wiederholen. 
+% 7) Die Schaltung (und Simulation) ist mit verschiedenen Spannungsquellen (Sinus, 
+% Rechteck, Dreieck) zu testen. Protokollieren und vergleichen Sie die Ergebnisse. 
+% Nutzen Sie dazu Oszilloskop und Frequenzgenerator. 
+% 8) Vergleichen Sie die frequenzabhängige Verstärkung der Schaltung in einem Bereich 
+% zwischen 5 und 50 Hz mit der Simulation. 
+% 9) Die Simulation ist um die genannte Verstärkerstufe zu erweitern. Wiederholen Sie 
 
-\subsection{Simulation}
 
-\subsection{Steckbrett}
+\subsection{Elektrometerschaltung}
+
+\subsubsection{Simulation}
+% Verstärkung berechnen
 
 \subsubsection{Verstärkung \& Aussteuerungsbereich}
 Damit die Verstärkung in des Elektrometerverstärkers bestimmt werden kann wurde
 der lineare Bereich in den Daten aus \autoref{tab:mess_elektro_aussteurerung}
-gefittet. Da die Steigung der Vertärkung entspricht zu finden.
+gefittet. Da die Steigung der Vertärkung entspricht wurde diese verwendet  um
+die Verstärkung der Schaltung zu finden.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\linewidth]{./Output/OPV/opvmessung.png}
+    \caption{Diese Grafik zeigt den gemessenen Aussteuerungsbereich des
+    $\mu$A741 OPVs. Auf der Ordinaten-Achse befindet sich die Ausgangsspannung
+    $V_a$ und auf der Abszisse die Eingangspannung $V1$. Die Daten wurden aus
+    \autoref{tab:mess_elektro_aussteurerung} entnommen und als Scatterplot
+    dargestellt. Zudem wurde der lineare Operationsbereich des OPVs gefittet um
+  die Verstärkung $V$ der realen Elektrometerschaltung genau bestimmen zu
+können. Da ein Offset $V_{offset}$ dennoch vorhanden war ist dieser im Fit
+berücksichtig worden.}
+  \label{fig:gemessene_aussteuerungskurve}
+\end{figure}
+
+Die Berechnung und grafische Darstellung wurde mit dem selbstgeschriebenen
+Open-Source-Python-Package \texttt{labtool-ex2}\cite{labtool} gemacht. Aus
+\autoref{fig:gemessene_aussteuerungskurve} kann die Verstärkung gleich
+abgelesen werden, dieser hat einen Wert von \num{64.00(7)}.
+
+
+\subsection{Umkehrintegrator}
+
 \subsubsection{Integrationszeit}
 Die Integrationszeiten aus \autoref{tab:messungen_integration} wurden gemittelt
-und die Messung wurde als Gaußverteilt stattgefunden.
+und dabei wurde die Streuung der Messung als gaußverteilt angenommen.
+
+\begin{equation}
+  T = \SI{17.0(4)}{\second}
+  \label{eq:wert_integrationszeit}
+\end{equation}
 
 % zu 5: Diskussion und Zusammenfassung
 % In der Zusammenfassung stehen noch einmal die wichtigsten Messergebnisse, wobei auf Tabellen und
@@ -485,6 +565,7 @@ und die Messung wurde als Gaußverteilt stattgefunden.
 % Abweichungen zwischen Simulation und praktischer Durchführung diskutiert werden.
 \section{Diskussion und Zusammenfassung}\label{sec:Diskussion} 
 \subsection{Diskussion}
+
 \subsubsection{Elektrometerverstärker}
 \paragraph{Aussteuerung}
 %ausstereung: 0,6-0,9x der Ub sollte Ua bei Aussteuerung max sein -> sättigung
@@ -524,6 +605,8 @@ mehreren Volt vernachlässigbar ist und eine ausreichende Genauigkeit
 gewährleistet.
 
 \subsubsection{Integrator}
+% 2) Die Integrationsdauer der Schaltung ist mit einer konstanten Spannungsquelle zu 
+% simulieren. Die Ergebnisse sind mit der Vorbereitung zu vergleichen. 
 \paragraph{Integrationszeit}
 Die in der Simulation für den Integrator ohne Verstärkerstufe bestimmte
 Integrationsdauer von \SI{15,1}{\second} (siehe
