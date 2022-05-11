@@ -37,8 +37,10 @@
 \includepdf[pages=-,
      addtotoc={
          1, section, 2, Vorbereitung, sec:Vorbereitung
-     }]{./mh_vorbereitung_opv.pdf}
-% \includepdf[pages=-]{./figures/Transistor2.pdf}
+     }]{./figures/OpV.pdf}
+\includepdf[pages=-]{./figures/Integrator1.pdf}
+\includepdf[pages=-]{./figures/Integrator2.pdf}
+\includepdf[pages=-]{./mh_vorbereitung_opv.pdf}
 
 
 % zu 3: Grundlagen In den Grundlagen sollen die später verwendeten Formeln
@@ -209,7 +211,7 @@ Ausgang zum invertierenden Eingang eingebaut. Zunächst gab es Probleme mit dem
 Aufnehmen der Verstärkung, da der Ground einen Wackelkontakt bekommen hat,
 welcher durch leichtes drehen des Anschlusses repariert werden konnte.
 Nun konnte die $U_a$ und $U_e$ des Elektrometerverstärker gemessen werden. Dies
-wurde mittels zwei Multimeter \ref{} bewerkstelligt, indem wie in
+wurde mittels zwei Multimeter \cite{fluke175} bewerkstelligt, indem wie in
 \autoref{fig:sim_elektrometer_schaltung} ersichtlich über die Spannungsquelle
 $V1$ und von $VA$ zu Masse gemessen wurde.
 
@@ -241,23 +243,7 @@ verstärken.
   }
   \label{tab:mess_elektro_aussteurerung}
   \centering
-    \begin{tabular}[c]{S|S}
-      {$U_e$ / \si{\milli\volt}} & {$U_a$ / \si{\volt}} \\
-      0.0 & 0.0365 \\
-      63.2 & 4.082 \\
-      121.5 & 7.81 \\
-      180.7 & 11.6 \\
-      200.4 & 12.86 \\
-      225.2 & 13.98 \\
-      244.8 & 13.98 \\
-      -62.8 & -3.987 \\
-      -117.8 & -7.46 \\
-      -176.2 & -11.24 \\
-      -233.6 & -13.00 \\
-      -290.6 & -13.35 \\
-      -298.6 & -13.40 \\
-      -340.1 & -13.49 \\
-    \end{tabular}
+  \include{./Output/OPV/messreihe_messwertversuch1.tex}
 \end{table}
 
 
@@ -370,7 +356,7 @@ Sinuseingangssignal, siehe \autoref{fig:mess_integrator_dreiecksignal}, gemacht.
   \label{fig:mess_integrator_dreiecksignal}
 \end{figure}
 
-Da der Singalgenerator \ref{} keine Rechteckspannung erzeugen konnte, konnte
+Da der Singalgenerator \cite{funktionsgenerator} keine Rechteckspannung erzeugen konnte, konnte
 dies auch nicht mit einem Rechteckssignal untersucht werden.
 
 % NOTE: Erwaehnen Rechteckspannung konnte nicht gemacht werden.
@@ -428,7 +414,7 @@ Verstärkerstufe verwendet wurde.
 \begin{figure}[H]
   \centering
   % TODO LTSPICE aufbau der Elektrometer
-    % \includegraphics[width=0.95\textwidth]{./figures/integrator/stufe_aufbau.png}
+    \includegraphics[width=0.95\textwidth]{./figures/integrator/sim/mit_stufe/schaltung_spannungstypen.pdf}
   \caption{Dies ist die Integratorschaltung mit Verstärkerstufe; aufgebaut in \textit{LTSPICE}.}
   \label{fig:sim_integrator_stufe_schaltung}
 \end{figure}
@@ -442,11 +428,11 @@ Die Ausgangsspannung in Abhängigkeit der Zeit ist in
 \begin{figure}[H]
   \centering
   % TODO LTSPICE trans anal von lade vorgang 
-    % \includegraphics[width=0.95\textwidth]{./figures/integrator/stufe_integrationszeit.png}
+    \includegraphics[width=0.95\textwidth]{./figures/integrator/sim/mit_stufe/100mv_aus_zeit.png}
   % TODO check spice directive, pathway
   \caption{Die Schaltung aus \autoref{fig:sim_integrator_schaltung} wurde auf
   die Integrationszeit untersucht, indem eine Transienten-Analyse vom
-  Ladevorgang gemacht wurde. Die Simulation SPICE-Directive ist \texttt{.tran 0 20} 
+  Ladevorgang gemacht wurde. Die Simulation SPICE-Directive ist \texttt{.tran 0 16} 
   bei einer Eingangsspannung $U_e$ von \SI{100}{\milli\volt}.}
   \label{fig:sim_integrator_stufe_integrationszeit}
 \end{figure}
@@ -498,9 +484,77 @@ und die Messung wurde als Gaußverteilt stattgefunden.
 % Abweichungen zwischen Simulation und praktischer Durchführung diskutiert werden.
 \section{Diskussion und Zusammenfassung}\label{sec:Diskussion} 
 \subsection{Diskussion}
+\subsubsection{Elektrometerverstärker}
+\paragraph{Aussteuerung}
 %ausstereung: 0,6-0,9x der Ub sollte Ua bei Aussteuerung max sein -> sättigung
+Die Aussteuerung eines Operationsverstärkers soll bei einer Ausgangsspannung
+des 0,6 bis 0,9-fachen der Betriebsspannung erreicht werden, was bei einer
+Betriebsspannung von \SI{\pm 15}{\volt} eine Spannweite von \SI{\pm 9}{\volt}
+bis \SI{\pm 13,5}{\volt} ergibt. Wie in \autoref{fig:sim_elektrometer_dcsweep}
+für den Elektrometerverstärker zu sehen, deckt sich dieser Verhalt mit der
+Simulation, bei welcher die Aussteuerung ab einer Eingangsspannung von \SI{\pm
+200}{\milli\volt} auftritt, wobei eine maximale Ausgangsspannung von \SI{\pm
+13}{\volt} erreicht wird. Der Verlauf ähnelt dabei stark der charakteristischen
+Kennlinie der Ausgangsspannung eines gewöhnlichen OPVs. Die Sättigungen im
+Aussteuerungsbereich, die ebenso bei einer Ausgangsspannung von \SI{\pm
+13}{\volt} erreicht werden, sind auch anhand der Simulationen der
+Integrationszeit der Integratorschaltung in
+\autoref{fig:sim_integrator_integrationszeit} für die Schaltung ohne respektive
+in \autoref{fig:sim_integrator_stufe_integrationszeit} für die Schaltung mit
+Verstärkerstufe deutlich zu erkennen. 
+
+Die Messung der Ausgangsspannung unter Variation der Eingangsspannung am
+Steckbrett ergibt, wie in \autoref{fig:} zu sehen, 
+einen qualitativ sehr ähnlichen Verlauf der Datenpunkte. 
+%todo: insert fig name for scatter plot
+Dabei tritt die Sättigung ab einer Eingangsspannung von etwa \SI{\pm 220}{\volt} 
+auf, wobei die maximale Ausgangsspannung auf der positiven Achse
+ca. \SI{13,9}{\volt} und auf der negativen \SI{-13,5}{\volt} beträgt. Diese
+geringfügigen Abweichungen von der Simulation sind wohl auf das reale Verhalten
+der Schaltung (u.a. Temperaturabhängigkeit der Bauelemente) zurückzuführen und
+so zu erwarten gewesen.
+
+\paragraph{Ausgangsspannung Steckbrett}
+Ziel der Elektrometerverstärker-Schaltung war eine Eingangsspannung von
+\SI{125}{\milli\volt} in eine Ausgangsspannung von \SI{8}{\volt} umzuwandeln.
+Dies wurde am Steckbrett gemäß \autoref{eq:messwert_elektro_ausgang_eingang}
+mit ähnlich hoher Genauigkeit wie bei der Simulation erzielt. Die Abweichung
+beträgt demzufolge nur \SI{30}{\milli\volt}, was bei einer Größenordnung von
+mehreren Volt vernachlässigbar ist und eine ausreichende Genauigkeit
+gewährleistet.
+
+\subsubsection{Integrator}
+\paragraph{Integrationszeit}
+Die in der Simulation für den Integrator ohne Verstärkerstufe bestimmte
+Integrationsdauer von \SI{15,1}{\second} (siehe
+\autoref{fig:sim_integrator_integrationszeit}), die verging bis eine anvisierte
+Ausgangsspannung von \SI{-10}{\volt} erreicht wurde, weicht kaum von den Werten
+der Vorbereitung (siehe \autoref{sec:Vorbereitung}) ab. Dabei sollte für die
+gegebene konstante Spannungsquelle von \SI{100}{\milli\volt} die
+Integrationszeit \SI{15}{\second} betragen. Im Rahmen des Versuchs an der
+Steckplatine ergab sich bei sechsmaliger Durchführung ein Wert von
+\SI{}{\second}.
+% TODO discuss the discreptency in the time measurement with the expected result 
+%todo: insert int time 
+
+Für die Integratorschaltung mit Verstärkerstufe sollte gemäß der Vorbereitung
+in \autoref{sec:Vorbereitung} bei einer Eingangsspannung von
+\SI{100}{\milli\volt} nach \SI{10}{\second} eine Ausgangsspannung von
+\SI{10}{\volt} erreicht werden. Mittels der Simulation wurde die
+Integrationszeit zu \SI{10,1}{\second} aus
+\autoref{fig:sim_integrator_stufe_integrationszeit} bestimmt. Abgesehen von der
+erneut nur marginalen Abweichung von \SI{0,1}{\second}, die wohl auf die
+Näherungen der Widerstände zurückzuführen ist, impliziert dies, dass die
+Schaltung wie geplant funktioniert und erfolgreich konstruiert respektive
+dimensioniert wurde.
+
+\paragraph{Spannungsarten}
+Die Eingangs- und Ausgangsspannungen sind in \autoref{} 
+
 %frequenzabhängigkeit: opv-schaltung mit rückkopplung; größere variation wäre gut -> bode
 %integrationszeit: nahe zielwert, gute Dimensionierung
+
+
 
 % TODO discuss the discreptency in the time measurement with the expected result 
 
