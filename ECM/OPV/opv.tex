@@ -99,7 +99,6 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 % 5) Die Schaltung ist mit LTspice zu zeichnen und auszudrucken (PDF).
 \subsubsection{Simulation} \label{sec:Versuchsim}
 
-% TODO text
 Zur Simulation des Elektrometerverstärkers wird das Programm \textit{LTSPICE}
 verwendet. Der Aufbau erfolgt analog zum skizzierten Schaltplan in
 \autoref{fig:sim_elektrometer_schaltung}. Hier wurde das gleiche Bauteil wie im
@@ -107,8 +106,7 @@ Kapitel \nameref{sec:Aufgabenstellung} verwendet, nämlich der $\mu$A741.
 
 \begin{figure}[H]
   \centering
-  % TODO LTSPICE aufbau der Elektrometer
-    \includegraphics[width=0.95\textwidth]{./figures/elektrometer/sim/sim_schaltung.pdf}
+    \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/elektrometer/sim/sim_schaltung.png}
   \caption{Dies ist die Elektrometerverstärkerschaltung; aufgebaut in \textit{LTSPICE}.}
   \label{fig:sim_elektrometer_schaltung}
 \end{figure}
@@ -127,9 +125,7 @@ Offsetspannungsabgleich durchgeführt werden.
 
 \begin{figure}[H]
   \centering
-  % TODO LTSPICE dc sweep von ausgangsspannung 
     \includegraphics[width=\linewidth, height=7cm]{./figures/elektrometer/sim/aus_sweep.png}
-  % TODO check spice directive
   \caption{Die Schaltung aus \autoref{fig:sim_elektrometer_schaltung} wurde auf
     den Aussteuerungsbereich untersucht, indem ein DC-Sweep durchgeführt wurde.
     Hier ist die Ausgangsspannung $VA$ über die Eingangsspannug $V1$
@@ -153,7 +149,6 @@ Testschaltung, siehe \autoref{fig:testschaltung}, verwendet.
 
 \begin{figure}[H]
   \centering
-  % TODO grafik einfuegen
     \includegraphics[width=0.95\textwidth]{./figures/testschaltung.jpeg}
   \caption{Die vorhandene Testschaltung als invertierender Verstärker.}
   \label{fig:testschaltung}
@@ -264,8 +259,7 @@ Schaltplan in \autoref{fig:sim_integrator_schaltung}.
 
 \begin{figure}[H]
   \centering
-  % TODO LTSPICE aufbau der Elektrometer
-    \includegraphics[width=0.95\textwidth]{./figures/integrator/sim/umkehr_int/schalt_umkehr_100mv.pdf}
+    \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/integrator/sim/umkehr_int/schaltung.png}
   \caption{Dies ist die Integratorschaltung aufgebaut in \textit{LTSPICE}}
   \label{fig:sim_integrator_schaltung}
 \end{figure}
@@ -279,18 +273,52 @@ Spannungsquelle von \SI{100}{\milli\volt} verwendet wurde. In
 \autoref{fig:sim_integrator_integrationszeit} ist die auftretende
 Ausgangsspannung in Abhängigkeit der Zeit zu sehen.
 
-% TODO text
-
 \begin{figure}[H]
   \centering
-  % TODO LTSPICE trans anal von lade vorgang 
     \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/umkehr_int/dauer_aussteu.png}
-  % TODO check spice directive
   \caption{Die Schaltung aus \autoref{fig:sim_integrator_schaltung} wurde auf
   die Integrationszeit untersucht in dem eine Transiente-Analyse vom
   Ladevorgang gemacht wurde. Die Simulation SPICE-Directive ist \texttt{.tran 0 25 0} 
   bei einer Eingangspannung $V1$ von \SI{100}{\milli\volt}.}
   \label{fig:sim_integrator_integrationszeit}
+\end{figure}
+
+\paragraph{Simulation Verschiedene Eingangssignale}
+Zudem wurde das Verhalten der Schaltung
+(\autoref{fig:sim_integrator_schaltung}) bei verschiedenen Eingangssignalen
+simuliert.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/umkehr_int/sin_100mv_5hz.png}
+    \caption{Die Simulation eines Sinuseingangssignal(Grün) $V1$ und dessen, durch
+    die Schaltung (\autoref{fig:sim_integrator_schaltung}) minus integrieten,
+  Ausgangssignal $VA1$ (Pink) bei einer Frequenz von \SI{5}{\hertz}. Die
+Einstellungen können dem Oszillogramm direkt entnommen werden.}
+  \label{fig:sim_int_ohne_sin}
+\end{figure}
+
+Nun wurde dasselbe mit einem Dreickseingangssignal, siehe
+\autoref{fig:sim_int_ohne_tri}, gemacht.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/umkehr_int/dreieck_100mv_t500ms.png}
+  \caption{Die Simulation eines Dreickseingangssignal(Pink) $V1$ und dessen, durch
+  die Schaltung (\autoref{fig:sim_integrator_schaltung}) minus integrieten,
+Ausgangssignal $VA1$ (Grün) bei einer Frequenz von \SI{2}{\hertz}. Die Einstellungen
+können dem Oszillogramm direkt entnommen werden.}
+  \label{fig:sim_int_ohne_tri}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/umkehr_int/rechteck_100mv_t500ms.png}
+  \caption{Die Simulation eines Rechteckseingangssignal(Pink) $V1$ und dessen, durch
+  die Schaltung (\autoref{fig:sim_integrator_schaltung}) minus integrieten,
+Ausgangssignal $VA1$ (Grün) bei einer Frequenz von \SI{2}{\hertz}. Die Einstellungen
+können dem Oszillogramm direkt entnommen werden.}
+  \label{fig:sim_int_ohne_rect}
 \end{figure}
 
 \subsubsection{Steckbrett}
@@ -303,20 +331,24 @@ angepasst werden, da noch immer alles kalibriert war.
 
 % 4) Der Umkehrintegrator (bestehend aus OPV, Netzwerk und Spannungsteiler) ist auf
 % dem Steckboard aufzubauen.
+
+% TODO eingentlichen aufbau einfuegen
+
+
 % 6) Die aufgebaute Schaltung ist in Betrieb zu nehmen und die Integrationszeit zu
 % protokollieren (Stoppuhr). Die Messung ist fünfmal zu wiederholen.
 \paragraph{Integrationszeit}
 Nun wurde die charakteristische Ingetrationszeit der Schaltung bestimmt. Indem
 zuerst der Kondensator, bis das Multimeter am Ausgang \SI{0}{\mV} anzeigte,
 entladen wurde und danach ist die Zeit des Ladens, die die Schaltung brauchte
-um die geforderte Spannung von \SI{10}{\volt} am Ausgang zu haben, gemessen.
+um die geforderte Spannung von \SI{-10}{\volt} am Ausgang zu haben, gemessen.
 Dies wurde 6 mal wiederholt um eine Mittelung der Messergebnisse durchführen zu
 können.
 
-\begin{table}
+\begin{table}[H]
   \caption{Messungen der Integrationszeit der realen Integratorschaltung aus
   \autoref{fig:sim_integrator_schaltung}, wobei $T$ die Ladezeit bis am Ausgang
-  \SI{10}{\volt} anliegt. Bei einem Ladespannung \SI{91.8}{\milli\volt}, einem
+  \SI{-10}{\volt} anliegt. Bei einem Ladespannung \SI{91.8}{\milli\volt}, einem
   Widerstand von \SI{21.9}{\kilo\ohm} und einer Kapazität von
   \SI{6.8}{\micro\farad} }
   \label{tab:messungen_integration}
@@ -332,7 +364,6 @@ können.
   \end{tabular}
 \end{table}
 
-% TODO Singale  einfuegen
 
 % 7) Die Schaltung (und Simulation) ist mit verschiedenen Spannungsquellen (Sinus,
 % Rechteck, Dreieck) zu testen. Protokollieren und vergleichen Sie die Ergebnisse.
@@ -419,7 +450,6 @@ Verstärkerstufe verwendet wurde.
 
 \begin{figure}[H]
   \centering
-  % TODO LTSPICE aufbau der Elektrometer
     \includegraphics[width=\linewidth]{./figures/integrator/sim/mit_stufe/schaltung_spannungstypen.pdf}
   \caption{Dies ist die Integratorschaltung mit Verstärkerstufe; aufgebaut in \textit{LTSPICE}.}
   \label{fig:sim_integrator_stufe_schaltung}
@@ -433,9 +463,7 @@ Die Ausgangsspannung in Abhängigkeit der Zeit ist in
 
 \begin{figure}[H]
   \centering
-  % TODO LTSPICE trans anal von lade vorgang 
     \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/mit_stufe/100mv_aus_zeit.png}
-  % TODO check spice directive, pathway
   \caption{Die Schaltung aus \autoref{fig:sim_integrator_schaltung} wurde auf
   die Integrationszeit untersucht, indem eine Transienten-Analyse vom
   Ladevorgang gemacht wurde. Die Simulation SPICE-Directive ist \texttt{.tran 0 16 0} 
@@ -453,13 +481,13 @@ Ausgangsspannung für eine Rechtecksspannung mit einer Amplitude von
 \autoref{fig:sim_int_stufe_rect} dargestellt. In
 \autoref{fig:sim_int_stufe_tri} sind die Verläufe von $U_e$ und $U_a$ für eine
 Dreiecksspannung als Signalquelle zu sehen.
-%todo: insert graphs sin, rect, tri
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/mit_stufe/sin100mv_5hz.png}
-  \caption{Die Simulation eines Sinuseingangssignal(Pink) und dessen, durch die Schaltung integrieten,
-  Ausgangssignal (Grün) bei einer Frequenz von \SI{5}{\hertz}. Die
+  \caption{Die Simulation eines Sinuseingangssignal (Pink) und dessen, durch
+  die Schaltung (\autoref{fig:sim_integrator_stufe_schaltung}) integrieten,
+  Ausgangssignal $VA2$ (Grün) bei einer Frequenz von \SI{5}{\hertz}. Die
   Einstellungen können dem Oszillogramm direkt entnommen werden.}
   \label{fig:sim_int_stufe_sin}
 \end{figure}
@@ -470,18 +498,21 @@ Nun wurde dasselbe mit einem Dreickseingangssignal, siehe
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/mit_stufe/dreieck100mv_500ms.png}
-  \caption{Die Simulation eines Dreickseingangssignal(Pink) und dessen, durch die Schaltung integrieten,
-    Ausgangssignal (Grün) bei einer Frequenz von \SI{2}{\hertz}. Die
-  Einstellungen können dem Oszillogramm direkt entnommen werden.}
+    \caption{Die Simulation eines Dreickseingangssignal (Pink) und dessen,
+    durch die Schaltung (\autoref{fig:sim_integrator_stufe_schaltung})
+    integrieten, Ausgangssignal $VA2$ (Grün) bei einer Frequenz von
+    \SI{2}{\hertz}. Die Einstellungen können dem Oszillogramm direkt entnommen
+    werden.}
   \label{fig:sim_int_stufe_tri}
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./figures/integrator/sim/mit_stufe/rechteck100mv_500ms.png}
-  \caption{Die Simulation eines Rechteckseingangssignal(Pink) und dessen, durch die Schaltung integrieten,
-  Ausgangssignal (Grün) bei einer Frequenz von \SI{2}{\hertz}. Die
-  Einstellungen können dem Oszillogramm direkt entnommen werden.}
+  \caption{Die Simulation eines Rechteckseingangssignal (Pink) und dessen,
+  durch die Schaltung (\autoref{fig:sim_integrator_stufe_schaltung})
+  integrieten, Ausgangssignal $VA2$ (Grün) bei einer Frequenz von \SI{2}{\hertz}.
+  Die Einstellungen können dem Oszillogramm direkt entnommen werden.}
   \label{fig:sim_int_stufe_rect}
 \end{figure}
 
@@ -583,11 +614,11 @@ Sättigungen im Aussteuerungsbereich, die ebenso bei einer Ausgangsspannung von
 Integrationszeit der Integratorschaltung in
 \autoref{fig:sim_integrator_integrationszeit} für die Schaltung ohne respektive
 in \autoref{fig:sim_integrator_stufe_integrationszeit} für die Schaltung mit
-Verstärkerstufe deutlich zu erkennen. \newline Die Messung der Ausgangsspannung
-unter Variation der Eingangsspannung am Steckbrett ergibt, wie in
-\autoref{fig:} zu sehen, einen qualitativ sehr ähnlichen Verlauf der
-Datenpunkte. 
-%todo: insert fig name for scatter plot
+Verstärkerstufe deutlich zu erkennen. 
+
+Die Messung der Ausgangsspannung unter Variation der Eingangsspannung am
+Steckbrett ergibt, wie in \autoref{fig:gemessene_aussteuerungskurve} zu sehen,
+einen qualitativ sehr ähnlichen Verlauf der Datenpunkte. 
 Dabei tritt die Sättigung ab einer Eingangsspannung von etwa \SI{\pm
 220}{\volt} auf, wobei die maximale Ausgangsspannung auf der positiven Achse
 ca. \SI{13,9}{\volt} und auf der negativen \SI{-13,5}{\volt} beträgt. Diese
@@ -616,10 +647,15 @@ der Vorbereitung (siehe \autoref{sec:Vorbereitung}) ab. Dabei sollte für die
 gegebene konstante Spannungsquelle von \SI{100}{\milli\volt} die
 Integrationszeit \SI{15}{\second} betragen. Im Rahmen des Versuchs an der
 Steckplatine ergab sich bei sechsmaliger Durchführung ein Wert von
-\SI{}{\second}.
+\SI{17.0(4)}{\second}.
 % TODO discuss the discreptency in the time measurement with the expected result 
-%todo: insert int time 
-\newline
+
+% TODO michael dies wurde nur ueberschlags maessig gemacht
+\begin{equation}
+  T = \frac{U_{a}RC}{U_e} = \frac{\num{10}\; \num{21900} \; \num{6.8e-6}}{\num{0.0918}}\si{\second} = \SI{16.3(3)}{\second}
+  \label{eq:theo_angepasst}
+\end{equation}
+
 Für die Integratorschaltung mit Verstärkerstufe sollte gemäß der Vorbereitung
 in \autoref{sec:Vorbereitung} bei einer Eingangsspannung von
 \SI{100}{\milli\volt} nach \SI{10}{\second} eine Ausgangsspannung von
@@ -632,9 +668,9 @@ Schaltung wie geplant funktioniert und erfolgreich konstruiert respektive
 dimensioniert wurde.
 
 \paragraph{Spannungsarten}
-Die Eingangs- und Ausgangsspannungen für ein Sinussignal sind in \autoref{} für
-die Simulation des Umkehrintegrators, in \autoref{} für die Simulation
-inklusive Verstärkerstufe und in \autoref{} als Oszillogramm für den
+Die Eingangs- und Ausgangsspannungen für ein Sinussignal sind in \autoref{fig:sim_int_ohne_sin} für
+die Simulation des Umkehrintegrators, in \autoref{fig:sim_int_stufe_sin} für die Simulation
+inklusive Verstärkerstufe und in \autoref{fig:mess_integrator_sinussignal} als Oszillogramm für den
 Umkehrintegrator am Steckbrett zu sehen.
 
 \paragraph{Frequenzabhängigkeit}
