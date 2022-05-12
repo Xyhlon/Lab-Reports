@@ -321,6 +321,21 @@ können dem Oszillogramm direkt entnommen werden.}
   \label{fig:sim_int_ohne_rect}
 \end{figure}
 
+\paragraph{Untersuchung der frequenzabhänigen Verstärkung}
+Die Frequenzabhängigkeit der Verstärkung des OPVs wurde durch eine \textit{AC
+Analysis} in \textit{LTSPICE} simuliert. Das darausresultierende Bode-Diagramm
+ist in \autoref{fig:sim_int_ohne_bode} ersichtlich.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./figures/integrator/sim/umkehr_int/bode_freq_analysis.png}
+    \caption{Diese Grafik beinhaltet das Bode-Diagramm der Umkehrintegrator
+    Schaltung aus \autoref{fig:sim_integrator_schaltung}. Dies wurde mit
+  SPICE-Directive simuliert \texttt{.ac oct 100 0.1 1k}}
+  \label{fig:sim_int_ohne_bode}
+\end{figure}
+
+
 \subsubsection{Steckbrett}
 % 3) Der OPV ist auf die Funktionstüchtigkeit zu prüfen. (siehe Aufgabe A, Punkt 8)
 % 5) Es ist der Offsetspannungsabgleich durchzuführen.
@@ -455,6 +470,7 @@ Verstärkerstufe verwendet wurde.
   \label{fig:sim_integrator_stufe_schaltung}
 \end{figure}
 
+\paragraph{Integrationszeit}
 Die Integrationszeit, nach welcher die Ausgangsspannung \SI{10}{\volt} beträgt,
 wurde erneut graphisch mithilfe einer zeitliche Transienten-Analyse ermittelt,
 wobei eine konstante Spannungsquelle von \SI{100}{\milli\volt} verwendet wurde.
@@ -471,6 +487,7 @@ Die Ausgangsspannung in Abhängigkeit der Zeit ist in
   \label{fig:sim_integrator_stufe_integrationszeit}
 \end{figure}
 
+\paragraph{Untersuchung Verschiedene Eingangssignale}
 Nun wurden wiederum verschiedene Spannungsquellen als Eingangssignal für den
 Integrator mit Verstärkerstufe verwendet. In \autoref{fig:sim_int_stufe_sin}
 sind die zeitlichen Verläufe der Eingangs- und Ausgangsspannung bei einem
@@ -516,6 +533,24 @@ Nun wurde dasselbe mit einem Dreickseingangssignal, siehe
   \label{fig:sim_int_stufe_rect}
 \end{figure}
 
+
+%TODO michael entscheide was hinein kommt lg max
+% \paragraph{Untersuchung der frequenzabhänigen Verstärkung}
+% Da sich das Bode-Diagramm nicht durch eine Verstärkerstufe wirklich ändert
+% ist dies Aufgrund von Bündigkeit (Übersichtlichkeit) nicht angeführt worden.
+% Die Frequenzabhängigkeit der Verstärkung des OPVs wurde durch eine \textit{AC
+% Analysis} in \textit{LTSPICE} simuliert. Das darausresultierende Bode-Diagramm
+% ist in \autoref{fig:sim_int_ohne_bode} ersichtlich.
+
+% \begin{figure}[H]
+%   \centering
+%     \includegraphics[width=0.95\textwidth]{./figures/integrator/sim/mit_stufe/}
+%     \caption{Diese Grafik beinhaltet das Bode-Diagramm der Umkehrintegrator
+%     Schaltung aus \autoref{fig:sim_integrator_stufe_schaltung}. Dies wurde mit
+%   SPICE-Directive simuliert \texttt{.ac oct 100 0.1 1k}}
+%   \label{fig:sim_int_ohne_bode}
+% \end{figure}
+
 % zu 4: Auswertung siehe EPM Skript nur Besprechung von Umformungen und 
 % Sachen die man mit den Messungen machen muss damit man Conclusion und Wissen 
 % gewinnen kann.
@@ -553,7 +588,8 @@ Nun wurde dasselbe mit einem Dreickseingangssignal, siehe
 \subsubsection{Simulation}
 % Verstärkung berechnen
 
-\subsubsection{Verstärkung \& Aussteuerungsbereich}
+\subsubsection{Steckbrett}
+\paragraph{Verstärkung \& Aussteuerungsbereich}
 Damit die Verstärkung in des Elektrometerverstärkers bestimmt werden kann wurde
 der lineare Bereich in den Daten aus \autoref{tab:mess_elektro_aussteurerung}
 gefittet. Da die Steigung der Vertärkung entspricht wurde diese verwendet  um
@@ -581,7 +617,13 @@ abgelesen werden, dieser hat einen Wert von \num{64.00(7)}.
 
 \subsection{Umkehrintegrator}
 
-\subsubsection{Integrationszeit}
+\subsubsection{Simulation}
+
+\paragraph{Integrationszeit}
+heraus lesen aus der grafik
+
+\subsubsection{Steckbrett}
+\paragraph{Integrationszeit}
 Die Integrationszeiten aus \autoref{tab:messungen_integration} wurden gemittelt
 und dabei wurde die Streuung der Messung als gaußverteilt angenommen.
 
