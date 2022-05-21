@@ -120,6 +120,19 @@ Jeder dieser Schalter hat einen Standard \textit{HIGH} bzw.
 
 \paragraph{LED Leiste}
 %TODO text erklaeren wie der Leiste angesteuert wird und wo er verwendet wurde
+Damit die Eingangssignale und Ausgangssignale der logischen Schaltungen
+dargestellt werden kann, wird eine LED-Leiste verwendet. Diese besteht aus
+mehreren LEDs mit Vorwiderständen und ist in \autoref{fig:aufbau_led} dargestellt und
+unterstützt bis zu 8 Aus- bzw Eingangssignale. Die hier verwendete LED-Leiste
+hat einen Common-Ground und somit werden positiven Spannungssignale direkt an den
+verschiedenen Anschlüssen angelegt um die LED zum Leuchten zu bringen.
+
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.png}
+  \caption{}
+  \label{fig:aufbau_led}
+\end{figure}
 
 Damit die Aufnahmen der Schaltungen übersichtlich bleiben wurde diese meistens
 von den Aufnahmen weggeschnitten und in der Grafik mittels \textit{LED} oder in
@@ -173,7 +186,7 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 \subsubsection{Steckboard}
 % 2.4 Der CMOS-Inverter ist auf dem Steckboard aufzubauen und seine
 % Funktionalität zu prüfen. 
-\paragraph{Aufbau des CMOS-Inverters}
+\paragraph{Aufbau des CMOS-Inverters}\label{sec:mess_cmos}
 %TODO text
 Zunächst wird der CMOS-Inverter mittels zweier MOSFETs (einem PMOS \cite{} und
 einem NMOS \cite{}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_inv})
@@ -196,6 +209,9 @@ eingestellt.
 \end{figure}
 
 
+Um die Funktionstüchtigkeit des CMOS-Gatters zu überprüfen wurde die
+Wahrheitstafel des NOT-Gatters im Eingang durch geschaltet die gemessenen Werte
+sind in \autoref{fig:mess_wahrheitstabelle_inv} ersichtlich.
 %TODO text messung
 % Als  Pegelgeber wird  für  das  Steckboard  ein vorhandener  elektronisch
 % entprellte  Schalter  (mit  Hilfe  eines RS-Flip-Flops)  verwendet.  Der
@@ -216,6 +232,12 @@ eingestellt.
 % Funktionalität anhand der LEDs zu zeigen.
 \paragraph{Aufbau des CMOS-NAND-Gatters}
 %TODO text
+Nun ist CMOS-NOT Schaltung um zwei weiter MOSFETs erweitert worden, um ein
+NAND-Gatter zu bauen. Dies wurde wie in \autoref{fig:sim_aufbau_nand} gemacht,
+jedoch wurde wie auch im \nameref{sec:mess_cmos} entprellte Schalter als
+Pegelgeber und die LED-Leiste zur Visualisierung der Pegel(Signale) verwendet.
+Diese wurden ebenfalls an den geeigneten Stellen angeschlossen, wie diese genau
+angeschlossen wurden ist der \autoref{fig:mess_aufbau_nand} entnehmbar.
 
 %TODO figure
 \begin{figure}[H]
@@ -226,6 +248,11 @@ eingestellt.
 \end{figure}
 
 %TODO text messung
+Um die Funktionstüchtigkeit des CMOS-Gatters zu überprüfen wurde die
+Wahrheitstafel des NAND-Gatters in den zwei Eingängen ($U_l$ $U_l'$) durch
+geschaltet die gemessenen Werte sind in \autoref{fig:mess_wahrheitstabelle_nand}
+ersichtlich.
+
 
 %TODO figure messung
 \begin{figure}[H]
@@ -262,6 +289,7 @@ eingestellt.
 
 % Aufbau am Steckboard:
 \subsubsection{Steckboard}
+Wie \nameref{sec:Aufgabenstellung} 
 
 %TODO text
 
