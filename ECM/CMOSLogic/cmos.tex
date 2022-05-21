@@ -37,8 +37,7 @@
 \includepdf[pages=-,
      addtotoc={
          1, section, 2, Vorbereitung, sec:Vorbereitung
-     }]{./figures/OpV.pdf}
-\includepdf[pages=-]{./figures/CMOS-Logik1.pdf}
+     }]{./figures/CMOS-Logik1.pdf}
 \includepdf[pages=-]{./figures/CMOS-Logik2.pdf}
 % \includepdf[pages=-]{./mh_vorbereitung_opv.pdf}
 
@@ -89,10 +88,42 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
     Funktionsgenerator & \textit{H-TRONIC FG250D}\cite{funktionsgenerator} \\
     Netzgerät & nicht bestimmbar\\
     Multimeter & \textit{Fluke 175 TrueRMS}\cite{fluke175} \\
-    OPV & \textit{$\mu$A741}\\
+    % todo references
+    N-MOSFET & \textit{ZVN2106A}\\
+    P-MOSFET & \textit{ZVP2106A}\\
+    NOT-Gatter & \textit{74LS04}\\
+    2x-NOR-Gatter & \textit{74LS02}\\
+    3x-NOR-Gatter & \textit{74LS27}\\
     \hline
   \end{tabular}
 \end{table}
+
+\paragraph{Entprellter Schalter}
+%TODO text erklaeren wie der Schalter angesteuert wird und wo er verwendet wurde
+Der entprellter Schalter wird als Signalgeber für die logischen Schaltungen und
+Gatter verwendet. Der Aufbau dieses Schalters ist in
+\autoref{fig:aufbau_schalter} ersichtlich, jedoch ist noch der \textit{GND} mit
+Ground und \textit{VCC} mit \SI{5}{\volt} zu beschalten damit das Signal von
+Schalter eins bzw Schalter zwei von den jeweiligen Betriebsart abgegriffen
+werden.
+
+Jeder dieser Schalter hat einen Standard \textit{HIGH} bzw.
+\textit{LOW} Betriebsart.
+
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.png}
+  \caption{}
+  \label{fig:aufbau_schalter}
+\end{figure}
+
+
+\paragraph{LED Leiste}
+%TODO text erklaeren wie der Leiste angesteuert wird und wo er verwendet wurde
+
+Damit die Aufnahmen der Schaltungen übersichtlich bleiben wurde diese meistens
+von den Aufnahmen weggeschnitten und in der Grafik mittels \textit{LED} oder in
+der Beschriftung gekennzeichnet bzw. erwähnt.
 
 \subsection{CMOS}
 % Simulation:
@@ -103,7 +134,13 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 
 %TODO text simulation
 
-%TODO figure sim aufbau
+%TODO figure sim Aufbau
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbauinverter.pdf}
+  \caption{}
+  \label{fig:sim_aufbau_inv}
+\end{figure}
 
 
 % Die Übertragungskennlinie
@@ -121,6 +158,12 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 %TODO text sim aufbau
 
 %TODO figure sim aufbau
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbauinverter.pdf}
+  \caption{}
+  \label{fig:sim_aufbau_nand}
+\end{figure}
 
 %TODO text messung Wie wurde die verschiedenen logic states geschalten
 
@@ -132,8 +175,26 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 % Funktionalität zu prüfen. 
 \paragraph{Aufbau des CMOS-Inverters}
 %TODO text
+Zunächst wird der CMOS-Inverter mittels zweier MOSFETs (einem PMOS \cite{} und
+einem NMOS \cite{}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_inv})
+aufgebaut. Jedoch wurden zur Visualisierung des Eingangszustands $U_l$ und des
+Ausgangszustands $U_q$ LEDs der LED-Leiste parallel dazu geschaltet. Das
+Eingangssignal wurde durch einen entprellten Schalter, im Standardzustand
+\textit{LOW}, gegeben, der Aufbau genaue kann im \autoref{} gesehen werden. Als
+Spannungsquelle wurde einstellbares Netzteil verwendet und auf \SI{5}{\volt}
+eingestellt. 
 
 %TODO figure
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbauinverter.pdf}
+  \caption{Dies ist der Aufbau einer CMOS-Inverter-Schaltung nach dem
+  Schaltplan aus \autoref{fig:sim_aufbau_inv}. Wobei $U_q$ das Ausgangssignal
+  der Schaltung ist  und $U_l$ das logische Eingangssignal ist. Der Zustand
+  beider kann anhand einer LED in der LED-Leiste abgelesen werden.}
+  \label{fig:mess_aufbau_inv}
+\end{figure}
+
 
 %TODO text messung
 % Als  Pegelgeber wird  für  das  Steckboard  ein vorhandener  elektronisch
@@ -142,6 +203,14 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 % Funktionalität  der Schaltung ist anhand der LEDs zu zeigen.
 %TODO figure messung
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/WahrheitstabelleInverter.pdf}
+  \caption{}
+  \label{fig:mess_wahrheitstabelle_inv}
+\end{figure}
+
+
 % 2.5
 % Die Schaltung des  NAND-Gatters ist auf dem Steckboard aufzubauen und ihre
 % Funktionalität anhand der LEDs zu zeigen.
@@ -149,10 +218,23 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 %TODO text
 
 %TODO figure
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbaunand.pdf}
+  \caption{Dies ist der Aufbau eines CMOS-NAND-Gatters nach dem Schaltplan aus \autoref{fig:sim_aufbau_nand}}
+  \label{fig:mess_aufbau_nand}
+\end{figure}
 
 %TODO text messung
 
 %TODO figure messung
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/WahrheitstabelleNAND.pdf}
+  \caption{}
+  \label{fig:mess_wahrheitstabelle_nand}
+\end{figure}
+
 % 2.6
 % Die Ergebnisse sind zu protokollieren und diskutieren.
 
@@ -164,6 +246,12 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 %TODO text sim aufbau
 
 %TODO figure sim aufbau
+\begin{figure}[H]
+  \centering
+    % \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbauinverter.pdf}
+  \caption{}
+  \label{fig:sim_aufbau_alarm}
+\end{figure}
 
 % Die Eingangsspannungen, für die geeignete Perioden zu definieren sind, sowie
 % die Ausgangsspannung sind darzustellen.
@@ -178,6 +266,13 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 %TODO text
 
 %TODO figure
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbaualarm.png}
+  \caption{Dies ist der Aufbau der Einbruchsicherungsschaltung nach dem
+  Schaltplan aus \autoref{fig:sim_aufbau_alarm}}
+  \label{fig:mess_aufbau_alarm}
+\end{figure}
 
 % 2.2
 % Die Schaltung ist am Steckboard aufzubauen und ihre Funktionalität an Hand der 
@@ -187,6 +282,18 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 %TODO text messung
 
 %TODO figure messung
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth,height=15cm]{./figures/messungen/WahrheitstabelleAlarm.pdf}
+  \caption{}
+  \label{fig:mess_wahrheitstabelle_alarm}
+\end{figure}
+
+Für die Untersuchung des Master-Switches im ausgeschalteten Zustand wurden die
+eine zuvor wahre Eingangssignalkombination geschaltet und geschaut ob diese
+nicht die Alarmanlage anschlagen lässt. Da die Schaltung zuvor, wie in
+\autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich, funktionierte ist
+dadurch die Funktionstüchtigkeit des Master-Switches gezeigt.
 
 % 2.3
 % Die Ergebnisse sind zu protokollieren und zu diskutieren.
