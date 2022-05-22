@@ -12,7 +12,7 @@
     % Fußzeile
 %--------------------------------------AB HIER DOKUMENT---------------------------------------------
 \begin{document}
-% \includepdf{deckblatt2.pdf}
+% \includepdf{deckblatt3.pdf}
 \tableofcontents
 \newpage
 
@@ -52,7 +52,40 @@
 % wir verwenden bei den Widerständen zum Beispiel von den Normwert-Reihen die
 % E12 und/oder E24 Serie (nach DIN 41426 bzw. IEC 63).
 \section{Grundlagen}\label{sec:Grundlagen}
-\input{import.tex}
+%\input{import.tex}
+Die CMOS-Technologie basiert auf MOSFETs (Akronym für \textit{Metal Oxide
+Semiconductor Field Effect Transistor}), also Feldeffekttransistoren (kurz FET)
+mit einer Metalloxidschicht zur Isolation der einzelnen Halbleitermaterialien.
+Analog zu den Bipolartransistoren, gibt es bei den Feldeffekttransistoren 3
+Anschlüsse, nämlich Source, Gate und Drain. 
+%Tietze Abbildung
+FETs sind ebenso aus drei Halbleiterbereichen (p- respektive n-dotiert)
+aufgebaut, die sich allerdings in ihrer Anordnung von den Bipolartransistoren
+in der Hinsicht unterschieden, dass die Manipulationsrichtung normal zur
+Stromflussrichtung liegt. Der signifikante Unterschied zwischen den beiden
+Typen von Transistoren ist, dass beim FET am Stromtransport nur noch eine Sorte
+Ladungsträger, entweder Elektronen (n-MOSFET) oder Defektelektronen (p-MOSFET)
+beteiligt sind. Weiters wird die Leitfähigkeit dieses Transistors über die
+Gatespannung gesteuert - bei Bipolartransistoren erfolgt dies bekanntlich über
+den Basisstrom. Zusätzlich wird zwischen Anreicherungs- und Verarmunsgtyp
+unterschieden, welche gelegentlich auch als selbstleitend respektive
+selbstsperrend bezeichnet werden. Dies beschreibt, wie die Bezeichnung
+nahelegt, den Umstand, dass ein MOSFET ohne Manipulation über das Gate den
+Strom entweder leitet oder sperrt. Aufgrund der Spannungssteuerung wird unter
+anderem der Stromfluss reduziert, wodurch auch die Verlustleistung gering ist.
+Dies ist auch ein großerer Vorteil der daraus aufgebauten CMOS-Technologie
+(Akronym für \textit{Complementary Metal Oxide Semiconductor}), bei der stets
+mindestents ein n- und p-MOSFET verwendet wird - so auch in erstem Teil dieser
+Laborübung für den CMOS-Inverter und das NAND-Gatter. 
+
+Bei Digitalschaltungen wird zwischen 2 Zuständen, \textit{High} und
+\textit{Low} beziehungsweise 0 und 1, geschalten. Mittels Logikgattern können
+Zustände beziehungweise weiterfolgend Eingangsvariablen verknüpft werden und in
+der Folge Logiknetze konstruiert werden. Grundlegend sind die Gatter: AND, OR,
+NOT, NAND und NOR, wobei auch ein Satz dieser genutzt werden, um andere Gatter
+zu erhalten; beispielsweise simpel aus AND und NOT ein NAND. Zur
+Identifizierung und/oder Auswertung wird zu einer Logikschaltung eine
+Wahrheitstabelle und eine Logikfunktion aufgestellt.
 
 % zu 4: Versuchsdurchführung In diesem Punkt wird die Durchführung der
 % einzelnen Aufgaben beschrieben. Im Simulationsteil ist die simulierte
@@ -112,8 +145,11 @@ Jeder dieser Schalter hat einen Standard \textit{HIGH} bzw.
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.png}
-  \caption{}
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.jpg}
+  \caption{Dies sind die zwei entprellte Schalterplatinen mit je zwei Schalter
+    ($S1$,$S2$) die entweder Standard \textit{HIGH} oder \textit{LOW} verwendet
+    werden kann. Diese werden durch beschalten des GND und der \SI{5}{\volt}
+    Rail in Betrieb genommen}
   \label{fig:aufbau_schalter}
 \end{figure}
 
@@ -129,8 +165,10 @@ verschiedenen Anschlüssen angelegt um die LED zum Leuchten zu bringen.
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.png}
-  \caption{}
+  \includegraphics[width=0.95\textwidth]{./figures/messungen/ledleiste.jpg}
+  \caption{Dies ist die LED-Leiste, welche 8 LEDs mit je einem Vorwiderstand
+  hat. Sie ist in Common-Ground Konfiguration und wird verwendet um Signal
+  anzeigen zu können.}
   \label{fig:aufbau_led}
 \end{figure}
 
@@ -289,7 +327,10 @@ ersichtlich.
 
 % Aufbau am Steckboard:
 \subsubsection{Steckboard}
-Wie \nameref{sec:Aufgabenstellung} 
+Wie in der \nameref{sec:Aufgabenstellung} gesagt wurde galt es eine Schaltung
+zu designen, welche durch anschlagen zweier Sensoren einen Alarm auslösen
+sollte. Diese Schaltung wurde um die Fehlerquellen zu reduzieren jedoch aus der
+Musterlösung entnommen und nicht die Eigengestaltete verwendet.
 
 %TODO text
 
@@ -308,6 +349,11 @@ Wie \nameref{sec:Aufgabenstellung}
 % elektronisch entprellte Schalter verwendet. Die logischen Zustände von x1, x2, x3, 
 % x4 und y, sowie des Master-Switch, sind durch LEDs anzuzeigen.
 %TODO text messung
+Um die Funktionstüchtigkeit der Einbruchsicherungsschaltung zu überprüfen
+sind alle Kombinationen der vier Eingangsgrößen ($x_1$,$x_2$,$x_3$,$x_4$)
+gemessen worden. Somit konnte die Wahrheitstafel der Schaltung erstellt werden,
+die gemessenen Werte sind in \autoref{fig:mess_wahrheitstabelle_alarm}
+ersichtlich.
 
 %TODO figure messung
 \begin{figure}[H]
