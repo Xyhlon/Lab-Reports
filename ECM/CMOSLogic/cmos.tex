@@ -122,11 +122,11 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
     Netzgerät & nicht bestimmbar\\
     Multimeter & \textit{Fluke 175 TrueRMS}\cite{fluke175} \\
     % todo references
-    N-MOSFET & \textit{ZVN2106A}\\
-    P-MOSFET & \textit{ZVP2106A}\\
-    NOT-Gatter & \textit{74LS04}\\
-    2x-NOR-Gatter & \textit{74LS02}\\
-    3x-NOR-Gatter & \textit{74LS27}\\
+    N-MOSFET & \textit{ZVN2106A}\cite{ZVN2106A}\\
+    P-MOSFET & \textit{ZVP2106A}\cite{ZVP2106A}\\
+    NOT-Gatter & \textit{74LS04}\cite{74LS04}\\
+    2x-NOR-Gatter & \textit{74LS02}\cite{74LS02}\\
+    3x-NOR-Gatter & \textit{74LS27}\cite{74LS27}\\
     \hline
   \end{tabular}
 \end{table}
@@ -226,8 +226,8 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 % Funktionalität zu prüfen. 
 \paragraph{Aufbau des CMOS-Inverters}\label{sec:mess_cmos}
 %TODO text
-Zunächst wird der CMOS-Inverter mittels zweier MOSFETs (einem PMOS \cite{} und
-einem NMOS \cite{}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_inv})
+Zunächst wird der CMOS-Inverter mittels zweier MOSFETs (einem PMOS \cite{ZVP2106A} und
+einem NMOS \cite{ZVN2106A}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_inv})
 aufgebaut. Jedoch wurden zur Visualisierung des Eingangszustands $U_l$ und des
 Ausgangszustands $U_q$ LEDs der LED-Leiste parallel dazu geschaltet. Das
 Eingangssignal wurde durch einen entprellten Schalter, im Standardzustand
@@ -260,8 +260,11 @@ sind in \autoref{fig:mess_wahrheitstabelle_inv} ersichtlich.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/WahrheitstabelleInverter.pdf}
-  \caption{}
-  \label{fig:mess_wahrheitstabelle_inv}
+  \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- $U_l$ und
+  Ausgangssignale $U_q$ der gebauten CMOS-Inverter-Schaltung. Eine leuchtende
+  LED entspricht einem \textit{HIGH} Signal und nicht leuchtend entspricht
+  \textit{LOW}} 
+\label{fig:mess_wahrheitstabelle_inv}
 \end{figure}
 
 
@@ -296,7 +299,10 @@ ersichtlich.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/WahrheitstabelleNAND.pdf}
-  \caption{}
+  \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- $U_l$,$U_l'$ und
+  Ausgangssignale $U_q$ der gebauten CMOS-NAND-Schaltung. Eine leuchtende
+  LED entspricht einem \textit{HIGH} Signal und nicht leuchtend entspricht
+  \textit{LOW}}
   \label{fig:mess_wahrheitstabelle_nand}
 \end{figure}
 
@@ -330,9 +336,13 @@ ersichtlich.
 Wie in der \nameref{sec:Aufgabenstellung} gesagt wurde galt es eine Schaltung
 zu designen, welche durch anschlagen zweier Sensoren einen Alarm auslösen
 sollte. Diese Schaltung wurde um die Fehlerquellen zu reduzieren jedoch aus der
-Musterlösung entnommen und nicht die Eigengestaltete verwendet.
-
-%TODO text
+Musterlösung entnommen und nicht die Eigengestaltete verwendet. Die vier
+Eingangsgrößen ($x_1$, $x_2$, $x_3$, $x_4$) wurden durch vier entprellte
+Schalter realisiert. Dabei sind $x_1$ \& $x_3$ im Standard \textit{LOW} und
+$x_2$ \& $x_4$ Standard \textit{HIGH} Betrieb geschaltet worden. Damit die
+Alarmanlage bei Signalunterbrechung $x_2$ \& $x_4$ und einer Signal bei $x_1$
+\& $x_3$ anschlagt. Das Design der Schaltung der \namref{sec:Aufgabenstellung}
+entnommen werden.
 
 %TODO figure
 \begin{figure}[H]
@@ -350,7 +360,7 @@ Musterlösung entnommen und nicht die Eigengestaltete verwendet.
 % x4 und y, sowie des Master-Switch, sind durch LEDs anzuzeigen.
 %TODO text messung
 Um die Funktionstüchtigkeit der Einbruchsicherungsschaltung zu überprüfen
-sind alle Kombinationen der vier Eingangsgrößen ($x_1$,$x_2$,$x_3$,$x_4$)
+sind alle Kombinationen der vier Eingangsgrößen ($x_1$, $x_2$, $x_3$, $x_4$)
 gemessen worden. Somit konnte die Wahrheitstafel der Schaltung erstellt werden,
 die gemessenen Werte sind in \autoref{fig:mess_wahrheitstabelle_alarm}
 ersichtlich.
@@ -359,7 +369,10 @@ ersichtlich.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth,height=15cm]{./figures/messungen/WahrheitstabelleAlarm.pdf}
-  \caption{}
+  \caption{Diese Abbildung beinhaltet die gemessenen logischen Zustände der
+    Ein- $x1$, $x2$, $x3$, $x4$ und Ausgänge $y$ der gebauten
+    Einbruchsicherungsschaltung. Eine leuchtende LED entspricht einem
+    \textit{HIGH} Signal und nicht leuchtend entspricht \textit{LOW}}
   \label{fig:mess_wahrheitstabelle_alarm}
 \end{figure}
 
