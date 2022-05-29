@@ -12,7 +12,7 @@
     % Fußzeile
 %--------------------------------------AB HIER DOKUMENT---------------------------------------------
 \begin{document}
-% \includepdf{deckblatt3.pdf}
+\includepdf{deckblatt3.pdf}
 \tableofcontents
 \newpage
 
@@ -39,7 +39,7 @@
          1, section, 2, Vorbereitung, sec:Vorbereitung
      }]{./figures/CMOS-Logik1.pdf}
 \includepdf[pages=-]{./figures/CMOS-Logik2.pdf}
-% \includepdf[pages=-]{./mh_vorbereitung_opv.pdf}
+\includepdf[pages=-]{./mh_vorbereitung_opv.pdf}
 
 
 % zu 3: Grundlagen In den Grundlagen sollen die später verwendeten Formeln
@@ -195,7 +195,7 @@ Weiters ist, wie gewohnt, darauf zu achten, dass nicht verwendete Anschlüsse au
   \centering
     \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/schaltung.png}
     \caption{Dieser Schaltplan zeigt, den Aufbau eines CMOS-Inverters unter
-    Verwendung der Komplementären N- (\textit{ZVN2106A}) und P-MOSFETs
+    Verwendung der komplementären n- (\textit{ZVN2106A}) und p-MOSFETs
     (\textit{ZVP2106A}). Dabei ist $U_e$ das Eingangssignal und $U_a$ das Ausgangssignal.
     Die verwendeten Komponenten können der \autoref{tab:geraeteliste} entnommen werden.
   }
@@ -211,12 +211,12 @@ woraus sich \autoref{fig:sim_inv_wahrheit} ergab. Als \textit{Directive} wurde \
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth, height=7cm]{./simdaten_lab/cmos/inverter/kennlinie_einaus.png}
-  \caption{Diese Grafik widerspiegelt das simulierte Verhalten des CMOS-NOT-Gatters (aus
-    \autoref{fig:sim_aufbau_inv}) indem alle möglichen Eingangssignale
+  \caption{Diese Grafik spiegelt das simulierte Verhalten des CMOS-NOT-Gatters (aus
+    \autoref{fig:sim_aufbau_inv}) wider, indem alle möglichen Eingangssignale
     durchgeschaltet worden sind und die Response am Ausgang aufgezeichnet
-    wurde. Diese Grafik beinhaltet die simulierte Wahrheitstafel. Zudem ist
+    wurde (enstrpechend der Wahrheitstafel). Dabei ist
     $U_e$ das Eingangssignal und $U_a$ das Ausgangssignal. Die SPICE-Directive
-    der Simulation ist \texttt{.tran 0 0.4 0}}
+    der Simulation ist \texttt{.tran 0 0.4 0}.}
   \label{fig:sim_inv_wahrheit}
 \end{figure}
 
@@ -234,13 +234,14 @@ dargestellt. Es wurde die selbe \textit{Directive} wie für die Spannungsanalyse
 % 2.2
 % Die Gate-Source Schwellspannung ist mit jener der Datenblätter zu vergleichen.
 
-Mittels der \textit{Directive} \texttt{.meas V\_treshold FIND V(u\_e) WHEN V(u\_e)=V(u\_a)} wurde der Schnittpunkt
-zwischen der Eingangs- und Ausgangsspannung bestimmt.
+Mittels der \textit{Directive} \texttt{.meas V\_treshold FIND V(u\_e) WHEN V(u\_e)=V(u\_a)} wurde der
+Schnittpunkt zwischen der Eingangs- und Ausgangsspannung, wie in 
+\autoref{fig:sim_inv_eingangsstrom} dargestellt, bestimmt.
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./simdaten_lab/cmos/inverter/treshold.png}
-    \caption{Diese Grafik beinhaltet die von der Simulation errechneten
+    \caption{Diese Grafik beinhaltet die von der Simulation gemessene
     Gate-Source Schwellspannung $V_{\mathrm{threshold}}$. Die SPICE-Directive
     der Simulation ist \texttt{.tran 0 0.4 0} und das \textit{MEASURE} Kommando
     war \texttt{.meas V\_treshold FIND V(u\_e) WHEN V(u\_e)=V(u\_a)}}
@@ -262,7 +263,7 @@ Weiters ist, wie gewohnt, darauf zu achten, dass nicht verwendete Anschlüsse au
   \centering
     \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./simdaten_lab/cmos/nand/schaltung.png}
   \caption{Dieser Schaltplan zeigt, den Aufbau eines NAND-Gatters unter
-    Verwendung der Komplementären N- (\textit{ZVN2106A}) und P-MOSFETs
+    Verwendung der komplementären n- (\textit{ZVN2106A}) und p-MOSFETs
     (\textit{ZVP2106A}).Dabei ist $U_l':=U_l1$, $U_l$ die logischen
   Eingangssignale und $U_q$ das Ausgangssignal.}
   \label{fig:sim_aufbau_nand}
@@ -279,10 +280,10 @@ Daraufhin wurde eine Transienten-Analyse der Spannungssignale nach der
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./simdaten_lab/cmos/nand/nand_funktion.png}
-  \caption{Diese Grafik widerspiegelt das simulierte Verhalten des CMOS-NAND-Gatters (aus
-    \autoref{fig:sim_aufbau_nand}) indem alle möglichen Eingangssignale
+  \caption{Diese Grafik spiegelt das simulierte Verhalten des CMOS-NAND-Gatters (aus
+    \autoref{fig:sim_aufbau_nand}) wider, indem alle möglichen Eingangssignale
     durchgeschaltet worden sind und die Response am Ausgang aufgezeichnet
-    wurde. Diese Grafik beinhaltet die simulierte Wahrheitstafel. Zudem sind
+    wurde (entsprechend der Wahrheitstafel). Zudem sind
     $U_l':=U_L1,\; U_l$ die Eingangssignale und $U_q$ das Ausgangssignal. Die
     SPICE-Directive der Simulation ist \texttt{.tran 0 0.205 0}; die
   Einstellungen der Eingangssignale können der \autoref{fig:sim_aufbau_nand}
@@ -343,26 +344,26 @@ sind in \autoref{fig:mess_wahrheitstabelle_inv} ersichtlich.
 % Funktionalität anhand der LEDs zu zeigen.
 \paragraph{Aufbau des CMOS-NAND-Gatters}
 %TODO text
-Nun ist CMOS-NOT Schaltung um zwei weiter MOSFETs erweitert worden, um ein
-NAND-Gatter zu bauen. Dies wurde wie in \autoref{fig:sim_aufbau_nand} gemacht,
-jedoch wurden, wie auch in \nameref{sec:mess_cmos}, entprellte Schalter als
+Nun ist die CMOS-NOT Schaltung um zwei weitere MOSFETs erweitert worden, um ein
+NAND-Gatter zu bauen. Dies wurde wie in \autoref{fig:sim_aufbau_nand} aufgebaut.
+Es wurden, wie auch in \nameref{sec:mess_cmos}, entprellte Schalter als
 Pegelgeber und die LED-Leiste zur Visualisierung der Pegel (Signale) verwendet.
-Diese wurden ebenfalls an den geeigneten Stellen angeschlossen, wie diese genau
-angeschlossen wurden ist der \autoref{fig:mess_aufbau_nand} entnehmbar.
+Diese wurden ebenfalls an den geeigneten Abnahme-Stellen angeschlossen; wie diese genau
+angeschlossen wurden ist, der \autoref{fig:mess_aufbau_nand} entnehmbar.
 
 %TODO figure
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbaunand.pdf}
   \caption{Dies ist der Aufbau eines CMOS-NAND-Gatters nach dem Schaltplan aus
-  \autoref{fig:sim_aufbau_nand}}
+  \autoref{fig:sim_aufbau_nand}.}
   \label{fig:mess_aufbau_nand}
 \end{figure}
 
 %TODO text messung
-Um die Funktionstüchtigkeit des CMOS-Gatters zu überprüfen wurde die
-Wahrheitstafel des NAND-Gatters in den zwei Eingängen ($U_l$ $U_l'$) durch
-geschaltet die gemessenen Werte sind in \autoref{fig:mess_wahrheitstabelle_nand}
+Um die Funktionstüchtigkeit des CMOS-Gatters zu überprüfen, wurde die
+Wahrheitstafel des NAND-Gatters in den vier Möglichkeiten der zwei Eingänge ($U_l$ $U_l'$) durchgeschaltet.
+Die Ergebnisse sind in \autoref{fig:mess_wahrheitstabelle_nand}
 ersichtlich.
 
 
@@ -371,8 +372,8 @@ ersichtlich.
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/WahrheitstabelleNAND.pdf}
   \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- $U_l$,$U_l'$ und
-  Ausgangssignale $U_q$ der gebauten CMOS-NAND-Schaltung. Eine leuchtende
-  LED entspricht einem \textit{HIGH} Signal und nicht leuchtend entspricht
+  Ausgangssignale $U_q$ der aufgebauten CMOS-NAND-Schaltung. Eine leuchtende
+  LED entspricht einem \textit{HIGH} Signal, eine nicht leuchtende entspricht
   \textit{LOW}}
   \label{fig:mess_wahrheitstabelle_nand}
 \end{figure}
@@ -386,13 +387,21 @@ ersichtlich.
 \subsubsection{Simulation}
 
 %TODO text sim aufbau
-
+Das Schaltnetz zur Einbruchssicherungsschaltung wird wie in \autoref{fig:sim_aufbau_alarm}
+aufgebaut. Dabei bezeichnen die $x1$ bis $x4$ die Eingangsvariablen (Schutzeinrichtungen) mit
+gepulsten Eingangsspannungen; deren Spezifikationen sind in der Abbildung rechts neben
+den Spannungsquellen von oben ($x1$) bis unten ($x4$) zu sehen. Weiters ist $y$
+der Ausgang, der als Alarm zu verstehen ist und anschlägt (\texttt{HIGH}), sofern mindestens zwei
+der vier Schutzeinrichtungen Alarm geben (gemäß Aufgabenstellung in
+\autoref{sec:Aufgabenstellung}). Zusätzlich wird die Schaltung um einen
+Masterswitch erweitert, was die Deaktivierung der Anlage erlaubt. Hierbei dient
+$y_MS$ als Ausgang für den Alarm mit Masterswitch.
 %TODO figure sim aufbau
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/schaltung.png}
-    \caption{Dies Schaltung entspricht der in der
-    \nameref{sec:Aufgabenstellung} aufgetragenen und in
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/alarmaufbau.pdf}
+    \caption{Diese Schaltung entspricht der in
+    \nameref{sec:Aufgabenstellung} geforderten und in
   \nameref{sec:Vorbereitung} entworfenen Einbruchsicherungsschaltung. Hier
   entspricht $x1$ dem Fensterscheiben-Vibrationsfühler, $x2$ dem
   Tür-Kontaktfühler, $x3$ der Ultraschall-Raumüberwachung und $x4$ der
@@ -405,17 +414,25 @@ entnommen werden.}
 % Die Eingangsspannungen, für die geeignete Perioden zu definieren sind, sowie
 % die Ausgangsspannung sind darzustellen.
 %TODO text messung Wie wurde die verschiedenen logic states geschalten
-
+Nachdem die Eingangsspannungsquellen, wie in \autoref{fig:sim_aufbau_alarm} ersichtlich,
+gewählt wurden - die Periodendauer und Verzögerung wurde von einer
+zur nächsten stets verdoppelt - wurde eine weitere gepulste Spannungsquelle für
+den Masterswitch inkludiert. Diese ist für einen vollständigen Durchlauf
+aller Kombinationen der Eingangsvaiablen gemäß der Wahrheitstabelle
+in \autoref{sec:Vorbereitung} auf \texttt{HIGH} geschaltet (aktivierte Alarmanlage). 
+Für den zweiten Durchlauf bleibt die Spannungsquelle auf \texttt{LOW} (deaktivierte Alarmanlage).
+Aus der Transienten-Analyse (\texttt{.tran 0 4 0}) ergibt sich \autoref{fig:sim_alarm_wahrheit}
+mit den Spannungsverläufen für $x1$, $x2$, $x3$, $x4$, $y$ und $y_ms$.
 %TODO figure messung
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/master_verlauf.png}
-  \caption{Diese Grafik widerspiegelt das Verhalten der
-    Einbruchsicherungsschaltung (aus \autoref{fig:sim_aufbau_alarm}) indem alle
-    möglichen Eingangssignale durchgeschaltet worden sind und die Response am
-    Ausgang aufgezeichnet wurde. Diese Grafik beinhaltet die simulierte
-    Wahrheitstafel. Zudem sind $x1$, $x2$, $x3$, $x4$ \&
-    der \textit{Master-Switch} die Eingangssignale und $y$ das Ausgangssignal. Die
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/verlaufmaster.png}
+  \caption{Diese Grafik spiegelt das Verhalten der
+    Einbruchsicherungsschaltung (aus \autoref{fig:sim_aufbau_alarm}) wider, indem alle
+    möglichen Eingangssignale durchgeschaltet worden sind und die Response an den
+    Ausgängen aufgezeichnet wurde (entsprechend Wahrheitstafel).Dabei sind $x1$, $x2$, $x3$, $x4$ \&
+    der \textit{Master-Switch} die Eingangssignale und $y$ das Ausgangssignal sowie $y_ms$
+    das Ausgangssignal mit \textit{Master-Switch}. Die
     SPICE-Directive der Simulation ist \texttt{.tran 0 4 0}; die
     Einstellungen der Eingangssignale können der \autoref{fig:sim_aufbau_alarm}
   entnommen werden}
@@ -425,15 +442,15 @@ entnommen werden.}
 
 % Aufbau am Steckboard:
 \subsubsection{Steckboard}
-Wie in der \nameref{sec:Aufgabenstellung} gesagt wurde galt es eine Schaltung
-zu designen, welche durch anschlagen zweier Sensoren einen Alarm auslösen
-sollte. Diese Schaltung wurde um die Fehlerquellen zu reduzieren jedoch aus der
-Musterlösung entnommen und nicht die Eigengestaltete verwendet. Die vier
+Wie in \nameref{sec:Aufgabenstellung} gefordert, galt es eine Schaltung
+zu entwickeln, welche durch Anschlagen mindestens zweier Sensoren einen Alarm auslösen
+sollte. Diese Schaltung wurde, um die Fehlerquellen zu reduzieren, jedoch aus der
+Musterlösung entnommen und nicht die selbst Entworfene verwendet. Die vier
 Eingangsgrößen ($x1$, $x2$, $x3$, $x4$) wurden durch vier entprellte
 Schalter realisiert. Dabei sind $x1$ \& $x3$ im Standard \textit{LOW} und
-$x2$ \& $x4$ Standard \textit{HIGH} Betrieb geschaltet worden. Damit die
-Alarmanlage bei Signalunterbrechung $x2$ \& $x4$ und einer Signal bei $x1$
-\& $x3$ anschlagt. Das Design der Schaltung der \nameref{sec:Aufgabenstellung}
+$x2$ \& $x4$ Standard \textit{HIGH} Betrieb geschaltet worden, damit die
+Alarmanlage bei Signalunterbrechung $x2$ \& $x4$ und einem Signal bei $x1$
+\& $x3$ anschlägt. Der Aufbau der Schaltung kann \nameref{fig:mess_aufbau_alarm}
 entnommen werden.
 
 %TODO figure
@@ -451,10 +468,10 @@ entnommen werden.
 % elektronisch entprellte Schalter verwendet. Die logischen Zustände von x1, x2, x3, 
 % x4 und y, sowie des Master-Switch, sind durch LEDs anzuzeigen.
 %TODO text messung
-Um die Funktionstüchtigkeit der Einbruchsicherungsschaltung zu überprüfen
-sind alle Kombinationen der vier Eingangsgrößen ($x_1$, $x_2$, $x_3$, $x_4$)
-gemessen worden. Somit konnte die Wahrheitstafel der Schaltung erstellt werden,
-die gemessenen Werte sind in \autoref{fig:mess_wahrheitstabelle_alarm}
+Um die Funktionstüchtigkeit der Einbruchsicherungsschaltung zu überprüfen,
+wurden alle Kombinationen der vier Eingangsgrößen ($x1$, $x2$, $x3$, $x4$)
+durchgegangen. Somit konnte die Wahrheitstafel der Schaltung mittels LEDs realisiert werden.
+Die Kombinationen sind in \autoref{fig:mess_wahrheitstabelle_alarm}
 ersichtlich.
 
 %TODO figure messung
@@ -464,14 +481,14 @@ ersichtlich.
   \caption{Diese Abbildung beinhaltet die gemessenen logischen Zustände der
     Ein- $x1$, $x2$, $x3$, $x4$ und Ausgänge $y$ der gebauten
     Einbruchsicherungsschaltung. Eine leuchtende LED entspricht einem
-    \textit{HIGH} Signal und nicht leuchtend entspricht \textit{LOW}}
+    \textit{HIGH}-, eine nicht leuchtende entspricht einem \textit{LOW}-Signal}
   \label{fig:mess_wahrheitstabelle_alarm}
 \end{figure}
 
 Für die Untersuchung des Master-Switches im ausgeschalteten Zustand wurden die
-eine zuvor wahre Eingangssignalkombination geschaltet und geschaut ob diese
-nicht die Alarmanlage anschlagen lässt. Da die Schaltung zuvor, wie in
-\autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich, funktionierte ist
+zuvor \textit{wahren} Eingangssignalkombinationen durchgeschaltet und überprüft, ob diese
+nicht die Alarmanlage ($y$) anschlagen lassen. Da die Schaltung zuvor, wie in
+\autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich, funktionierte, ist
 dadurch die Funktionstüchtigkeit des Master-Switches gezeigt.
 
 % 2.3
@@ -493,7 +510,25 @@ dadurch die Funktionstüchtigkeit des Master-Switches gezeigt.
 % insbesondere auf die Klassifizierung der Unsicherheit (Typ-A/B) und die
 % Unsicherheitsfortpflanzung einzugehen.
 \section{Auswertung}\label{sec:Auswertung}
+In diesem Protokoll ist keine Auswertung von Nöten, da die geforderten Resultate
+direkt aus den Ergebnissen der Laborübung folgen. Dennoch wurde für bessere 
+Nachvollziehbarkeit die Daten aus \autoref{fig:sim_alarm_wahrheit} nochmals mit Farben
+hinterlegt und die \textit{HIGH} Zustände mit einer 1 markiert. 
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/auswertungalarm.jpg}
+  \caption{Diese Grafik spiegelt das Verhalten der
+    Einbruchssicherungsschaltung (aus \autoref{fig:sim_aufbau_alarm}) wider, indem alle
+    möglichen Eingangssignale durchgeschaltet worden sind und die Response an den
+    Ausgängen aufgezeichnet wurde (entsprechend Wahrheitstafel).Dabei sind $x1$, $x2$, $x3$, $x4$ \&
+    der \textit{Master-Switch} die Eingangssignale und $y$ das Ausgangssignal sowie $y_ms$
+    das Ausgangssignal mit \textit{Master-Switch}. Die
+    SPICE-Directive der Simulation ist \texttt{.tran 0 4 0}; die
+    Einstellungen der Eingangssignale können der \autoref{fig:sim_aufbau_alarm}
+  entnommen werden. Zudem wurden hier die Ticks von einander mittels orange gepunkteten Linien getrennt und die \textit{HIGH} mit 1er markiert.}
+  \label{fig:sim_alarm_wahrheit_aus}
+\end{figure}
 
 % zu 5: Diskussion und Zusammenfassung
 % In der Zusammenfassung stehen noch einmal die wichtigsten Messergebnisse, wobei auf Tabellen und
@@ -501,37 +536,48 @@ dadurch die Funktionstüchtigkeit des Master-Switches gezeigt.
 % Abweichungen zwischen Simulation und praktischer Durchführung diskutiert werden.
 \section{Diskussion und Zusammenfassung}\label{sec:Diskussion} 
 \subsection{Diskussion}
-In \autoref{fig:sim} von der Simulation und \autoref{}, das die LEDs vom Steckbrett zeigt,
+In \autoref{fig:sim_inv_wahrheit} von der Simulation und
+\autoref{fig:mess_wahrheitstabelle_inv}, welche die LEDs vom Steckbrett zeigt,
 ist das Verhalten eines CMOS-Inverters gut zu erkennen; dabei wird das Signal
 am Ausgang relativ zu jenem am Eingang negiert.
-Weiters ist anhand von \autoref{} aus der Simulation ersichtlich, dass
+Weiters ist anhand von \autoref{fig:sim_inv_wahrheit} aus der Simulation ersichtlich, dass
 der Schaltvorgang in CMOS endlich schnell erfolgt. Dabei ist ein deutliches
-Maximum des Stroms zu erkennen, wenn (im Falle des Inverters) beide MOSFETs
+Maximum des Stroms von \SI{4,21}{\milli \ampere} zu erkennen (siehe \autoref{fig:sim_inv_eingangsstrom}), 
+wenn (im Falle des Inverters) beide MOSFETs
 leitfähig sind, nämlich am Schnittpunkt der Spannungsverläufe.
-Die Spannung an diesen Schnittpunkten beträgt \SI{1,63}{\volt} und liegt
-somit innerhalb des für die Gate-Source-Spannung toleranten Intervalls.
-\newline
+Die Spannung an diesen Schnittpunkten beträgt \SI{1,63}{\volt} 
+(siehe \autoref{fig:sim_inv_threshold}) und liegt
+somit innerhalb der für die Gate-Source-Spannung toleranten Intervalle
+von \SIrange{0.8}{2.4}{\volt} beim \textit{ZVN2106A} und von
+\SIrange{-3.5}{-1.5}{\volt} beim \textit{ZVP2106A} nach den zugehörigen Datenblättern.
+
 Das aus MOSFETs konstruierte NAND liefert als Ergebnis aller möglichen
-Kombinationen der beiden Eingangssignale \autoref{} für die Simulation
-und \autoref{} für die Steckbrettschaltung.
+Kombinationen der beiden Eingangssignale \autoref{fig:sim_nand_wahrheit} für die Simulation
+und \autoref{fig:mess_wahrheitstabelle_nand} für die Steckbrettschaltung.
 Somit folgt der Verhalt jenem, der in der Wahrheitstabelle in \autoref{sec:Vorbereitung}
-(Vorbereitung) notiert wurde.
+(Vorbereitung) notiert wurde - der Ausgang ist stets \texttt{HIGH}, außer wenn
+beide Eingänge auf \texttt{High} sind.
 
-
-
-Anhand von \autoref{} und \autoref{} ist aus der Simulation ersichtlich, dass
-der Schaltvorgang in CMOS endlich schnell erfolgt. Dabei ist ein deutliches
-Maximum des Stroms zu erkennen, wenn (im Falle des Inverters) beide MOSFETs
-leitfähig sind, am Schnittpunkt der Spannungsverläufe. 
-
-Genauso folgen für die Einbruchsicherungsschaltung \autoref{} und \autoref{}
+Genauso folgen für die Einbruchsicherungsschaltung \autoref{fig:sim_alarm_wahrheit} 
+und \autoref{fig:mess_wahrheitstabelle_alarm}
 der konstruierten Wahrheitstabelle in \autoref{sec:Vorbereitung} (Vorbereitung).
+Demnach löst der Alarm aus, sofern der \textit{Master-Switch} eingeschaltet ist, 
+wenn mindestens
+zwei Eingangsvariablen auf \texttt{HIGH} sind.
 
 
 %Es wäre wohl vernünftiger gewesen, die Schaltung an der Steckplatine zunächst aufzubauen, um etwaige 
 %Ungenauigkeiten durch die Widerstände 
 \subsection{Zusammenfassung}
-Im Rahmen dieser Laborübung wurde das Verhalten von einem CMOS-Inverter, einem aus CMOS konstruierten NAND und einer Einbruchsicherungsschaltung (=Schaltnetz mit 4 Eingangsvariablen) erfolgreich mittels Aufbau am Steckbrett und Simulation verifiziert.
+Im Rahmen dieser Laborübung wurde das Verhalten von einem CMOS-Inverter (siehe \autoref{fig:sim_inv_wahrheit}
+respektive \autoref{fig:mess_wahrheitstabelle_inv}), 
+einem aus CMOS konstruierten NAND (siehe \autoref{fig:sim_nand_wahrheit}
+respektive \autoref{fig:mess_wahrheitstabelle_nand}) und einer Einbruchsicherungsschaltung 
+(=Schaltnetz mit 4 Eingangsvariablen
+und \textit{Master-Switch}; siehe \autoref{fig:sim_alarm_wahrheit_aus}
+respektive \autoref{fig:mess_wahrheitstabelle_alarm}) erfolgreich mittels 
+Simulation und mithilfe von LEDs an Steckbrettschaltungen
+verifiziert.
 \newpage
 
 \printbibliography
@@ -543,5 +589,4 @@ Im Rahmen dieser Laborübung wurde das Verhalten von einem CMOS-Inverter, einem 
 
 
 \end{document}
-
 
