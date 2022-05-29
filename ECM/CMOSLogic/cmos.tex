@@ -55,14 +55,14 @@
 %\input{import.tex}
 Die CMOS-Technologie basiert auf MOSFETs (Akronym für \textit{Metal Oxide
 Semiconductor Field Effect Transistor}), also Feldeffekttransistoren (kurz FET)
-mit einer Metalloxidschicht zur Isolation der einzelnen Halbleitermaterialien.
+mit einer Metalloxidschicht, die der Isolation der Halbleitermaterialien dient.
 Analog zu den Bipolartransistoren, gibt es bei den Feldeffekttransistoren 3
 Anschlüsse, nämlich Source, Gate und Drain. 
 %Tietze Abbildung
 FETs sind ebenso aus drei Halbleiterbereichen (p- respektive n-dotiert)
 aufgebaut, die sich allerdings in ihrer Anordnung von den Bipolartransistoren
 in der Hinsicht unterschieden, dass die Manipulationsrichtung normal zur
-Stromflussrichtung liegt. Der signifikante Unterschied zwischen den beiden
+Stromflussrichtung liegt. Ein weiterer signifikante Unterschied zwischen den beiden
 Typen von Transistoren ist, dass beim FET am Stromtransport nur noch eine Sorte
 Ladungsträger, entweder Elektronen (n-MOSFET) oder Defektelektronen (p-MOSFET)
 beteiligt sind. Weiters wird die Leitfähigkeit dieses Transistors über die
@@ -75,15 +75,16 @@ Strom entweder leitet oder sperrt. Aufgrund der Spannungssteuerung wird unter
 anderem der Stromfluss reduziert, wodurch auch die Verlustleistung gering ist.
 Dies ist auch ein großerer Vorteil der daraus aufgebauten CMOS-Technologie
 (Akronym für \textit{Complementary Metal Oxide Semiconductor}), bei der stets
-mindestents ein n- und p-MOSFET verwendet wird - so auch in erstem Teil dieser
+mindestents ein n- und p-MOSFET verwendet wird - so auch im ersten Teil dieser
 Laborübung für den CMOS-Inverter und das NAND-Gatter. 
 
 Bei Digitalschaltungen wird zwischen 2 Zuständen, \textit{High} und
-\textit{Low} beziehungsweise 0 und 1, geschalten. Mittels Logikgattern können
+\textit{Low} beziehungsweise 0 und 1, geschaltet. Mittels Logikgattern, die aus CMOS gebaut werden
+können, können
 Zustände beziehungweise weiterfolgend Eingangsvariablen verknüpft werden und in
-der Folge Logiknetze konstruiert werden. Grundlegend sind die Gatter: AND, OR,
-NOT, NAND und NOR, wobei auch ein Satz dieser genutzt werden, um andere Gatter
-zu erhalten; beispielsweise simpel aus AND und NOT ein NAND. Zur
+der Folge Logiknetze konstruiert werden. Grundlegend für Schaltnetze sind die folgenden Gatter: AND, OR,
+NOT, NAND und NOR, wobei auch ein Satz dieser genutzt werden kann, um ein anderes Gatter
+zu erhalten; beispielsweise kann simpel aus einem AND und NOT ein NAND gebildet werden. Zur
 Identifizierung und/oder Auswertung wird zu einer Logikschaltung eine
 Wahrheitstabelle und eine Logikfunktion aufgestellt.
 
@@ -131,7 +132,7 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
   \end{tabular}
 \end{table}
 
-\paragraph{Entprellter Schalter}
+\paragraph{Entprellter Schalter}\label{sec:schalter_aufbau}
 %TODO text erklaeren wie der Schalter angesteuert wird und wo er verwendet wurde
 Der entprellter Schalter wird als Signalgeber für die logischen Schaltungen und
 Gatter verwendet. Der Aufbau dieses Schalters ist in
@@ -188,8 +189,10 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 %TODO figure sim Aufbau
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbauinverter.pdf}
-  \caption{}
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/schaltung.png}
+    \caption{Dieser Schaltplan zeigt, den Aufbau eines NOT-Gatters unter
+    Verwendung der Komplementären N- (\textit{ZVN2106A}) und P-MOSFETs
+    (\textit{ZVP2106A}).}
   \label{fig:sim_aufbau_inv}
 \end{figure}
 
@@ -197,11 +200,29 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 % Die Übertragungskennlinie
 % und die Stromaufnahme sind darzustellen (PULSE-Quelle).
 %TODO text messung Wie wurde simuliert wie wurde die Schwellspannung gemessen.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/kennlinie_einaus.png}
+    \caption{}
+  \label{fig:sim_inv_wahrheit}
+\end{figure}
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/strom_correct_beide.png}
+    \caption{}
+  \label{fig:sim_inv_eingangsstrom}
+\end{figure}
 %TODO figure messung
 % 2.2
 % Die Gate-Source Schwellspannung ist mit jener der Datenblätter zu vergleichen.
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/treshold.png}
+    \caption{}
+  \label{fig:sim_inv_threshold}
+\end{figure}
 % 2.3
 % Die Schaltung des  NAND-Gatters ist mit LTspice zu simulieren. Die Ein- und
 % Ausgangsspannungen sind darzustellen (PULSE-Quelle).
@@ -211,14 +232,22 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 %TODO figure sim aufbau
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbauinverter.pdf}
-  \caption{}
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/nand/schaltung.png}
+  \caption{Dieser Schaltplan zeigt, den Aufbau eines NAND-Gatters unter
+    Verwendung der Komplementären N- (\textit{ZVN2106A}) und P-MOSFETs
+    (\textit{ZVP2106A}).}
   \label{fig:sim_aufbau_nand}
 \end{figure}
 
 %TODO text messung Wie wurde die verschiedenen logic states geschalten
 
 %TODO figure messung
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/nand/nand_funktion.png}
+  \caption{}
+  \label{fig:sim_nand_wahrheit}
+\end{figure}
 
 % Aufbau am Steckboard:
 \subsubsection{Steckboard}
@@ -231,7 +260,7 @@ einem NMOS \cite{ZVN2106A}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_inv
 aufgebaut. Jedoch wurden zur Visualisierung des Eingangszustands $U_l$ und des
 Ausgangszustands $U_q$ LEDs der LED-Leiste parallel dazu geschaltet. Das
 Eingangssignal wurde durch einen entprellten Schalter, im Standardzustand
-\textit{LOW}, gegeben, der Aufbau genaue kann im \autoref{} gesehen werden. Als
+\textit{LOW}, gegeben, der Aufbau genaue kann im \autoref{sec:schalter_aufbau} gesehen werden. Als
 Spannungsquelle wurde einstellbares Netzteil verwendet und auf \SI{5}{\volt}
 eingestellt. 
 
@@ -319,7 +348,7 @@ ersichtlich.
 %TODO figure sim aufbau
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbauinverter.pdf}
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/schaltung.png}
   \caption{}
   \label{fig:sim_aufbau_alarm}
 \end{figure}
@@ -329,6 +358,12 @@ ersichtlich.
 %TODO text messung Wie wurde die verschiedenen logic states geschalten
 
 %TODO figure messung
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/master_verlauf.png}
+  \caption{}
+  \label{fig:sim_alarm_wahrheit}
+\end{figure}
 
 
 % Aufbau am Steckboard:
@@ -341,7 +376,7 @@ Eingangsgrößen ($x_1$, $x_2$, $x_3$, $x_4$) wurden durch vier entprellte
 Schalter realisiert. Dabei sind $x_1$ \& $x_3$ im Standard \textit{LOW} und
 $x_2$ \& $x_4$ Standard \textit{HIGH} Betrieb geschaltet worden. Damit die
 Alarmanlage bei Signalunterbrechung $x_2$ \& $x_4$ und einer Signal bei $x_1$
-\& $x_3$ anschlagt. Das Design der Schaltung der \namref{sec:Aufgabenstellung}
+\& $x_3$ anschlagt. Das Design der Schaltung der \nameref{sec:Aufgabenstellung}
 entnommen werden.
 
 %TODO figure
@@ -409,12 +444,29 @@ dadurch die Funktionstüchtigkeit des Master-Switches gezeigt.
 % Abweichungen zwischen Simulation und praktischer Durchführung diskutiert werden.
 \section{Diskussion und Zusammenfassung}\label{sec:Diskussion} 
 \subsection{Diskussion}
+In \autoref{} von der Simulation und \autoref{}, das die LEDs vom Steckbrett zeigt,
+ist das Verhalten eines CMOS-Inverters gut zu erkennen; dabei wird das Signal
+am Ausgang relativ zu jenem am Eingang negiert.
+
+Das aus MOSFETs konstruierte NAND liefert als Ergebnis aller möglichen
+Kombinationen der beiden Eingangssignale \autoref{} für die Simulation
+und \autoref{} für die Steckbrettschaltung.
+Somit folgt der Verhalt jenem, der in der Wahrheitstabelle in \autoref{sec:Vorbereitung}
+(Vorbereitung) notiert wurde.
+
+Anhand von \autoref{} und \autoref{} ist aus der Simulation ersichtlich, dass
+der Schaltvorgang in CMOS endlich schnell erfolgt. Dabei ist ein deutliches
+Maximum des Stroms zu erkennen, wenn (im Falle des Inverters) beide MOSFETs
+leitfähig sind, am Schnittpunkt der Spannungsverläufe. 
+
+Genauso folgen für die Einbruchsicherungsschaltung \autoref{} und \autoref{}
+der konstruierten Wahrheitstabelle in \autoref{sec:Vorbereitung} (Vorbereitung).
 
 
 %Es wäre wohl vernünftiger gewesen, die Schaltung an der Steckplatine zunächst aufzubauen, um etwaige 
 %Ungenauigkeiten durch die Widerstände 
 \subsection{Zusammenfassung}
-
+Im Rahmen dieser Laborübung wurde das Verhalten von einem CMOS-Inverter, einem aus CMOS konstruierten NAND und einer Einbruchsicherungsschaltung (=Schaltnetz mit 4 Eingangsvariablen) erfolgreich mittels Aufbau am Steckbrett und Simulation verifiziert.
 \newpage
 
 \printbibliography
