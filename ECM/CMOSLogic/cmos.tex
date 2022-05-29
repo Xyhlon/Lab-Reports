@@ -102,9 +102,9 @@ Wahrheitstabelle und eine Logikfunktion aufgestellt.
 % originalen, während des Versuchs angefertigten Aufzeichnungen sind dem
 % Protokoll beizufügen. 
 \section{Versuchsdurchführung}\label{sec:versuchsdurchfuehrung}
-Für den praktischen Teil an der Steckplatine wurden Widerstände der E12-Reihe,
-mit denen die in der Vorbereitung angegebenen respektive errechneten Werte
-angenähert wurden, verwendet. 
+%Für den praktischen Teil an der Steckplatine wurden Widerstände der E12-Reihe,
+%mit denen die in der Vorbereitung angegebenen respektive errechneten Werte
+%angenähert wurden, verwendet.
 
 Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 
@@ -121,10 +121,10 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
     % Oszilloskop & \textit{Tektronix TDS 2002}\cite{oszilloscope}\\
     % Funktionsgenerator & \textit{H-TRONIC FG250D}\cite{funktionsgenerator} \\
     Netzgerät & nicht bestimmbar\\
-    Multimeter & \textit{Fluke 175 TrueRMS}\cite{fluke175} \\
+    %Multimeter & \textit{Fluke 175 TrueRMS}\cite{fluke175} \\
     % todo references
-    N-MOSFET & \textit{ZVN2106A}\cite{ZVN2106A}\\
-    P-MOSFET & \textit{ZVP2106A}\cite{ZVP2106A}\\
+    2x N-MOSFET & \textit{ZVN2106A}\cite{ZVN2106A}\\
+    2x P-MOSFET & \textit{ZVP2106A}\cite{ZVP2106A}\\
     NOT-Gatter & \textit{74LS04}\cite{74LS04}\\
     2x-NOR-Gatter & \textit{74LS02}\cite{74LS02}\\
     3x-NOR-Gatter & \textit{74LS27}\cite{74LS27}\\
@@ -137,20 +137,20 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 Der entprellter Schalter wird als Signalgeber für die logischen Schaltungen und
 Gatter verwendet. Der Aufbau dieses Schalters ist in
 \autoref{fig:aufbau_schalter} ersichtlich, jedoch ist noch der \textit{GND} mit
-Ground und \textit{VCC} mit \SI{5}{\volt} zu beschalten damit das Signal von
-Schalter eins bzw Schalter zwei von den jeweiligen Betriebsart abgegriffen
-werden.
+Ground und \textit{VCC} mit \SI{5}{\volt} zu beschalten, damit das Signal von
+Schalter eins beziehungsweise Schalter zwei für die jeweilige Betriebsart abgegriffen
+werden kann.
 
-Jeder dieser Schalter hat einen Standard \textit{HIGH} bzw.
-\textit{LOW} Betriebsart.
+Jeder dieser Schalter hat eine Standard-\textit{HIGH}- bzw.
+\textit{LOW}-Betriebsart.
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.jpg}
-  \caption{Dies sind die zwei entprellte Schalterplatinen mit je zwei Schalter
-    ($S1$,$S2$) die entweder Standard \textit{HIGH} oder \textit{LOW} verwendet
-    werden kann. Diese werden durch beschalten des GND und der \SI{5}{\volt}
-    Rail in Betrieb genommen}
+  \caption{Dies sind die zwei entprellten Schalterplatinen mit je zwei Schalter
+    ($S1$,$S2$) die entweder mit Standard-\textit{HIGH} oder -\textit{LOW} verwendet
+    werden können. Diese werden durch Beschalten des \textit{GND} und der \SI{5}{\volt}
+    Betriebsspannung in Betrieb genommen}
   \label{fig:aufbau_schalter}
 \end{figure}
 
@@ -158,9 +158,9 @@ Jeder dieser Schalter hat einen Standard \textit{HIGH} bzw.
 \paragraph{LED Leiste}
 %TODO text erklaeren wie der Leiste angesteuert wird und wo er verwendet wurde
 Damit die Eingangssignale und Ausgangssignale der logischen Schaltungen
-dargestellt werden kann, wird eine LED-Leiste verwendet. Diese besteht aus
+dargestellt werden können, wird eine LED-Leiste verwendet. Diese besteht aus
 mehreren LEDs mit Vorwiderständen und ist in \autoref{fig:aufbau_led} dargestellt und
-unterstützt bis zu 8 Aus- bzw Eingangssignale. Die hier verwendete LED-Leiste
+unterstützt bis zu 8 Aus- bzw. Eingangssignale. Die hier verwendete LED-Leiste
 hat einen Common-Ground und somit werden positiven Spannungssignale direkt an den
 verschiedenen Anschlüssen angelegt um die LED zum Leuchten zu bringen.
 
@@ -168,14 +168,14 @@ verschiedenen Anschlüssen angelegt um die LED zum Leuchten zu bringen.
   \centering
   \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/messungen/ledleiste.jpg}
   \caption{Dies ist die LED-Leiste, welche 8 LEDs mit je einem Vorwiderstand
-  hat. Sie ist in Common-Ground Konfiguration und wird verwendet um Signal
+  hat. Sie ist in Common-Ground-Konfiguration und wird verwendet um Signal
   anzeigen zu können.}
   \label{fig:aufbau_led}
 \end{figure}
 
-Damit die Aufnahmen der Schaltungen übersichtlich bleiben wurde diese meistens
-von den Aufnahmen weggeschnitten und in der Grafik mittels \textit{LED} oder in
-der Beschriftung gekennzeichnet bzw. erwähnt.
+Damit die Aufnahmen der Schaltungen übersichtlich bleiben, wurde diese meistens
+von den Aufnahmen weggeschnitten und dessen Funktion in der jeweiligen Grafik mittels \textit{LED} 
+dargestellt oder in der Beschriftung gekennzeichnet bzw. erwähnt.
 
 \subsection{CMOS}
 % Simulation:
@@ -185,12 +185,16 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 \paragraph{Aufbau des CMOS-Inverters}
 
 %TODO text simulation
-
+Die Schaltung für den CMOS-Inverter wurde gemäß \autoref{fig:sim_aufbau_inv} in LTSpice aufgebaut.
+Als Betriebsspannung $U_B$ wurde eine Spannung von \SI{5}{\volt} und als Eingangsspannung $V_e$
+eine Puls-Spannungsquelle mit einer Spannung von \SI{5}{\volt} (Spezifikationen nach Schaltplan) gewählt.
+Bei den MOSFETs ist die richtige Beschaltung von Source, Gate und Drain zu beachten.
+Weiters ist, wie gewohnt, darauf zu achten, dass nicht verwendete Anschlüsse auf Ground gelegt werden.
 %TODO figure sim Aufbau
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/schaltung.png}
-    \caption{Dieser Schaltplan zeigt, den Aufbau eines NOT-Gatters unter
+    \caption{Dieser Schaltplan zeigt, den Aufbau eines CMOS-Inverters unter
     Verwendung der Komplementären N- (\textit{ZVN2106A}) und P-MOSFETs
     (\textit{ZVP2106A}). Dabei ist $U_e$ das Eingangssignal und $U_a$ das Ausgangssignal.
     Die verwendeten Komponenten können der \autoref{tab:geraeteliste} entnommen werden.
@@ -202,6 +206,8 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 % Die Übertragungskennlinie
 % und die Stromaufnahme sind darzustellen (PULSE-Quelle).
 %TODO text messung Wie wurde simuliert wie wurde die Schwellspannung gemessen.
+Daraufhin wurde eine zeitliche Transienten-Analyse der Ein- und Ausgangsspannung durchgeführt,
+woraus sich \autoref{fig:sim_inv_wahrheit} ergab. Als \textit{Directive} wurde \textit{.tran 0 0.4 0} verwendet.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth, height=7cm]{./simdaten_lab/cmos/inverter/kennlinie_einaus.png}
@@ -214,6 +220,9 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
   \label{fig:sim_inv_wahrheit}
 \end{figure}
 
+In \autoref{fig:sim_inv_eingangsstrom} ist der Stromverlauf durch den p- respektive n-MOSFET
+dargestellt. Es wurde die selbe \textit{Directive} wie für die Spannungsanalyse verwendet.
+
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth, height=7cm]{./simdaten_lab/cmos/inverter/strom_correct_beide.png}
@@ -224,6 +233,9 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 %TODO figure messung
 % 2.2
 % Die Gate-Source Schwellspannung ist mit jener der Datenblätter zu vergleichen.
+
+Mittels der \textit{Directive} \texttt{.meas V\_treshold FIND V(u\_e) WHEN V(u\_e)=V(u\_a)} wurde der Schnittpunkt
+zwischen der Eingangs- und Ausgangsspannung bestimmt.
 
 \begin{figure}[H]
   \centering
@@ -239,7 +251,12 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 % Ausgangsspannungen sind darzustellen (PULSE-Quelle).
 \paragraph{Aufbau des CMOS-NAND-Gatters}
 %TODO text sim aufbau
-
+Die Schaltung für das CMOS-NAND-Gatter wurde gemäß \autoref{fig:sim_aufbau_nand} in LTSpice aufgebaut.
+Als Betriebsspannung $U_B$ wurde eine Spannung von \SI{5}{\volt} und als Eingangsspannungsquellen $V1$
+und $V2$
+Puls-Spannungsquellen mit einer Spannung von \SI{5}{\volt} (weitere Spezifikationen nach Schaltplan) gewählt.
+Bei den verwendeten MOSFETs ist die richtige Beschaltung von Source, Gate und Drain zu beachten.
+Weiters ist, wie gewohnt, darauf zu achten, dass nicht verwendete Anschlüsse auf Ground gelegt werden.
 %TODO figure sim aufbau
 \begin{figure}[H]
   \centering
@@ -252,7 +269,12 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 \end{figure}
 
 %TODO text messung Wie wurde die verschiedenen logic states geschalten
-
+Um die möglichen Kombinationen der Eingangssignale zu erhalten, wurden
+unterschiedliche Spezifikationen für die beiden Pulse-Spannungsquellen
+vorgenommen; dabei wurde für $V1$ bezogen auf $V2$ eine doppelt so große
+Periodendauer und Verzögerung gewählt (\textit{Directives} nach \autoref{fig:sim_aufbau_nand}).
+Daraufhin wurde eine Transienten-Analyse der Spannungssignale nach der
+\textit{Directive} {.tran 0 0.205 0} durchgeführt, woraus \autoref{fig:sim_nand_wahrheit} extrahiert wurde.
 %TODO figure messung
 \begin{figure}[H]
   \centering
@@ -261,7 +283,7 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
     \autoref{fig:sim_aufbau_nand}) indem alle möglichen Eingangssignale
     durchgeschaltet worden sind und die Response am Ausgang aufgezeichnet
     wurde. Diese Grafik beinhaltet die simulierte Wahrheitstafel. Zudem sind
-    $U_l':=U_L1,\; U_l$ die Eingangssignale und $U_a$ das Ausgangssignal. Die
+    $U_l':=U_L1,\; U_l$ die Eingangssignale und $U_q$ das Ausgangssignal. Die
     SPICE-Directive der Simulation ist \texttt{.tran 0 0.205 0}; die
   Einstellungen der Eingangssignale können der \autoref{fig:sim_aufbau_nand}
   entnommen werden}
@@ -274,13 +296,13 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 % Funktionalität zu prüfen. 
 \paragraph{Aufbau des CMOS-Inverters}\label{sec:mess_cmos}
 %TODO text
-Zunächst wird der CMOS-Inverter mittels zweier MOSFETs (einem PMOS \cite{ZVP2106A} und
-einem NMOS \cite{ZVN2106A}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_inv})
-aufgebaut. Jedoch wurden zur Visualisierung des Eingangszustands $U_l$ und des
-Ausgangszustands $U_q$ LEDs der LED-Leiste parallel dazu geschaltet. Das
+Zunächst wird der CMOS-Inverter mittels zweier MOSFETs (einem p-MOSFET \cite{ZVP2106A} und
+einem n-MOSFET \cite{ZVN2106A}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_inv})
+aufgebaut. Zur Visualisierung des Eingangszustands $U_l$ und des
+Ausgangszustands $U_q$ wurden die LEDs der LED-Leiste parallel dazu geschaltet. Das
 Eingangssignal wurde durch einen entprellten Schalter, im Standardzustand
-\textit{LOW}, gegeben, der Aufbau genaue kann im \autoref{sec:schalter_aufbau} gesehen werden. Als
-Spannungsquelle wurde einstellbares Netzteil verwendet und auf \SI{5}{\volt}
+\textit{LOW}, gegeben. Der Aufbau wird in \autoref{sec:schalter_aufbau} dargestellt. Als
+Spannungsquelle wurde ein Netzgerät verwendet und auf \SI{5}{\volt}
 eingestellt. 
 
 %TODO figure
@@ -288,15 +310,15 @@ eingestellt.
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbauinverter.pdf}
   \caption{Dies ist der Aufbau einer CMOS-Inverter-Schaltung nach dem
-  Schaltplan aus \autoref{fig:sim_aufbau_inv}. Wobei $U_q$ das Ausgangssignal
-  der Schaltung ist  und $U_l$ das logische Eingangssignal ist. Der Zustand
+  Schaltplan aus \autoref{fig:sim_aufbau_inv}, wobei $U_q$ das Ausgangssignal
+  der Schaltung und $U_l$ das Eingangssignal ist. Der Zustand
   beider kann anhand einer LED in der LED-Leiste abgelesen werden.}
   \label{fig:mess_aufbau_inv}
 \end{figure}
 
 
-Um die Funktionstüchtigkeit des CMOS-Gatters zu überprüfen wurde die
-Wahrheitstafel des NOT-Gatters im Eingang durch geschaltet die gemessenen Werte
+Um die Funktionstüchtigkeit des CMOS-Gatters zu überprüfen, wurde die
+Wahrheitstafel des NOT-Gatters im Eingang durchgeschaltet. Die Resultate
 sind in \autoref{fig:mess_wahrheitstabelle_inv} ersichtlich.
 %TODO text messung
 % Als  Pegelgeber wird  für  das  Steckboard  ein vorhandener  elektronisch
@@ -310,7 +332,7 @@ sind in \autoref{fig:mess_wahrheitstabelle_inv} ersichtlich.
     \includegraphics[width=0.95\textwidth]{./figures/messungen/WahrheitstabelleInverter.pdf}
   \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- $U_l$ und
   Ausgangssignale $U_q$ der gebauten CMOS-Inverter-Schaltung. Eine leuchtende
-  LED entspricht einem \textit{HIGH} Signal und nicht leuchtend entspricht
+  LED entspricht einem \textit{HIGH} Signal, eine nicht leuchtende entspricht
   \textit{LOW}} 
 \label{fig:mess_wahrheitstabelle_inv}
 \end{figure}
@@ -323,8 +345,8 @@ sind in \autoref{fig:mess_wahrheitstabelle_inv} ersichtlich.
 %TODO text
 Nun ist CMOS-NOT Schaltung um zwei weiter MOSFETs erweitert worden, um ein
 NAND-Gatter zu bauen. Dies wurde wie in \autoref{fig:sim_aufbau_nand} gemacht,
-jedoch wurde wie auch im \nameref{sec:mess_cmos} entprellte Schalter als
-Pegelgeber und die LED-Leiste zur Visualisierung der Pegel(Signale) verwendet.
+jedoch wurden, wie auch in \nameref{sec:mess_cmos}, entprellte Schalter als
+Pegelgeber und die LED-Leiste zur Visualisierung der Pegel (Signale) verwendet.
 Diese wurden ebenfalls an den geeigneten Stellen angeschlossen, wie diese genau
 angeschlossen wurden ist der \autoref{fig:mess_aufbau_nand} entnehmbar.
 
@@ -479,15 +501,23 @@ dadurch die Funktionstüchtigkeit des Master-Switches gezeigt.
 % Abweichungen zwischen Simulation und praktischer Durchführung diskutiert werden.
 \section{Diskussion und Zusammenfassung}\label{sec:Diskussion} 
 \subsection{Diskussion}
-In \autoref{} von der Simulation und \autoref{}, das die LEDs vom Steckbrett zeigt,
+In \autoref{fig:sim} von der Simulation und \autoref{}, das die LEDs vom Steckbrett zeigt,
 ist das Verhalten eines CMOS-Inverters gut zu erkennen; dabei wird das Signal
 am Ausgang relativ zu jenem am Eingang negiert.
-
+Weiters ist anhand von \autoref{} aus der Simulation ersichtlich, dass
+der Schaltvorgang in CMOS endlich schnell erfolgt. Dabei ist ein deutliches
+Maximum des Stroms zu erkennen, wenn (im Falle des Inverters) beide MOSFETs
+leitfähig sind, nämlich am Schnittpunkt der Spannungsverläufe.
+Die Spannung an diesen Schnittpunkten beträgt \SI{1,63}{\volt} und liegt
+somit innerhalb des für die Gate-Source-Spannung toleranten Intervalls.
+\newline
 Das aus MOSFETs konstruierte NAND liefert als Ergebnis aller möglichen
 Kombinationen der beiden Eingangssignale \autoref{} für die Simulation
 und \autoref{} für die Steckbrettschaltung.
 Somit folgt der Verhalt jenem, der in der Wahrheitstabelle in \autoref{sec:Vorbereitung}
 (Vorbereitung) notiert wurde.
+
+
 
 Anhand von \autoref{} und \autoref{} ist aus der Simulation ersichtlich, dass
 der Schaltvorgang in CMOS endlich schnell erfolgt. Dabei ist ein deutliches
@@ -513,4 +543,5 @@ Im Rahmen dieser Laborübung wurde das Verhalten von einem CMOS-Inverter, einem 
 
 
 \end{document}
+
 
