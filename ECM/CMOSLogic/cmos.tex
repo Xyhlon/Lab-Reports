@@ -118,8 +118,8 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
     \hline
     \textbf{Gerät/Bauelement} & \textbf{Typ} \\
     \hline
-    Oszilloskop & \textit{Tektronix TDS 2002}\cite{oszilloscope}\\
-    Funktionsgenerator & \textit{H-TRONIC FG250D}\cite{funktionsgenerator} \\
+    % Oszilloskop & \textit{Tektronix TDS 2002}\cite{oszilloscope}\\
+    % Funktionsgenerator & \textit{H-TRONIC FG250D}\cite{funktionsgenerator} \\
     Netzgerät & nicht bestimmbar\\
     Multimeter & \textit{Fluke 175 TrueRMS}\cite{fluke175} \\
     % todo references
@@ -166,7 +166,7 @@ verschiedenen Anschlüssen angelegt um die LED zum Leuchten zu bringen.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth]{./figures/messungen/ledleiste.jpg}
+  \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/messungen/ledleiste.jpg}
   \caption{Dies ist die LED-Leiste, welche 8 LEDs mit je einem Vorwiderstand
   hat. Sie ist in Common-Ground Konfiguration und wird verwendet um Signal
   anzeigen zu können.}
@@ -192,7 +192,9 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
     \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/schaltung.png}
     \caption{Dieser Schaltplan zeigt, den Aufbau eines NOT-Gatters unter
     Verwendung der Komplementären N- (\textit{ZVN2106A}) und P-MOSFETs
-    (\textit{ZVP2106A}).}
+    (\textit{ZVP2106A}). Dabei ist $U_e$ das Eingangssignal und $U_a$ das Ausgangssignal.
+    Die verwendeten Komponenten können der \autoref{tab:geraeteliste} entnommen werden.
+  }
   \label{fig:sim_aufbau_inv}
 \end{figure}
 
@@ -202,15 +204,21 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 %TODO text messung Wie wurde simuliert wie wurde die Schwellspannung gemessen.
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/kennlinie_einaus.png}
-    \caption{}
+  \includegraphics[width=\linewidth, height=7cm]{./simdaten_lab/cmos/inverter/kennlinie_einaus.png}
+  \caption{Diese Grafik widerspiegelt das simulierte Verhalten des CMOS-NOT-Gatters (aus
+    \autoref{fig:sim_aufbau_inv}) indem alle möglichen Eingangssignale
+    durchgeschaltet worden sind und die Response am Ausgang aufgezeichnet
+    wurde. Diese Grafik beinhaltet die simulierte Wahrheitstafel. Zudem ist
+    $U_e$ das Eingangssignal und $U_a$ das Ausgangssignal. Die SPICE-Directive
+    der Simulation ist \texttt{.tran 0 0.4 0}}
   \label{fig:sim_inv_wahrheit}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/strom_correct_beide.png}
-    \caption{}
+    \includegraphics[width=\linewidth, height=7cm]{./simdaten_lab/cmos/inverter/strom_correct_beide.png}
+    \caption{Hier sind die simulierten Gateströme des n- bzw. P-MOSFETs
+    dargestellt. Die SPICE-Directive der Simulation ist \texttt{.tran 0 0.4 0}}
   \label{fig:sim_inv_eingangsstrom}
 \end{figure}
 %TODO figure messung
@@ -219,8 +227,11 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/inverter/treshold.png}
-    \caption{}
+    \includegraphics[width=\linewidth, height=7cm]{./simdaten_lab/cmos/inverter/treshold.png}
+    \caption{Diese Grafik beinhaltet die von der Simulation errechneten
+    Gate-Source Schwellspannung $V_{\mathrm{threshold}}$. Die SPICE-Directive
+    der Simulation ist \texttt{.tran 0 0.4 0} und das \textit{MEASURE} Kommando
+    war \texttt{.meas V\_treshold FIND V(u\_e) WHEN V(u\_e)=V(u\_a)}}
   \label{fig:sim_inv_threshold}
 \end{figure}
 % 2.3
@@ -232,10 +243,11 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 %TODO figure sim aufbau
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/nand/schaltung.png}
+    \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./simdaten_lab/cmos/nand/schaltung.png}
   \caption{Dieser Schaltplan zeigt, den Aufbau eines NAND-Gatters unter
     Verwendung der Komplementären N- (\textit{ZVN2106A}) und P-MOSFETs
-    (\textit{ZVP2106A}).}
+    (\textit{ZVP2106A}).Dabei ist $U_l':=U_l1$, $U_l$ die logischen
+  Eingangssignale und $U_q$ das Ausgangssignal.}
   \label{fig:sim_aufbau_nand}
 \end{figure}
 
@@ -244,8 +256,15 @@ der Beschriftung gekennzeichnet bzw. erwähnt.
 %TODO figure messung
 \begin{figure}[H]
   \centering
-    \includegraphics[width=0.95\textwidth]{./simdaten_lab/cmos/nand/nand_funktion.png}
-  \caption{}
+    \includegraphics[width=\linewidth, height=7cm]{./simdaten_lab/cmos/nand/nand_funktion.png}
+  \caption{Diese Grafik widerspiegelt das simulierte Verhalten des CMOS-NAND-Gatters (aus
+    \autoref{fig:sim_aufbau_nand}) indem alle möglichen Eingangssignale
+    durchgeschaltet worden sind und die Response am Ausgang aufgezeichnet
+    wurde. Diese Grafik beinhaltet die simulierte Wahrheitstafel. Zudem sind
+    $U_l':=U_L1,\; U_l$ die Eingangssignale und $U_a$ das Ausgangssignal. Die
+    SPICE-Directive der Simulation ist \texttt{.tran 0 0.205 0}; die
+  Einstellungen der Eingangssignale können der \autoref{fig:sim_aufbau_nand}
+  entnommen werden}
   \label{fig:sim_nand_wahrheit}
 \end{figure}
 
@@ -313,7 +332,8 @@ angeschlossen wurden ist der \autoref{fig:mess_aufbau_nand} entnehmbar.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbaunand.pdf}
-  \caption{Dies ist der Aufbau eines CMOS-NAND-Gatters nach dem Schaltplan aus \autoref{fig:sim_aufbau_nand}}
+  \caption{Dies ist der Aufbau eines CMOS-NAND-Gatters nach dem Schaltplan aus
+  \autoref{fig:sim_aufbau_nand}}
   \label{fig:mess_aufbau_nand}
 \end{figure}
 
@@ -349,7 +369,14 @@ ersichtlich.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/schaltung.png}
-  \caption{}
+    \caption{Dies Schaltung entspricht der in der
+    \nameref{sec:Aufgabenstellung} aufgetragenen und in
+  \nameref{sec:Vorbereitung} entworfenen Einbruchsicherungsschaltung. Hier
+  entspricht $x1$ dem Fensterscheiben-Vibrationsfühler, $x2$ dem
+  Tür-Kontaktfühler, $x3$ der Ultraschall-Raumüberwachung und $x4$ der
+  Infrarot-Lichtschranke. Zudem ist hier auch der \textit{Master-Switch}
+ersichtlich. Die verwendeten Komponenten können der \autoref{tab:geraeteliste}
+entnommen werden.}
   \label{fig:sim_aufbau_alarm}
 \end{figure}
 
@@ -361,7 +388,15 @@ ersichtlich.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/master_verlauf.png}
-  \caption{}
+  \caption{Diese Grafik widerspiegelt das Verhalten der
+    Einbruchsicherungsschaltung (aus \autoref{fig:sim_aufbau_alarm}) indem alle
+    möglichen Eingangssignale durchgeschaltet worden sind und die Response am
+    Ausgang aufgezeichnet wurde. Diese Grafik beinhaltet die simulierte
+    Wahrheitstafel. Zudem sind $x1$, $x2$, $x3$, $x4$ \&
+    der \textit{Master-Switch} die Eingangssignale und $y$ das Ausgangssignal. Die
+    SPICE-Directive der Simulation ist \texttt{.tran 0 4 0}; die
+    Einstellungen der Eingangssignale können der \autoref{fig:sim_aufbau_alarm}
+  entnommen werden}
   \label{fig:sim_alarm_wahrheit}
 \end{figure}
 
@@ -372,11 +407,11 @@ Wie in der \nameref{sec:Aufgabenstellung} gesagt wurde galt es eine Schaltung
 zu designen, welche durch anschlagen zweier Sensoren einen Alarm auslösen
 sollte. Diese Schaltung wurde um die Fehlerquellen zu reduzieren jedoch aus der
 Musterlösung entnommen und nicht die Eigengestaltete verwendet. Die vier
-Eingangsgrößen ($x_1$, $x_2$, $x_3$, $x_4$) wurden durch vier entprellte
-Schalter realisiert. Dabei sind $x_1$ \& $x_3$ im Standard \textit{LOW} und
-$x_2$ \& $x_4$ Standard \textit{HIGH} Betrieb geschaltet worden. Damit die
-Alarmanlage bei Signalunterbrechung $x_2$ \& $x_4$ und einer Signal bei $x_1$
-\& $x_3$ anschlagt. Das Design der Schaltung der \nameref{sec:Aufgabenstellung}
+Eingangsgrößen ($x1$, $x2$, $x3$, $x4$) wurden durch vier entprellte
+Schalter realisiert. Dabei sind $x1$ \& $x3$ im Standard \textit{LOW} und
+$x2$ \& $x4$ Standard \textit{HIGH} Betrieb geschaltet worden. Damit die
+Alarmanlage bei Signalunterbrechung $x2$ \& $x4$ und einer Signal bei $x1$
+\& $x3$ anschlagt. Das Design der Schaltung der \nameref{sec:Aufgabenstellung}
 entnommen werden.
 
 %TODO figure
