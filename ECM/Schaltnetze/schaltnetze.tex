@@ -251,18 +251,18 @@ eingestellt.
 %TODO figure
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbauinverter.pdf}
-  \caption{Dies ist der Aufbau einer CMOS-Inverter-Schaltung nach dem
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/jk/aufbau.png}
+  \caption{Dies ist der Aufbau eines JK-Master-Slave-Flip-Flops nach dem
   Schaltplan aus \autoref{fig:sim_aufbau_jk}, wobei $U_q$ das Ausgangssignal
   der Schaltung und $U_l$ das Eingangssignal ist. Der Zustand
   beider kann anhand einer LED in der LED-Leiste abgelesen werden.}
-  \label{fig:mess_aufbau_inv}
+  \label{fig:mess_aufbau_jk}
 \end{figure}
 
 
 Um die Funktionstüchtigkeit des CMOS-Gatters zu überprüfen, wurde die
 Wahrheitstafel des NOT-Gatters im Eingang durchgeschaltet. Die Resultate
-sind in \autoref{fig:mess_wahrheitstabelle_inv} ersichtlich.
+sind in \autoref{fig:mess_wahrheitstabelle_jk} ersichtlich.
 %TODO text messung
 % Als  Pegelgeber wird  für  das  Steckboard  ein vorhandener  elektronisch
 % entprellte  Schalter  (mit  Hilfe  eines RS-Flip-Flops)  verwendet.  Der
@@ -272,12 +272,12 @@ sind in \autoref{fig:mess_wahrheitstabelle_inv} ersichtlich.
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/WahrheitstabelleInverter.pdf}
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/jk/wahrheit.png}
   \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- $U_l$ und
   Ausgangssignale $U_q$ der gebauten CMOS-Inverter-Schaltung. Eine leuchtende
   LED entspricht einem \textit{HIGH} Signal, eine nicht leuchtende entspricht
   \textit{LOW}} 
-\label{fig:mess_wahrheitstabelle_inv}
+\label{fig:mess_wahrheitstabelle_jk}
 \end{figure}
 
 
@@ -375,16 +375,16 @@ Eingangsgrößen ($x1$, $x2$, $x3$, $x4$) wurden durch vier entprellte
 Schalter realisiert. Dabei sind $x1$ \& $x3$ im Standard \textit{LOW} und
 $x2$ \& $x4$ Standard \textit{HIGH} Betrieb geschaltet worden, damit die
 Alarmanlage bei Signalunterbrechung $x2$ \& $x4$ und einem Signal bei $x1$
-\& $x3$ anschlägt. Der Aufbau der Schaltung kann \nameref{fig:mess_aufbau_alarm}
+\& $x3$ anschlägt. Der Aufbau der Schaltung kann \nameref{fig:mess_aufbau_4bit}
 entnommen werden.
 
 %TODO figure
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbaualarm.png}
-  \caption{Dies ist der Aufbau der Einbruchsicherungsschaltung nach dem
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/4bit/aufbau.png}
+  \caption{Dies ist der Aufbau des dekadischen synchron 4Bit-Zähler nach dem
   Schaltplan aus \autoref{fig:sim_aufbau_4bit}}
-  \label{fig:mess_aufbau_alarm}
+  \label{fig:mess_aufbau_4bit}
 \end{figure}
 
 % 2.2
@@ -402,7 +402,7 @@ ersichtlich.
 %TODO figure messung
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth,height=15cm]{./figures/messungen/WahrheitstabelleAlarm.pdf}
+    \includegraphics[width=0.95\textwidth,height=13cm]{./figures/messungen/4bit/wahrheit.png}
   \caption{Diese Abbildung beinhaltet die gemessenen logischen Zustände der
     Ein- $x1$, $x2$, $x3$, $x4$ und Ausgänge $y$ der gebauten
     Einbruchsicherungsschaltung. Eine leuchtende LED entspricht einem
@@ -462,7 +462,7 @@ hinterlegt und die \textit{HIGH} Zustände mit einer 1 markiert.
 \section{Diskussion und Zusammenfassung}\label{sec:Diskussion} 
 \subsection{Diskussion}
 In \autoref{fig:sim_jk_wahrheit} von der Simulation und
-\autoref{fig:mess_wahrheitstabelle_inv}, welche die LEDs vom Steckbrett zeigt,
+\autoref{fig:mess_wahrheitstabelle_jk}, welche die LEDs vom Steckbrett zeigt,
 ist das Verhalten eines CMOS-Inverters gut zu erkennen; dabei wird das Signal
 am Ausgang relativ zu jenem am Eingang negiert.
 Weiters ist anhand von \autoref{fig:sim_jk_wahrheit} aus der Simulation ersichtlich, dass
@@ -495,7 +495,7 @@ zwei Eingangsvariablen auf \texttt{HIGH} sind.
 %Ungenauigkeiten durch die Widerstände 
 \subsection{Zusammenfassung}
 Im Rahmen dieser Laborübung wurde das Verhalten von einem CMOS-Inverter (siehe \autoref{fig:sim_jk_wahrheit}
-respektive \autoref{fig:mess_wahrheitstabelle_inv}), 
+respektive \autoref{fig:mess_wahrheitstabelle_jk}), 
 einem aus CMOS konstruierten NAND (siehe \autoref{fig:sim_nand_wahrheit}
 respektive \autoref{fig:mess_wahrheitstabelle_nand}) und einer Einbruchsicherungsschaltung 
 (=Schaltnetz mit 4 Eingangsvariablen
