@@ -71,7 +71,10 @@
 %Für den praktischen Teil an der Steckplatine wurden Widerstände der E12-Reihe,
 %mit denen die in der Vorbereitung angegebenen respektive errechneten Werte
 %angenähert wurden, verwendet.
-
+Da es die exakten Komponenten für die logischen Komponenten nicht in
+\textit{LTspice} zur Verfügung standen wurden funktionstüchtig-äquivalente
+Bauteile in der Simulation verwendet. Die Gegenstücke in der Simulation wurden
+unten angeführt.
 Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 
 \begin{table}
@@ -160,9 +163,7 @@ LTSpice aufgebaut und simuliert. Diese Schaltung wurde mit fünf Eingangspins
 und zwei Ausgangspins designt. Die fünf Eingangspins sind \textit{J C K R S},
 wobei \textit{S R} die direkten Set und Reset (bzw. PRESET \& CLEAR), \textit{C} das
 Clocksignal, \textit{J K} die normalen SET und RESET Pins des
-JK-Master-Slave-Flip-Flop sind. Es wurden statt den exakten Komponenten sehr
-ähnlichen 
-
+JK-Master-Slave-Flip-Flop sind. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{./figures/sim/jk/aufbaujk.png}
