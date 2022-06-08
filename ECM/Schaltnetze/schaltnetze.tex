@@ -6,13 +6,13 @@
 
 \addbibresource{schaltnetze.bib}
     % Kopfzeile
-\ihead{SS22\\1.06.2022}
+\ihead{SS22\\01.06.2022}
 \chead{\textsc{Hinterleitner} Michael - 12002411 \\ \textsc{Philipp} Maximilian - 11839611}
 \ohead{LU ECM-\\ Digitale Schaltungen}
     % Fußzeile
 %--------------------------------------AB HIER DOKUMENT---------------------------------------------
 \begin{document}
-% \includepdf{deckblatt3.pdf}
+% \includepdf{deckblatt4.pdf}
 \tableofcontents
 \newpage
 
@@ -71,8 +71,8 @@
 %Für den praktischen Teil an der Steckplatine wurden Widerstände der E12-Reihe,
 %mit denen die in der Vorbereitung angegebenen respektive errechneten Werte
 %angenähert wurden, verwendet.
-Da es die exakten Komponenten für die logischen Komponenten nicht in
-\textit{LTspice} zur Verfügung standen wurden funktionstüchtig-äquivalente
+Da die exakten Komponenten für die logischen Gatter nicht in
+\textit{LTspice} zur Verfügung standen, wurden funktionstüchtig-äquivalente
 Bauteile in der Simulation verwendet. Die Gegenstücke in der Simulation wurden
 unten angeführt.
 Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
@@ -106,10 +106,10 @@ Der entprellter Schalter wird als Signalgeber für die logischen Schaltungen und
 Gatter verwendet. Der Aufbau dieses Schalters ist in
 \autoref{fig:aufbau_schalter} ersichtlich, jedoch ist noch der \textit{GND} mit
 Ground und \textit{VCC} mit \SI{5}{\volt} zu beschalten, damit das Signal von
-Schalter eins beziehungsweise Schalter zwei für die jeweilige Betriebsart abgegriffen
+den Schaltern für die jeweilige Betriebsart abgegriffen
 werden kann.
 
-Jeder dieser Schalter hat eine Standard-\textit{HIGH}- bzw.
+Jeder dieser Schalter hat hierbei eine Standard-\textit{HIGH}- bzw.
 \textit{LOW}-Betriebsart.
 
 \begin{figure}[H]
@@ -139,13 +139,13 @@ verschiedenen Anschlüssen angelegt um die LED zum Leuchten zu bringen.
   \centering
   \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/messungen/ledleiste.jpg}
   \caption{Dies ist die LED-Leiste, welche 8 LEDs mit je einem Vorwiderstand
-  hat. Sie ist in Common-Ground-Konfiguration und wird verwendet um Signal
+  hat. Sie ist in Common-Ground-Konfiguration und wird verwendet, um Signal
   anzeigen zu können.}
   \label{fig:aufbau_led}
 \end{figure}
 
-Damit die Aufnahmen der Schaltungen übersichtlich bleiben, wurde diese meistens
-von den Aufnahmen weggeschnitten und dessen Funktion in der jeweiligen Grafik
+Damit die Aufnahmen der Schaltungen übersichtlich bleiben, wurden diese meistens
+von den Aufnahmen weggeschnitten und deren Funktion in der jeweiligen Grafik
 mittels \textit{LED} dargestellt oder in der Beschriftung gekennzeichnet bzw.
 erwähnt.
 
@@ -160,9 +160,9 @@ erwähnt.
 Die Schaltung des JK-Master-Slave-Flip-Flop (JK-MS-FF) wurde gemäß der
 \nameref{sec:Aufgabenstellung} in \autoref{fig:sim_aufbau_jk} in
 LTSpice aufgebaut und simuliert. Diese Schaltung wurde mit fünf Eingangspins
-und zwei Ausgangspins designt. Die fünf Eingangspins sind \textit{J C K R S},
+und zwei Ausgangspins konstruiert. Die fünf Eingangspins sind \textit{J C K R S},
 wobei \textit{S R} die direkten Set und Reset (bzw. PRESET \& CLEAR), \textit{C} das
-Clocksignal, \textit{J K} die normalen SET und RESET Pins des
+Clocksignal, \textit{J K} die normalen SET und RESET Pins als Eingänge des
 JK-Master-Slave-Flip-Flop sind. 
 
 \begin{figure}[H]
@@ -174,24 +174,24 @@ JK-Master-Slave-Flip-Flop sind.
       verwendeten Simulationskomponenten im Schaltplan
       ersichtlich.
     Dabei ist:\\
-    \textit{J}$\dots$ normale Set Eingang\\
-    \textit{K}$\dots$ normale Reset Eingang\\
-    \textit{C}$\dots$ Clocksignal Eingang\\
-    \textit{R}$\dots$ CLEAR Eingang\\
-    \textit{S}$\dots$ PRESET Eingang\\
+    \textit{J}$\dots$ normaler Set-Eingang\\
+    \textit{K}$\dots$ normaler Reset-Eingang\\
+    \textit{C}$\dots$ Clocksignal-Eingang\\
+    \textit{R}$\dots$ CLEAR-Eingang\\
+    \textit{S}$\dots$ PRESET-Eingang\\
     \textit{Q}$\dots$ Ausgang\\
-    \textit{$\Bar{Q}$}$\dots$ Invertierte Ausgang\\
+    \textit{$\Bar{Q}$}$\dots$ Invertierter Ausgang\\
   }
   \label{fig:sim_aufbau_jk}
 \end{figure}
 
 Nun wurde das Schaltverhalten bei verschiedenen Eingangssignalkombinationen
 simuliert. 
-Damit die Simulation mit einem bekannten Zustand starten kann und die
-Simulationszeit somit drastisch verringert werden kann wurde am Anfang ein
-direktes Set-Signal am PRESET Eingang gegeben.
+Damit die Simulation mit einem bekannten Zustand starten und die
+Simulationszeit somit drastisch verringert werden kann, wurde am Anfang ein
+direktes Set-Signal am PRESET-Eingang gegeben.
 Um die möglichen Kombinationen der Eingangssignale zu erhalten, wurden
-die drei, für das Verhalten eines JK-MS-FF wichtige, Eingänge \textit{C K J}
+die drei für das Verhalten eines JK-MS-FF wichtigen Eingänge \textit{C K J}
 mit PWM-Spannungsquellen beschaltet. Wobei \textit{K} die halbe Frequenz von \textit{C} und \textit{J} die
 Halbe von \textit{K} hat. Zudem wurde das Clocksignal in \textit{C} um ein Viertel der
 Periodendauer verzögert, damit nie das Schalten der Zustande unklar zu ablesen
@@ -363,7 +363,10 @@ entnommen werden.
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/4bit/aufbau.png}
   \caption{Dies ist der Aufbau des dekadischen synchron 4Bit-Zähler nach dem
-  Schaltplan aus \autoref{fig:sim_aufbau_4bit}. Die verwendeten Komponenten
+  Schaltplan aus \autoref{fig:sim_aufbau_4bit}.
+Dabei sind $QN$ die $(N-1)$ten Bits des Zählers und \textit{C} das zuzählende
+Eingangssignal.
+  Die verwendeten Komponenten
   sind der \autoref{tab:geraeteliste} zu entnehmen.}
   \label{fig:mess_aufbau_4bit}
 \end{figure}
@@ -380,10 +383,12 @@ in \autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth,height=13cm]{./figures/messungen/4bit/wahrheit.png}
-  \caption{Diese Abbildung beinhaltet die gemessenen logischen Zustände der
-    Ein- $x1$, $x2$, $x3$, $x4$ und Ausgänge $y$ der gebauten
-    Einbruchsicherungsschaltung. Eine leuchtende LED entspricht einem
-    \textit{HIGH}-, eine nicht leuchtende entspricht einem \textit{LOW}-Signal}
+  \caption{Diese Abbildung beinhaltet die gemessenen logischen Ausgangszustände
+    der $QN$ Ausgänge bei einer Serie an Eingangspulsen. Dabei sind $QN$ die
+    $(N-1)$ten Bits des gebauten 4Bit dekadischen synchron Zählers. Die Zahlen
+    in der rechten Spalte entsprechen dem j-ten gegebenen Puls im
+  Eingangssignal \textit{CLK}.Eine leuchtende LED entspricht einem
+\textit{HIGH}-, eine nicht leuchtende entspricht einem \textit{LOW}-Signal}
   \label{fig:mess_wahrheitstabelle_alarm}
 \end{figure}
 
@@ -488,4 +493,5 @@ verifiziert.
 
 
 \end{document}
+
 
