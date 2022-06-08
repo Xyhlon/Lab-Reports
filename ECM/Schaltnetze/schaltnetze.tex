@@ -114,7 +114,7 @@ Jeder dieser Schalter hat eine Standard-\textit{HIGH}- bzw.
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.jpg}
+    \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.jpg}
   \caption{Dies sind die zwei entprellten Schalterplatinen mit je zwei Schalter
     ($S1$,$S2$) die entweder mit Standard-\textit{HIGH} oder -\textit{LOW} verwendet
     werden können. Diese werden durch Beschalten des \textit{GND} und der \SI{5}{\volt}
@@ -137,7 +137,7 @@ verschiedenen Anschlüssen angelegt um die LED zum Leuchten zu bringen.
 
 \begin{figure}[H]
   \centering
-  % \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/messungen/ledleiste.jpg}
+  \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/messungen/ledleiste.jpg}
   \caption{Dies ist die LED-Leiste, welche 8 LEDs mit je einem Vorwiderstand
   hat. Sie ist in Common-Ground-Konfiguration und wird verwendet um Signal
   anzeigen zu können.}
@@ -164,12 +164,14 @@ und zwei Ausgangspins designt. Die fünf Eingangspins sind \textit{J C K R S},
 wobei \textit{S R} die direkten Set und Reset (bzw. PRESET \& CLEAR), \textit{C} das
 Clocksignal, \textit{J K} die normalen SET und RESET Pins des
 JK-Master-Slave-Flip-Flop sind. 
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{./figures/sim/jk/aufbaujk.png}
     \caption{Dieser Schaltplan zeigt, den Aufbau eines
-      JK-Master-Slave-Flip-Flops. Dabei ist $U_e$ das Eingangssignal und $U_a$
-      das Ausgangssignal. Die verwendeten Simulationskomponenten im Schaltplan
+      JK-Master-Slave-Flip-Flops. Die verwendeten Bauteile sind in der Grafik
+      abgebildet und in \autoref{tab:geraeteliste} nochmals angeführt. Die
+      verwendeten Simulationskomponenten im Schaltplan
       ersichtlich.
     Dabei ist:\\
     \textit{J}$\dots$ normale Set Eingang\\
@@ -183,16 +185,6 @@ JK-Master-Slave-Flip-Flop sind.
   \label{fig:sim_aufbau_jk}
 \end{figure}
 
-% Als Betriebsspannung $U_B$ wurde eine Spannung von \SI{5}{\volt} und als
-% Eingangsspannung $V_e$ eine Puls-Spannungsquelle mit einer Spannung von
-% \SI{5}{\volt} (Spezifikationen nach Schaltplan) gewählt.
-
-
-% Daraufhin wurde eine Transienten-Analyse der Spannungssignale nach der
-% \textit{Directive} {.tran 0 0.205 0} durchgeführt, woraus \autoref{fig:sim_nand_wahrheit} extrahiert wurde.
-% Die Übertragungskennlinie
-% und die Stromaufnahme sind darzustellen (PULSE-Quelle).
-%TODO text messung Wie wurde simuliert wie wurde die Schwellspannung gemessen.
 Nun wurde das Schaltverhalten bei verschiedenen Eingangssignalkombinationen
 simuliert. 
 Damit die Simulation mit einem bekannten Zustand starten kann und die
@@ -239,6 +231,7 @@ verwendet.
 % 2.3 Die Ergebnisse sind zu dokumentieren und zu diskutieren. 
 \subsubsection{Steckboard}
 \paragraph{Aufbau des JK-Master-Slave-Flip-Flop}\label{sec:mess_cmos}
+% INSPIRATION
 %TODO text
 Zunächst wird der CMOS-Inverter mittels zweier MOSFETs (einem p-MOSFET \cite{ZVP2106A} und
 einem n-MOSFET \cite{ZVN2106A}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_jk})
@@ -254,16 +247,24 @@ eingestellt.
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/jk/aufbau.png}
   \caption{Dies ist der Aufbau eines JK-Master-Slave-Flip-Flops nach dem
-  Schaltplan aus \autoref{fig:sim_aufbau_jk}, wobei $U_q$ das Ausgangssignal
-  der Schaltung und $U_l$ das Eingangssignal ist. Der Zustand
+  Schaltplan aus \autoref{fig:sim_aufbau_jk}, wobei:\\
+    \textit{J}$\dots$ normale Set Eingang\\
+    \textit{K}$\dots$ normale Reset Eingang\\
+    \textit{C}$\dots$ Clocksignal Eingang\\
+    \textit{R}$\dots$ CLEAR Eingang\\
+    \textit{S}$\dots$ PRESET Eingang\\
+    \textit{Q}$\dots$ Ausgang\\
+    \textit{$\Bar{Q}$}$\dots$ Invertierte Ausgang\\
+ist . Der Zustand
   beider kann anhand einer LED in der LED-Leiste abgelesen werden.}
   \label{fig:mess_aufbau_jk}
 \end{figure}
 
 
-Um die Funktionstüchtigkeit des CMOS-Gatters zu überprüfen, wurde die
-Wahrheitstafel des NOT-Gatters im Eingang durchgeschaltet. Die Resultate
-sind in \autoref{fig:mess_wahrheitstabelle_jk} ersichtlich.
+Um die Funktionstüchtigkeit des JK-MS-FF's zu überprüfen, wurde die
+Wahrheitstafel alle möglichen Schaltsignale der \textit{J K} Eingänge
+durchgeschaltet. Die Resultate sind in \autoref{fig:mess_wahrheitstabelle_jk}
+ersichtlich.
 %TODO text messung
 % Als  Pegelgeber wird  für  das  Steckboard  ein vorhandener  elektronisch
 % entprellte  Schalter  (mit  Hilfe  eines RS-Flip-Flops)  verwendet.  Der
@@ -274,52 +275,31 @@ sind in \autoref{fig:mess_wahrheitstabelle_jk} ersichtlich.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/jk/wahrheit.png}
-  \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- $U_l$ und
-  Ausgangssignale $U_q$ der gebauten CMOS-Inverter-Schaltung. Eine leuchtende
+  \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- und
+  Ausgangssignale des gebauten JK-Master-Slave-Flip-Flops. Eine leuchtende
   LED entspricht einem \textit{HIGH} Signal, eine nicht leuchtende entspricht
-  \textit{LOW}} 
+  \textit{LOW}. Zudem ist:\\ 
+    \textit{J}$\dots$ normale Set Eingang\\
+    \textit{K}$\dots$ normale Reset Eingang\\
+    \textit{C}$\dots$ Clocksignal Eingang\\
+    \textit{R}$\dots$ CLEAR Eingang\\
+    \textit{S}$\dots$ PRESET Eingang\\
+    \textit{Q}$\dots$ Ausgang\\
+  \textit{$\Bar{Q}$}$\dots$ Invertierte Ausgang}
 \label{fig:mess_wahrheitstabelle_jk}
 \end{figure}
 
 
-% 2.5
-% Die Schaltung des  NAND-Gatters ist auf dem Steckboard aufzubauen und ihre
-% Funktionalität anhand der LEDs zu zeigen.
-\paragraph{Aufbau des CMOS-NAND-Gatters}
-%TODO text
-Nun ist die CMOS-NOT Schaltung um zwei weitere MOSFETs erweitert worden, um ein
-NAND-Gatter zu bauen. Dies wurde wie in \autoref{fig:sim_aufbau_nand} aufgebaut.
-Es wurden, wie auch in \nameref{sec:mess_cmos}, entprellte Schalter als
-Pegelgeber und die LED-Leiste zur Visualisierung der Pegel (Signale) verwendet.
-Diese wurden ebenfalls an den geeigneten Abnahme-Stellen angeschlossen; wie diese genau
-angeschlossen wurden ist, der \autoref{fig:mess_aufbau_nand} entnehmbar.
-
-%TODO figure
-\begin{figure}[H]
-  \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbaunand.pdf}
-  \caption{Dies ist der Aufbau eines CMOS-NAND-Gatters nach dem Schaltplan aus
-  \autoref{fig:sim_aufbau_nand}.}
-  \label{fig:mess_aufbau_nand}
-\end{figure}
-
-%TODO text messung
-Um die Funktionstüchtigkeit des CMOS-Gatters zu überprüfen, wurde die
-Wahrheitstafel des NAND-Gatters in den vier Möglichkeiten der zwei Eingänge ($U_l$ $U_l'$) durchgeschaltet.
-Die Ergebnisse sind in \autoref{fig:mess_wahrheitstabelle_nand}
-ersichtlich.
+% INSPIRATION
+% \paragraph{Aufbau des CMOS-NAND-Gatters}
+% Nun ist die CMOS-NOT Schaltung um zwei weitere MOSFETs erweitert worden, um ein
+% NAND-Gatter zu bauen. Dies wurde wie in \autoref{fig:sim_aufbau_nand} aufgebaut.
+% Es wurden, wie auch in \nameref{sec:mess_cmos}, entprellte Schalter als
+% Pegelgeber und die LED-Leiste zur Visualisierung der Pegel (Signale) verwendet.
+% Diese wurden ebenfalls an den geeigneten Abnahme-Stellen angeschlossen; wie diese genau
+% angeschlossen wurden ist, der \autoref{fig:mess_aufbau_nand} entnehmbar.
 
 
-%TODO figure messung
-\begin{figure}[H]
-  \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/WahrheitstabelleNAND.pdf}
-  \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- $U_l$,$U_l'$ und
-  Ausgangssignale $U_q$ der aufgebauten CMOS-NAND-Schaltung. Eine leuchtende
-  LED entspricht einem \textit{HIGH} Signal, eine nicht leuchtende entspricht
-  \textit{LOW}}
-  \label{fig:mess_wahrheitstabelle_nand}
-\end{figure}
 
 
 \subsection{Dekadischer synchron 4Bit-Zähler}
@@ -327,7 +307,6 @@ ersichtlich.
 % Ausgangspegel sind darzustellen. 
 \subsubsection{Simulation}
 
-%TODO text sim aufbau
 Das Schaltnetz des Dekadischen synchronen 4Bit-Zähler wurde in
 \autoref{fig:sim_aufbau_4bit} aufgebaut. Dabei \textit{CLK} das Eingangssignal
 und $Q1$ bis $Q4$ die Ausgänge des Zählers sind wobei $QN$ dem $(N-1)$ten Bit
@@ -384,21 +363,18 @@ entnommen werden.
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/4bit/aufbau.png}
   \caption{Dies ist der Aufbau des dekadischen synchron 4Bit-Zähler nach dem
-  Schaltplan aus \autoref{fig:sim_aufbau_4bit}}
+  Schaltplan aus \autoref{fig:sim_aufbau_4bit}. Die verwendeten Komponenten
+  sind der \autoref{tab:geraeteliste} zu entnehmen.}
   \label{fig:mess_aufbau_4bit}
 \end{figure}
 
-% 2.2
-% Die Schaltung ist am Steckboard aufzubauen und ihre Funktionalität an Hand der 
-% Wahrheitstafel zu zeigen. Als Pegelgeber werden für das Steckboard vorhandene 
-% elektronisch entprellte Schalter verwendet. Die logischen Zustände von x1, x2, x3, 
-% x4 und y, sowie des Master-Switch, sind durch LEDs anzuzeigen.
-%TODO text messung
-Um die Funktionstüchtigkeit der Einbruchsicherungsschaltung zu überprüfen,
-wurden alle Kombinationen der vier Eingangsgrößen ($x1$, $x2$, $x3$, $x4$)
-durchgegangen. Somit konnte die Wahrheitstafel der Schaltung mittels LEDs realisiert werden.
-Die Kombinationen sind in \autoref{fig:mess_wahrheitstabelle_alarm}
-ersichtlich.
+% Die Ein- und Ausgangszustände sind durch LED´s anzuzeigen und die
+% Funktionalität der Schaltung ist anhand ebendieser zu zeigen.
+Um die Funktionstüchtigkeit des 4Bit dekadischen synchron Zählers zu
+überprüfen, wurde so viele Signale bei \textit{CLK} damit der Zähler bis 10
+zählt und dann sich resetet. Somit konnte die Zählfähigkeit der Schaltung
+mittels LEDs an den Ausgängen $QN$ dargestellt werden. Die Kombinationen sind
+in \autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich.
 
 %TODO figure messung
 \begin{figure}[H]
@@ -411,14 +387,11 @@ ersichtlich.
   \label{fig:mess_wahrheitstabelle_alarm}
 \end{figure}
 
-Für die Untersuchung des Master-Switches im ausgeschalteten Zustand wurden die
-zuvor \textit{wahren} Eingangssignalkombinationen durchgeschaltet und überprüft, ob diese
-nicht die Alarmanlage ($y$) anschlagen lassen. Da die Schaltung zuvor, wie in
-\autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich, funktionierte, ist
-dadurch die Funktionstüchtigkeit des Master-Switches gezeigt.
-
-% 2.3
-% Die Ergebnisse sind zu protokollieren und zu diskutieren.
+% Für die Untersuchung des Master-Switches im ausgeschalteten Zustand wurden die
+% zuvor \textit{wahren} Eingangssignalkombinationen durchgeschaltet und überprüft, ob diese
+% nicht die Alarmanlage ($y$) anschlagen lassen. Da die Schaltung zuvor, wie in
+% \autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich, funktionierte, ist
+% dadurch die Funktionstüchtigkeit des Master-Switches gezeigt.
 
 % zu 4: Auswertung siehe EPM Skript nur Besprechung von Umformungen und 
 % Sachen die man mit den Messungen machen muss damit man Conclusion und Wissen 
