@@ -61,7 +61,7 @@ void loop() {
       digitalWrite(A2_R,LOW);
       night = true;
     }
-    if (sensorValue > 150)
+    if (sensorValue > 150 && night)
     {
       digitalWrite(A1_G,HIGH);
       digitalWrite(A1_R,LOW);

@@ -63,7 +63,7 @@ void scoring() {
   if (ended && stat_p1 && stat_p2){
     tot_game_points = 0;
     points_ply_1 =0;
-    points_ply_1 =0;
+    points_ply_2 =0;
     ended = false;
     Serial.println("RESET");
     return;
