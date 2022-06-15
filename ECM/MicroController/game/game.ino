@@ -33,6 +33,7 @@ void loop() {
     end_();
     return;
   }
+  // flash current Segment
   digitalWrite(order[curPos], HIGH);
   delay(500 / (totGamePoints + 1));
   digitalWrite(order[curPos], LOW);
