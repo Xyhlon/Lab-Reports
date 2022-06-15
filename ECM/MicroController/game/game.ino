@@ -1,4 +1,3 @@
-
 #define A 13
 #define B 12
 #define C 11
@@ -6,97 +5,106 @@
 #define E 9
 #define F 8
 #define G 7
-// order a b g e d c g f 
-char order[8] = {A,B,G,E,D,C,G,F};
+#define POINTS_TO_END_THE_GAME 10
+// order a b g e d c g f
+char order[8] = {A, B, G, E, D, C, G, F};
 
-char pins[7] = {A,B,C,D,E,F,G};
-const byte interruptPin = 2;
-const byte player1pin = 5;
-const byte player2pin = 6;
-size_t tot_game_points = 0;
-size_t points_ply_1 = 0;
-size_t points_ply_2 = 0;
+char pins[7] = {A, B, C, D, E, F, G};
+const byte INTERRUPT_PIN = 2;
+const byte P1_PIN = 5;
+const byte P2_PIN = 6;
+size_t totGamePoints = 0;
+size_t pointsP1 = 0;
+size_t pointsP2 = 0;
 volatile bool ended = false;
 volatile bool forward = true;
-
-
+volatile size_t curPos = 0;
 
 void setup() {
-  //pinMode(LED_BUILTIN, OUTPUT);
   for (size_t i = 0; i <= sizeof(pins); i++) {
     pinMode(pins[i], OUTPUT);
-  } 
-  attachInterrupt(digitalPinToInterrupt(interruptPin), scoring, RISING);
+  }
+  attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), scoring_, RISING);
   Serial.begin(9600);
 }
 
-size_t j = 0;
-
 void loop() {
-    if (ended){
-      end();
-      return;
-    }
-    digitalWrite(order[j],HIGH);
-    delay(500/(tot_game_points+1));
-    digitalWrite(order[j],LOW);
-    /* Serial.println(j); */
-    /* Serial.println(sizeof(order)); */
-    j = forward ? j+1 : (j==0)? 7:j-1;
-    j =(j)%sizeof(order);
-}
-
-void end() {
-    for (size_t i = 0; i <= sizeof(pins); i++) {
-      digitalWrite(order[i],HIGH);
-    } 
-    delay(1000);
-    for (size_t i = 0; i <= sizeof(pins); i++) {
-      digitalWrite(order[i],LOW);
-    } 
-    delay(1000);
-}
-
-void scoring() {
-  bool stat_p1 =digitalRead(player1pin);
-  bool stat_p2 =digitalRead(player2pin);
-  if (ended && stat_p1 && stat_p2){
-    tot_game_points = 0;
-    points_ply_1 =0;
-    points_ply_2 =0;
-    ended = false;
-    Serial.println("RESET");
-    return;
-  }else if (ended){
-    /* end(); */
+  if (ended) {
+    end_();
     return;
   }
-  if (order[j]==A && stat_p1){
-    tot_game_points = tot_game_points +1;
-    points_ply_1 = points_ply_1 +1;
-  }else if(order[j]==D && stat_p2){
-    tot_game_points = tot_game_points +1;
-    points_ply_2 = points_ply_2 +1;
-  }
-  else{
-    if (stat_p1){
-      points_ply_1 = (points_ply_1==0) ? 0: points_ply_1 -1;
-    }
-    if (stat_p2){
-      points_ply_2 = (points_ply_2==0) ? 0: points_ply_2 -1;
-    }
-    forward = !forward;
-  }
-  if (tot_game_points == 10){
-    ended = true;
-    Serial.println("Final Score:");
-    /* end(); */
-  }
+  digitalWrite(order[curPos], HIGH);
+  delay(500 / (totGamePoints + 1));
+  digitalWrite(order[curPos], LOW);
+  // select next segment
+  curPos = forward ? curPos + 1 : (curPos == 0) ? sizeof(order)-1 : curPos - 1;
+  curPos = (curPos) % sizeof(order);
+}
 
+void end_() {
+  // flash all segments
+  for (size_t i = 0; i <= sizeof(pins); i++) {
+    digitalWrite(order[i], HIGH);
+  }
+  delay(1000);
+  for (size_t i = 0; i <= sizeof(pins); i++) {
+    digitalWrite(order[i], LOW);
+  }
+  delay(1000);
+}
+
+// Prints the current Score of Players
+void printScore_() {
   char p1[] = "P1 ";
   char p2[] = "/ P2 ";
   Serial.print(p1);
-  Serial.print(points_ply_1);
+  Serial.print(pointsP1);
   Serial.print(p2);
-  Serial.println(points_ply_2);
+  Serial.println(pointsP2);
+}
+
+void updateStats_(bool statP1, bool statP2) {
+  // check if somebody scored
+  if (order[curPos] == A && statP1) {
+    totGamePoints = totGamePoints + 1;
+    pointsP1 = pointsP1 + 1;
+  } else if (order[curPos] == D && statP2) {
+    totGamePoints = totGamePoints + 1;
+    pointsP2 = pointsP2 + 1;
+  } else {
+    // penalize player
+    if (statP1) {
+      pointsP1 = (pointsP1 == 0) ? 0 : pointsP1 - 1;
+    }
+    if (statP2) {
+      pointsP2 = (pointsP2 == 0) ? 0 : pointsP2 - 1;
+    }
+    // switch direction
+    forward = !forward;
+  }
+}
+
+void scoring_() {
+  bool statP1 = digitalRead(P1_PIN);
+  bool statP2 = digitalRead(P2_PIN);
+  if (ended && statP1 && statP2) {
+    // reset the game stats
+    totGamePoints = 0;
+    pointsP1 = 0;
+    pointsP2 = 0;
+    ended = false;
+    Serial.println("RESET");
+    return;
+  } else if (ended) {
+    // ignore interrupt
+    return;
+  }
+  updateStats_(statP1, statP2);
+  // end the game if max points reached
+  if (totGamePoints == POINTS_TO_END_THE_GAME) {
+    ended = true;
+    Serial.println("Final Score:");
+  }
+
+  printScore_();
 }
