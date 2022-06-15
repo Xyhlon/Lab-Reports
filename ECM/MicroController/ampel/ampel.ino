@@ -83,7 +83,7 @@ void loop() {
   }
 
   if (pressed) {
-    schaltSequenz_()
+    schaltSequenz_();
   }
 }
 
