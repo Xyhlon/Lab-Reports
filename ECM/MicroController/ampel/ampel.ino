@@ -21,6 +21,7 @@ void setup() {
     pinMode(pins[i], OUTPUT);
   }
   attachInterrupt(digitalPinToInterrupt(interruptPin), handleRequest_, RISING);
+  // set default state
   digitalWrite(A1_G, HIGH);
   digitalWrite(A1_Y, LOW);
   digitalWrite(A1_R, LOW);
