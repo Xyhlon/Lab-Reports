@@ -69,9 +69,15 @@ void updateStats_(bool statP1, bool statP2) {
   if (order[curPos] == A && statP1) {
     totGamePoints = totGamePoints + 1;
     pointsP1 = pointsP1 + 1;
+    if (statP2) {
+      pointsP2 = (pointsP2 == 0) ? 0 : pointsP2 - 1;
+    }
   } else if (order[curPos] == D && statP2) {
     totGamePoints = totGamePoints + 1;
     pointsP2 = pointsP2 + 1;
+    if (statP1) {
+      pointsP1 = (pointsP1 == 0) ? 0 : pointsP1 - 1;
+    }
   } else {
     // penalize player
     if (statP1) {
