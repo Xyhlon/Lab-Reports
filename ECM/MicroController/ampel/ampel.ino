@@ -5,16 +5,16 @@
 #define A1_Y 12
 #define A1_G 11
 #define LIGHT_SENSOR 19
-#define NUM_WARN_BLINKS 4 
+#define NUM_WARN_BLINKS 4
 
-char pins[5] = {A2_G, A2_R, A1_R, A1_Y, A1_G};
+char pins[5] = { A2_G, A2_R, A1_R, A1_Y, A1_G };
 const byte interruptPin = 2;
 volatile bool pressed = false;
 volatile bool night = false;
 
-int sensorValue = 0;  // the sensor value
-int sensorMin = 1023; // minimum sensor value
-int sensorMax = 0;    // maximum sensor value
+int sensorValue = 0;   // the sensor value
+int sensorMin = 1023;  // minimum sensor value
+int sensorMax = 0;     // maximum sensor value
 
 void setup() {
   for (size_t i = 0; i <= sizeof(pins); i++) {
