@@ -21,10 +21,14 @@ volatile bool forward = true;
 volatile size_t curPos = 0;
 
 void setup() {
-  for (size_t i = 0; i <= sizeof(pins); i++) {
+  for (size_t i = 0; i <  sizeof(pins); i++) {
     pinMode(pins[i], OUTPUT);
   }
-  attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), scoring_, RISING);
+  pinMode(INTERRUPT_PIN, INPUT_PULLUP);
+  pinMode(P1_PIN, INPUT);
+  pinMode(P2_PIN, INPUT);
+ 
+  attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), scoring_, FALLING);
   Serial.begin(9600);
 }
 
@@ -92,6 +96,9 @@ void updateStats_(bool statP1, bool statP2) {
 }
 
 void scoring_() {
+  if (ended){
+    delay(200);
+  }
   bool statP1 = digitalRead(P1_PIN);
   bool statP2 = digitalRead(P2_PIN);
   if (ended && statP1 && statP2) {
