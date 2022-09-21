@@ -12,7 +12,7 @@
     % Fußzeile
 %--------------------------------------AB HIER DOKUMENT---------------------------------------------
 \begin{document}
-% \includepdf{deckblatt4.pdf}
+\includepdf{deckblatt5.pdf}
 \tableofcontents
 \newpage
 
@@ -34,12 +34,12 @@
 % zu 2: Vorbereitung Es sind beide Vorbereitungen dem Protokoll beizufügen.
 % \section{Vorbereitung}\label{sec:Vorbereitung}
 %Die folgende Vorbereitung wurde vor der Laborübung 
-% \includepdf[pages=-,
-%      addtotoc={
-%          1, section, 2, Vorbereitung, sec:Vorbereitung
-%      }]{./figures/CMOS-Logik1.pdf}
-% \includepdf[pages=-]{./figures/CMOS-Logik2.pdf}
-% \includepdf[pages=-]{./ecm3_vorbereitung.pdf}
+ \includepdf[pages=-,
+      addtotoc={
+          1, section, 2, Vorbereitung, sec:Vorbereitung
+      }]{./figures/ampel1.pdf}
+ \includepdf[pages=-]{./figures/ampel2.pdf}
+ \includepdf[pages=-]{./figures/game.pdf}
 
 
 % zu 3: Grundlagen In den Grundlagen sollen die später verwendeten Formeln
@@ -52,8 +52,20 @@
 % wir verwenden bei den Widerständen zum Beispiel von den Normwert-Reihen die
 % E12 und/oder E24 Serie (nach DIN 41426 bzw. IEC 63).
 \section{Grundlagen}\label{sec:Grundlagen}
-\input{import.tex}
+Die Grundlage für diese Übung bietet die Plattform Arduino mit deren
+Soft- und Hardware. Die Hardware, also das Mikrocontroller-Board (\textit{Arduino Uno R3}),
+ist mitsamt der zugehörigen Pinbelegung in \autoref{sec:Aufgabenstellung}
+(Aufgabenstellung) dargestellt. Neben der Rechenfunktion einer CPU,
+was alleinstehend einem Mikroprozessor enstpricht, verfügt er wie andere
+Mikrocontroller über weitere Elemente
+wie Speicher respektive einem eigenen Schwingquarz zur Taktung,
+was ihn zu einem kleinen, eigenständigen Computer macht.
+Die integrierte Entwicklungsumgebung (IDE) der Arduino-Software erlaubt
+freien Zugang (open-source). Die Ansteuerung des Boards über die IDE
+erfolgt in einer C/C++ ähnlichen Programmiersprache.
 
+Zur Auswertung sind keine Formeln notwendig, die in diesem Kapitel andererseits zu erwähnen
+wären.
 % zu 4: Versuchsdurchführung In diesem Punkt wird die Durchführung der
 % einzelnen Aufgaben beschrieben. Im Simulationsteil ist die simulierte
 % Schaltung mit allen Analyseparametern darzustellen. Im praktischen Teil sind
@@ -71,39 +83,42 @@
 %Für den praktischen Teil an der Steckplatine wurden Widerstände der E12-Reihe,
 %mit denen die in der Vorbereitung angegebenen respektive errechneten Werte
 %angenähert wurden, verwendet.
-Da die exakten Komponenten für die logischen Gatter nicht in
-\textit{LTspice} zur Verfügung standen, wurden funktionstüchtig-äquivalente
-Bauteile in der Simulation verwendet. Die Gegenstücke in der Simulation wurden
-unten angeführt.
+%Da die exakten Komponenten für die logischen Gatter nicht in
+%\textit{LTspice} zur Verfügung standen, wurden funktionstüchtig-äquivalente
+%Bauteile in der Simulation verwendet. Die Gegenstücke in der Simulation wurden
+%unten angeführt.
 Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
 
-\begin{table}
+\begin{table} [!h]
   \caption{Tabelle der verwendeten Geräte}
   \label{tab:geraeteliste}
   \centering
-  \begin{tabular}{l|l|l}
+  \begin{tabular}{l|l}
     \hline
-   \multicolumn{3}{ c }{\textbf{Geräteliste}} \\
+   \multicolumn{2}{ c }{\textbf{Geräteliste}} \\
     \hline
-    \textbf{Gerät/Bauelement} & \textbf{Typ} & \textbf{In Simulation}\\
+    \textbf{Gerät/Bauelement} & \textbf{Typ}\\
     \hline
     % Oszilloskop & \textit{Tektronix TDS 2002}\cite{oszilloscope}\\
     % Funktionsgenerator & \textit{H-TRONIC FG250D}\cite{funktionsgenerator} \\
-    Netzgerät & nicht bestimmbar\\
+    %Netzgerät & nicht bestimmbar\\
     %Multimeter & \textit{Fluke 175 TrueRMS}\cite{fluke175} \\
     % todo references
-    NOT-Gatter     &  \textit{74LS04}\cite{74LS04} & 74HCT04      \\
-    2x-NAND-Gatter &  \textit{74LS00}\cite{74LS00} & 74HCT00       \\
-    3x-NAND-Gatter &  \textit{74LS10}\cite{74LS10} & 74HCT10      \\ 
-    JK-MS-FF       &  \textit{74LS109}\cite{74LS109}      & 74HCT109  \\
+    %NOT-Gatter     &  \textit{74LS04}\cite{74LS04} & 74HCT04      \\
+    %2x-NAND-Gatter &  \textit{74LS00}\cite{74LS00} & 74HCT00       \\
+    Mikrocontroller-Board & \textit{Arduino Uno R3}  \\
+    Widerstandsleiste &  \\
+    7-Segment-Anzeige &  \\
+    2x-NOR-Gatter & \textit{74LS02}\cite{74LS02}      \\ 
+    %JK-MS-FF       &  \textit{74LS109}\cite{74LS109}      & 74HCT109  \\
     \hline
   \end{tabular}
 \end{table}
 
 \paragraph{Entprellter Schalter}\label{sec:schalter_aufbau}
 %TODO text erklaeren wie der Schalter angesteuert wird und wo er verwendet wurde
-Der entprellter Schalter wird als Signalgeber für die logischen Schaltungen und
-Gatter verwendet. Der Aufbau dieses Schalters ist in
+Der entprellter Schalter wird als Signalgeber für die Schaltungen
+verwendet. Der Aufbau dieses Schalters ist in
 \autoref{fig:aufbau_schalter} ersichtlich, jedoch ist noch der \textit{GND} mit
 Ground und \textit{VCC} mit \SI{5}{\volt} zu beschalten, damit das Signal von
 den Schaltern für die jeweilige Betriebsart abgegriffen
@@ -114,7 +129,7 @@ Jeder dieser Schalter hat hierbei eine Standard-\textit{HIGH}- bzw.
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.jpg}
+  \includegraphics[width=0.95\textwidth]{./figures/messungen/schalter.jpg}
   \caption{Dies sind die zwei entprellten Schalterplatinen mit je zwei Schalter
     ($S1$,$S2$) die entweder mit Standard-\textit{HIGH} oder -\textit{LOW} verwendet
     werden können. Diese werden durch Beschalten des \textit{GND} und der \SI{5}{\volt}
@@ -126,28 +141,28 @@ Jeder dieser Schalter hat hierbei eine Standard-\textit{HIGH}- bzw.
 % pruefen damit man sieht ob er fuer logische schaltung ueberhaupt brauchbar
 % ist
 
-\paragraph{LED Leiste}
-%TODO text erklaeren wie der Leiste angesteuert wird und wo er verwendet wurde
-Damit die Eingangssignale und Ausgangssignale der logischen Schaltungen
-dargestellt werden können, wird eine LED-Leiste verwendet. Diese besteht aus
-mehreren LEDs mit Vorwiderständen und ist in \autoref{fig:aufbau_led} dargestellt und
-unterstützt bis zu 8 Aus- bzw. Eingangssignale. Die hier verwendete LED-Leiste
-hat einen Common-Ground und somit werden positiven Spannungssignale direkt an den
-verschiedenen Anschlüssen angelegt um die LED zum Leuchten zu bringen.
+% \paragraph{LED Leiste}
+% %TODO text erklaeren wie der Leiste angesteuert wird und wo er verwendet wurde
+% Damit die Eingangssignale und Ausgangssignale der logischen Schaltungen
+% dargestellt werden können, wird eine LED-Leiste verwendet. Diese besteht aus
+% mehreren LEDs mit Vorwiderständen und ist in \autoref{fig:aufbau_led} dargestellt und
+% unterstützt bis zu 8 Aus- bzw. Eingangssignale. Die hier verwendete LED-Leiste
+% hat einen Common-Ground und somit werden positiven Spannungssignale direkt an den
+% verschiedenen Anschlüssen angelegt um die LED zum Leuchten zu bringen.
 
-\begin{figure}[H]
-  \centering
-  % \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/messungen/ledleiste.jpg}
-  \caption{Dies ist die LED-Leiste, welche 8 LEDs mit je einem Vorwiderstand
-  hat. Sie ist in Common-Ground-Konfiguration und wird verwendet, um Signal
-  anzeigen zu können.}
-  \label{fig:aufbau_led}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   % \includegraphics[width=\textwidth, height=6cm,keepaspectratio]{./figures/messungen/ledleiste.jpg}
+%   \caption{Dies ist die LED-Leiste, welche 8 LEDs mit je einem Vorwiderstand
+%   hat. Sie ist in Common-Ground-Konfiguration und wird verwendet, um Signal
+%   anzeigen zu können.}
+%   \label{fig:aufbau_led}
+% \end{figure}
 
-Damit die Aufnahmen der Schaltungen übersichtlich bleiben, wurden diese meistens
-von den Aufnahmen weggeschnitten und deren Funktion in der jeweiligen Grafik
-mittels \textit{LED} dargestellt oder in der Beschriftung gekennzeichnet bzw.
-erwähnt.
+% Damit die Aufnahmen der Schaltungen übersichtlich bleiben, wurden diese meistens
+% von den Aufnahmen weggeschnitten und deren Funktion in der jeweiligen Grafik
+% mittels \textit{LED} dargestellt oder in der Beschriftung gekennzeichnet bzw.
+% erwähnt.
 
 
 \subsection{Ampelschaltung}
@@ -159,24 +174,25 @@ erwähnt.
 
 Da in der Vorbereitung der Programmablauf entworfen wurde, wurde
 zunächst nur das Programm geschrieben und in der Simulationssoftware
-\textit{SIMULIDE} simuliert. Da die Funktionstüchtigkeit in der
-Simulation gewährleistet wurde konnte die Ampelschaltung aufgebaut
+\textit{SimulIDE} simuliert. Da die Funktionstüchtigkeit in der
+Simulation gewährleistet wurde, konnte die Ampelschaltung aufgebaut
 werden. In folgernder \autoref{fig:pap_ampel} ist der Programmablauf
-nochmals ersichtlich des weiteren wurde der verwendete Code im Appendix
+nochmals ersichtlich. Des weiteren wurde der verwendete Code im Appendix
 \ref{sec:code_ampel} hinzugefügt.
 
 \begin{figure}[H]
   \centering
-  % \includegraphics[width=0.95\textwidth]{./figures/sim/jk/aufbaujk.png}
+   \includegraphics[width=0.95\textwidth]{./figures/sim/papampel.pdf}
     \caption{Diese Grafik beinhaltet den Programmablauf einer, nach der
       \nameref{sec:Aufgabenstellung} entworfenen, Ampelschaltung mit
       einem Fußgängerübergang. Hier wurde der \textit{DIN 66001}
-      verwendet um den Programmablauf darzustellen. }
+      verwendet, um den Programmablauf darzustellen. Falls der Plan
+      zu klein ist, ist dieser in der \nameref{sec:Vorbereitung} nochmals größer ersichtlich.}
   \label{fig:pap_ampel}
 \end{figure}
 
-Beim erstellen des Code wurde auf die korrekte Beschaltung wie in der
-kleinen österreichischen Ampelkunde beschrieben wird.
+Beim Erstellen des Codes wurde auf die korrekte Beschaltung, wie in der
+kleinen österreichischen Ampelkunde beschrieben, geachtet.
 
 % 2.2 Das JK-Flipflop ist auf dem Steckboard aufzubauen und auf seine
 % Funktionalität zu prüfen. Als Pegelgeber werden für das Steckboard vorhandene
@@ -185,41 +201,32 @@ kleinen österreichischen Ampelkunde beschrieben wird.
 % ebendieser zu zeigen.  
 % 2.3 Die Ergebnisse sind zu dokumentieren und zu diskutieren. 
 \subsubsection{Steckboard}
-\paragraph{Aufbau des JK-Master-Slave-Flip-Flop}\label{sec:mess_cmos}
 % INSPIRATION
 %TODO text
-Zunächst wird der CMOS-Inverter mittels zweier MOSFETs (einem p-MOSFET \cite{ZVP2106A} und
-einem n-MOSFET \cite{ZVN2106A}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_jk})
-aufgebaut. Zur Visualisierung des Eingangszustands $U_l$ und des
-Ausgangszustands $U_q$ wurden die LEDs der LED-Leiste parallel dazu geschaltet. Das
-Eingangssignal wurde durch einen entprellten Schalter, im Standardzustand
-\textit{LOW}, gegeben. Der Aufbau wird in \autoref{sec:schalter_aufbau} dargestellt. Als
-Spannungsquelle wurde ein Netzgerät verwendet und auf \SI{5}{\volt}
-eingestellt. 
+%Das Eingangssignal wurde durch einen entprellten Schalter, im Standardzustand
+%\textit{LOW}, gegeben. Der Aufbau wird in \autoref{sec:schalter_aufbau} 
+%dargestellt. Als Spannungsquelle wurde ein Netzgerät verwendet und auf \SI{5}{\volt}
+%eingestellt. 
 
+Die Schaltung ist mittels der \textit{SimulIDE} entworfen worden. In \autoref{fig:aufbau_skizze_ampel} 
+ist der Aufbau der simulierten Schaltung ersichtlich. Die verwendeten
+Widerstände sind in der Schaltung ersichtlich, wobei der Spannungsteiler
+aus dem LDR und einem Pull-Down-Widerstand besteht.
 %TODO figure
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/jk/aufbau.png}
-  \caption{Dies ist der Aufbau eines JK-Master-Slave-Flip-Flops nach dem
-  Schaltplan aus \autoref{fig:sim_aufbau_jk}, wobei:\\
-    \textit{J}$\dots$ normale Set Eingang\\
-    \textit{K}$\dots$ normale Reset Eingang\\
-    \textit{C}$\dots$ Clocksignal Eingang\\
-    \textit{R}$\dots$ CLEAR Eingang\\
-    \textit{S}$\dots$ PRESET Eingang\\
-    \textit{Q}$\dots$ Ausgang\\
-    \textit{$\Bar{Q}$}$\dots$ Invertierte Ausgang\\
-ist . Der Zustand
-  beider kann anhand einer LED in der LED-Leiste abgelesen werden.}
-  \label{fig:mess_aufbau_jk}
+ \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbau_ampel.png}
+  \caption{Dies ist der skizzierte Aufbau der Ampelschaltung, welche in der \nameref{sec:Aufgabenstellung} beschrieben worden ist. }
+  \label{fig:aufbau_skizze_ampel}
 \end{figure}
 
-
-Um die Funktionstüchtigkeit des JK-MS-FF's zu überprüfen, wurde die
-Wahrheitstafel alle möglichen Schaltsignale der \textit{J K} Eingänge
-durchgeschaltet. Die Resultate sind in \autoref{fig:mess_wahrheitstabelle_jk}
-ersichtlich.
+Mit diesem als Vorbild wurde die eigentliche Schaltung aufgebaut.
+Der Aufbau am Steckbrett ist in \autoref{fig:mess_wahrheitstabelle_jk} ersichtlich.
+Die Spezifikationen der Schaltung können dieser entnommen werden.
+%Um die Funktionstüchtigkeit des JK-MS-FF's zu überprüfen, wurde die
+%Wahrheitstafel alle möglichen Schaltsignale der \textit{J K} Eingänge
+%durchgeschaltet. Die Resultate sind in \autoref{fig:mess_wahrheitstabelle_jk}
+%ersichtlich.
 %TODO text messung
 % Als  Pegelgeber wird  für  das  Steckboard  ein vorhandener  elektronisch
 % entprellte  Schalter  (mit  Hilfe  eines RS-Flip-Flops)  verwendet.  Der
@@ -229,18 +236,10 @@ ersichtlich.
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/jk/wahrheit.png}
-  \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- und
-  Ausgangssignale des gebauten JK-Master-Slave-Flip-Flops. Eine leuchtende
-  LED entspricht einem \textit{HIGH} Signal, eine nicht leuchtende entspricht
-  \textit{LOW}. Zudem ist:\\ 
-    \textit{J}$\dots$ normale Set Eingang\\
-    \textit{K}$\dots$ normale Reset Eingang\\
-    \textit{C}$\dots$ Clocksignal Eingang\\
-    \textit{R}$\dots$ CLEAR Eingang\\
-    \textit{S}$\dots$ PRESET Eingang\\
-    \textit{Q}$\dots$ Ausgang\\
-  \textit{$\Bar{Q}$}$\dots$ Invertierte Ausgang}
+  \includegraphics[width=0.95\textwidth]{./figures/messungen/mess_auf_ampel.pdf}
+  \caption{Diese Abbildung beinhaltet den Aufbau am Steckbrett zur Ampelschaltung, wie in \autoref{fig:aufbau_skizze_ampel} ersichtlich.
+  Die Beschriftungen in blau bezeichnen die am \textit{Arduino Uno R3} verwendeten
+  Pins.}
 \label{fig:mess_wahrheitstabelle_jk}
 \end{figure}
 
@@ -264,20 +263,20 @@ ersichtlich.
 
 Da in der Vorbereitung der Programmablauf entworfen wurde, wurde
 zunächst nur das Programm geschrieben und in der Simulationssoftware
-\textit{SIMULIDE} simuliert. Da die Funktionstüchtigkeit in der
-Simulation gewährleistet wurde konnte das Reaktionsspiel aufgebaut
+\textit{SimulIDE} simuliert. Da die Funktionstüchtigkeit in der
+Simulation gewährleistet wurde, konnte das Reaktionsspiel aufgebaut
 werden. In folgernder \autoref{fig:pap_game} ist der Programmablauf
-nochmals ersichtlich desweiteren wurde der verwendete Code im Appendix
+nochmals ersichtlich. Des Weiteren wurde der verwendete Code im Appendix
 \ref{sec:code_game} hinzugefügt.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
-    % \includegraphics[width=0.95\textwidth]{figures/}
+  \includegraphics[width=0.95\textwidth]{figures/sim/papgame.pdf}
   \end{center}
   \caption{Diese Grafik beinhaltet den Programmablauf eines, nach der
   \nameref{sec:Aufgabenstellung} entworfenen, Reaktionsspiels. Hier
-  wurde der \textit{DIN 66001} verwendet um den Programmablauf
-  darzustellen.}
+  wurde der \textit{DIN 66001} verwendet, um den Programmablauf
+  darzustellen. Falls dieser zu klein sein sollte, ist dieser in der \nameref{sec:Vorbereitung} nochmals größer ersichtlich.}
   \label{fig:pap_game}
 \end{figure}
 
@@ -286,56 +285,47 @@ nochmals ersichtlich desweiteren wurde der verwendete Code im Appendix
 % zeigen (siehe Aufgabenstellung A). 
 % 2.3 Die Ergebnisse sind zu dokumentieren und zu diskutieren. 
 \subsubsection{Steckboard}
-Wie in \nameref{sec:Aufgabenstellung} gefordert, galt es eine Schaltung
-zu entwickeln, welche durch Anschlagen mindestens zweier Sensoren einen Alarm auslösen
-sollte. Diese Schaltung wurde, um die Fehlerquellen zu reduzieren, jedoch aus der
-Musterlösung entnommen und nicht die selbst Entworfene verwendet. Die vier
-Eingangsgrößen ($x1$, $x2$, $x3$, $x4$) wurden durch vier entprellte
-Schalter realisiert. Dabei sind $x1$ \& $x3$ im Standard \textit{LOW} und
-$x2$ \& $x4$ Standard \textit{HIGH} Betrieb geschaltet worden, damit die
-Alarmanlage bei Signalunterbrechung $x2$ \& $x4$ und einem Signal bei $x1$
-\& $x3$ anschlägt. Der Aufbau der Schaltung kann \nameref{fig:mess_aufbau_4bit}
-entnommen werden.
+%Wie in \nameref{sec:Aufgabenstellung} gefordert, galt es eine Schaltung
+%zu entwickeln, welche durch Anschlagen mindestens zweier Sensoren einen Alarm auslösen
+%sollte. Diese Schaltung wurde, um die Fehlerquellen zu reduzieren, jedoch aus der
+%Musterlösung entnommen und nicht die selbst Entworfene verwendet. Die vier
+%Eingangsgrößen ($x1$, $x2$, $x3$, $x4$) wurden durch vier entprellte
+%Schalter realisiert. Dabei sind $x1$ \& $x3$ im Standard \textit{LOW} und
+%$x2$ \& $x4$ Standard \textit{HIGH} Betrieb geschaltet worden, damit die
+%Alarmanlage bei Signalunterbrechung $x2$ \& $x4$ und einem Signal bei $x1$
+%\& $x3$ anschlägt. Der Aufbau der Schaltung kann \nameref{fig:mess_aufbau_4bit}
+%entnommen werden.
 
+Die Schaltung ist mittels der \textit{SimulIDE} entworfen worden, in \autoref{fig:aufbau_skizze_game} 
+ist der Aufbau der simulierten Schaltung ersichtlich. 
 %TODO figure
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./figures/messungen/4bit/aufbau.png}
-  \caption{Dies ist der Aufbau des dekadischen synchron 4Bit-Zähler nach dem
-  Schaltplan aus \autoref{fig:sim_aufbau_4bit}.
-Dabei sind $QN$ die $(N-1)$ten Bits des Zählers und \textit{C} das zuzählende
-Eingangssignal.
-  Die verwendeten Komponenten
-  sind der \autoref{tab:geraeteliste} zu entnehmen.}
-  \label{fig:mess_aufbau_4bit}
+ \includegraphics[width=0.95\textwidth]{./figures/messungen/aufbau_game.png}
+  \caption{Dies ist der skizzierte Aufbau des Reaktionsspiels, welche in der \nameref{sec:Aufgabenstellung} beschrieben worden ist.}
+  \label{fig:aufbau_skizze_game}
 \end{figure}
 
-% Die Ein- und Ausgangszustände sind durch LED´s anzuzeigen und die
-% Funktionalität der Schaltung ist anhand ebendieser zu zeigen.
-Um die Funktionstüchtigkeit des 4Bit dekadischen synchron Zählers zu
-überprüfen, wurde so viele Signale bei \textit{CLK} damit der Zähler bis 10
-zählt und dann sich resetet. Somit konnte die Zählfähigkeit der Schaltung
-mittels LEDs an den Ausgängen $QN$ dargestellt werden. Die Kombinationen sind
-in \autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich.
+Mit diesem als Vorbild wurde die eigentliche Schaltung aufgebaut.
+Der Aufbau am Steckbrett ist in \autoref{fig:game_steckbrett} ersichtlich.
+Die Spezifikationen der Schaltung können dieser ebenso entnommen werden.
 
-%TODO figure messung
+
+Jedoch musste aus Verfügbarkeitsgründen ein NOR-Gatter statt einem OR-Gatter verwendet, 
+wodurch im Code eine kleine Anpassung gemacht werden musste, dass nun mit 
+einer \textit{FALLING-edge} statt einer \textit{RISING-edge} getriggert wurde. 
+Dies ist im Code im \nameref{sec:Appendix} 
+ersichtlich.
+
 \begin{figure}[H]
-  \centering
-    % \includegraphics[width=0.95\textwidth,height=13cm]{./figures/messungen/4bit/wahrheit.png}
-  \caption{Diese Abbildung beinhaltet die gemessenen logischen Ausgangszustände
-    der $QN$ Ausgänge bei einer Serie an Eingangspulsen. Dabei sind $QN$ die
-    $(N-1)$ten Bits des gebauten 4Bit dekadischen synchron Zählers. Die Zahlen
-    in der rechten Spalte entsprechen dem j-ten gegebenen Puls im
-  Eingangssignal \textit{CLK}.Eine leuchtende LED entspricht einem
-\textit{HIGH}-, eine nicht leuchtende entspricht einem \textit{LOW}-Signal}
-  \label{fig:mess_wahrheitstabelle_alarm}
+  \begin{center}
+  \includegraphics[width=0.95\textwidth]{figures/messungen/mess_auf_game.pdf}
+  \end{center}
+  \caption{Diese Abbildung beinhaltet den Aufbau am Steckbrett zum Reaktionsspiel, wie in \autoref{fig:aufbau_skizze_game} ersichtlich.
+  Die Beschriftungen in blau bezeichnen die am \textit{Arduino Uno R3} verwendeten
+  Pins.}
+  \label{fig:game_steckbrett}
 \end{figure}
-
-% Für die Untersuchung des Master-Switches im ausgeschalteten Zustand wurden die
-% zuvor \textit{wahren} Eingangssignalkombinationen durchgeschaltet und überprüft, ob diese
-% nicht die Alarmanlage ($y$) anschlagen lassen. Da die Schaltung zuvor, wie in
-% \autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich, funktionierte, ist
-% dadurch die Funktionstüchtigkeit des Master-Switches gezeigt.
 
 % zu 4: Auswertung siehe EPM Skript nur Besprechung von Umformungen und 
 % Sachen die man mit den Messungen machen muss damit man Conclusion und Wissen 
@@ -354,24 +344,16 @@ in \autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich.
 % Unsicherheitsfortpflanzung einzugehen.
 \section{Auswertung}\label{sec:Auswertung}
 In diesem Protokoll ist keine Auswertung von Nöten, da die geforderten Resultate
-direkt aus den Ergebnissen der Laborübung folgen. Dennoch wurde für bessere 
-Nachvollziehbarkeit die Daten aus \autoref{fig:sim_alarm_wahrheit} nochmals mit Farben
-hinterlegt und die \textit{HIGH} Zustände mit einer 1 markiert. 
+direkt aus den Ergebnissen der Laborübung folgen. Die Funktionstüchtigkeit konnte 
+festgestellt werden indem, dass Spiel gespielt wurde und die Ampelschaltung in Tag- und 
+Nachtbetrieb verwendet worden ist. Das gewollte Verhalten wurde von den Betreuern bestätigt.
+Hier sind Links zu Video der Schaltungen:
+\href{https://www.dropbox.com/s/m3baaixz73scpv5/ampel.mp4?dl=0}{hier die Ampel} und 
+\href{https://www.dropbox.com/s/5phbn6uqrtiq1w0/game.mp4?dl=0}{hier das Reaktionsspiel}.
 
-\begin{figure}[H]
-  \centering
-    % \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/auswertungalarm.jpg}
-  \caption{Diese Grafik spiegelt das Verhalten der
-    Einbruchssicherungsschaltung (aus \autoref{fig:sim_aufbau_4bit}) wider, indem alle
-    möglichen Eingangssignale durchgeschaltet worden sind und die Response an den
-    Ausgängen aufgezeichnet wurde (entsprechend Wahrheitstafel).Dabei sind $x1$, $x2$, $x3$, $x4$ \&
-    der \textit{Master-Switch} die Eingangssignale und $y$ das Ausgangssignal sowie $y_ms$
-    das Ausgangssignal mit \textit{Master-Switch}. Die
-    SPICE-Directive der Simulation ist \texttt{.tran 0 4 0}; die
-    Einstellungen der Eingangssignale können der \autoref{fig:sim_aufbau_4bit}
-  entnommen werden. Zudem wurden hier die Ticks von einander mittels orange gepunkteten Linien getrennt und die \textit{HIGH} mit 1er markiert.}
-  \label{fig:sim_alarm_wahrheit_aus}
-\end{figure}
+
+% https://www.dropbox.com/s/m3baaixz73scpv5/ampel.mp4?dl=0
+% https://www.dropbox.com/s/5phbn6uqrtiq1w0/game.mp4?dl=0
 
 % zu 5: Diskussion und Zusammenfassung
 % In der Zusammenfassung stehen noch einmal die wichtigsten Messergebnisse, wobei auf Tabellen und
@@ -379,55 +361,62 @@ hinterlegt und die \textit{HIGH} Zustände mit einer 1 markiert.
 % Abweichungen zwischen Simulation und praktischer Durchführung diskutiert werden.
 \section{Diskussion und Zusammenfassung}\label{sec:Diskussion} 
 \subsection{Diskussion}
-In \autoref{fig:sim_jk_wahrheit} von der Simulation und
-\autoref{fig:mess_wahrheitstabelle_jk}, welche die LEDs vom Steckbrett zeigt,
-ist das Verhalten eines CMOS-Inverters gut zu erkennen; dabei wird das Signal
-am Ausgang relativ zu jenem am Eingang negiert.
-Weiters ist anhand von \autoref{fig:sim_jk_wahrheit} aus der Simulation ersichtlich, dass
-der Schaltvorgang in CMOS endlich schnell erfolgt. Dabei ist ein deutliches
-Maximum des Stroms von \SI{4,21}{\milli \ampere} zu erkennen (siehe \autoref{fig:sim_inv_eingangsstrom}), 
-wenn (im Falle des Inverters) beide MOSFETs
-leitfähig sind, nämlich am Schnittpunkt der Spannungsverläufe.
-Die Spannung an diesen Schnittpunkten beträgt \SI{1,63}{\volt} 
-(siehe \autoref{fig:sim_inv_threshold}) und liegt
-somit innerhalb der für die Gate-Source-Spannung toleranten Intervalle
-von \SIrange{0.8}{2.4}{\volt} beim \textit{ZVN2106A} und von
-\SIrange{-3.5}{-1.5}{\volt} beim \textit{ZVP2106A} nach den zugehörigen Datenblättern.
+Die Simulation in \textit{SimulIDE} wie auch der Aufbau am Steckbrett
+haben den zu erwartenden Abläufen, die in \autoref{sec:Aufgabenstellung} (Aufgabenstellung)
+gefordert sind, entsprochen.
+%In \autoref{fig:sim_jk_wahrheit} von der Simulation und
+%\autoref{fig:mess_wahrheitstabelle_jk}, welche die LEDs vom Steckbrett zeigt,
+%ist das Verhalten eines CMOS-Inverters gut zu erkennen; dabei wird das Signal
+%am Ausgang relativ zu jenem am Eingang negiert.
+%Weiters ist anhand von \autoref{fig:sim_jk_wahrheit} aus der Simulation ersichtlich, dass
+%der Schaltvorgang in CMOS endlich schnell erfolgt. Dabei ist ein deutliches
+%Maximum des Stroms von \SI{4,21}{\milli \ampere} zu erkennen (siehe \autoref{fig:sim_inv_eingangsstrom}), 
+%wenn (im Falle des Inverters) beide MOSFETs
+%leitfähig sind, nämlich am Schnittpunkt der Spannungsverläufe.
+%Die Spannung an diesen Schnittpunkten beträgt \SI{1,63}{\volt} 
+%(siehe \autoref{fig:sim_inv_threshold}) und liegt
+%somit innerhalb der für die Gate-Source-Spannung toleranten Intervalle
+%von \SIrange{0.8}{2.4}{\volt} beim \textit{ZVN2106A} und von
+%\SIrange{-3.5}{-1.5}{\volt} beim \textit{ZVP2106A} nach den zugehörigen Datenblättern.
 
-Das aus MOSFETs konstruierte NAND liefert als Ergebnis aller möglichen
-Kombinationen der beiden Eingangssignale \autoref{fig:sim_nand_wahrheit} für die Simulation
-und \autoref{fig:mess_wahrheitstabelle_nand} für die Steckbrettschaltung.
-Somit folgt der Verhalt jenem, der in der Wahrheitstabelle in \autoref{sec:Vorbereitung}
-(Vorbereitung) notiert wurde - der Ausgang ist stets \texttt{HIGH}, außer wenn
-beide Eingänge auf \texttt{High} sind.
+%Das aus MOSFETs konstruierte NAND liefert als Ergebnis aller möglichen
+%Kombinationen der beiden Eingangssignale \autoref{fig:sim_nand_wahrheit} für die Simulation
+%und \autoref{fig:mess_wahrheitstabelle_nand} für die Steckbrettschaltung.
+%Somit folgt der Verhalt jenem, der in der Wahrheitstabelle in \autoref{sec:Vorbereitung}
+%(Vorbereitung) notiert wurde - der Ausgang ist stets \texttt{HIGH}, außer wenn
+%beide Eingänge auf \texttt{High} sind.
 
-Genauso folgen für die Einbruchsicherungsschaltung \autoref{fig:sim_alarm_wahrheit} 
-und \autoref{fig:mess_wahrheitstabelle_alarm}
-der konstruierten Wahrheitstabelle in \autoref{sec:Vorbereitung} (Vorbereitung).
-Demnach löst der Alarm aus, sofern der \textit{Master-Switch} eingeschaltet ist, 
-wenn mindestens
-zwei Eingangsvariablen auf \texttt{HIGH} sind.
+%Genauso folgen für die Einbruchsicherungsschaltung \autoref{fig:sim_alarm_wahrheit} 
+%und \autoref{fig:mess_wahrheitstabelle_alarm}
+%der konstruierten Wahrheitstabelle in \autoref{sec:Vorbereitung} (Vorbereitung).
+%Demnach löst der Alarm aus, sofern der \textit{Master-Switch} eingeschaltet ist, 
+%wenn mindestens
+%zwei Eingangsvariablen auf \texttt{HIGH} sind.
 
 
 %Es wäre wohl vernünftiger gewesen, die Schaltung an der Steckplatine zunächst aufzubauen, um etwaige 
 %Ungenauigkeiten durch die Widerstände 
 \subsection{Zusammenfassung}
-Im Rahmen dieser Laborübung wurde das Verhalten von einem CMOS-Inverter (siehe \autoref{fig:sim_jk_wahrheit}
-respektive \autoref{fig:mess_wahrheitstabelle_jk}), 
-einem aus CMOS konstruierten NAND (siehe \autoref{fig:sim_nand_wahrheit}
-respektive \autoref{fig:mess_wahrheitstabelle_nand}) und einer Einbruchsicherungsschaltung 
-(=Schaltnetz mit 4 Eingangsvariablen
-und \textit{Master-Switch}; siehe \autoref{fig:sim_alarm_wahrheit_aus}
-respektive \autoref{fig:mess_wahrheitstabelle_alarm}) erfolgreich mittels 
-Simulation und mithilfe von LEDs an Steckbrettschaltungen
-verifiziert.
+Im Rahmen dieser Laborübung wurden eine Ampelschaltung und ein Reaktionsspiel
+mithilfe der Arduino-Plattform konzipiert, deren Funktionstüchtigkeit mit \textit{SimulIDE}
+und am Steckbrett mit einem Arduino-Board verifiziert wurde.
+%das Verhalten von einem CMOS-Inverter (siehe \autoref{fig:sim_jk_wahrheit}
+%respektive \autoref{fig:mess_wahrheitstabelle_jk}), 
+%einem aus CMOS konstruierten NAND (siehe \autoref{fig:sim_nand_wahrheit}
+%respektive \autoref{fig:mess_wahrheitstabelle_nand}) und einer Einbruchsicherungsschaltung 
+%(=Schaltnetz mit 4 Eingangsvariablen
+%und \textit{Master-Switch}; siehe \autoref{fig:sim_alarm_wahrheit_aus}
+%respektive \autoref{fig:mess_wahrheitstabelle_alarm}) erfolgreich mittels 
+%Simulation und mithilfe von LEDs an Steckbrettschaltungen
+%verifiziert.
 \newpage
-\section{Appendix}
+\section{Appendix}\label{sec:Appendix}
 \subsection{Ampel Code}\label{sec:code_ampel}
 \lstinputlisting[language={[ISO]C++}]{./ampel/ampel.ino}
-
+%todo:put code in and remove comment
 \subsection{Game Code}\label{sec:code_game}
 \lstinputlisting[language={[ISO]C++}]{./game/game.ino}
+%todo:put code in and remove comment
 \newpage
 \printbibliography
 
