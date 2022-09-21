@@ -12,7 +12,7 @@
     % Fußzeile
 %--------------------------------------AB HIER DOKUMENT---------------------------------------------
 \begin{document}
-% \includepdf{deckblatt4.pdf}
+\includepdf{deckblatt4.pdf}
 \tableofcontents
 \newpage
 
@@ -34,11 +34,11 @@
 % zu 2: Vorbereitung Es sind beide Vorbereitungen dem Protokoll beizufügen.
 % \section{Vorbereitung}\label{sec:Vorbereitung}
 %Die folgende Vorbereitung wurde vor der Laborübung 
-% \includepdf[pages=-,
-%      addtotoc={
-%          1, section, 2, Vorbereitung, sec:Vorbereitung
-%      }]{./figures/CMOS-Logik1.pdf}
-% \includepdf[pages=-]{./figures/CMOS-Logik2.pdf}
+ \includepdf[pages=-,
+      addtotoc={
+          1, section, 2, Vorbereitung, sec:Vorbereitung
+      }]{./figures/DigitaleSchaltung.pdf}
+\includepdf[pages=-]{./ecm4_hint.pdf}
 % \includepdf[pages=-]{./ecm3_vorbereitung.pdf}
 
 
@@ -92,10 +92,11 @@ Die verwendeten Geräte sind \autoref{tab:geraeteliste} zu entnehmen.
     Netzgerät & nicht bestimmbar\\
     %Multimeter & \textit{Fluke 175 TrueRMS}\cite{fluke175} \\
     % todo references
-    NOT-Gatter     &  \textit{74LS04}\cite{74LS04} & 74HCT04      \\
+        NOT-Gatter     &  \textit{74LS04}\cite{74LS04} & 74HCT04      \\
     2x-NAND-Gatter &  \textit{74LS00}\cite{74LS00} & 74HCT00       \\
     3x-NAND-Gatter &  \textit{74LS10}\cite{74LS10} & 74HCT10      \\ 
     JK-MS-FF       &  \textit{74LS109}\cite{74LS109}      & 74HCT109  \\
+
     \hline
   \end{tabular}
 \end{table}
@@ -194,7 +195,7 @@ Um die möglichen Kombinationen der Eingangssignale zu erhalten, wurden
 die drei für das Verhalten eines JK-MS-FF wichtigen Eingänge \textit{C K J}
 mit PWM-Spannungsquellen beschaltet. Wobei \textit{K} die halbe Frequenz von \textit{C} und \textit{J} die
 Halbe von \textit{K} hat. Zudem wurde das Clocksignal in \textit{C} um ein Viertel der
-Periodendauer verzögert, damit nie das Schalten der Zustande unklar zu ablesen
+Periodendauer verzögert, damit das Schalten der Zustande nie unklar abzulesen
 ist.
 Die Schaltsignale wurden mit PWM-Signal von \textit{HIGH} \SI{5}{\volt} und
 \textit{LOW} \SI{0}{\volt} gegeben. Die genauen SPICE-Directives können dem
@@ -233,38 +234,44 @@ verwendet.
 \paragraph{Aufbau des JK-Master-Slave-Flip-Flop}\label{sec:mess_cmos}
 % INSPIRATION
 %TODO text
-Zunächst wird der CMOS-Inverter mittels zweier MOSFETs (einem p-MOSFET \cite{ZVP2106A} und
-einem n-MOSFET \cite{ZVN2106A}) wie nach dem Schaltbild (\autoref{fig:sim_aufbau_jk})
-aufgebaut. Zur Visualisierung des Eingangszustands $U_l$ und des
-Ausgangszustands $U_q$ wurden die LEDs der LED-Leiste parallel dazu geschaltet. Das
-Eingangssignal wurde durch einen entprellten Schalter, im Standardzustand
-\textit{LOW}, gegeben. Der Aufbau wird in \autoref{sec:schalter_aufbau} dargestellt. Als
+Zunächst wird der JK-Master-Slave-Flip-Flop mittels den logischen Bauelementen
+\textit{74LS10} (3x-NAND), \textit{74LS00} (2x-NAND) und \textit{74LS04} (NOT)
+nach dem Schaltbild (\autoref{fig:sim_aufbau_jk})
+aufgebaut. Zur Visualisierung der Eingänge \textit{C K J} und der
+Ausgangszustände $Q$ $\Bar{Q}$ wurden die LEDs der LED-Leiste parallel dazu geschaltet. Das
+Eingangssignal für \textit{C K J} wurde durch entprellte Schalter, im Standardzustand
+\textit{LOW}, gegeben, dessen Aufbau in \autoref{sec:schalter_aufbau} dargestellt wird. Als
 Spannungsquelle wurde ein Netzgerät verwendet und auf \SI{5}{\volt}
-eingestellt. 
+eingestellt. Die Eingänge \textit{S R} wurden auf \textit{GND} gelegt, wodurch deren
+Negationen, die an die logischen Gatter, wie in \autoref{fig:sim_aufbau_jk} zu sehen, gelegt werden,
+auf \textit{HIGH} liegen. Wie immer war darauf zu achten die jeweiligen Pins der integrierten
+Bauelemente an die Versorgungsspannung $VCC$ (Pin rechts oben) respektive 
+an den $GND$ (Pin links unten) anzuschließen. 
+Der Aufbau der Schaltung am Steckbrett ist in \autoref{fig:mess_aufbau_jk} dargestellt.
 
-%TODO figure
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/jk/aufbau.png}
   \caption{Dies ist der Aufbau eines JK-Master-Slave-Flip-Flops nach dem
   Schaltplan aus \autoref{fig:sim_aufbau_jk}, wobei:\\
-    \textit{J}$\dots$ normale Set Eingang\\
-    \textit{K}$\dots$ normale Reset Eingang\\
-    \textit{C}$\dots$ Clocksignal Eingang\\
-    \textit{R}$\dots$ CLEAR Eingang\\
-    \textit{S}$\dots$ PRESET Eingang\\
+    \textit{J}$\dots$ normaler Set-Eingang\\
+    \textit{K}$\dots$ normaler Reset-Eingang\\
+    \textit{C}$\dots$ Clocksignal-Eingang\\
+    \textit{R}$\dots$ CLEAR-Eingang\\
+    \textit{S}$\dots$ PRESET-Eingang\\
     \textit{Q}$\dots$ Ausgang\\
-    \textit{$\Bar{Q}$}$\dots$ Invertierte Ausgang\\
-ist . Der Zustand
-  beider kann anhand einer LED in der LED-Leiste abgelesen werden.}
+    \textit{$\Bar{Q}$}$\dots$ Invertierter Ausgang\\
+    Die Zustände können anhand der LED-Leiste abgelesen werden}
   \label{fig:mess_aufbau_jk}
 \end{figure}
 
 
-Um die Funktionstüchtigkeit des JK-MS-FF's zu überprüfen, wurde die
-Wahrheitstafel alle möglichen Schaltsignale der \textit{J K} Eingänge
-durchgeschaltet. Die Resultate sind in \autoref{fig:mess_wahrheitstabelle_jk}
-ersichtlich.
+Um die Funktionstüchtigkeit des JK-MS-Flip-Flops zu überprüfen, wurde die
+Wahrheitstafel aller möglichen Schaltsignale der \textit{K J}-Eingänge
+durchgeschaltet, wobei zu beachten ist, dass erst bei fallender Flanke des
+Taktsignals \textit{C} das Signal an den Ausgang gelangt. 
+Die Resultate sind in \autoref{fig:mess_wahrheitstabelle_jk}
+anhand der LEDs ersichtlich.
 %TODO text messung
 % Als  Pegelgeber wird  für  das  Steckboard  ein vorhandener  elektronisch
 % entprellte  Schalter  (mit  Hilfe  eines RS-Flip-Flops)  verwendet.  Der
@@ -275,15 +282,14 @@ ersichtlich.
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/messungen/jk/wahrheit.png}
-  \caption{Diese Abbildung beinhaltet die gemessenen Eingangs- und
-  Ausgangssignale des gebauten JK-Master-Slave-Flip-Flops. Eine leuchtende
+  \caption{Diese Abbildung beinhaltet die Eingangs- und
+  Ausgangssignale des aufgebauten JK-Master-Slave-Flip-Flops. Eine leuchtende
   LED entspricht einem \textit{HIGH} Signal, eine nicht leuchtende entspricht
-  \textit{LOW}. Zudem ist:\\ 
-    \textit{J}$\dots$ normale Set Eingang\\
-    \textit{K}$\dots$ normale Reset Eingang\\
-    \textit{C}$\dots$ Clocksignal Eingang\\
-    \textit{R}$\dots$ CLEAR Eingang\\
-    \textit{S}$\dots$ PRESET Eingang\\
+  \textit{LOW}. Rechts neben den LED-Leisten sind die Funktionen der jeweiligen
+  Konfiguration zu sehen. Zudem ist:\\ 
+    \textit{J}$\dots$ normaler Set-Eingang\\
+    \textit{K}$\dots$ normaler Reset-Eingang\\
+    \textit{C}$\dots$ Clocksignal-Eingang\\
     \textit{Q}$\dots$ Ausgang\\
   \textit{$\Bar{Q}$}$\dots$ Invertierte Ausgang}
 \label{fig:mess_wahrheitstabelle_jk}
@@ -307,17 +313,17 @@ ersichtlich.
 % Ausgangspegel sind darzustellen. 
 \subsubsection{Simulation}
 
-Das Schaltnetz des Dekadischen synchronen 4Bit-Zähler wurde in
-\autoref{fig:sim_aufbau_4bit} aufgebaut. Dabei \textit{CLK} das Eingangssignal
-und $Q1$ bis $Q4$ die Ausgänge des Zählers sind wobei $QN$ dem $(N-1)$ten Bit
-entspricht. Somit ist wenn nur $Q3$ \textit{HIGH} ist entspricht es der Zahl 4.
+Das Schaltnetz des dekadischen synchronen 4Bit-Zählers wurde in
+\autoref{fig:sim_aufbau_4bit} aufgebaut. Dabei ist \textit{CLK} das Eingangssignal
+und $Q1$ bis $Q4$ sind die Ausgänge des Zählers, wobei $QN$ dem $(N-1)$ten Bit
+entspricht. Wenn nun beispielsweise nur $Q3$ \textit{HIGH} ist, ergibt dies als Zahlenwert 4.
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=\linewidth]{./figures/sim/4bit/aufbau4bit.png}
     \caption{Dieser Schaltplan beschreibt einen 4Bit dekadischen synchron
-      Zähler, wie er in \nameref{sec:Aufgabenstellung} geforderten wurde. Wobei
-      \textit{CLK} das zuzählende Eingangssignal ist und $QN$ die $(N-1)$ten
+      Zähler, wie er in \nameref{sec:Aufgabenstellung} gefordert wurde, wobei
+      \textit{CLK} das zu zählende Eingangssignal ist und $QN$ die $(N-1)$ten
       Ausgangsbits des Zählers sind. Die verwendeten Komponenten können der
       \autoref{tab:geraeteliste} entnommen werden.}
   \label{fig:sim_aufbau_4bit}
@@ -325,20 +331,20 @@ entspricht. Somit ist wenn nur $Q3$ \textit{HIGH} ist entspricht es der Zahl 4.
 
 Damit das Zählverhalten des 4Bit dekadischen Zählers untersucht werden kann,
 wird das Eingangssignal \textit{CLK} und die Ausgangssignale $Q1$ bis $Q4$
-aufgenommen. Das Simulation wurde so lange betrieben, dass ein Overflow
-stattfindet und somit der dekadischen Zähler geresetet wird. 
+aufgenommen. Die Simulation wurde so lange betrieben, dass ein Overflow
+stattfindet und somit der dekadischen Zähler geresettet wird. 
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=0.95\textwidth]{./figures/sim/4bit/4bitdekawahrheit.png}
   \caption{Diese Grafik spiegelt das Verhalten des
     4Bit dekadischen synchron Zählers (aus \autoref{fig:sim_aufbau_4bit})
-    wider, indem bis ein Overflow simuliert wurde und das Eingangssignal und
-    alle Ausgangssignale aufgezeichnet wurde (entsprechend Wahrheitstafel).
-    Dabei sind $QN$ die $(N-1)$ten Bits des Zählers und \textit{CLK} das zuzählende
+    wider, indem bis zum Overflow simuliert wurde und das Eingangssignal sowie
+    alle Ausgangssignale aufgezeichnet wurden (entsprechend Wahrheitstafel).
+    Dabei sind $QN$ die $(N-1)$.ten Bits des Zählers und \textit{CLK} das zu zählende
     Eingangssignal. Die SPICE-Directive der Simulation ist \texttt{.tran 0 20 0}; die
     Einstellung des Eingangssignals kann der \autoref{fig:sim_aufbau_4bit}
-    entnommen werden}
+    entnommen werden.}
   \label{fig:sim_alarm_wahrheit}
 \end{figure}
 
@@ -347,16 +353,30 @@ stattfindet und somit der dekadischen Zähler geresetet wird.
 % zeigen (siehe Aufgabenstellung A). 
 % 2.3 Die Ergebnisse sind zu dokumentieren und zu diskutieren. 
 \subsubsection{Steckboard}
-Wie in \nameref{sec:Aufgabenstellung} gefordert, galt es eine Schaltung
-zu entwickeln, welche durch Anschlagen mindestens zweier Sensoren einen Alarm auslösen
-sollte. Diese Schaltung wurde, um die Fehlerquellen zu reduzieren, jedoch aus der
-Musterlösung entnommen und nicht die selbst Entworfene verwendet. Die vier
-Eingangsgrößen ($x1$, $x2$, $x3$, $x4$) wurden durch vier entprellte
-Schalter realisiert. Dabei sind $x1$ \& $x3$ im Standard \textit{LOW} und
-$x2$ \& $x4$ Standard \textit{HIGH} Betrieb geschaltet worden, damit die
-Alarmanlage bei Signalunterbrechung $x2$ \& $x4$ und einem Signal bei $x1$
-\& $x3$ anschlägt. Der Aufbau der Schaltung kann \nameref{fig:mess_aufbau_4bit}
+Zunächst wird der dekadische synchron 4bit-Zähler an der Steckplatine
+mittels den integrierten Bauelementen \textit{74LS109} (JK-MS-Flip-Flop), 
+\textit{74LS00} (2x-NAND) und \textit{74LS04} (NOT)
+nach dem Schaltbild (\autoref{fig:sim_aufbau_4bit})
+aufgebaut. Zur Visualisierung des Eingangssignals \textit{C} und der
+Ausgangszustände $Q1$ bis $Q4$ wurden die LEDs der LED-Leiste parallel dazu geschaltet. Das
+Eingangssignal für \textit{C} wurde durch einen entprellten Schalter, im Standardzustand
+\textit{LOW}, gegeben, dessen Aufbau in \autoref{sec:schalter_aufbau} dargestellt wird. Als
+Spannungsquelle wurde ein Netzgerät verwendet und auf \SI{5}{\volt}
+eingestellt. Wie immer war darauf zu achten die jeweiligen Pins der integrierten
+Bauelemente an die Versorgungsspannung $VCC$ (Pin rechts oben) respektive 
+an den $GND$ (Pin links unten) anzuschließen.
+Der Aufbau der Schaltung am Steckbrett kann \nameref{fig:mess_aufbau_4bit}
 entnommen werden.
+%Wie in \nameref{sec:Aufgabenstellung} gefordert, galt es eine dekadischen synchronen
+%4bit-Zähler zu ent
+%zu entwickeln, welche durch Anschlagen mindestens zweier Sensoren einen Alarm auslösen
+%sollte. Diese Schaltung wurde, um die Fehlerquellen zu reduzieren, jedoch aus der
+%Musterlösung entnommen und nicht die selbst Entworfene verwendet. Die vier
+%Eingangsgrößen ($x1$, $x2$, $x3$, $x4$) wurden durch vier entprellte
+%Schalter realisiert. Dabei sind $x1$ \& $x3$ im Standard \textit{LOW} und
+%$x2$ \& $x4$ Standard \textit{HIGH} Betrieb geschaltet worden, damit die
+%Alarmanlage bei Signalunterbrechung $x2$ \& $x4$ und einem Signal bei $x1$
+%\& $x3$ anschlägt. 
 
 %TODO figure
 \begin{figure}[H]
@@ -364,7 +384,7 @@ entnommen werden.
     \includegraphics[width=0.95\textwidth]{./figures/messungen/4bit/aufbau.png}
   \caption{Dies ist der Aufbau des dekadischen synchron 4Bit-Zähler nach dem
   Schaltplan aus \autoref{fig:sim_aufbau_4bit}.
-Dabei sind $QN$ die $(N-1)$ten Bits des Zählers und \textit{C} das zuzählende
+Dabei sind $QN$ die $(N-1)$ten Bits des Zählers und \textit{C} das zu zählende
 Eingangssignal.
   Die verwendeten Komponenten
   sind der \autoref{tab:geraeteliste} zu entnehmen.}
@@ -374,8 +394,11 @@ Eingangssignal.
 % Die Ein- und Ausgangszustände sind durch LED´s anzuzeigen und die
 % Funktionalität der Schaltung ist anhand ebendieser zu zeigen.
 Um die Funktionstüchtigkeit des 4Bit dekadischen synchron Zählers zu
-überprüfen, wurde so viele Signale bei \textit{CLK} damit der Zähler bis 10
-zählt und dann sich resetet. Somit konnte die Zählfähigkeit der Schaltung
+überprüfen, wurde der entprellte Schalter für \textit{C} so oft betätigt, dass ein
+gesamter Durchlauf von 0 bis 9 im Binärsystem an den $QN$ erfolgte, 
+wobei bei der darauffolgenden Betätigung
+des Schalters der Zähler anstelle von 10 auf 0 zurückgesetzt wird. 
+Somit konnte die Zählfähigkeit der Schaltung
 mittels LEDs an den Ausgängen $QN$ dargestellt werden. Die Kombinationen sind
 in \autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich.
 
@@ -385,9 +408,9 @@ in \autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich.
     \includegraphics[width=0.95\textwidth,height=13cm]{./figures/messungen/4bit/wahrheit.png}
   \caption{Diese Abbildung beinhaltet die gemessenen logischen Ausgangszustände
     der $QN$ Ausgänge bei einer Serie an Eingangspulsen. Dabei sind $QN$ die
-    $(N-1)$ten Bits des gebauten 4Bit dekadischen synchron Zählers. Die Zahlen
-    in der rechten Spalte entsprechen dem j-ten gegebenen Puls im
-  Eingangssignal \textit{CLK}.Eine leuchtende LED entspricht einem
+    $(N-1)$.ten Bits des aufgebauten 4Bit dekadischen synchron Zählers. Die Zahlen
+    in der rechten Spalte entsprechen dem j.-ten gegebenen Puls im
+  Eingangssignal \textit{C}. Eine leuchtende LED entspricht einem
 \textit{HIGH}-, eine nicht leuchtende entspricht einem \textit{LOW}-Signal}
   \label{fig:mess_wahrheitstabelle_alarm}
 \end{figure}
@@ -416,21 +439,28 @@ in \autoref{fig:mess_wahrheitstabelle_alarm} ersichtlich.
 \section{Auswertung}\label{sec:Auswertung}
 In diesem Protokoll ist keine Auswertung von Nöten, da die geforderten Resultate
 direkt aus den Ergebnissen der Laborübung folgen. Dennoch wurde für bessere 
-Nachvollziehbarkeit die Daten aus \autoref{fig:sim_alarm_wahrheit} nochmals mit Farben
-hinterlegt und die \textit{HIGH} Zustände mit einer 1 markiert. 
+Nachvollziehbarkeit die Daten aus \autoref{fig:sim_jk_wahrheit} nochmals mit Farben
+hinterlegt und die \textit{HIGH} Zustände mit einer 1 markiert und \textit{LOW} mit 0. Weiters wurden die Aktionen noch dazu beschriftet.
 
 \begin{figure}[H]
   \centering
-    % \includegraphics[width=0.95\textwidth]{./simdaten_lab/logic/auswertungalarm.jpg}
-  \caption{Diese Grafik spiegelt das Verhalten der
-    Einbruchssicherungsschaltung (aus \autoref{fig:sim_aufbau_4bit}) wider, indem alle
-    möglichen Eingangssignale durchgeschaltet worden sind und die Response an den
-    Ausgängen aufgezeichnet wurde (entsprechend Wahrheitstafel).Dabei sind $x1$, $x2$, $x3$, $x4$ \&
-    der \textit{Master-Switch} die Eingangssignale und $y$ das Ausgangssignal sowie $y_ms$
-    das Ausgangssignal mit \textit{Master-Switch}. Die
-    SPICE-Directive der Simulation ist \texttt{.tran 0 4 0}; die
-    Einstellungen der Eingangssignale können der \autoref{fig:sim_aufbau_4bit}
-  entnommen werden. Zudem wurden hier die Ticks von einander mittels orange gepunkteten Linien getrennt und die \textit{HIGH} mit 1er markiert.}
+    \includegraphics[width=0.95\textwidth]{./figures/sim/jk/auswertungjk.jpg}
+  \caption{
+Diese Grafik spiegelt das simulierte Verhalten des JK-Master-Slave-Flip-Flops (aus
+    \autoref{fig:sim_aufbau_jk}) wider, indem alle möglichen Eingangssignale
+    durchgeschaltet worden sind und die Response am Ausgang aufgezeichnet
+    wurde (entsprechend der Wahrheitstafel). 
+    Dabei ist:\\
+    \textit{J}$\dots$ normale Set Eingang\\
+    \textit{K}$\dots$ normale Reset Eingang\\
+    \textit{C}$\dots$ Clocksignal Eingang\\
+    \textit{R}$\dots$ CLEAR Eingang\\
+    \textit{S}$\dots$ PRESET Eingang\\
+    \textit{Q}$\dots$ Ausgang\\
+    \textit{$\Bar{Q}$}$\dots$ Invertierte Ausgang\\
+    Die SPICE-Directives der Simulation sind in \autoref{fig:sim_aufbau_jk}
+    ersichtlich; die Einstellungen der Eingangssignale können auch der \autoref{fig:sim_aufbau_4bit}
+  entnommen werden. Zudem wurden hier die Ticks von einander mittels orange gepunkteten Linien getrennt und die \textit{HIGH} mit 1er und \textit{LOW} mit 0er markiert.}
   \label{fig:sim_alarm_wahrheit_aus}
 \end{figure}
 
@@ -442,43 +472,53 @@ hinterlegt und die \textit{HIGH} Zustände mit einer 1 markiert.
 \subsection{Diskussion}
 In \autoref{fig:sim_jk_wahrheit} von der Simulation und
 \autoref{fig:mess_wahrheitstabelle_jk}, welche die LEDs vom Steckbrett zeigt,
-ist das Verhalten eines CMOS-Inverters gut zu erkennen; dabei wird das Signal
-am Ausgang relativ zu jenem am Eingang negiert.
-Weiters ist anhand von \autoref{fig:sim_jk_wahrheit} aus der Simulation ersichtlich, dass
-der Schaltvorgang in CMOS endlich schnell erfolgt. Dabei ist ein deutliches
-Maximum des Stroms von \SI{4,21}{\milli \ampere} zu erkennen (siehe \autoref{fig:sim_inv_eingangsstrom}), 
-wenn (im Falle des Inverters) beide MOSFETs
-leitfähig sind, nämlich am Schnittpunkt der Spannungsverläufe.
-Die Spannung an diesen Schnittpunkten beträgt \SI{1,63}{\volt} 
-(siehe \autoref{fig:sim_inv_threshold}) und liegt
-somit innerhalb der für die Gate-Source-Spannung toleranten Intervalle
-von \SIrange{0.8}{2.4}{\volt} beim \textit{ZVN2106A} und von
-\SIrange{-3.5}{-1.5}{\volt} beim \textit{ZVP2106A} nach den zugehörigen Datenblättern.
+ist das Verhalten eines JK-MS-Flip-Flop gut zu erkennen; bei fallender Flanke 
+des Taktsignals \textit{C} wird das Signal an den Ausgang übertragen und 
+es wird je nach Zuständen der Eingangssignalen
+\textit{J} und \textit{K} während der steigender Flanke der Taktung eine Funktion nach
+der Wahrheitstabelle in \autoref{sec:Vorbereitung} (Vorbereitung) 
+erhalten - also \textit{Set} (\textit{J}=1, \textit{K}=0),
+\textit{Reset} (\textit{J}=0, \textit{K}=1), \textit{Togglen} (\textit{J}=1, \textit{K}=1) 
+oder \textit{Speicherung} (\textit{J}=0, \textit{K}=0).
+%Weiters ist anhand von \autoref{fig:sim_jk_wahrheit} aus der Simulation ersichtlich, dass
+%der Schaltvorgang in CMOS endlich schnell erfolgt. Dabei ist ein deutliches
+%Maximum des Stroms von \SI{4,21}{\milli \ampere} zu erkennen (siehe \autoref{fig:sim_inv_eingangsstrom}), 
+%wenn (im Falle des Inverters) beide MOSFETs
+%leitfähig sind, nämlich am Schnittpunkt der Spannungsverläufe.
+%Die Spannung an diesen Schnittpunkten beträgt \SI{1,63}{\volt} 
+%(siehe \autoref{fig:sim_inv_threshold}) und liegt
+%somit innerhalb der für die Gate-Source-Spannung toleranten Intervalle
+%von \SIrange{0.8}{2.4}{\volt} beim \textit{ZVN2106A} und von
+%\SIrange{-3.5}{-1.5}{\volt} beim \textit{ZVP2106A} nach den zugehörigen Datenblättern.
 
-Das aus MOSFETs konstruierte NAND liefert als Ergebnis aller möglichen
-Kombinationen der beiden Eingangssignale \autoref{fig:sim_nand_wahrheit} für die Simulation
-und \autoref{fig:mess_wahrheitstabelle_nand} für die Steckbrettschaltung.
-Somit folgt der Verhalt jenem, der in der Wahrheitstabelle in \autoref{sec:Vorbereitung}
-(Vorbereitung) notiert wurde - der Ausgang ist stets \texttt{HIGH}, außer wenn
-beide Eingänge auf \texttt{High} sind.
+%Das aus MOSFETs konstruierte NAND liefert als Ergebnis aller möglichen
+%Kombinationen der beiden Eingangssignale \autoref{fig:sim_nand_wahrheit} für die Simulation
+%und \autoref{fig:mess_wahrheitstabelle_nand} für die Steckbrettschaltung.
+%Somit folgt der Verhalt jenem, der in der Wahrheitstabelle in \autoref{sec:Vorbereitung}
+%(Vorbereitung) notiert wurde - der Ausgang ist stets \texttt{HIGH}, außer wenn
+%beide Eingänge auf \texttt{High} sind.
 
-Genauso folgen für die Einbruchsicherungsschaltung \autoref{fig:sim_alarm_wahrheit} 
-und \autoref{fig:mess_wahrheitstabelle_alarm}
-der konstruierten Wahrheitstabelle in \autoref{sec:Vorbereitung} (Vorbereitung).
-Demnach löst der Alarm aus, sofern der \textit{Master-Switch} eingeschaltet ist, 
-wenn mindestens
-zwei Eingangsvariablen auf \texttt{HIGH} sind.
+Der Zähler, dessen Funktion in \autoref{fig:sim_alarm_wahrheit} für
+die Simulation
+und \autoref{fig:mess_wahrheitstabelle_alarm} mittels LED für die Steckbrettschaltung dargestellt wird,
+zählt, wie gefordert, über die Bits $QN$ bei jedem Taktsignal um 1 rauf bis zum 10. Taktsignal, wo der Reset erfolgt.
+Anhand von Abbildung \ref{fig:sim_alarm_wahrheit} der Simulation ist jedoch beim 10. Taktsignal, dem
+eigentlichen Reset-Punkt,
+bei $Q2$ ein steiler Anstieg und sofort darauffolgender Abfall des Spannungssignals zu erkennen. 
+Dies liegt daran, dass der Reset erst dann erfolgt, wenn an $Q2$ und $Q4$ gleichzeitig \textit{HIGH} vorliegt,
+da erst dadurch das NAND, das der Ansteuerung der (NOT-)CLEAR-Eingänge der Flip-Flops dient, ein \textit{LOW}-Signal
+liefert.
+%Demnach löst der Alarm aus, sofern der \textit{Master-Switch} eingeschaltet ist, 
+%wenn mindestens
+%zwei Eingangsvariablen auf \texttt{HIGH} sind.
 
 
 %Es wäre wohl vernünftiger gewesen, die Schaltung an der Steckplatine zunächst aufzubauen, um etwaige 
 %Ungenauigkeiten durch die Widerstände 
 \subsection{Zusammenfassung}
-Im Rahmen dieser Laborübung wurde das Verhalten von einem CMOS-Inverter (siehe \autoref{fig:sim_jk_wahrheit}
-respektive \autoref{fig:mess_wahrheitstabelle_jk}), 
-einem aus CMOS konstruierten NAND (siehe \autoref{fig:sim_nand_wahrheit}
-respektive \autoref{fig:mess_wahrheitstabelle_nand}) und einer Einbruchsicherungsschaltung 
-(=Schaltnetz mit 4 Eingangsvariablen
-und \textit{Master-Switch}; siehe \autoref{fig:sim_alarm_wahrheit_aus}
+Im Rahmen dieser Laborübung wurde das Verhalten von einem JK-MS-Flip-Flop (siehe \autoref{fig:sim_jk_wahrheit}
+respektive \autoref{fig:mess_wahrheitstabelle_jk}) und einem dekadischen synchron 4bit-Zähler
+(siehe \autoref{fig:sim_alarm_wahrheit}
 respektive \autoref{fig:mess_wahrheitstabelle_alarm}) erfolgreich mittels 
 Simulation und mithilfe von LEDs an Steckbrettschaltungen
 verifiziert.
@@ -493,5 +533,4 @@ verifiziert.
 
 
 \end{document}
-
 
