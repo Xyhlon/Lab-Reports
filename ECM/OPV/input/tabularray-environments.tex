@@ -44,7 +44,13 @@
     vspan=minimal,
     measure=vbox,
 }
+\newcommand\SiGuard[1]{{{{#1}}}}
 
+\NewTblrEnviron{tblrMeasure}
+\SetTblrInner[tblrMeasure]{
+    %row{1} = {guard},  % only with latest .sty
+    row{1}={cmd=\SiGuard}
+}
 % no hline and vline left and on top of first cell
 \NewTblrEnviron{tblr_omit_first_cell}
 \SetTblrInner[tblr_omit_first_cell]{
